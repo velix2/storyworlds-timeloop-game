@@ -53,6 +53,8 @@ namespace TimeManagement
             onDayEnded.AddListener(ResetForNextCycle);
         }
 
+        #region Events
+        
         /// <summary>
         /// Fired when time passes. Should e.g. be used to let the world react to progressing time.
         /// </summary>
@@ -92,5 +94,6 @@ namespace TimeManagement
 
             // TODO all the other stuff we will need to do
         }
+        #endregion
     }
 }

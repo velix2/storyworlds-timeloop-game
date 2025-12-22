@@ -8,8 +8,8 @@ namespace NPCs.NpcRoutine
     /// <summary>
     /// This Scriptable Object describes an NPC's daily routine. Also allows storing 
     /// </summary>
-    [CreateAssetMenu(fileName = "NPC Routine", menuName = "Scriptable Objects/NpcRoutine")]
-    public class NpcRoutine : ScriptableObject
+    [CreateAssetMenu(fileName = "NPC Day Routine", menuName = "Scriptable Objects/NpcDayRoutine")]
+    public class DayRoutine : ScriptableObject
     {
         [Serializable]
         public class RoutineElement
@@ -42,7 +42,7 @@ namespace NPCs.NpcRoutine
                 {
                     // check cached first and ensure cached value has not changed
                     if (_cachedDayTimeString == daytime) return _cachedDayTimeMinutes;
-                    
+
                     // Use Regex to validate format
                     if (!Regex.IsMatch(daytime, @"^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"))
                     {
@@ -51,17 +51,17 @@ namespace NPCs.NpcRoutine
                     }
 
                     var split = daytime.Split(':');
-                    
+
                     // Parse string
                     int.TryParse(split[0], out int hours);
                     int.TryParse(split[1], out int minutes);
-                    
+
                     var dayTimeInMinutes = hours * 60 + minutes;
-                    
+
                     // Cache value
                     _cachedDayTimeString = daytime;
                     _cachedDayTimeMinutes = dayTimeInMinutes;
-                    
+
                     return dayTimeInMinutes;
                 }
             }
@@ -70,20 +70,6 @@ namespace NPCs.NpcRoutine
             private string _cachedDayTimeString = "";
         }
 
-        [Serializable]
-        public class DayRoutine
-        {
-            [Tooltip("An Id that identifies this routine. Can e.g. be used to swap out routines after a certain event in the story.")]
-            [SerializeField] private string dayRoutineId;
-            
-            [SerializeField] private List<RoutineElement> routineElements;
-        }
-        
-        [Tooltip("An identifier that is used to connect the in-world NPC to its routine handler.")]
-        [SerializeField] private string npcId;
-
-        [Tooltip("List of all possible routines for this NPC")]
-        [SerializeField] private List<DayRoutine> dayRoutines;
-        
+        [SerializeField] private List<RoutineElement> routineElements;
     }
 }
