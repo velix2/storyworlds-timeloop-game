@@ -71,5 +71,11 @@ namespace NPCs.NpcRoutine
         }
 
         [SerializeField] private List<RoutineElement> routineElements;
+        
+        [ContextMenu("Sort Routine Elements")]
+        public void SortRoutineElements()
+        {
+            routineElements.Sort((e0, e1) => e0.DayTimeInMinutes - e1.DayTimeInMinutes);
+        }
     }
 }
