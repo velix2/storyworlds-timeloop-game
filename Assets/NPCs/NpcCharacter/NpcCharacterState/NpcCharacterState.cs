@@ -2,6 +2,8 @@ namespace NPCs.NpcCharacter.NpcCharacterState
 {
     public abstract class NpcCharacterState
     {
+        public NpcCharacter Character { protected get; set; }
+        
         /// <summary>
         /// How the NPC character should behave on update.
         /// </summary>

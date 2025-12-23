@@ -7,12 +7,10 @@ namespace NPCs.NpcCharacter.NpcCharacterState
 
         public override void OnUpdate()
         {
-            throw new System.NotImplementedException();
         }
 
         public override void OnStateBecameActive()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

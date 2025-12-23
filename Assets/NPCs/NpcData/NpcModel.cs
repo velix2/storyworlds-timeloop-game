@@ -11,17 +11,22 @@ namespace NPCs.NpcData
         [SerializeField] private GameObject prefab;
         [SerializeField] private string characterName;
         [SerializeField] private DayRoutine defaultRoutine;
-        public DayRoutine CurrentRoutine { get; set; }
+        private DayRoutine _currentRoutine;
+
+        public DayRoutine CurrentRoutine
+        {
+            get
+            {
+                if (!_currentRoutine) _currentRoutine = DefaultRoutine;
+                return _currentRoutine;
+            }
+            set => _currentRoutine = value;
+        }
 
         public GameObject Prefab => prefab;
 
         public string CharacterName => characterName;
 
         public DayRoutine DefaultRoutine => defaultRoutine;
-
-        private void Awake()
-        {
-            CurrentRoutine = DefaultRoutine;
-        }
     }
 }

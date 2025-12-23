@@ -26,10 +26,10 @@ namespace SceneHandling
 
         [SerializeField] private List<SceneToTransitionLocationMapping> neighboringScenes;
 
-        [Tooltip("The Scene this meta data object describes")] [SerializeField]
-        private Scene representedScene;
+        [Tooltip("The name of the scene (must be in Build Settings)")]
+        [SerializeField] private string sceneName;
 
-        public Scene RepresentedScene => representedScene;
+        public string RepresentedSceneName => sceneName;
 
 
         /// <summary>

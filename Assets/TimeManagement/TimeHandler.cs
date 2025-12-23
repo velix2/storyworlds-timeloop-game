@@ -44,6 +44,8 @@ namespace TimeManagement
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            
+            CurrentTime = dayStartTimeInMinutes;
         }
 
         #endregion
@@ -51,7 +53,7 @@ namespace TimeManagement
         private void OnEnable()
         {
             // Subscribe to own event for cleanup
-            onDayEnded.AddListener(ResetForNextCycle);
+            onDayStarts.AddListener(ResetForNextCycle);
         }
 
         #region Events
@@ -62,9 +64,9 @@ namespace TimeManagement
         public UnityEvent<TimePassedEventPayload> onTimePassed = new();
 
         /// <summary>
-        /// Additionally invoked when day ends. Should be used for proper cleanup/reset of objects that persist over loops.
+        /// Invoked when new day starts. Should be used for proper cleanup/reset of objects that persist over loops.
         /// </summary>
-        public UnityEvent onDayEnded = new();
+        public UnityEvent onDayStarts = new();
 
         /// <summary>
         /// Reports a passing of time, which will result in onTimePassed being invoked.
@@ -78,9 +80,6 @@ namespace TimeManagement
             var payload = new TimePassedEventPayload(minutes, CurrentTime, dayHasEnded);
 
             onTimePassed?.Invoke(payload);
-
-            // Additionally invoke onDayEnded for cleanup if day ended
-            if (dayHasEnded) onDayEnded?.Invoke();
         }
 
         /// <summary>

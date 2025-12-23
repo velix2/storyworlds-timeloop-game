@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389f52abf000f64eb99aeda740364acf, type: 3}
   m_Name: NPC Routine
   m_EditorClassIdentifier: Assembly-CSharp::NPCs.NpcRoutine.NpcRoutine
-  npcId: larry
-  dayRoutines:
-  - dayRoutineId: default
-    routineElements:
-    - daytime: 08:00
-      targetSceneName: larry_home
-      targetPositionInTargetScene: {x: 5, y: 2, z: -1}
-    - daytime: 10:00
-      targetSceneName: diner
-      targetPositionInTargetScene: {x: 0, y: 0, z: 0}
-    - daytime: 11:00
-      targetSceneName: post_office
-      targetPositionInTargetScene: {x: 0, y: 0, z: 0}
-  - dayRoutineId: after_coffee_machine_fixed
-    routineElements:
-    - daytime: 08:00
-      targetSceneName: home
-      targetPositionInTargetScene: {x: 0, y: 0, z: 0}
-    - daytime: 10:00
-      targetSceneName: diner
-      targetPositionInTargetScene: {x: 0, y: 0, z: 0}
+  routineElements:
+  - daytime: 8:00
+    targetScene: {fileID: 11400000, guid: 833bde3950f8b8ad2a1edae1a9ae5ab7, type: 2}
+    targetPositionInTargetScene: {x: 0, y: 0, z: 5}
+  - daytime: 11:00
+    targetScene: {fileID: 11400000, guid: 34eb65b2716906c4da0c3c7382dba767, type: 2}
+    targetPositionInTargetScene: {x: 0, y: 0, z: 2}

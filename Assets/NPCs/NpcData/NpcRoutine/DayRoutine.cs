@@ -71,37 +71,22 @@ namespace NPCs.NpcData.NpcRoutine
         }
 
         [SerializeField] private List<RoutineElement> routineElements;
-
-        /// <summary>
-        /// Internal data structure that keeps track of routine elements.
-        /// </summary>
-        private SortedDictionary<int, RoutineElement> _routineElementsSortedByDayMinutes;
-
-        private void Awake()
-        {
-            _routineElementsSortedByDayMinutes =
-                new SortedDictionary<int, RoutineElement>(
-                    routineElements.ToDictionary(element => element.DayTimeInMinutes, e => e));
-        }
-
+        
         public RoutineElement GetCurrentRoutineElement(int daytimeMinutes)
         {
-            var dayTimeOfCurrentActivity = _routineElementsSortedByDayMinutes.Keys
-                .Where(i => i <= daytimeMinutes)
-                .OrderByDescending(i => i)
+            var currentRoutineElement = routineElements
+                .Where(re => re.DayTimeInMinutes <= daytimeMinutes)
+                .OrderByDescending(re => re.DayTimeInMinutes)
                 .FirstOrDefault();
-
-            return _routineElementsSortedByDayMinutes[dayTimeOfCurrentActivity];
+            return currentRoutineElement;
         }
 
         public RoutineElement GetPreviousRoutineElement(int daytimeMinutes)
         {
-            var dayTimeOfPrevActivity = _routineElementsSortedByDayMinutes.Keys
-                .Where(i => i <= daytimeMinutes)
-                .OrderByDescending(i => i)
+            return routineElements
+                .Where(re => re.DayTimeInMinutes <= daytimeMinutes)
+                .OrderByDescending(re => re.DayTimeInMinutes)
                 .ElementAtOrDefault(1);
-
-            return _routineElementsSortedByDayMinutes[dayTimeOfPrevActivity];
         }
 
 

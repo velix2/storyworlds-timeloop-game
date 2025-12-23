@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30067231a1fc44329e42f4e7e043617b, type: 3}
+  m_Name: NPC Model
+  m_EditorClassIdentifier: Assembly-CSharp::NPCs.NpcData.NpcModel
+  prefab: {fileID: 7720330513778223133, guid: 9963537546b965f829823f175c206451, type: 3}
+  characterName: Tester
+  defaultRoutine: {fileID: 11400000, guid: 080b3a8abcf17915d9777457c81d0700, type: 2}
