@@ -22,7 +22,7 @@ namespace TimeManagement
         [Tooltip("Defines how long a game day is, i.e. after how many in game minutes the day resets")] [SerializeField]
         private int dayLengthInMinutes = 16 * 60;
 
-        private int _currentTime;
+        public int CurrentTime { get; private set; }
 
         #region Singleton
 
@@ -32,6 +32,7 @@ namespace TimeManagement
         /// The singleton instance.
         /// </summary>
         public static TimeHandler Instance;
+
 
         private void Awake()
         {
@@ -71,10 +72,10 @@ namespace TimeManagement
         /// <param name="minutes"></param>
         public void PassTime(int minutes)
         {
-            _currentTime += minutes;
+            CurrentTime = CurrentTime + minutes;
 
-            var dayHasEnded = _currentTime >= dayLengthInMinutes;
-            var payload = new TimePassedEventPayload(minutes, _currentTime, dayHasEnded);
+            var dayHasEnded = CurrentTime >= dayLengthInMinutes;
+            var payload = new TimePassedEventPayload(minutes, CurrentTime, dayHasEnded);
 
             onTimePassed?.Invoke(payload);
 
@@ -90,7 +91,7 @@ namespace TimeManagement
             // TODO inform Scene Management to load starting scene
 
             // Reset time to day start
-            _currentTime = dayStartTimeInMinutes;
+            CurrentTime = dayStartTimeInMinutes;
 
             // TODO all the other stuff we will need to do
         }

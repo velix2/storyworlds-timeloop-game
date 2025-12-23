@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
+using SceneHandling;
 using UnityEngine;
 
-namespace NPCs.NpcRoutine
+namespace NPCs.NpcData.NpcRoutine
 {
     /// <summary>
     /// This Scriptable Object describes an NPC's daily routine. Also allows storing 
@@ -14,24 +16,22 @@ namespace NPCs.NpcRoutine
         [Serializable]
         public class RoutineElement
         {
-            /// <summary>
-            /// Daytime from when the NPC will be moving to the specified location, or be there. Must be in the format of HH:MM (e.g. 13:00; 24h format)
-            /// </summary>
+
             [Tooltip(
                 "Daytime from when the NPC will be moving to the specified location, or be there. Must be in the format of HH:MM (e.g. 13:00; 24h format)")]
             [SerializeField]
             private string daytime = "08:00";
 
-            /// <summary>
-            /// Name of the scene where the NPC will go to at the specified time.
-            /// </summary>
-            [SerializeField] private string targetSceneName;
+            [Tooltip("Scene meta data where the NPC will go to at the specified time.")] [SerializeField]
+            private SceneMetaData targetScene;
 
 
-            /// <summary>
-            /// World position in the target scene where the NPC will be.
-            /// </summary>
-            [SerializeField] private Vector3 targetPositionInTargetScene;
+            [Tooltip("World position in the target scene where the NPC will be.")] [SerializeField]
+            private Vector3 targetPositionInTargetScene;
+
+            public SceneMetaData TargetScene => targetScene;
+
+            public Vector3 TargetPositionInTargetScene => targetPositionInTargetScene;
 
             /// <summary>
             /// Returns the specified Daytime as minutes
@@ -71,7 +71,43 @@ namespace NPCs.NpcRoutine
         }
 
         [SerializeField] private List<RoutineElement> routineElements;
-        
+
+        /// <summary>
+        /// Internal data structure that keeps track of routine elements.
+        /// </summary>
+        private SortedDictionary<int, RoutineElement> _routineElementsSortedByDayMinutes;
+
+        private void Awake()
+        {
+            _routineElementsSortedByDayMinutes =
+                new SortedDictionary<int, RoutineElement>(
+                    routineElements.ToDictionary(element => element.DayTimeInMinutes, e => e));
+        }
+
+        public RoutineElement GetCurrentRoutineElement(int daytimeMinutes)
+        {
+            var dayTimeOfCurrentActivity = _routineElementsSortedByDayMinutes.Keys
+                .Where(i => i <= daytimeMinutes)
+                .OrderByDescending(i => i)
+                .FirstOrDefault();
+
+            return _routineElementsSortedByDayMinutes[dayTimeOfCurrentActivity];
+        }
+
+        public RoutineElement GetPreviousRoutineElement(int daytimeMinutes)
+        {
+            var dayTimeOfPrevActivity = _routineElementsSortedByDayMinutes.Keys
+                .Where(i => i <= daytimeMinutes)
+                .OrderByDescending(i => i)
+                .ElementAtOrDefault(1);
+
+            return _routineElementsSortedByDayMinutes[dayTimeOfPrevActivity];
+        }
+
+
+        /// <summary>
+        /// Allows right click to visually sort the elements. No impact on implementation.
+        /// </summary>
         [ContextMenu("Sort Routine Elements")]
         public void SortRoutineElements()
         {
