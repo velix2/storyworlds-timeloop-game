@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SceneHandling
 {
@@ -21,9 +22,15 @@ namespace SceneHandling
         {
             public SceneMetaData neighboringScene;
             public Vector3 transitionPosition;
-            
         }
+
         [SerializeField] private List<SceneToTransitionLocationMapping> neighboringScenes;
+
+        [Tooltip("The Scene this meta data object describes")] [SerializeField]
+        private Scene representedScene;
+
+        public Scene RepresentedScene => representedScene;
+
 
         /// <summary>
         /// Get the link position of a neighboring scene
@@ -33,7 +40,8 @@ namespace SceneHandling
         public Vector3 GetTransitionPositionOfNeighboringScene(SceneMetaData scene)
         {
             return neighboringScenes.Where(mapping => mapping.neighboringScene == scene)
-                .Select(mapping => mapping.transitionPosition).DefaultIfEmpty(Vector3.negativeInfinity).FirstOrDefault();
+                .Select(mapping => mapping.transitionPosition).DefaultIfEmpty(Vector3.negativeInfinity)
+                .FirstOrDefault();
         }
 
         /// <summary>
@@ -48,7 +56,7 @@ namespace SceneHandling
         public List<SceneMetaData> FindPathToScene([NotNull] SceneMetaData targetScene)
         {
             if (targetScene == null) throw new ArgumentNullException();
-            
+
             if (targetScene == this) return new List<SceneMetaData> { this };
 
             Queue<SceneMetaData> queue = new Queue<SceneMetaData>();
@@ -67,7 +75,8 @@ namespace SceneHandling
                     return ReconstructPath(cameFrom, targetScene);
                 }
 
-                foreach (var mapping in current.neighboringScenes.Where(mapping => mapping.neighboringScene != null && !cameFrom.ContainsKey(mapping.neighboringScene)))
+                foreach (var mapping in current.neighboringScenes.Where(mapping =>
+                             mapping.neighboringScene != null && !cameFrom.ContainsKey(mapping.neighboringScene)))
                 {
                     cameFrom.Add(mapping.neighboringScene, current);
                     queue.Enqueue(mapping.neighboringScene);
@@ -76,7 +85,7 @@ namespace SceneHandling
 
             return null; // No path found
         }
-        
+
         /// <summary>
         /// Helper function for <see cref="FindPathToScene"/>.
         /// Traces back through the discovery dictionary to build the sequence of scenes from start to target.
@@ -84,7 +93,8 @@ namespace SceneHandling
         /// <param name="cameFrom">A dictionary mapping each discovered scene to the scene it was reached from.</param>
         /// <param name="target">The final destination scene in the path.</param>
         /// <returns>A chronologically ordered <see cref="List{SceneMetaData}"/> from the origin to the target.</returns>
-        private static List<SceneMetaData> ReconstructPath(Dictionary<SceneMetaData, SceneMetaData> cameFrom, SceneMetaData target)
+        private static List<SceneMetaData> ReconstructPath(Dictionary<SceneMetaData, SceneMetaData> cameFrom,
+            SceneMetaData target)
         {
             List<SceneMetaData> path = new List<SceneMetaData>();
             SceneMetaData current = target;
