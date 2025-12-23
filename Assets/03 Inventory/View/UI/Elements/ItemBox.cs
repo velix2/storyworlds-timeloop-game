@@ -1,0 +1,41 @@
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+public class ItemBox : Interactable
+{
+    [SerializeField] private Image image;
+    
+    [Header("Debug")]
+    public byte id;
+
+    public UnityEvent<int> BoxClickedPrimary;
+    public UnityEvent<int> BoxClickedSecondary;
+    public void DisplayItem(ItemData item)
+    {
+        if (item == null)
+        {
+            RemoveDisplay();
+        }
+        else
+        {
+            image.sprite = item.Sprite;
+        }
+        
+    }
+
+    public void RemoveDisplay()
+    {
+        image.sprite = null;
+    }
+    
+    public override void PrimaryInteraction()
+    {
+        BoxClickedPrimary.Invoke(id);
+    }
+
+    public override void SecondaryInteraction()
+    {
+        BoxClickedSecondary.Invoke(id);
+    }
+}

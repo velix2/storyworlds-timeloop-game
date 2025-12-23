@@ -1,8 +1,19 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InteractionChecker : MonoBehaviour
 {
+    enum interactionModes
+    {
+        PHYSICS,
+        UI,
+        DISABLED
+    }
+
+    private interactionModes mode = interactionModes.UI;
 
     [SerializeField] private GameObject debugBall;
     private int layerMask;
@@ -29,6 +40,21 @@ public class InteractionChecker : MonoBehaviour
     
     private Interactable CheckInteractionHit(Vector3 mousePosition)
     {
+        switch (mode)
+        {
+            case interactionModes.PHYSICS:
+                return PhysicsRaycast(mousePosition);
+            case interactionModes.UI:
+                return UIRaycast(mousePosition);
+            default:
+                return null;
+        }
+    }
+
+    #region Raycast
+
+    private Interactable PhysicsRaycast(Vector3 mousePosition)
+    {
         mousePosition.z = 1;
         
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
@@ -47,5 +73,23 @@ public class InteractionChecker : MonoBehaviour
         
         return hit.collider?.gameObject.GetComponent<Interactable>();
     }
+
+    private Interactable UIRaycast(Vector3 mousePosition)
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current)
+        {
+            position = mousePosition
+        };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        return results.Select(r => r.gameObject.GetComponentInParent<Interactable>())
+            .FirstOrDefault(i => i != null);;
+
+    }
+
+    #endregion
+    
     
 }

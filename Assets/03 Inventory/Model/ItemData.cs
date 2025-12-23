@@ -11,4 +11,9 @@ public class ItemData : ScriptableObject
 
     [SerializeField] private Sprite sprite;
     public Sprite Sprite => sprite;
+
+    public override string ToString()
+    {
+        return itemName;
+    }
 }

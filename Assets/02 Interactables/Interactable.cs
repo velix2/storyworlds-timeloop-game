@@ -10,8 +10,7 @@ public abstract class Interactable : MonoBehaviour
     public static string LayerName => layerName;
     private static int layer;
     public static int Layer => layer;
-
-    [SerializeField] private Collider collider;
+    
     private void Awake()
     {
         layer = LayerMask.NameToLayer(layerName);

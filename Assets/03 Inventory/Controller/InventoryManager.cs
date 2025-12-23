@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.Rendering.UI;
+
+public class InventoryManager : MonoBehaviour
+{
+    private InventoryDisplay display;
+    public List<ItemData> items = new List<ItemData>();
+    
+
+    private void Awake()
+    {
+        display = FindFirstObjectByType<InventoryDisplay>();
+        if (display == null)
+        {
+            Debug.LogError("InventoryDisplay for Inventory Manager was not found.");
+            return;
+        }
+        
+        display.ItemPrimaryInteract.AddListener(OnDisplayItemPrimaryInteraction);
+        display.ItemSecondaryInteract.AddListener(OnDisplayItemSecondaryInteraction);
+    }
+
+    private void Start()
+    {
+        foreach (var itemData in items)
+        {
+            display.AddItemToDisplay(itemData);
+        }
+    }
+
+
+    private void OnDisplayItemPrimaryInteraction(ItemData item)
+    {
+        //TODO: Select item to interact with others
+        Debug.Log($"Item {item} selected in inventory");
+    }
+
+    private void OnDisplayItemSecondaryInteraction(ItemData item)
+    {
+        //TODO: Display observation text
+        Debug.Log($"Item {item} observed in inventory");
+        
+    }
+}
