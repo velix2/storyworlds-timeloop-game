@@ -20,6 +20,8 @@ public class InteractionChecker : MonoBehaviour
     
     private int layerMask;
     
+    private ItemData selectedItem;
+    
     [SerializeField] private GameObject debugBall;
     
     private void Awake()
@@ -33,13 +35,42 @@ public class InteractionChecker : MonoBehaviour
         layerMask = LayerMask.GetMask(Interactable.LayerName);
     }
 
+    private void Update()
+    {
+        Interactable interactable;
+        switch (mode)
+        {
+            case interactionModes.PHYSICS:
+                interactable = PhysicsRaycast(InputManager.GetMousePosition());
+                break;
+            case interactionModes.UI:
+                interactable = UIRaycast(InputManager.GetMousePosition());
+                break;
+            default:
+                interactable = null;
+                break;
+        }
+        CursorManager.ChangeCursorInteraction(interactable);
+        interactable.Highlight();
+        
+    }
+
     private void OnPrimaryInteraction(Vector3 mousePosition)
     {
+        if (selectedItem != null)
+        {
+            //TODO: deselect item
+        }
+        
         CheckInteractionHit(mousePosition)?.PrimaryInteraction();
     }
     
     private void OnSecondaryInteraction(Vector3 mousePosition)
     {
+        if (selectedItem != null)
+        {
+            //TODO: item interaction
+        }
         CheckInteractionHit(mousePosition)?.SecondaryInteraction();
     }
     

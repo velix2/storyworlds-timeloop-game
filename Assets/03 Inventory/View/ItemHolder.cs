@@ -1,8 +1,13 @@
+using System;
 using UnityEngine;
 
-public class ItemHolder : Interactable
+public class ItemHolder : InteractableThreeDimensional
 {
     [SerializeField] private ItemData item;
+
+    public override interactionType Primary => interactionType.GRAB;
+    public override interactionType Secondary => interactionType.LOOK;
+
     public override void PrimaryInteraction()
     {
         //TODO: Pickup and add to Inventory

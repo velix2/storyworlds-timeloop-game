@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class TestInteractable : Interactable
+public class Test : InteractableThreeDimensional
 {
-    
-    
+    public override interactionType Primary => interactionType.SPEAK;
+    public override interactionType Secondary => interactionType.LOOK;
+
     public override void PrimaryInteraction()
     {
         print("Primary on TestInteractable");

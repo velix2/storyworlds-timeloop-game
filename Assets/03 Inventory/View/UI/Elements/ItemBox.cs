@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ItemBox : Interactable
+public class ItemBox : UIInteractable
 {
     [SerializeField] private Image image;
     
@@ -20,6 +20,10 @@ public class ItemBox : Interactable
         else
         {
             image.sprite = item.Sprite;
+            image.raycastTarget = true;
+            Color c = image.color;
+            c.a = 1f;
+            image.color = c;
         }
         
     }
@@ -27,8 +31,15 @@ public class ItemBox : Interactable
     public void RemoveDisplay()
     {
         image.sprite = null;
+        image.raycastTarget = false;
+        Color c = image.color;
+        c.a = 0;
+        image.color = c;
     }
-    
+
+    public override interactionType Primary => interactionType.GRAB;
+    public override interactionType Secondary => interactionType.LOOK;
+
     public override void PrimaryInteraction()
     {
         BoxClickedPrimary.Invoke(id);

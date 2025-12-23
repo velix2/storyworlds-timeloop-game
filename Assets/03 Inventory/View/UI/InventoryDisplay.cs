@@ -25,6 +25,7 @@ public class InventoryDisplay : MonoBehaviour
         for (byte i = 0; i <  itemBoxes.Length; i++)
         {
             itemBoxes[i].id = i;
+            itemBoxes[i].RemoveDisplay();
             itemBoxes[i].BoxClickedPrimary.AddListener(OnItemBoxClickedPrimary);
             itemBoxes[i].BoxClickedSecondary.AddListener(OnItemBoxClickedSecondary);
         }

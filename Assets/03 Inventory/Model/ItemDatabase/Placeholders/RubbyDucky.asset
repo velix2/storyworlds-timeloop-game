@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5226d78201ee3ff439fc6b021f592aba, type: 3}
   m_Name: RubbyDucky
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  observationText: 
-  sprite: {fileID: 0}
+  itemName: Rubber Ducky
+  observationText: Ente haahahh
+  sprite: {fileID: 21300000, guid: c0012876a0bd21c4b8e94ef506b95ac8, type: 3}
