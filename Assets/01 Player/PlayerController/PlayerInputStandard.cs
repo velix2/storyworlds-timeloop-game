@@ -127,6 +127,24 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventoryOpen"",
+                    ""type"": ""Button"",
+                    ""id"": ""63e9cf76-2937-4335-81de-df6dc2f70514"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventoryClose"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca08d8d6-fd93-4fbf-8f0e-8d67337545f4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -217,6 +235,28 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""action"": ""SecondaryInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""857da9e7-f28f-4ff3-9bec-2c7d4b2c1157"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryOpen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50a3c2b7-d577-4a5b-8979-fa3a68039e8d"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -229,6 +269,8 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         m_Standard_MousePosition = m_Standard.FindAction("MousePosition", throwIfNotFound: true);
         m_Standard_PrimaryInteract = m_Standard.FindAction("PrimaryInteract", throwIfNotFound: true);
         m_Standard_SecondaryInteract = m_Standard.FindAction("SecondaryInteract", throwIfNotFound: true);
+        m_Standard_InventoryOpen = m_Standard.FindAction("InventoryOpen", throwIfNotFound: true);
+        m_Standard_InventoryClose = m_Standard.FindAction("InventoryClose", throwIfNotFound: true);
     }
 
     ~@PlayerInputStandard()
@@ -313,6 +355,8 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_MousePosition;
     private readonly InputAction m_Standard_PrimaryInteract;
     private readonly InputAction m_Standard_SecondaryInteract;
+    private readonly InputAction m_Standard_InventoryOpen;
+    private readonly InputAction m_Standard_InventoryClose;
     /// <summary>
     /// Provides access to input actions defined in input action map "Standard".
     /// </summary>
@@ -340,6 +384,14 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Standard/SecondaryInteract".
         /// </summary>
         public InputAction @SecondaryInteract => m_Wrapper.m_Standard_SecondaryInteract;
+        /// <summary>
+        /// Provides access to the underlying input action "Standard/InventoryOpen".
+        /// </summary>
+        public InputAction @InventoryOpen => m_Wrapper.m_Standard_InventoryOpen;
+        /// <summary>
+        /// Provides access to the underlying input action "Standard/InventoryClose".
+        /// </summary>
+        public InputAction @InventoryClose => m_Wrapper.m_Standard_InventoryClose;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -378,6 +430,12 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @SecondaryInteract.started += instance.OnSecondaryInteract;
             @SecondaryInteract.performed += instance.OnSecondaryInteract;
             @SecondaryInteract.canceled += instance.OnSecondaryInteract;
+            @InventoryOpen.started += instance.OnInventoryOpen;
+            @InventoryOpen.performed += instance.OnInventoryOpen;
+            @InventoryOpen.canceled += instance.OnInventoryOpen;
+            @InventoryClose.started += instance.OnInventoryClose;
+            @InventoryClose.performed += instance.OnInventoryClose;
+            @InventoryClose.canceled += instance.OnInventoryClose;
         }
 
         /// <summary>
@@ -401,6 +459,12 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @SecondaryInteract.started -= instance.OnSecondaryInteract;
             @SecondaryInteract.performed -= instance.OnSecondaryInteract;
             @SecondaryInteract.canceled -= instance.OnSecondaryInteract;
+            @InventoryOpen.started -= instance.OnInventoryOpen;
+            @InventoryOpen.performed -= instance.OnInventoryOpen;
+            @InventoryOpen.canceled -= instance.OnInventoryOpen;
+            @InventoryClose.started -= instance.OnInventoryClose;
+            @InventoryClose.performed -= instance.OnInventoryClose;
+            @InventoryClose.canceled -= instance.OnInventoryClose;
         }
 
         /// <summary>
@@ -469,5 +533,19 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSecondaryInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "InventoryOpen" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventoryOpen(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "InventoryClose" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventoryClose(InputAction.CallbackContext context);
     }
 }

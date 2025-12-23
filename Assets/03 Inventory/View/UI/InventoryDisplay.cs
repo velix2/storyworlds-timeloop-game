@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Object = UnityEngine.Object;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class InventoryDisplay : MonoBehaviour
 {
     [HideInInspector] public UnityEvent<ItemData> ItemPrimaryInteract;
@@ -12,6 +13,7 @@ public class InventoryDisplay : MonoBehaviour
     
     [Header("References")]
     [SerializeField] private GameObject itemBoxContainer;
+    private CanvasGroup canvasGroup;
 
     private ItemBox[] itemBoxes;
     private ItemData[] itemMap;
@@ -28,6 +30,32 @@ public class InventoryDisplay : MonoBehaviour
         }
 
         itemMap = new ItemData[itemBoxes.Length];
+
+        canvasGroup = GetComponent<CanvasGroup>();
+
+    }
+
+    /// <summary>
+    /// Use Open method in PlayerController
+    /// </summary>
+    public void ShowDisplay()
+    {
+        //TODO do the following with animations
+        canvasGroup.alpha = 1;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+
+    }
+
+    /// <summary>
+    /// Use Close method in PlayerController
+    /// </summary>
+    public void HideDisplay()
+    {
+        //TODO do the following with animations
+        canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void AddItemToDisplay(ItemData item)

@@ -13,10 +13,15 @@ public class InteractionChecker : MonoBehaviour
         DISABLED
     }
 
-    private interactionModes mode = interactionModes.UI;
-
-    [SerializeField] private GameObject debugBall;
+    private interactionModes mode;
+    public void SetToPhysicsMode() { mode = interactionModes.PHYSICS; }
+    public void SetToUIMode() { mode = interactionModes.UI; }
+    public void SetToDisabledMode() { mode = interactionModes.DISABLED; }
+    
     private int layerMask;
+    
+    [SerializeField] private GameObject debugBall;
+    
     private void Awake()
     {
         InputManager.PrimaryInteraction += OnPrimaryInteraction;

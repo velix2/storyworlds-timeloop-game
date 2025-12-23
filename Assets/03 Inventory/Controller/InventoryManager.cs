@@ -31,6 +31,22 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Use Open method in PlayerController
+    /// </summary>
+    public void Open()
+    {
+        display.ShowDisplay();
+    }
+
+    /// <summary>
+    /// Use Close method in PlayerController
+    /// </summary>
+    public void Close()
+    {
+        display.HideDisplay();
+    }
+
 
     private void OnDisplayItemPrimaryInteraction(ItemData item)
     {
