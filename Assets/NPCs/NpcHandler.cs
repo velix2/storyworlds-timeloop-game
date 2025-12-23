@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using NPCs.NpcCharacter.NpcCharacterState;
 using NPCs.NpcData;
 using NPCs.NpcData.NpcRoutine;
 using SceneHandling;
@@ -68,22 +69,61 @@ namespace NPCs
             var npcViewsToLeave = _npcViewsInCurrentScene
                 .Where(character => !newNpcModelsInCurrentScene.Contains(character.Model)).ToList();
 
-            // TODO update their state to leaving
+            // Update their state to leaving
+            foreach (var leavingNpcView in npcViewsToLeave)
+            {
+                var targetScene = leavingNpcView.Model.CurrentRoutine.GetCurrentRoutineElement(daytime).TargetScene;
+
+                leavingNpcView.UpdateState(new NpcCharacterStateLeavingScene(targetScene));
+                
+                // Remove from view
+                _npcViewsInCurrentScene.Remove(leavingNpcView);
+            }
 
             // Figure out all NPCs that are new and need a new view element created
             var npcModelsToSpawn = newNpcModelsInCurrentScene
                 .Where(model => _npcViewsInCurrentScene.TrueForAll(character => character.Model != model)).ToList();
 
-            // TODO spawn these models and append them to viewsList
+            // Spawn these models and append them to views list
+            foreach (var npcModel in npcModelsToSpawn)
+            {
+                var previousRoutineElement = npcModel.CurrentRoutine.GetPreviousRoutineElement(daytime);
+                var previousScene = previousRoutineElement.TargetScene;
+                var targetLocation = npcModel.CurrentRoutine.GetCurrentRoutineElement(daytime).TargetPositionInTargetScene;
+                
+                var npcCharacterComponent = Instantiate(npcModel.Prefab).GetComponent<NpcCharacter.NpcCharacter>();
+                npcCharacterComponent.UpdateState(new NpcCharacterStateEnteringScene(previousScene, targetLocation));
+                _npcViewsInCurrentScene.Add(npcCharacterComponent);
+            }
+        }
+        
+         private void InitNPCs()
+         {
+             var daytime = TimeHandler.Instance.CurrentTime;
             
+            // Query all Npc Models that should be in the currently active scene according to their itinerary
+            var npcModelsToSpawn = npcsToManage.Where(model =>
+                model.CurrentRoutine.GetCurrentRoutineElement(daytime).TargetScene
+                    .RepresentedScene == SceneManager.GetActiveScene()).ToList();
+            
+            // Spawn these models and append them to views list
+            foreach (var npcModel in npcModelsToSpawn)
+            {
+                var targetLocation = npcModel.CurrentRoutine.GetCurrentRoutineElement(daytime).TargetPositionInTargetScene;
+                
+                var npcCharacterComponent = Instantiate(npcModel.Prefab).GetComponent<NpcCharacter.NpcCharacter>();
+                npcCharacterComponent.UpdateState(new NpcCharacterStateIdle());
+                npcCharacterComponent.transform.position = targetLocation;
+                _npcViewsInCurrentScene.Add(npcCharacterComponent);
+            }
         }
         
         private void OnSceneLoaded()
         {
             // Clear views list so we start fresh
             _npcViewsInCurrentScene.Clear();
-            
-            UpdateNPCs(TimeHandler.Instance.CurrentTime);
+
+            InitNPCs();
         }
     }
 }
