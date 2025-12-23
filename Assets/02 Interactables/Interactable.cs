@@ -1,6 +1,7 @@
 using System;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public abstract class Interactable : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public abstract class Interactable : MonoBehaviour
         gameObject.layer = layer;
     }
 
-
+    
     public abstract void PrimaryInteraction();
     public abstract void SecondaryInteraction();
     
