@@ -11,6 +11,13 @@ public class ItemBox : UIInteractable
 
     public UnityEvent<int> BoxClickedPrimary;
     public UnityEvent<int> BoxClickedSecondary;
+
+    protected new void Awake()
+    {
+        SetupMaterial(image.material);
+        image.material = outlineMaterial;
+    }
+    
     public void DisplayItem(ItemData item)
     {
         if (item == null)
@@ -49,4 +56,5 @@ public class ItemBox : UIInteractable
     {
         BoxClickedSecondary.Invoke(id);
     }
+    
 }

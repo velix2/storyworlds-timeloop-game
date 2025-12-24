@@ -21,13 +21,14 @@ public class InteractionChecker : MonoBehaviour
     private int layerMask;
     
     private ItemData selectedItem;
+    private Interactable highlightedInteractable;
     
     [SerializeField] private GameObject debugBall;
     
     private void Awake()
     {
-        InputManager.PrimaryInteraction += OnPrimaryInteraction;
-        InputManager.SecondaryInteraction += OnSecondaryInteraction;
+        InputManager.PrimaryInteraction += OnPrimaryInteractionInput;
+        InputManager.SecondaryInteraction += OnSecondaryInteractionInput;
     }
 
     private void Start()
@@ -46,30 +47,48 @@ public class InteractionChecker : MonoBehaviour
             case interactionModes.UI:
                 interactable = UIRaycast(InputManager.GetMousePosition());
                 break;
+            case interactionModes.DISABLED:    
+                return;
             default:
-                interactable = null;
-                break;
+                Debug.Log($"Mode {mode} is not implemented.");
+                goto case interactionModes.DISABLED;
+            
         }
-        CursorManager.ChangeCursorInteraction(interactable);
-        interactable.Highlight();
+
+        //entered area of interactable, changing highlightedInteractable
+        if (interactable != null && interactable != highlightedInteractable)
+        {
+            CursorManager.ChangeCursorInteraction(interactable);
+            highlightedInteractable?.Unhighlight();
+            interactable.Highlight();
+            highlightedInteractable = interactable;
+        } 
+        //exited area of interactable
+        else if (interactable == null && highlightedInteractable != null)
+        {
+            CursorManager.ResetCursor();
+            highlightedInteractable.Unhighlight();
+            highlightedInteractable = null;
+        }
+        
         
     }
 
-    private void OnPrimaryInteraction(Vector3 mousePosition)
-    {
-        if (selectedItem != null)
-        {
-            //TODO: deselect item
-        }
-        
-        CheckInteractionHit(mousePosition)?.PrimaryInteraction();
-    }
-    
-    private void OnSecondaryInteraction(Vector3 mousePosition)
+    private void OnPrimaryInteractionInput(Vector3 mousePosition)
     {
         if (selectedItem != null)
         {
             //TODO: item interaction
+        }
+        debugBall.transform.position = Camera.main.ScreenToWorldPoint(mousePosition);
+        CheckInteractionHit(mousePosition)?.PrimaryInteraction();
+    }
+    
+    private void OnSecondaryInteractionInput(Vector3 mousePosition)
+    {
+        if (selectedItem != null)
+        {
+            //TODO: deselect item
         }
         CheckInteractionHit(mousePosition)?.SecondaryInteraction();
     }
@@ -95,17 +114,6 @@ public class InteractionChecker : MonoBehaviour
         
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         Physics.Raycast(ray, out var hit, Mathf.Infinity, layerMask);
-
-        print(hit.collider);
-        if (hit.collider != null)
-        {
-            print("Hit Interactable!");
-            debugBall.transform.position = hit.collider.transform.position;
-        }
-        else
-        {
-            debugBall.transform.position = Camera.main.ScreenToWorldPoint(mousePosition);
-        }
         
         return hit.collider?.gameObject.GetComponent<Interactable>();
     }

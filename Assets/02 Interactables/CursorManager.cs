@@ -18,7 +18,7 @@ public class CursorManager : MonoBehaviour
 
     public static void ChangeCursorInteraction(Interactable interactable)
     {
-        //TODO
+        //TODO: get texture and apply to cursor
         if (interactable == null)
         {
             return;
@@ -29,7 +29,7 @@ public class CursorManager : MonoBehaviour
     
     public static void ResetCursor()
     {
-        //TODO
+        //TODO: reset the cursor to default texture
         Debug.Log("Cursor Reset!");
     }
 }

@@ -7,11 +7,13 @@ public class Test : InteractableThreeDimensional
 
     public override void PrimaryInteraction()
     {
+        Highlight();
         print("Primary on TestInteractable");
     }
-
+    
     public override void SecondaryInteraction()
     {
+        Unhighlight();
         print("Secondary on TestInteractable");
     }
 }

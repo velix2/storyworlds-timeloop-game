@@ -145,6 +145,15 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HighlightInteractables"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""78cbe8f8-a095-49d0-840d-b61e0d8e50f8"",
+                    ""expectedControlType"": ""DiscreteButton"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -257,6 +266,17 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""action"": ""InventoryClose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdf48e5d-9ad1-40e8-9489-8b2be2847146"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HighlightInteractables"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -271,6 +291,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         m_Standard_SecondaryInteract = m_Standard.FindAction("SecondaryInteract", throwIfNotFound: true);
         m_Standard_InventoryOpen = m_Standard.FindAction("InventoryOpen", throwIfNotFound: true);
         m_Standard_InventoryClose = m_Standard.FindAction("InventoryClose", throwIfNotFound: true);
+        m_Standard_HighlightInteractables = m_Standard.FindAction("HighlightInteractables", throwIfNotFound: true);
     }
 
     ~@PlayerInputStandard()
@@ -357,6 +378,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_SecondaryInteract;
     private readonly InputAction m_Standard_InventoryOpen;
     private readonly InputAction m_Standard_InventoryClose;
+    private readonly InputAction m_Standard_HighlightInteractables;
     /// <summary>
     /// Provides access to input actions defined in input action map "Standard".
     /// </summary>
@@ -392,6 +414,10 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Standard/InventoryClose".
         /// </summary>
         public InputAction @InventoryClose => m_Wrapper.m_Standard_InventoryClose;
+        /// <summary>
+        /// Provides access to the underlying input action "Standard/HighlightInteractables".
+        /// </summary>
+        public InputAction @HighlightInteractables => m_Wrapper.m_Standard_HighlightInteractables;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -436,6 +462,9 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @InventoryClose.started += instance.OnInventoryClose;
             @InventoryClose.performed += instance.OnInventoryClose;
             @InventoryClose.canceled += instance.OnInventoryClose;
+            @HighlightInteractables.started += instance.OnHighlightInteractables;
+            @HighlightInteractables.performed += instance.OnHighlightInteractables;
+            @HighlightInteractables.canceled += instance.OnHighlightInteractables;
         }
 
         /// <summary>
@@ -465,6 +494,9 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @InventoryClose.started -= instance.OnInventoryClose;
             @InventoryClose.performed -= instance.OnInventoryClose;
             @InventoryClose.canceled -= instance.OnInventoryClose;
+            @HighlightInteractables.started -= instance.OnHighlightInteractables;
+            @HighlightInteractables.performed -= instance.OnHighlightInteractables;
+            @HighlightInteractables.canceled -= instance.OnHighlightInteractables;
         }
 
         /// <summary>
@@ -547,5 +579,12 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInventoryClose(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "HighlightInteractables" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHighlightInteractables(InputAction.CallbackContext context);
     }
 }
