@@ -25,6 +25,12 @@ public class CursorManager : MonoBehaviour
         }
         Debug.Log($"Changed cursor! Primary: {interactable.Primary}, Secondary: {interactable.Secondary}");
     }
+
+    public static void ChangeCursorItem(ItemData item)
+    {
+        //TODO: change cursor to fit accordingly
+        Debug.Log($"Your cursor now shows that {item} is selected.");
+    }
     
     
     public static void ResetCursor()

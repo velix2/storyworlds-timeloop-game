@@ -43,6 +43,7 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void PrimaryInteraction();
     public abstract void SecondaryInteraction();
+    public abstract void ItemInteraction(ItemData otherItem);
     public abstract void Highlight();
     public abstract void Unhighlight();
 

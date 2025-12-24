@@ -76,21 +76,37 @@ public class InteractionChecker : MonoBehaviour
 
     private void OnPrimaryInteractionInput(Vector3 mousePosition)
     {
+        Interactable interactable = CheckInteractionHit(mousePosition);
+        
         if (selectedItem != null)
         {
-            //TODO: item interaction
+            interactable?.ItemInteraction(selectedItem);
         }
-        debugBall.transform.position = Camera.main.ScreenToWorldPoint(mousePosition);
-        CheckInteractionHit(mousePosition)?.PrimaryInteraction();
+        interactable?.PrimaryInteraction();
     }
     
     private void OnSecondaryInteractionInput(Vector3 mousePosition)
     {
         if (selectedItem != null)
         {
-            //TODO: deselect item
+            DeselectItem();
         }
         CheckInteractionHit(mousePosition)?.SecondaryInteraction();
+    }
+
+    public void SelectItem(ItemData itemData)
+    {
+        selectedItem = itemData;
+        CursorManager.ChangeCursorItem(itemData);
+    }
+
+    public void DeselectItem()
+    {
+        if (selectedItem != null)
+        {
+            selectedItem = null;
+            CursorManager.ResetCursor();
+        }
     }
     
     private Interactable CheckInteractionHit(Vector3 mousePosition)

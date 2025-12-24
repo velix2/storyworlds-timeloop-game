@@ -8,8 +8,8 @@ using Object = UnityEngine.Object;
 [RequireComponent(typeof(CanvasGroup))]
 public class InventoryDisplay : MonoBehaviour
 {
-    [HideInInspector] public UnityEvent<ItemData> ItemPrimaryInteract;
-    [HideInInspector] public UnityEvent<ItemData> ItemSecondaryInteract;
+    [HideInInspector] public UnityEvent<ItemData> ItemBoxPrimaryInteract;
+    [HideInInspector] public UnityEvent<ItemData> ItemBoxSecondaryInteract;
     
     [Header("References")]
     [SerializeField] private GameObject itemBoxContainer;
@@ -117,7 +117,7 @@ public class InventoryDisplay : MonoBehaviour
             return;
         }
         
-        ItemPrimaryInteract.Invoke(itemMap[id]);
+        ItemBoxPrimaryInteract.Invoke(itemMap[id]);
     }
 
     private void OnItemBoxClickedSecondary(int id)
@@ -128,7 +128,7 @@ public class InventoryDisplay : MonoBehaviour
             return;
         }
         
-        ItemSecondaryInteract.Invoke(itemMap[id]);
+        ItemBoxSecondaryInteract.Invoke(itemMap[id]);
     }
     #endregion
 }

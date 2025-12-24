@@ -51,4 +51,8 @@ public class ItemBox : InteractableUI
         BoxClickedSecondary.Invoke(id);
     }
     
+    public override void ItemInteraction(ItemData otherItem)
+    {
+        print("Item Interaction");
+    }
 }

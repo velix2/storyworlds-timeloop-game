@@ -2,12 +2,16 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.UI;
 
 public class InventoryManager : MonoBehaviour
 {
     private InventoryDisplay display;
     public List<ItemData> items = new List<ItemData>();
+
+    public UnityEvent<ItemData> ItemSelected => display.ItemBoxPrimaryInteract;
+    public UnityEvent<ItemData> ItemObserved => display.ItemBoxSecondaryInteract;
     
 
     private void Awake()
@@ -19,8 +23,8 @@ public class InventoryManager : MonoBehaviour
             return;
         }
         
-        display.ItemPrimaryInteract.AddListener(OnDisplayItemPrimaryInteraction);
-        display.ItemSecondaryInteract.AddListener(OnDisplayItemSecondaryInteraction);
+        display.ItemBoxPrimaryInteract.AddListener(OnDisplayItemPrimaryInteraction);
+        display.ItemBoxSecondaryInteract.AddListener(OnDisplayItemSecondaryInteraction);
     }
 
     private void Start()

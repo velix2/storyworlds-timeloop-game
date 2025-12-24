@@ -16,12 +16,18 @@ public class PlayerController : MonoBehaviour
 
     private bool movementBlocked;
 
+    private void Awake()
+    {
+        inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
+        //TODO: AddListener for ItemObservation event
+    }
+
     private void Start()
     {
-        InputManager.PlayerControls.Standard.InventoryOpen.performed += _ => OnInventoryOpen();
-        InputManager.PlayerControls.Standard.InventoryClose.performed += _ => OnInventoryClose();
+        InputManager.PlayerControls.Standard.InventoryOpen.performed += _ => OnInventoryOpenInput();
+        InputManager.PlayerControls.Standard.InventoryClose.performed += _ => OnInventoryCloseInput();
         
-        OnInventoryClose();
+        OnInventoryCloseInput();
     }
 
 
@@ -40,14 +46,14 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void OnInventoryOpen()
+    private void OnInventoryOpenInput()
     {
         movementBlocked = true;
         interactionChecker.SetToUIMode();
         inventoryManager.Open();
     }
 
-    private void OnInventoryClose()
+    private void OnInventoryCloseInput()
     {
         movementBlocked = false;
         interactionChecker.SetToPhysicsMode();

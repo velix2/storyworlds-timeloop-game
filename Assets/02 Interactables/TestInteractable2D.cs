@@ -11,4 +11,9 @@ public class TestInteractable2D : InteractableTwoDimensional
     {
         print("sec");
     }
+    
+    public override void ItemInteraction(ItemData otherItem)
+    {
+        print("Item Interaction");
+    }
 }
