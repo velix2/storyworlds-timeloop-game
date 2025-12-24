@@ -23,8 +23,6 @@ public class InventoryManager : MonoBehaviour
             return;
         }
         
-        display.ItemBoxPrimaryInteract.AddListener(OnDisplayItemPrimaryInteraction);
-        display.ItemBoxSecondaryInteract.AddListener(OnDisplayItemSecondaryInteraction);
     }
 
     private void Start()
@@ -33,6 +31,21 @@ public class InventoryManager : MonoBehaviour
         {
             display.AddItemToDisplay(itemData);
         }
+    }
+
+    public bool AddItem(ItemData item)
+    {
+        items.Add(item);
+        display.AddItemToDisplay(item);
+        
+        //TODO: capacity check
+        return true;
+    }
+
+    public void RemoveItem(ItemData item)
+    {
+        items.Remove(item);
+        display.RemoveItemToDisplay(item);
     }
 
     /// <summary>
@@ -50,18 +63,5 @@ public class InventoryManager : MonoBehaviour
     {
         display.HideDisplay();
     }
-
-
-    private void OnDisplayItemPrimaryInteraction(ItemData item)
-    {
-        //TODO: Select item to interact with others
-        Debug.Log($"Item {item} selected in inventory");
-    }
-
-    private void OnDisplayItemSecondaryInteraction(ItemData item)
-    {
-        //TODO: Display observation text
-        Debug.Log($"Item {item} observed in inventory");
-        
-    }
+    
 }

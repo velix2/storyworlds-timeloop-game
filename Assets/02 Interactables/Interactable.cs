@@ -43,7 +43,17 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void PrimaryInteraction();
     public abstract void SecondaryInteraction();
-    public abstract void ItemInteraction(ItemData otherItem);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="otherItem"></param>
+    /// <returns>bool value informs if the applied item is used up and should be removed from the inventory</returns>
+    public virtual bool ItemInteraction(ItemData otherItem)
+    {
+        //TODO: Default dialogue if items are not applicable
+        return false;
+    }
     public abstract void Highlight();
     public abstract void Unhighlight();
 

@@ -18,8 +18,5 @@ public class ItemHolder : InteractableThreeDimensional
         //TODO: Display observationText from itemData
     }
     
-    public override void ItemInteraction(ItemData otherItem)
-    {
-        print("Item Interaction");
-    }
+    
 }

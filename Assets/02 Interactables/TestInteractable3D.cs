@@ -14,9 +14,5 @@ public class TestInteractable3D : InteractableThreeDimensional
     {
         print("Secondary on TestInteractable");
     }
-
-    public override void ItemInteraction(ItemData otherItem)
-    {
-        print("Item Interaction");
-    }
+    
 }

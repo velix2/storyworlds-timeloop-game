@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     {
         inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
         //TODO: AddListener for ItemObservation event
+        
+        interactionChecker.ItemExhausted.AddListener(inventoryManager.RemoveItem);
     }
 
     private void Start()

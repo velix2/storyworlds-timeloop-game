@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class InteractionChecker : MonoBehaviour
 {
+    public UnityEvent<ItemData> ItemExhausted = new();
     enum interactionModes
     {
         PHYSICS,
@@ -80,7 +82,12 @@ public class InteractionChecker : MonoBehaviour
         
         if (selectedItem != null)
         {
-            interactable?.ItemInteraction(selectedItem);
+            var usedUp = interactable?.ItemInteraction(selectedItem);
+            if (usedUp.HasValue && usedUp.Value)
+            {
+                ItemExhausted.Invoke(selectedItem);
+            }
+            DeselectItem();
         }
         interactable?.PrimaryInteraction();
     }

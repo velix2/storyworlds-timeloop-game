@@ -41,7 +41,7 @@ public class InventoryDisplay : MonoBehaviour
     /// </summary>
     public void ShowDisplay()
     {
-        //TODO do the following with animations
+        //TODO: do the following with animations
         canvasGroup.alpha = 1;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
@@ -53,7 +53,7 @@ public class InventoryDisplay : MonoBehaviour
     /// </summary>
     public void HideDisplay()
     {
-        //TODO do the following with animations
+        //TODO: do the following with animations
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;

@@ -51,8 +51,9 @@ public class ItemBox : InteractableUI
         BoxClickedSecondary.Invoke(id);
     }
     
-    public override void ItemInteraction(ItemData otherItem)
+    public override bool ItemInteraction(ItemData otherItem)
     {
-        print("Item Interaction");
+        //TODO: Item Combination
+        return false;
     }
 }
