@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ItemBox : UIInteractable
+public class ItemBox : InteractableUI
 {
     [SerializeField] private Image image;
     
@@ -11,12 +11,6 @@ public class ItemBox : UIInteractable
 
     public UnityEvent<int> BoxClickedPrimary;
     public UnityEvent<int> BoxClickedSecondary;
-
-    protected new void Awake()
-    {
-        SetupMaterial(image.material);
-        image.material = outlineMaterial;
-    }
     
     public void DisplayItem(ItemData item)
     {

@@ -10,7 +10,7 @@ public abstract class Interactable : MonoBehaviour
     public static string LayerName => layerName;
     private static int layer;
     
-    private void Awake()
+    protected void Awake()
     {
         layer = LayerMask.NameToLayer(layerName);
         if (layer == -1)

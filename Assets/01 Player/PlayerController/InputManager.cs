@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public delegate void MouseInteraction(Vector3 position);
-
     public static event MouseInteraction PrimaryInteraction;
     public static event MouseInteraction SecondaryInteraction;
     
@@ -69,7 +68,5 @@ public class InputManager : MonoBehaviour
     {
         SecondaryInteraction?.Invoke(GetMousePosition());
     }
-    
-    
 
 }

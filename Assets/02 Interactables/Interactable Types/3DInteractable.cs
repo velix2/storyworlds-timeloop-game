@@ -11,8 +11,9 @@ public abstract class InteractableThreeDimensional : Interactable
     [SerializeField, Range(0f, 10f)] private float width = 6.0f;
     
     
-    protected void Awake()
+    protected new void Awake()
     {
+        base.Awake();
         outline = GetComponent<Outline>();
         outline.enabled = false;
         outline.OutlineColor = color;

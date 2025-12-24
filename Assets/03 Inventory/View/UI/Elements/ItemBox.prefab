@@ -90,8 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198354d357fa7f04186abd9826a774d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemBox
+  imageToOutline: {fileID: 5381738038578913796}
   color: {r: 1, g: 1, b: 1, a: 1}
-  width: 6
+  width: 5
   image: {fileID: 5381738038578913796}
   id: 0
   BoxClickedPrimary:

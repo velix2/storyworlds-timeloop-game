@@ -1,18 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class UIInteractable : Interactable
-{
+public abstract class InteractableUI : Interactable
+    {
 
-    protected Material outlineMaterial;
+        protected Material outlineMaterial;
 
         [Header("Outline")] 
+        [SerializeField] private Image imageToOutline;
         [SerializeField] private Color color = Color.white;
         [SerializeField, Range(0, 10f)] private float width = 6f;
         
-        protected void Awake()
+        protected new void Awake()
         {
-            SetupMaterial(GetComponent<Image>().material);
+            base.Awake();
+            SetupMaterial(imageToOutline.material);
+            imageToOutline.material = outlineMaterial;
         }
 
         /// <summary>
