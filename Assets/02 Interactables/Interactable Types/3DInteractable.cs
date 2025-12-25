@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Interactable subclass for Interactables that use a MeshRenderer.
+/// </summary>
 [RequireComponent(typeof(Outline))]
 public abstract class InteractableThreeDimensional : Interactable
 {
@@ -23,11 +26,11 @@ public abstract class InteractableThreeDimensional : Interactable
     
     public override void Highlight()
     {
-        outline.enabled = true;
+        if (!HighlightOverwrite) outline.enabled = true;
     }
 
     public override void Unhighlight()
     {
-        outline.enabled = false;
+        if (!HighlightOverwrite) outline.enabled = false;
     }
 }

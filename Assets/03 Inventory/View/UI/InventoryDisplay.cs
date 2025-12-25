@@ -25,7 +25,7 @@ public class InventoryDisplay : MonoBehaviour
         for (byte i = 0; i <  itemBoxes.Length; i++)
         {
             itemBoxes[i].id = i;
-            itemBoxes[i].RemoveDisplay();
+            itemBoxes[i].RemoveDisplayedItem();
             itemBoxes[i].BoxClickedPrimary.AddListener(OnItemBoxClickedPrimary);
             itemBoxes[i].BoxClickedSecondary.AddListener(OnItemBoxClickedSecondary);
         }
@@ -37,7 +37,7 @@ public class InventoryDisplay : MonoBehaviour
     }
 
     /// <summary>
-    /// Use Open method in PlayerController
+    /// Shows inventory display. Use method from PlayerController to stop player movement.
     /// </summary>
     public void ShowDisplay()
     {
@@ -49,7 +49,7 @@ public class InventoryDisplay : MonoBehaviour
     }
 
     /// <summary>
-    /// Use Close method in PlayerController
+    /// Hide inventory display. Use method from PlayerController to stop player movement.
     /// </summary>
     public void HideDisplay()
     {
@@ -58,7 +58,7 @@ public class InventoryDisplay : MonoBehaviour
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
     }
-
+    
     public void AddItemToDisplay(ItemData item)
     {
         if (nextEmptyIndex >= itemBoxes.Length)
@@ -101,7 +101,7 @@ public class InventoryDisplay : MonoBehaviour
         }
         
         itemMap[index] = null;
-        itemBoxes[index].RemoveDisplay();
+        itemBoxes[index].RemoveDisplayedItem();
 
         nextEmptyIndex = (byte) index;
         

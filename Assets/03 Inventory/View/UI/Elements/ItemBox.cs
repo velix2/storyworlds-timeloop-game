@@ -16,7 +16,7 @@ public class ItemBox : InteractableUI
     {
         if (item == null)
         {
-            RemoveDisplay();
+            RemoveDisplayedItem();
         }
         else
         {
@@ -29,7 +29,7 @@ public class ItemBox : InteractableUI
         
     }
 
-    public void RemoveDisplay()
+    public void RemoveDisplayedItem()
     {
         image.sprite = null;
         image.raycastTarget = false;

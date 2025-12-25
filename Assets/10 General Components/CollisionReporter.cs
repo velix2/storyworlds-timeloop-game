@@ -3,6 +3,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Helper class used to filter collision events from specific GameObjects and layers.
+/// </summary>
 public class CollisionReporter : MonoBehaviour
 {
     [SerializeField] private LayerMask targetLayers;

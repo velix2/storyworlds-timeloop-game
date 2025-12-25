@@ -7,6 +7,8 @@ public class ItemHolder : InteractableThreeDimensional
 
     public override interactionType Primary => interactionType.GRAB;
     public override interactionType Secondary => interactionType.LOOK;
+    public override bool PrimaryNeedsInRange => true;
+    public override bool SecondaryNeedsInRange => false;
 
     public override void PrimaryInteraction()
     {

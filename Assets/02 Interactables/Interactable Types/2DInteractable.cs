@@ -1,10 +1,13 @@
 using UnityEngine;
 
+/// <summary>
+/// Interactable Subclass for Interactables that use a SpriteRenderer.
+/// !! Will overwrite Material.
+/// </summary>
 public abstract class InteractableTwoDimensional : Interactable
 {
-    protected Material outlineMaterial;
-
-
+    private Material outlineMaterial;
+    
     [Header("Outline")] 
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Color color = Color.white;
@@ -13,31 +16,31 @@ public abstract class InteractableTwoDimensional : Interactable
     protected new void Awake()
     {
         base.Awake();
-        SetupMaterial(spriteRenderer.material);
-        spriteRenderer.material = outlineMaterial;
+        spriteRenderer.material = SetupMaterial(OutlineMaterial.material2d);
 
     }
     
     /// <summary>
     /// Creates a copy of the material, initiates it and sets outlineMaterial to the copy.
-    /// <br> !!You will have to manually reassign the copied material to the element.
+    /// <br/> !!You will have to manually reassign the copied material to the element.
     /// </summary>
-    /// <param name="material">The material of the element you want to have outlined.</param>
-    protected void SetupMaterial(Material material)
+    /// <param name="material">Outline Material.</param>
+    private Material SetupMaterial(Material material)
     {
         outlineMaterial = Instantiate(material);
         outlineMaterial.SetColor("_Color", color);
         outlineMaterial.SetFloat("_enabled", 0);
         outlineMaterial.SetFloat("_width", width);
+        return outlineMaterial;
     }
     
     public override void Highlight()
     {
-        outlineMaterial.SetFloat("_enabled", 1);
+        if (!HighlightOverwrite) outlineMaterial.SetFloat("_enabled", 1);
     }
 
     public override void Unhighlight()
     {
-        outlineMaterial.SetFloat("_enabled", 0);
+        if (!HighlightOverwrite) outlineMaterial.SetFloat("_enabled", 0);
     }
 }

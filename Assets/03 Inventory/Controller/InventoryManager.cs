@@ -1,10 +1,10 @@
-using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering.UI;
 
+/// <summary>
+/// Controller Class used to have a handle on what items are in the inventory.
+/// </summary>
 public class InventoryManager : MonoBehaviour
 {
     private InventoryDisplay display;
@@ -49,7 +49,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Use Open method in PlayerController
+    /// Shows inventory display. Use method from PlayerController to stop player movement.
     /// </summary>
     public void Open()
     {
@@ -57,7 +57,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Use Close method in PlayerController
+    /// Hide inventory display. Use method from PlayerController to stop player movement.
     /// </summary>
     public void Close()
     {

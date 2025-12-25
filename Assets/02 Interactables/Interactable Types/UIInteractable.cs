@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Interactable subclass for Interactables that use Image.
+/// !! Will overwrite Material.
+/// </summary>
 public abstract class InteractableUI : Interactable
     {
 
@@ -14,33 +18,35 @@ public abstract class InteractableUI : Interactable
         protected new void Awake()
         {
             base.Awake();
-            SetupMaterial(imageToOutline.material);
-            imageToOutline.material = outlineMaterial;
-
-            inRange = true;
+            
+            imageToOutline.material = SetupMaterial(OutlineMaterial.material2d);;
         }
 
         /// <summary>
         /// Creates a copy of the material, initiates it and sets outlineMaterial to the copy.
-        /// <br> !!You will have to manually reassign the copied material to the element.
+        /// <br/> !!You will have to manually reassign the copied material to the element.
         /// </summary>
-        /// <param name="material">The material of the element you want to have outlined.</param>
-        protected void SetupMaterial(Material material)
+        /// <param name="material">Outline material</param>
+        private Material SetupMaterial(Material material)
         {
             outlineMaterial = Instantiate(material);
             outlineMaterial.SetColor("_Color", color);
             outlineMaterial.SetFloat("_enabled", 0);
             outlineMaterial.SetFloat("_width", width);
+            return outlineMaterial;
         }
-        
+
+        public override bool PrimaryNeedsInRange => false;
+        public override bool SecondaryNeedsInRange => false;
+
         public override void Highlight()
         {
-            outlineMaterial.SetFloat("_enabled", 1);
+            if (!HighlightOverwrite) outlineMaterial.SetFloat("_enabled", 1);
         }
 
         public override void Unhighlight()
         {
             
-            outlineMaterial.SetFloat("_enabled", 0);
+            if (!HighlightOverwrite) outlineMaterial.SetFloat("_enabled", 0);
         }
     }
