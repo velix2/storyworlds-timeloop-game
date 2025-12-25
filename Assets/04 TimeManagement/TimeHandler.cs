@@ -1,4 +1,3 @@
-using System;
 using DataClasses;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,7 +23,35 @@ namespace TimeManagement
         [Tooltip("Defines how long a game day is, i.e. after how many in game minutes the day resets")] [SerializeField]
         private int dayLengthInMinutes = 16 * 60;
 
+        [Space] [Tooltip("Defines when morning begins in day minutes, i.e. 8*60 = 8:00")] [SerializeField]
+        private int morningBeginInMinutes = 8 * 60;
+
+        [Tooltip("Defines when afternoon begins in day minutes, i.e. 13*60 = 14:00")] [SerializeField]
+        private int afternoonBeginInMinutes = 13 * 60;
+        
+        [Tooltip("Defines when evening begins in day minutes, i.e. 15*60 + 30 = 15:30")] [SerializeField]
+        private int eveningBeginInMinutes = 15 * 60 + 30;
+        
+        [Tooltip("Defines when night begins in day minutes, i.e. 17*60 = 17:00")] [SerializeField]
+        private int nightBeginInMinutes = 17 * 60;
+        
         public int CurrentTime { get; private set; }
+
+        /// <summary>
+        /// Returns the current daytime phase.
+        /// </summary>
+        public DaytimePhase CurrentDaytimePhase
+        {
+            get
+            {
+                var t = CurrentTime;
+                if (t < morningBeginInMinutes) return DaytimePhase.Night;
+                if (t < afternoonBeginInMinutes) return DaytimePhase.Morning;
+                if (t < eveningBeginInMinutes) return DaytimePhase.Afternoon;
+                if (t < nightBeginInMinutes) return DaytimePhase.Evening;
+                return DaytimePhase.Night;
+            }
+        }
 
         #region Singleton
 
@@ -79,7 +106,7 @@ namespace TimeManagement
             CurrentTime = CurrentTime + minutes;
 
             var dayHasEnded = CurrentTime >= dayStartTimeInMinutes + dayLengthInMinutes;
-            var payload = new TimePassedEventPayload(minutes, CurrentTime, dayHasEnded);
+            var payload = new TimePassedEventPayload(minutes, CurrentTime, dayHasEnded, CurrentDaytimePhase);
 
             onTimePassed?.Invoke(payload);
             
