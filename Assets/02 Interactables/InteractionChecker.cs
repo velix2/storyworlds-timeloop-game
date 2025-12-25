@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -19,7 +20,7 @@ public class InteractionChecker : MonoBehaviour
     public void SetToPhysicsMode() { mode = interactionModes.PHYSICS; }
     public void SetToUIMode() { mode = interactionModes.UI; }
     public void SetToDisabledMode() { mode = interactionModes.DISABLED; }
-
+    
     [Header("References")] 
     [SerializeField] private CollisionReporter interactionZone;
     [SerializeField] private CollisionReporter highlightZone;
@@ -53,7 +54,32 @@ public class InteractionChecker : MonoBehaviour
         {
             interactable.Unhighlight();
         }
-        HighlightAtMousePosition();
+        HighlightSingle(GetInteractableAtMousePosition());
+    }
+    private void HighlightSingle(Interactable interactable)
+    {
+        //changing highlightedInteractable, if not already highlighted
+        if (interactable != null && interactable != highlightedInteractable)
+        {
+            CursorManager.ChangeCursorInteraction(interactable);
+            if (!highlightingAll)
+            {
+                highlightedInteractable?.Unhighlight();
+                interactable.Highlight();
+            }
+            highlightedInteractable = interactable;
+        } 
+        //no interactable to highlight
+        else if (interactable == null && highlightedInteractable != null)
+        {
+            CursorManager.ResetCursor();
+            if (!highlightingAll)
+            {
+                highlightedInteractable.Unhighlight();
+                
+            }
+            highlightedInteractable = null;
+        }
     }
     public void SelectItem(ItemData itemData)
     {
@@ -89,26 +115,24 @@ public class InteractionChecker : MonoBehaviour
 
     private void Update()
     {
-        HighlightAtMousePosition();
+        HighlightSingle(GetInteractableAtMousePosition());
     }
     
     private void OnPrimaryInteractionInput(Vector3 mousePosition)
     {
-        Interactable interactable = CheckInteractionHit(mousePosition);
 
-        if (interactable != null && interactable.inRange)
+        if (highlightedInteractable != null && highlightedInteractable.inRange)
         {
             if (selectedItem != null)
             {
-                var usedUp = interactable?.ItemInteraction(selectedItem);
-                if (usedUp.HasValue && usedUp.Value)
+                if (highlightedInteractable.ItemInteraction(selectedItem))
                 {
                     ItemExhausted.Invoke(selectedItem);
                 }
                 DeselectItem();
-                return;
             }
-            interactable?.PrimaryInteraction();
+            else highlightedInteractable.PrimaryInteraction();
+            UpdateHighlightedInteractableStatusAtMousePosition();
         }
     }
     private void OnSecondaryInteractionInput(Vector3 mousePosition)
@@ -164,10 +188,14 @@ public class InteractionChecker : MonoBehaviour
         }
     }
     #endregion
+
+    private void UpdateHighlightedInteractableStatusAtMousePosition()
+    {
+        highlightedInteractable = null;
+        HighlightSingle(GetInteractableAtMousePosition());
+    }
     
-    
-    
-    private void HighlightAtMousePosition()
+    private Interactable GetInteractableAtMousePosition()
     {
         Interactable interactable;
         switch (mode)
@@ -178,37 +206,18 @@ public class InteractionChecker : MonoBehaviour
             case interactionModes.UI:
                 interactable = UIRaycast(InputManager.GetMousePosition());
                 break;
-            case interactionModes.DISABLED:    
-                return;
+            case interactionModes.DISABLED:
+                interactable = null;
+                break;
             default:
                 Debug.Log($"Mode {mode} is not implemented.");
-                return;
+                goto case interactionModes.DISABLED;
                 
         }
 
-        //entered area of interactable, changing highlightedInteractable
-        if (interactable != null && interactable != highlightedInteractable)
-        {
-            CursorManager.ChangeCursorInteraction(interactable);
-            if (!highlightingAll)
-            {
-                highlightedInteractable?.Unhighlight();
-                interactable.Highlight();
-            }
-            highlightedInteractable = interactable;
-        } 
-        //exited area of interactable
-        else if (interactable == null && highlightedInteractable != null)
-        {
-            CursorManager.ResetCursor();
-            if (!highlightingAll)
-            {
-                highlightedInteractable.Unhighlight();
-                
-            }
-            highlightedInteractable = null;
-        }
+        return interactable;
     }
+    
     
     private Interactable CheckInteractionHit(Vector3 mousePosition)
     {
@@ -223,7 +232,7 @@ public class InteractionChecker : MonoBehaviour
         }
     }
 
-    #region Raycast
+    #region Raycasts
 
     private Interactable PhysicsRaycast(Vector3 mousePosition)
     {
