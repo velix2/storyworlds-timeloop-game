@@ -29,6 +29,9 @@ public class InteractionChecker : MonoBehaviour
     
     private Interactable CheckInteractionHit(Vector3 mousePosition)
     {
+        // Deactivate interaction while in dialogue
+        if (DialogueManager.GetInstance().dialogueIsPlaying) return null;
+
         mousePosition.z = 1;
         
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);

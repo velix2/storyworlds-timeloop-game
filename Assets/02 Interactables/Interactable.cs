@@ -10,6 +10,9 @@ public abstract class Interactable : MonoBehaviour
     private static int layer;
     public static int Layer => layer;
 
+    [Header("Ink JSON")]
+    [SerializeField] protected TextAsset inkJson;
+
     [SerializeField] private Collider collider;
     private void Awake()
     {
@@ -24,5 +27,10 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void PrimaryInteraction();
     public abstract void SecondaryInteraction();
+
+    public TextAsset GetInkJson()
+    {
+        return inkJson;
+    }
     
 }

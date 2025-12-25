@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Freeze player movement during dialogue
+        if (DialogueManager.GetInstance().dialogueIsPlaying) return;
+
         Vector2 input = InputManager.GetPlayerMovement();
         Vector3 move = new Vector3(input.x, 0, input.y);
         move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
