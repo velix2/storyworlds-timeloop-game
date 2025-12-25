@@ -380,7 +380,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: c9696fe5952c95d47b0624294ec3474f, type: 3}
+  - {fileID: -876546973899608171, guid: efdb4bbdf9d165d4385634a8c5783253, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -723,6 +723,7 @@ GameObject:
   - component: {fileID: 733317574}
   - component: {fileID: 733317573}
   - component: {fileID: 733317572}
+  - component: {fileID: 733317577}
   m_Layer: 0
   m_Name: TestInteractable2D (1)
   m_TagString: Untagged
@@ -804,7 +805,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: c9696fe5952c95d47b0624294ec3474f, type: 3}
+  - {fileID: -876546973899608171, guid: efdb4bbdf9d165d4385634a8c5783253, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -852,6 +853,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &733317577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733317571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4218d78ef2d54d0898b7514e121a781f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OutlineFx::OutlineFx.OutlineFx
+  _renderer: {fileID: 733317575}
+  _color:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
 --- !u!1 &932911059
 GameObject:
   m_ObjectHideFlags: 0

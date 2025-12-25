@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemBox
   imageToOutline: {fileID: 5381738038578913796}
   color: {r: 1, g: 1, b: 1, a: 1}
-  width: 5
+  width: 1
   image: {fileID: 5381738038578913796}
   id: 0
   BoxClickedPrimary:
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: -876546973899608171, guid: c9696fe5952c95d47b0624294ec3474f, type: 3}
+  m_Material: {fileID: 2100000, guid: 0a4a9aba79e3d244eaad517e88e7180f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

@@ -18,14 +18,16 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
-        //TODO: AddListener for ItemObservation event
         
-        interactionChecker.ItemExhausted.AddListener(inventoryManager.RemoveItem);
     }
 
     private void Start()
     {
+        inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
+        //TODO: AddListener for ItemObservation event
+        
+        interactionChecker.ItemExhausted.AddListener(inventoryManager.RemoveItem);
+        
         InputManager.PlayerControls.Standard.InventoryOpen.performed += _ => OnInventoryOpenInput();
         InputManager.PlayerControls.Standard.InventoryClose.performed += _ => OnInventoryCloseInput();
         

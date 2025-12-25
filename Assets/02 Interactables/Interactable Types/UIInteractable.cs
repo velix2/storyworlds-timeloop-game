@@ -9,7 +9,7 @@ public abstract class InteractableUI : Interactable
         [Header("Outline")] 
         [SerializeField] private Image imageToOutline;
         [SerializeField] private Color color = Color.white;
-        [SerializeField, Range(0, 10f)] private float width = 6f;
+        [SerializeField, Range(0f, 2f)] private float width = 1.0f;
         
         protected new void Awake()
         {
@@ -27,8 +27,8 @@ public abstract class InteractableUI : Interactable
         {
             outlineMaterial = Instantiate(material);
             outlineMaterial.SetColor("_Color", color);
-            outlineMaterial.SetFloat("_width", width);
             outlineMaterial.SetFloat("_enabled", 0);
+            outlineMaterial.SetFloat("_width", width);
         }
         
         public override void Highlight()
