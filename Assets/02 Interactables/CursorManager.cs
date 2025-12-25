@@ -18,6 +18,7 @@ public class CursorManager : MonoBehaviour
 
     public static void ChangeCursorInteraction(Interactable interactable)
     {
+        SetTransparency(!interactable.inRange);
         //TODO: get texture and apply to cursor
         if (interactable == null)
         {
@@ -26,8 +27,9 @@ public class CursorManager : MonoBehaviour
         Debug.Log($"Changed cursor! Primary: {interactable.Primary}, Secondary: {interactable.Secondary}");
     }
 
-    public static void ChangeCursorItem(ItemData item)
+    public static void ChangeCursorItem(ItemData item, bool transparent = false)
     {
+        SetTransparency(transparent);
         //TODO: change cursor to fit accordingly
         Debug.Log($"Your cursor now shows that {item} is selected.");
     }
@@ -35,7 +37,13 @@ public class CursorManager : MonoBehaviour
     
     public static void ResetCursor()
     {
+        SetTransparency(false);
         //TODO: reset the cursor to default texture
         Debug.Log("Cursor Reset!");
+    }
+
+    public static void SetTransparency(bool transparent)
+    {
+        //TODO: set transparency accordingly
     }
 }

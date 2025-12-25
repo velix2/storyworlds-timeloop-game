@@ -61,7 +61,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HighlightInteractables",
+                    "name": "HighlightAllInteractables",
                     "type": "PassThrough",
                     "id": "78cbe8f8-a095-49d0-840d-b61e0d8e50f8",
                     "expectedControlType": "DiscreteButton",
@@ -185,10 +185,10 @@
                     "name": "",
                     "id": "bdf48e5d-9ad1-40e8-9489-8b2be2847146",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "interactions": "Hold(duration=1E+30)",
                     "processors": "",
                     "groups": "",
-                    "action": "HighlightInteractables",
+                    "action": "HighlightAllInteractables",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class InteractionChecker : MonoBehaviour
 {
     public UnityEvent<ItemData> ItemExhausted = new();
-    enum interactionModes
+    private enum interactionModes
     {
         PHYSICS,
         UI,
@@ -19,18 +19,67 @@ public class InteractionChecker : MonoBehaviour
     public void SetToPhysicsMode() { mode = interactionModes.PHYSICS; }
     public void SetToUIMode() { mode = interactionModes.UI; }
     public void SetToDisabledMode() { mode = interactionModes.DISABLED; }
+
+    [Header("References")] 
+    [SerializeField] private CollisionReporter interactionZone;
+    [SerializeField] private CollisionReporter highlightZone;
+
+    [Header("Debug")] 
+    [SerializeField] private bool drawInteractionZone;
+    [SerializeField] private bool drawHighlightZone;
     
     private int layerMask;
     
     private ItemData selectedItem;
+    
     private Interactable highlightedInteractable;
+    private List<Interactable> inHighlightRange = new();
+    private bool highlightingAll;
     
     [SerializeField] private GameObject debugBall;
+    
+    public void HighlightAll()
+    {
+        highlightingAll = true;
+        foreach (Interactable interactable in inHighlightRange)
+        {
+            interactable.Highlight();
+        }
+    }
+    public void UnhighlightAll()
+    {
+        highlightingAll = false;
+        foreach (Interactable interactable in inHighlightRange)
+        {
+            interactable.Unhighlight();
+        }
+        HighlightAtMousePosition();
+    }
+    public void SelectItem(ItemData itemData)
+    {
+        selectedItem = itemData;
+        CursorManager.ChangeCursorItem(itemData);
+    }
+    public void DeselectItem()
+    {
+        if (selectedItem != null)
+        {
+            selectedItem = null;
+            CursorManager.ResetCursor();
+        }
+    }
     
     private void Awake()
     {
         InputManager.PrimaryInteraction += OnPrimaryInteractionInput;
         InputManager.SecondaryInteraction += OnSecondaryInteractionInput;
+        
+        highlightZone.TriggerEnter.AddListener(OnHightlightZoneTriggerEnter);
+        highlightZone.TriggerExit.AddListener(OnHightlightZoneTriggerExit);
+        
+        interactionZone.TriggerEnter.AddListener(OnInteractionZoneTriggerEnter);
+        interactionZone.TriggerExit.AddListener(OnInteractionZoneTriggerExit);
+        
     }
 
     private void Start()
@@ -40,42 +89,9 @@ public class InteractionChecker : MonoBehaviour
 
     private void Update()
     {
-        Interactable interactable;
-        switch (mode)
-        {
-            case interactionModes.PHYSICS:
-                interactable = PhysicsRaycast(InputManager.GetMousePosition());
-                break;
-            case interactionModes.UI:
-                interactable = UIRaycast(InputManager.GetMousePosition());
-                break;
-            case interactionModes.DISABLED:    
-                return;
-            default:
-                Debug.Log($"Mode {mode} is not implemented.");
-                goto case interactionModes.DISABLED;
-            
-        }
-
-        //entered area of interactable, changing highlightedInteractable
-        if (interactable != null && interactable != highlightedInteractable)
-        {
-            CursorManager.ChangeCursorInteraction(interactable);
-            highlightedInteractable?.Unhighlight();
-            interactable.Highlight();
-            highlightedInteractable = interactable;
-        } 
-        //exited area of interactable
-        else if (interactable == null && highlightedInteractable != null)
-        {
-            CursorManager.ResetCursor();
-            highlightedInteractable.Unhighlight();
-            highlightedInteractable = null;
-        }
-        
-        
+        HighlightAtMousePosition();
     }
-
+    
     private void OnPrimaryInteractionInput(Vector3 mousePosition)
     {
         Interactable interactable = CheckInteractionHit(mousePosition);
@@ -91,7 +107,6 @@ public class InteractionChecker : MonoBehaviour
         }
         interactable?.PrimaryInteraction();
     }
-    
     private void OnSecondaryInteractionInput(Vector3 mousePosition)
     {
         if (selectedItem != null)
@@ -101,18 +116,92 @@ public class InteractionChecker : MonoBehaviour
         CheckInteractionHit(mousePosition)?.SecondaryInteraction();
     }
 
-    public void SelectItem(ItemData itemData)
+    #region Hightlight Zone
+    private void OnHightlightZoneTriggerEnter(Collider collider)
     {
-        selectedItem = itemData;
-        CursorManager.ChangeCursorItem(itemData);
-    }
-
-    public void DeselectItem()
-    {
-        if (selectedItem != null)
+        
+        Interactable interactable = collider.gameObject.GetComponent<Interactable>();
+        if (interactable != null)
         {
-            selectedItem = null;
+            inHighlightRange.Add(interactable);
+            if (highlightingAll) interactable.Highlight();
+        }
+    }
+    private void OnHightlightZoneTriggerExit(Collider collider)
+    {
+        Interactable interactable = collider.gameObject.GetComponent<Interactable>();
+        if (interactable != null)
+        {
+            inHighlightRange.Remove(interactable);
+            if (highlightingAll) interactable.Unhighlight();
+        }
+    }
+    #endregion
+    
+
+    #region Interaction Zone
+    private void OnInteractionZoneTriggerEnter(Collider collider)
+    {
+        Interactable interactable = collider.gameObject.GetComponent<Interactable>();
+        if (interactable != null)
+        {
+            interactable.inRange = true;
+            if (interactable == highlightedInteractable) CursorManager.SetTransparency(false);
+        }
+    }
+    private void OnInteractionZoneTriggerExit(Collider collider)
+    {
+        Interactable interactable = collider.gameObject.GetComponent<Interactable>();
+        if (interactable != null)
+        {
+            interactable.inRange = false;
+            if (interactable == highlightedInteractable) CursorManager.SetTransparency(true);
+        }
+    }
+    #endregion
+    
+    
+    
+    private void HighlightAtMousePosition()
+    {
+        Interactable interactable;
+        switch (mode)
+        {
+            case interactionModes.PHYSICS:
+                interactable = PhysicsRaycast(InputManager.GetMousePosition());
+                break;
+            case interactionModes.UI:
+                interactable = UIRaycast(InputManager.GetMousePosition());
+                break;
+            case interactionModes.DISABLED:    
+                return;
+            default:
+                Debug.Log($"Mode {mode} is not implemented.");
+                return;
+                
+        }
+
+        //entered area of interactable, changing highlightedInteractable
+        if (interactable != null && interactable != highlightedInteractable)
+        {
+            CursorManager.ChangeCursorInteraction(interactable);
+            if (!highlightingAll)
+            {
+                highlightedInteractable?.Unhighlight();
+                interactable.Highlight();
+            }
+            highlightedInteractable = interactable;
+        } 
+        //exited area of interactable
+        else if (interactable == null && highlightedInteractable != null)
+        {
             CursorManager.ResetCursor();
+            if (!highlightingAll)
+            {
+                highlightedInteractable.Unhighlight();
+                
+            }
+            highlightedInteractable = null;
         }
     }
     
@@ -158,5 +247,25 @@ public class InteractionChecker : MonoBehaviour
 
     #endregion
     
+    private void OnDrawGizmos()
+    {
+        if (drawInteractionZone)
+        {
+            if (interactionZone.TryGetComponent(out SphereCollider collider))
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(collider.transform.position, collider.radius);
+            }
+        }
+        
+        if (drawHighlightZone)
+        {
+            if (highlightZone.TryGetComponent(out SphereCollider collider))
+            {
+                Gizmos.color = Color.crimson;
+                Gizmos.DrawWireSphere(collider.transform.position, collider.radius);
+            }
+        }
+    }
     
 }

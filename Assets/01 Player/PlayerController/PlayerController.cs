@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController)), RequireComponent(typeof(InteractionChecker)), RequireComponent(typeof(InventoryManager))]
 public class PlayerController : MonoBehaviour
@@ -16,11 +17,6 @@ public class PlayerController : MonoBehaviour
 
     private bool movementBlocked;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
@@ -30,6 +26,9 @@ public class PlayerController : MonoBehaviour
         
         InputManager.PlayerControls.Standard.InventoryOpen.performed += _ => OnInventoryOpenInput();
         InputManager.PlayerControls.Standard.InventoryClose.performed += _ => OnInventoryCloseInput();
+
+        InputManager.PlayerControls.Standard.HighlightAllInteractables.started += _ => OnHighlightAllInput(true);
+        InputManager.PlayerControls.Standard.HighlightAllInteractables.canceled += _ => OnHighlightAllInput(false);
         
         OnInventoryCloseInput();
     }
@@ -62,6 +61,18 @@ public class PlayerController : MonoBehaviour
         movementBlocked = false;
         interactionChecker.SetToPhysicsMode();
         inventoryManager.Close();
+    }
+
+    private void OnHighlightAllInput(bool pressed)
+    {
+        if (pressed)
+        {
+            interactionChecker.HighlightAll();
+        }
+        else
+        {
+            interactionChecker.UnhighlightAll();
+        }
     }
     
 }
