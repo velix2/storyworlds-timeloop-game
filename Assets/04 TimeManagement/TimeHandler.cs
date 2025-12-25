@@ -38,6 +38,11 @@ namespace TimeManagement
         public int CurrentTime { get; private set; }
 
         /// <summary>
+        /// Stores prev phase to detect when daytime phase changes for event invocation
+        /// </summary>
+        private DaytimePhase _prevPhase = DaytimePhase.Night;
+        
+        /// <summary>
         /// Returns the current daytime phase.
         /// </summary>
         public DaytimePhase CurrentDaytimePhase
@@ -98,19 +103,31 @@ namespace TimeManagement
         public UnityEvent onDayEnded = new();
 
         /// <summary>
-        /// Reports a passing of time, which will result in onTimePassed being invoked.
+        /// Invoked when day phase changes. Sends the new phase as payload.
+        /// Can be used for visual changes.
+        /// </summary>
+        public UnityEvent<DaytimePhase> onDayPhaseChanged = new();
+        
+        /// <summary>
+        /// Reports a passing of time, which will result in onTimePassed being invoked, as well as onDayEnded, if the day ended.
+        /// Also invokes onDaytimePhaseChanged, if daytime phase changed.
         /// </summary>
         /// <param name="minutes"></param>
         public void PassTime(int minutes)
         {
-            CurrentTime = CurrentTime + minutes;
+            CurrentTime += minutes;
 
             var dayHasEnded = CurrentTime >= dayStartTimeInMinutes + dayLengthInMinutes;
-            var payload = new TimePassedEventPayload(minutes, CurrentTime, dayHasEnded, CurrentDaytimePhase);
+            var currentDaytimePhase = CurrentDaytimePhase;
+            var payload = new TimePassedEventPayload(minutes, CurrentTime, dayHasEnded, currentDaytimePhase);
 
             onTimePassed?.Invoke(payload);
             
             if (dayHasEnded) onDayEnded?.Invoke();
+
+            if (currentDaytimePhase == _prevPhase) return;
+            _prevPhase = currentDaytimePhase;
+            onDayPhaseChanged?.Invoke(currentDaytimePhase);
         }
 
         /// <summary>
@@ -123,6 +140,9 @@ namespace TimeManagement
 
             // Reset time to day start
             CurrentTime = dayStartTimeInMinutes;
+            
+            // Send a Pass Time signal with 0 mins just for proper set up of all events etc.
+            PassTime(0);
 
             // TODO all the other stuff we will need to do
         }
