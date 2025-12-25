@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NPCs.NpcCharacter.NpcCharacterState;
 using NPCs.NpcData;
 using TimeManagement;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -47,9 +49,18 @@ namespace NPCs
         {
             // Subscribe to Time passed event
             TimeHandler.Instance.onTimePassed.AddListener(OnTimePassed);
+        }
 
-            // Prepare once at beginning
-            InitNPCs();
+        private void OnEnable()
+        {
+            // Subscribe to scene load event
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        
+        private void OnDisable()
+        {
+            // Unsubscribe from scene load event
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         private void OnTimePassed(TimePassedEventPayload payload)
@@ -109,14 +120,14 @@ namespace NPCs
             }
         }
 
-        private void InitNPCs()
+        private void InitNPCs(Scene currentScene)
         {
             var daytime = TimeHandler.Instance.CurrentTime;
 
             // Query all Npc Models that should be in the currently active scene according to their itinerary
             var npcModelsToSpawn = npcsToManage.Where(model =>
                 model.CurrentRoutine.GetCurrentRoutineElement(daytime).TargetScene.RepresentedSceneName ==
-                SceneManager.GetActiveScene().name).ToList();
+                currentScene.name).ToList();
 
             // Spawn these models and append them to views list
             foreach (var npcModel in npcModelsToSpawn)
@@ -133,12 +144,15 @@ namespace NPCs
             }
         }
 
-        private void OnSceneLoaded()
+        private void OnSceneLoaded(Scene loadedScene, LoadSceneMode _)
         {
+            // Safeguard that only the authorative Handler reacts to this
+            if (this != Instance) return;
+            
             // Clear views list so we start fresh
             _npcViewsInCurrentScene.Clear();
 
-            InitNPCs();
+            InitNPCs(loadedScene);
         }
     }
 }

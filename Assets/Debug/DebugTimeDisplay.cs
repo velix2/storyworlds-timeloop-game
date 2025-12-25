@@ -10,12 +10,13 @@ public class DebugTimeDisplay : MonoBehaviour
     {
         t = GetComponent<TMP_Text>();
         TimeHandler.Instance.onTimePassed.AddListener(TimePassed);
-        t.text = TimeHandler.Instance.CurrentTime.ToString();
+        t.text = TimeHandler.GameMinutesToFormatted(TimeHandler.Instance.CurrentTime);
+
     }
 
     private void TimePassed(TimePassedEventPayload arg0)
     {
-        t.text = arg0.NewDaytimeInMinutes.ToString();
+        t.text = TimeHandler.GameMinutesToFormatted(arg0.NewDaytimeInMinutes);
     }
 
     // Update is called once per frame
