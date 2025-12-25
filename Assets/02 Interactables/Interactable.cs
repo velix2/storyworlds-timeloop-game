@@ -54,8 +54,10 @@ public abstract class Interactable : MonoBehaviour
     public virtual bool ItemInteraction(ItemData otherItem)
     {
         //TODO: Default dialogue if items are not applicable (failsafe if otherwise not defined)
+        Debug.Log($"You tried to use {otherItem} on {name}");
         return false;
     }
+
     public abstract void Highlight();
     public abstract void Unhighlight();
     

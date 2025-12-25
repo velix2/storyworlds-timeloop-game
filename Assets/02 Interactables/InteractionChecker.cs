@@ -95,23 +95,28 @@ public class InteractionChecker : MonoBehaviour
     private void OnPrimaryInteractionInput(Vector3 mousePosition)
     {
         Interactable interactable = CheckInteractionHit(mousePosition);
-        
-        if (selectedItem != null)
+
+        if (interactable != null && interactable.inRange)
         {
-            var usedUp = interactable?.ItemInteraction(selectedItem);
-            if (usedUp.HasValue && usedUp.Value)
+            if (selectedItem != null)
             {
-                ItemExhausted.Invoke(selectedItem);
+                var usedUp = interactable?.ItemInteraction(selectedItem);
+                if (usedUp.HasValue && usedUp.Value)
+                {
+                    ItemExhausted.Invoke(selectedItem);
+                }
+                DeselectItem();
+                return;
             }
-            DeselectItem();
+            interactable?.PrimaryInteraction();
         }
-        interactable?.PrimaryInteraction();
     }
     private void OnSecondaryInteractionInput(Vector3 mousePosition)
     {
         if (selectedItem != null)
         {
             DeselectItem();
+            return;
         }
         CheckInteractionHit(mousePosition)?.SecondaryInteraction();
     }
