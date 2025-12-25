@@ -1,9 +1,9 @@
 Marcus Handy beginnt zu klingeln.
 Es war seine Ex-Frau.
 Für einen Moment überlegt Marcus, ob er rangehen soll.
-    + Rangehen
+    + [Rangehen]
     -> call
-    + Auflegen
+    + [Auflegen]
 Marcus drückt den Anruf weg und betritt den Laden
 -> END
 
