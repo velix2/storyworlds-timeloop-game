@@ -13,5 +13,10 @@ namespace NPCs.NpcCharacter.NpcCharacterState
         /// Invoked when this state becomes active.
         /// </summary>
         public abstract void OnStateBecameActive();
+        
+        /// <summary>
+        /// Invoked when this state becomes inactive.
+        /// </summary>
+        public virtual void OnStateExit() { }
     }
 }

@@ -27,6 +27,10 @@ namespace NPCs.NpcCharacter.NpcCharacterState
         
         public override void OnUpdate()
         {
+            if (Character.IsAtDestination)
+            {
+                Character.UpdateState(new NpcCharacterStateIdle());
+            }
         }
 
         public override void OnStateBecameActive()

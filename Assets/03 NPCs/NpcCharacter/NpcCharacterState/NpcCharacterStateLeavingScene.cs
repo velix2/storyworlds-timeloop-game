@@ -25,6 +25,11 @@ namespace NPCs.NpcCharacter.NpcCharacterState
 
         public override void OnUpdate()
         {
+            if (Character.IsAtDestination)
+            {
+                // Character leaves scene, delete game object.
+                GameObject.Destroy(Character.gameObject);
+            }
         }
 
         public override void OnStateBecameActive()

@@ -16,7 +16,7 @@ namespace NPCs
     public class NpcHandler : MonoBehaviour
     {
         /// <summary>
-        /// List of all NPCs that are in the game world. Currently a list of NPC ids.
+        /// List of all NPCs that are in the game world.
         /// </summary>
         [SerializeField] private List<NpcModel> npcsToManage;
 
