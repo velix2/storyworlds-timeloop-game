@@ -5,14 +5,14 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public delegate void MouseInteraction(Vector3 position);
-
     public static event MouseInteraction PrimaryInteraction;
     public static event MouseInteraction SecondaryInteraction;
     
     private static InputManager _instance;
     private PlayerInputStandard playerControls;
+    public static PlayerInputStandard PlayerControls => _instance.playerControls;
 
-    
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -32,7 +32,6 @@ public class InputManager : MonoBehaviour
         playerControls.Standard.PrimaryInteract.performed += SignalPrimaryInteraction;
         playerControls.Standard.SecondaryInteract.performed += SignalSecondaryInteraction;
         
-        Debug.Log(_instance);
     }
 
     private void OnEnable()

@@ -41,6 +41,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "InventoryOpen",
+                    "type": "Button",
+                    "id": "63e9cf76-2937-4335-81de-df6dc2f70514",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "InventoryClose",
+                    "type": "Button",
+                    "id": "ca08d8d6-fd93-4fbf-8f0e-8d67337545f4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HighlightAllInteractables",
+                    "type": "PassThrough",
+                    "id": "78cbe8f8-a095-49d0-840d-b61e0d8e50f8",
+                    "expectedControlType": "DiscreteButton",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -129,6 +156,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "SecondaryInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "857da9e7-f28f-4ff3-9bec-2c7d4b2c1157",
+                    "path": "<Mouse>/scroll/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InventoryOpen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "50a3c2b7-d577-4a5b-8979-fa3a68039e8d",
+                    "path": "<Mouse>/scroll/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InventoryClose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bdf48e5d-9ad1-40e8-9489-8b2be2847146",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Hold(duration=1E+30)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HighlightAllInteractables",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
