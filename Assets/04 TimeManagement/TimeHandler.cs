@@ -24,7 +24,40 @@ namespace TimeManagement
         [Tooltip("Defines how long a game day is, i.e. after how many in game minutes the day resets")] [SerializeField]
         private int dayLengthInMinutes = 16 * 60;
 
+        [Space] [Tooltip("Defines when morning begins in day minutes, i.e. 8*60 = 8:00")] [SerializeField]
+        private int morningBeginInMinutes = 8 * 60;
+
+        [Tooltip("Defines when afternoon begins in day minutes, i.e. 13*60 = 14:00")] [SerializeField]
+        private int afternoonBeginInMinutes = 13 * 60;
+        
+        [Tooltip("Defines when evening begins in day minutes, i.e. 15*60 + 30 = 15:30")] [SerializeField]
+        private int eveningBeginInMinutes = 15 * 60 + 30;
+        
+        [Tooltip("Defines when night begins in day minutes, i.e. 17*60 = 17:00")] [SerializeField]
+        private int nightBeginInMinutes = 17 * 60;
+        
         public int CurrentTime { get; private set; }
+
+        /// <summary>
+        /// Stores prev phase to detect when daytime phase changes for event invocation
+        /// </summary>
+        private DaytimePhase _prevPhase = DaytimePhase.Night;
+        
+        /// <summary>
+        /// Returns the current daytime phase.
+        /// </summary>
+        public DaytimePhase CurrentDaytimePhase
+        {
+            get
+            {
+                var t = CurrentTime;
+                if (t < morningBeginInMinutes) return DaytimePhase.Night;
+                if (t < afternoonBeginInMinutes) return DaytimePhase.Morning;
+                if (t < eveningBeginInMinutes) return DaytimePhase.Afternoon;
+                if (t < nightBeginInMinutes) return DaytimePhase.Evening;
+                return DaytimePhase.Night;
+            }
+        }
 
         #region Singleton
 
@@ -51,13 +84,7 @@ namespace TimeManagement
         }
 
         #endregion
-
-        private void OnEnable()
-        {
-            // Subscribe to own event for cleanup
-            onDayEnded.AddListener(ResetForNextCycle);
-        }
-
+        
         #region Events
 
         /// <summary>
@@ -71,19 +98,43 @@ namespace TimeManagement
         public UnityEvent onDayEnded = new();
 
         /// <summary>
-        /// Reports a passing of time, which will result in onTimePassed being invoked.
+        /// Invoked when day phase changes. Sends the new phase as payload.
+        /// Can be used for visual changes.
+        /// </summary>
+        public UnityEvent<DaytimePhase> onDayPhaseChanged = new();
+        
+        private void OnEnable()
+        {
+            // Subscribe to own event for cleanup
+            onDayEnded.AddListener(ResetForNextCycle);
+        }
+
+        private void Start()
+        {
+            // Send one initial PassTime for Setup
+            PassTime(0);
+        }
+
+        /// <summary>
+        /// Reports a passing of time, which will result in onTimePassed being invoked, as well as onDayEnded, if the day ended.
+        /// Also invokes onDaytimePhaseChanged, if daytime phase changed.
         /// </summary>
         /// <param name="minutes"></param>
         public void PassTime(int minutes)
         {
-            CurrentTime = CurrentTime + minutes;
+            CurrentTime += minutes;
 
             var dayHasEnded = CurrentTime >= dayStartTimeInMinutes + dayLengthInMinutes;
-            var payload = new TimePassedEventPayload(minutes, CurrentTime, dayHasEnded);
+            var currentDaytimePhase = CurrentDaytimePhase;
+            var payload = new TimePassedEventPayload(minutes, CurrentTime, dayHasEnded, currentDaytimePhase);
 
             onTimePassed?.Invoke(payload);
             
             if (dayHasEnded) onDayEnded?.Invoke();
+
+            if (currentDaytimePhase == _prevPhase) return;
+            _prevPhase = currentDaytimePhase;
+            onDayPhaseChanged?.Invoke(currentDaytimePhase);
         }
 
         /// <summary>
@@ -93,9 +144,12 @@ namespace TimeManagement
         {
             // Inform Scene Management to load starting scene
             SceneManager.LoadScene(GameData.StartingSceneName);
-
+            
             // Reset time to day start
             CurrentTime = dayStartTimeInMinutes;
+            
+            // Send a Pass Time signal with 0 mins just for proper set up of all events etc.
+            PassTime(0);
 
             // TODO all the other stuff we will need to do
         }

@@ -20,11 +20,17 @@ namespace TimeManagement
         /// </summary>
         public readonly bool DayHasEnded;
 
-        public TimePassedEventPayload(int minutesDelta, int newDaytimeInMinutes, bool dayHasEnded)
+        /// <summary>
+        /// The daytime phase of the current time
+        /// </summary>
+        public readonly DaytimePhase DaytimePhase;
+
+        public TimePassedEventPayload(int minutesDelta, int newDaytimeInMinutes, bool dayHasEnded, DaytimePhase daytimePhase)
         {
             MinutesDelta = minutesDelta;
             NewDaytimeInMinutes = newDaytimeInMinutes;
             DayHasEnded = dayHasEnded;
+            DaytimePhase = daytimePhase;
         }
     }
 }
