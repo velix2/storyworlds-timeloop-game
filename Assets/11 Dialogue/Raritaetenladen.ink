@@ -1,4 +1,4 @@
-Marcus Handy beginnt zu klingeln. #speaker:narrator #portrait:none
+Marcus Handy beginnt zu klingeln. #speaker:narrator
 Es war seine Ex-Frau.
 Für einen Moment überlegt Marcus, ob er rangehen soll.
     + [Rangehen]
@@ -9,11 +9,11 @@ Marcus drückt den Anruf weg und betritt den Laden
 
 
 === call ===
-Hallo? #speaker:Marcus #portrait:marcus_normal
-Hallo? Marcus? #speaker:Marcus' Frau #portrait:marcus_handy
-Was gibt's? #speaker:Marcus #portrait:marcus_normal
-Wann kommst du mal wieder nach Hause? #speaker:Marcus' Frau #portrait:marcus_handy
+Hallo? #speaker:marcus #emotion:NORMAL
+Hallo? Marcus? #speaker:marcus_handy #emotion:NORMAL
+Was gibt's?  #speaker:marcus #emotion:NORMAL
+Wann kommst du mal wieder nach Hause? #speaker:marcus_handy #emotion:NORMAL
 Leon vermisst dich schon.
-Ich hab doch gesagt am Ende der Woche! #speaker:Marcus #portrait:marcus_annoyed
-Frustriert legt Marcus auf. #speaker:narrator #portrait:none
+Ich hab doch gesagt am Ende der Woche! #speaker:marcus #emotion:ANNOYED
+Frustriert legt Marcus auf. #speaker:narrator
 -> DONE

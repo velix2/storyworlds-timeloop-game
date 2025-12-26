@@ -1,4 +1,5 @@
 using Ink.Runtime;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,8 +28,11 @@ public class DialogueManager : MonoBehaviour
 
     // Ink Tags
     private const string SPEAKER_TAG = "speaker";
-    private const string PORTRAIT_TAG = "portrait";
+    private const string EMOTION_TAG = "emotion";
     //private const string AUDIO_TAG = "audio";
+
+    [SerializeField] private SpeakerManager speakerManager;
+
 
     private void Awake()
     {
@@ -108,6 +112,7 @@ public class DialogueManager : MonoBehaviour
 
     private void HandleTags(List<string> currentTags)
     {
+        string speaker_id = "";
         // Loop through each tag and handle it accordingly
         foreach (string tag in currentTags)
         {
@@ -131,20 +136,20 @@ public class DialogueManager : MonoBehaviour
                     }
                     else
                     {
-                        nameText.text = tagValue;
                         ActivatePanels();
+                        speaker_id = tagValue;
+                        speakerManager.SetSpeaker(tagValue, nameText);
                     }
                     break;
-                case PORTRAIT_TAG:
-                    if(tagValue == "none")
+                case EMOTION_TAG:
+                    if(Enum.TryParse(tagValue, out Emotion emotion))
                     {
-                        DeactivatePanels();
+                        ActivatePanels();
+                        speakerManager.SetSpeakerEmotion(speaker_id, emotion, speakerImage);
                     }
                     else
-                    {   
-                        ActivatePanels();
-                        Sprite newSprite = Resources.Load<Sprite>("PortraitSprites/" + tagValue);
-                        speakerImage.sprite = newSprite;
+                    {
+                        Debug.LogError("Invalid emotion tag was parsed!");
                     }
                     break; 
                 default:
