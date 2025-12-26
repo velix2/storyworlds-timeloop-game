@@ -144,7 +144,7 @@ namespace TimeManagement
         {
             // Inform Scene Management to load starting scene
             SceneManager.LoadScene(GameData.StartingSceneName);
-
+            
             // Reset time to day start
             CurrentTime = dayStartTimeInMinutes;
             
