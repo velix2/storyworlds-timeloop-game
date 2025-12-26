@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,11 +9,11 @@ using UnityEngine.Events;
 public class InventoryManager : MonoBehaviour
 {
     private InventoryDisplay display;
-    public List<ItemData> items = new List<ItemData>();
+    [SerializeField] private List<ItemData> items = new List<ItemData>();
+    [SerializeField] private List<RecipeData> recipes = new List<RecipeData>();
 
     public UnityEvent<ItemData> ItemSelected => display.ItemBoxPrimaryInteract;
     public UnityEvent<ItemData> ItemObserved => display.ItemBoxSecondaryInteract;
-    
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class InventoryManager : MonoBehaviour
         {
             display.AddItemToDisplay(itemData);
         }
+        
     }
 
     /// <summary>
@@ -42,6 +44,7 @@ public class InventoryManager : MonoBehaviour
     /// <returns></returns>
     public bool AddItem(ItemData item)
     {
+        if (item.MultiplePossible) item = item.MakeCopy();
         items.Add(item);
         display.AddItemToDisplay(item);
         
@@ -78,7 +81,39 @@ public class InventoryManager : MonoBehaviour
 
     private void OnAttemptItemCombination(ItemData a, ItemData b)
     {
-        Debug.Log("Attempting to combine " + a + " with " + b + ".");
+        Debug.Log("Attempting to combine " + a + " with " + b + "...");
+        RecipeData recipe = GetCompatibleRecipe(a, b);
+        if (recipe != null)
+        {
+            Debug.Log("Success! New Item: " + recipe.Product);
+            if (recipe.GetsDestroyed1)
+            {
+                if (recipe.Ingredient1.Equals(a)) RemoveItem(a);
+                else RemoveItem(b);
+            }
+
+            if (recipe.GetsDestroyed2)
+            {
+                if (recipe.Ingredient2.Equals(a)) RemoveItem(a);
+                else RemoveItem(b);
+            }
+            AddItem(recipe.Product);
+        }
+    }
+
+    /// <summary>
+    /// Method searches in internal Recipe list for compatible Recipe.
+    /// </summary>
+    /// <returns>Returns the first Recipe, which uses both given Items.
+    /// Will return null if there is none.</returns>
+    public RecipeData GetCompatibleRecipe(ItemData a, ItemData b)
+    {
+        foreach (RecipeData recipe in recipes)
+        {
+            if (recipe.IngredientsCompatible(a, b)) return recipe;
+            
+        }
+        return null;
     }
     
 }

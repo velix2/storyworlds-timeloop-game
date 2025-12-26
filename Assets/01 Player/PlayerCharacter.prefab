@@ -313,7 +313,6 @@ MonoBehaviour:
   highlightZone: {fileID: 6432864729141488014}
   drawInteractionZone: 0
   drawHighlightZone: 0
-  debugBall: {fileID: 0}
 --- !u!114 &7694070103154000449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,10 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b1c319c25cf0f4fbe44caeec5422a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  items:
-  - {fileID: 11400000, guid: 1f4b0707683f00b4fac1e48a23463d45, type: 2}
-  - {fileID: 11400000, guid: 1973c01166c65234b93c19f80a3b8419, type: 2}
-  - {fileID: 11400000, guid: 9a3e32aa7969c9c489cb20832d76d008, type: 2}
+  items: []
+  recipes: []
 --- !u!1 &4105160788437447740
 GameObject:
   m_ObjectHideFlags: 0

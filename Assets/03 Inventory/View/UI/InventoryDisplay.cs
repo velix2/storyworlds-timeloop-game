@@ -17,11 +17,12 @@ public class InventoryDisplay : MonoBehaviour
 
     private ItemBox[] itemBoxes;
     private byte nextEmptyIndex = 0;
+    public int Capacity => itemBoxes.Length;
     
     private void Awake()
     {
         itemBoxes = itemBoxContainer.GetComponentsInChildren<ItemBox>();
-        for (byte i = 0; i <  itemBoxes.Length; i++)
+        for (byte i = 0; i <  Capacity; i++)
         {
             itemBoxes[i].RemoveDisplayedItem();
             itemBoxes[i].BoxClickedPrimary.AddListener(OnItemBoxClickedPrimary);
@@ -69,9 +70,9 @@ public class InventoryDisplay : MonoBehaviour
     public ItemData RemoveItemToDisplay(ItemData item)
     {
         int index = -1;
-        for (byte i = 0; i <  itemBoxes.Length; i++)
+        for (byte i = 0; i < Capacity; i++)
         {
-            if (itemBoxes[i].heldItem == item)
+            if (itemBoxes[i].heldItem.Equals(item))
             {
                 index = i;
                 break;
@@ -84,10 +85,10 @@ public class InventoryDisplay : MonoBehaviour
             return null;
         }
         
-        
+        print(index);
         ItemData result = itemBoxes[index].heldItem;
         
-        while (index + 1 < itemBoxes.Length && itemBoxes[index + 1].heldItem != null )
+        while (index + 1 < Capacity && itemBoxes[index + 1].heldItem != null )
         {
             itemBoxes[index].DisplayItem(itemBoxes[index + 1].heldItem);
             index++;

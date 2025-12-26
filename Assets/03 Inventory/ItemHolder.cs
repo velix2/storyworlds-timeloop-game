@@ -17,7 +17,7 @@ public class ItemHolder : InteractableThreeDimensional
 
     public override void SecondaryInteraction()
     {
-        //TODO: Display observationText from itemData
+        //TODO: Display observationText from itemData, dialogue system needed
     }
     
     
