@@ -36,8 +36,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (DialogueManager.GetInstance().dialogueIsPlaying) return;
-        
+        if(DialogueManager.GetInstance() != null)
+        {
+            if (DialogueManager.GetInstance().dialogueIsPlaying) return;
+        }
+
         if (!movementBlocked)
         {
             Vector2 input = InputManager.GetPlayerMovement();
