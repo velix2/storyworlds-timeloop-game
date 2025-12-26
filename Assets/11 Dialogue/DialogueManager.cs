@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     private Story currentStory;
 
     public bool dialogueIsPlaying { get; private set; }
+    public bool isChoice {  get; private set; }
 
     // Ink Tags
     private const string SPEAKER_TAG = "speaker";
@@ -157,6 +158,11 @@ public class DialogueManager : MonoBehaviour
     {
         List<Choice> currentChoices = currentStory.currentChoices;
 
+        if (currentChoices.Count > 0)
+        {
+            isChoice = true;
+        }
+
         // UI can support up to 3 choices
         if (currentChoices.Count > choices.Length)
         {
@@ -182,6 +188,7 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int index)
     {
         currentStory.ChooseChoiceIndex(index);
+        isChoice = false;
         ContinueStory();
     }
 
