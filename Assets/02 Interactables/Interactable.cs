@@ -3,19 +3,6 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-/// <summary>
-/// Helper class to have a handle on OutlineMaterials.
-/// </summary>
-public static class OutlineMaterial
-{
-    public static readonly Material material2d;
-
-    static OutlineMaterial()
-    {
-        material2d = Resources.Load<Material>("2D Highlighting Shaders/Outline_2D");
-    }
-}
-
 
 public abstract class Interactable : MonoBehaviour
 {
@@ -35,6 +22,19 @@ public abstract class Interactable : MonoBehaviour
     }
     #endregion
 
+    [Header("Outline")] 
+    public virtual Color OutlineColor
+    {
+        get;
+        set;
+    } = Color.white;
+
+    public virtual float OutlineWidth
+    {
+        get;
+        set;
+    } = 2.0f;
+    
     /// <summary>
     /// Bool used to determine if Interactable is in range of the player.<br/>
     /// Don't use it, can be overwritten by InteractionChecker.
