@@ -1,11 +1,25 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace TimeManagement
 {
     public abstract class DaytimePhaseChangeSubscriber<T> : MonoBehaviour
     {
-        [SerializeField] private T elementMorning, elementAfternoon, elementEvening, elementNight;
+        [Tooltip("The element that will be applied at morning")] [SerializeField]
+        private T elementMorning;
+
+        [Tooltip("The element that will be applied at afternoon")] [SerializeField]
+        private T elementAfternoon;
+
+        [Tooltip("The element that will be applied at evening")] [SerializeField]
+        private T elementEvening;
+
+        [Tooltip("The element that will be applied at night")] [SerializeField]
+        private T elementNight;
+
+        [SerializeField] private float invocationDelaySeconds;
+        
 
         private void OnEnable()
         {
@@ -20,14 +34,14 @@ namespace TimeManagement
         }
 
         /// <summary>
-        /// Replacement for OnEnable(). Works exactly the same.
+        /// Replacement for <see cref="OnEnable"/>. Works exactly the same.
         /// </summary>
         protected virtual void AfterOnEnable()
         {
         }
 
         /// <summary>
-        /// Replacement for OnDisable(). Works exactly the same.
+        /// Replacement for <see cref="OnDisable"/>. Works exactly the same.
         /// </summary>
         protected virtual void AfterOnDisable()
         {
@@ -45,20 +59,26 @@ namespace TimeManagement
             switch (phase)
             {
                 case DaytimePhase.Night:
-                    ApplyElement(elementNight, DaytimePhase.Night);
+                    StartCoroutine(ApplyElementWrapperCoroutine(elementNight, DaytimePhase.Night));
                     break;
                 case DaytimePhase.Morning:
-                    ApplyElement(elementMorning, DaytimePhase.Morning);
+                    StartCoroutine(ApplyElementWrapperCoroutine(elementMorning, DaytimePhase.Morning));
                     break;
                 case DaytimePhase.Afternoon:
-                    ApplyElement(elementAfternoon, DaytimePhase.Afternoon);
+                    StartCoroutine(ApplyElementWrapperCoroutine(elementAfternoon, DaytimePhase.Afternoon));
                     break;
                 case DaytimePhase.Evening:
-                    ApplyElement(elementEvening, DaytimePhase.Evening);
+                    StartCoroutine(ApplyElementWrapperCoroutine(elementEvening, DaytimePhase.Evening));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(phase), phase, null);
             }
+        }
+
+        private IEnumerator ApplyElementWrapperCoroutine(T elem, DaytimePhase phase)
+        {
+            yield return new WaitForSeconds(invocationDelaySeconds);
+            ApplyElement(elem, phase);
         }
     }
 }
