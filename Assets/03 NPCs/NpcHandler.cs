@@ -105,7 +105,7 @@ namespace NPCs
             foreach (var npcModel in npcModelsToSpawn)
             {
                 var previousRoutineElement = npcModel.CurrentRoutine.GetPreviousRoutineElement(daytime);
-                var previousScene = previousRoutineElement.TargetScene;
+                var previousScene = previousRoutineElement?.TargetScene;
 
                 var currentRoutineElement = npcModel.CurrentRoutine.GetCurrentRoutineElement(daytime);
                 var currentScene = currentRoutineElement.TargetScene;
@@ -114,8 +114,19 @@ namespace NPCs
                 var npcCharacterComponent = Instantiate(npcModel.Prefab).GetComponent<NpcCharacter.NpcCharacter>();
                 npcCharacterComponent.Model = npcModel;
 
-                npcCharacterComponent.UpdateState(
-                    new NpcCharacterStateEnteringScene(previousScene, currentScene, targetLocation));
+                if (previousScene is not null)
+                {
+                    npcCharacterComponent.UpdateState(
+                        new NpcCharacterStateEnteringScene(previousScene, currentScene, targetLocation));
+                }
+                else
+                {
+                    npcCharacterComponent.UpdateState(
+                        new NpcCharacterStateIdle());
+                    npcCharacterComponent.transform.position = targetLocation;
+
+                }
+
                 _npcViewsInCurrentScene.Add(npcCharacterComponent);
             }
         }

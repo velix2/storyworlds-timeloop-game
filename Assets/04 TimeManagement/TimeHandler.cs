@@ -1,3 +1,4 @@
+using System;
 using DataClasses;
 using UnityEngine;
 using UnityEngine.Events;
@@ -83,13 +84,7 @@ namespace TimeManagement
         }
 
         #endregion
-
-        private void OnEnable()
-        {
-            // Subscribe to own event for cleanup
-            onDayEnded.AddListener(ResetForNextCycle);
-        }
-
+        
         #region Events
 
         /// <summary>
@@ -108,6 +103,18 @@ namespace TimeManagement
         /// </summary>
         public UnityEvent<DaytimePhase> onDayPhaseChanged = new();
         
+        private void OnEnable()
+        {
+            // Subscribe to own event for cleanup
+            onDayEnded.AddListener(ResetForNextCycle);
+        }
+
+        private void Start()
+        {
+            // Send one initial PassTime for Setup
+            PassTime(0);
+        }
+
         /// <summary>
         /// Reports a passing of time, which will result in onTimePassed being invoked, as well as onDayEnded, if the day ended.
         /// Also invokes onDaytimePhaseChanged, if daytime phase changed.
