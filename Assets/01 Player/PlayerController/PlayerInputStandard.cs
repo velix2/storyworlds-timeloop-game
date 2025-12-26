@@ -154,6 +154,15 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ContinueDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""65794303-665b-409e-a019-5d03efbe5fbe"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -277,6 +286,17 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""action"": ""HighlightAllInteractables"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03ac9e4f-ac84-439b-8951-095eca0fc90d"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ContinueDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -292,6 +312,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         m_Standard_InventoryOpen = m_Standard.FindAction("InventoryOpen", throwIfNotFound: true);
         m_Standard_InventoryClose = m_Standard.FindAction("InventoryClose", throwIfNotFound: true);
         m_Standard_HighlightAllInteractables = m_Standard.FindAction("HighlightAllInteractables", throwIfNotFound: true);
+        m_Standard_ContinueDialogue = m_Standard.FindAction("ContinueDialogue", throwIfNotFound: true);
     }
 
     ~@PlayerInputStandard()
@@ -379,6 +400,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_InventoryOpen;
     private readonly InputAction m_Standard_InventoryClose;
     private readonly InputAction m_Standard_HighlightAllInteractables;
+    private readonly InputAction m_Standard_ContinueDialogue;
     /// <summary>
     /// Provides access to input actions defined in input action map "Standard".
     /// </summary>
@@ -418,6 +440,10 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Standard/HighlightAllInteractables".
         /// </summary>
         public InputAction @HighlightAllInteractables => m_Wrapper.m_Standard_HighlightAllInteractables;
+        /// <summary>
+        /// Provides access to the underlying input action "Standard/ContinueDialogue".
+        /// </summary>
+        public InputAction @ContinueDialogue => m_Wrapper.m_Standard_ContinueDialogue;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -465,6 +491,9 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @HighlightAllInteractables.started += instance.OnHighlightAllInteractables;
             @HighlightAllInteractables.performed += instance.OnHighlightAllInteractables;
             @HighlightAllInteractables.canceled += instance.OnHighlightAllInteractables;
+            @ContinueDialogue.started += instance.OnContinueDialogue;
+            @ContinueDialogue.performed += instance.OnContinueDialogue;
+            @ContinueDialogue.canceled += instance.OnContinueDialogue;
         }
 
         /// <summary>
@@ -497,6 +526,9 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @HighlightAllInteractables.started -= instance.OnHighlightAllInteractables;
             @HighlightAllInteractables.performed -= instance.OnHighlightAllInteractables;
             @HighlightAllInteractables.canceled -= instance.OnHighlightAllInteractables;
+            @ContinueDialogue.started -= instance.OnContinueDialogue;
+            @ContinueDialogue.performed -= instance.OnContinueDialogue;
+            @ContinueDialogue.canceled -= instance.OnContinueDialogue;
         }
 
         /// <summary>
@@ -586,5 +618,12 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHighlightAllInteractables(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ContinueDialogue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnContinueDialogue(InputAction.CallbackContext context);
     }
 }

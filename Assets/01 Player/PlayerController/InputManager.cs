@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
 
     private static InputManager _instance;
     private PlayerInputStandard playerControls;
+    public static PlayerInputStandard PlayerControls => _instance.playerControls;
 
 
     private void Awake()
