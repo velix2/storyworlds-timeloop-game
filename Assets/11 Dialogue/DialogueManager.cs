@@ -89,7 +89,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueStory()
     {
-        if (!dialogueIsPlaying) return;
+        if (!dialogueIsPlaying || isChoice) return;
 
         if (currentStory.canContinue)
         {

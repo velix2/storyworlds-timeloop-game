@@ -71,11 +71,13 @@ public class InputManager : MonoBehaviour
 
     private void SignalPrimaryInteraction(InputAction.CallbackContext context)
     {
+        if (DialogueManager.GetInstance().dialogueIsPlaying) return;
         PrimaryInteraction?.Invoke(GetMousePosition());
     }
 
     private void SignalSecondaryInteraction(InputAction.CallbackContext context)
     {
+        if (DialogueManager.GetInstance().dialogueIsPlaying) return;
         SecondaryInteraction?.Invoke(GetMousePosition());
     }
     private void SignalDialogueContinue(InputAction.CallbackContext context)
