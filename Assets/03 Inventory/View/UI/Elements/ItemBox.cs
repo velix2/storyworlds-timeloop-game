@@ -5,12 +5,12 @@ using UnityEngine.UI;
 public class ItemBox : InteractableUI
 {
     [SerializeField] private Image image;
-    
-    [Header("Debug")]
-    public byte id;
 
-    public UnityEvent<int> BoxClickedPrimary;
-    public UnityEvent<int> BoxClickedSecondary;
+    [Header("Debug")] public ItemData heldItem;
+
+    public UnityEvent<ItemData> BoxClickedPrimary;
+    public UnityEvent<ItemData> BoxClickedSecondary;
+    
     
     public void DisplayItem(ItemData item)
     {
@@ -20,6 +20,7 @@ public class ItemBox : InteractableUI
         }
         else
         {
+            heldItem = item;
             image.sprite = item.Sprite;
             image.raycastTarget = true;
             Color c = image.color;
@@ -43,17 +44,20 @@ public class ItemBox : InteractableUI
 
     public override void PrimaryInteraction()
     {
-        BoxClickedPrimary.Invoke(id);
+        BoxClickedPrimary.Invoke(heldItem);
     }
 
     public override void SecondaryInteraction()
     {
-        BoxClickedSecondary.Invoke(id);
+        BoxClickedSecondary.Invoke(heldItem);
     }
-    
     public override bool ItemInteraction(ItemData otherItem)
     {
-        //TODO: Item Combination
+        if (otherItem != heldItem)
+        //InventoryManager will handle the compatibility for combination and the removal if needed
+        ItemData.AttemptItemCombination.Invoke(heldItem, otherItem);
+        
+        //don't let InteractionChecker handle the removal
         return false;
     }
 }

@@ -81,10 +81,12 @@ public class InteractionChecker : MonoBehaviour
     /// <param name="interactable"></param>
     private void HighlightSingle(Interactable interactable)
     {
-        //changing highlightedInteractable, if not already highlighted
+        //different interactable than the one highlighted
         if (interactable != null && interactable != highlightedInteractable)
         {
-            CursorManager.ChangeCursorInteraction(interactable);
+            if (selectedItem) CursorManager.SetTransparency(interactable.inRange);
+            else CursorManager.ChangeCursorInteraction(interactable);
+            
             if (!highlightingAll)
             {
                 highlightedInteractable?.Unhighlight();
@@ -95,7 +97,9 @@ public class InteractionChecker : MonoBehaviour
         //no interactable to highlight
         else if (interactable == null && highlightedInteractable != null)
         {
-            CursorManager.ResetCursor();
+            if (selectedItem) CursorManager.SetTransparency(false);
+            else CursorManager.ResetCursor();
+            
             if (!highlightingAll)
             {
                 highlightedInteractable.Unhighlight();
@@ -161,17 +165,22 @@ public class InteractionChecker : MonoBehaviour
     /// <param name="mousePosition"></param>
     private void OnPrimaryInteractionInput(Vector3 mousePosition)
     {
-        if (highlightedInteractable != null && (!highlightedInteractable.PrimaryNeedsInRange || highlightedInteractable.inRange))
+        if (highlightedInteractable != null)
         {
             if (selectedItem != null)
             {
-                if (highlightedInteractable.ItemInteraction(selectedItem))
+                if (highlightedInteractable.inRange)
                 {
-                    ItemExhausted.Invoke(selectedItem);
+                    if (highlightedInteractable.ItemInteraction(selectedItem))
+                    {
+                        ItemExhausted.Invoke(selectedItem);
+                    
+                    }
+                    DeselectItem();
                 }
-                DeselectItem();
             }
-            else highlightedInteractable.PrimaryInteraction();
+            else if (!highlightedInteractable.PrimaryNeedsInRange || highlightedInteractable.inRange)
+                highlightedInteractable.PrimaryInteraction();
             //after usage the state of the interactable might change, and therefore the type of interactions possible.
             //if the player still has the mouse hovered over it the old interactions would be displayed
             //here is the fix:

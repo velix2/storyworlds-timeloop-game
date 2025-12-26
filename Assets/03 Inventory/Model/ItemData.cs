@@ -1,8 +1,15 @@
+using System;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "Resource/ItemData", fileName = "New ItemData")]
+[CreateAssetMenu(menuName = "Resource/ItemData", fileName = "New ItemData")][Serializable]
 public class ItemData : ScriptableObject
 {
+
+    public static UnityEvent<ItemData, ItemData> AttemptItemCombination = new();
+    
     [SerializeField] private string itemName;
     public string ItemName => itemName;
 

@@ -19,7 +19,8 @@ public abstract class InteractableUI : Interactable
         {
             base.Awake();
             
-            imageToOutline.material = SetupMaterial(OutlineMaterial.material2d);;
+            imageToOutline.material = SetupMaterial(OutlineMaterial.material2d);
+            inRange = true;
         }
 
         /// <summary>

@@ -16,7 +16,6 @@ public class InventoryDisplay : MonoBehaviour
     private CanvasGroup canvasGroup;
 
     private ItemBox[] itemBoxes;
-    private ItemData[] itemMap;
     private byte nextEmptyIndex = 0;
     
     private void Awake()
@@ -24,14 +23,11 @@ public class InventoryDisplay : MonoBehaviour
         itemBoxes = itemBoxContainer.GetComponentsInChildren<ItemBox>();
         for (byte i = 0; i <  itemBoxes.Length; i++)
         {
-            itemBoxes[i].id = i;
             itemBoxes[i].RemoveDisplayedItem();
             itemBoxes[i].BoxClickedPrimary.AddListener(OnItemBoxClickedPrimary);
             itemBoxes[i].BoxClickedSecondary.AddListener(OnItemBoxClickedSecondary);
         }
-
-        itemMap = new ItemData[itemBoxes.Length];
-
+        
         canvasGroup = GetComponent<CanvasGroup>();
 
     }
@@ -67,16 +63,15 @@ public class InventoryDisplay : MonoBehaviour
             return;
         }
         
-        itemBoxes[nextEmptyIndex].DisplayItem(item);
-        itemMap[nextEmptyIndex++] = item;
+        itemBoxes[nextEmptyIndex++].DisplayItem(item);
     }
 
     public ItemData RemoveItemToDisplay(ItemData item)
     {
         int index = -1;
-        for (byte i = 0; i <  itemMap.Length; i++)
+        for (byte i = 0; i <  itemBoxes.Length; i++)
         {
-            if (itemMap[i] == item)
+            if (itemBoxes[i].heldItem == item)
             {
                 index = i;
                 break;
@@ -90,45 +85,41 @@ public class InventoryDisplay : MonoBehaviour
         }
         
         
-        ItemData result = itemMap[index];
+        ItemData result = itemBoxes[index].heldItem;
         
-        while (index + 1 < itemBoxes.Length && itemMap[index + 1] != null )
+        while (index + 1 < itemBoxes.Length && itemBoxes[index + 1].heldItem != null )
         {
-            itemMap[index] = itemMap[index + 1];
-            itemBoxes[index].DisplayItem(itemMap[index]);
-
+            itemBoxes[index].DisplayItem(itemBoxes[index + 1].heldItem);
             index++;
         }
         
-        itemMap[index] = null;
         itemBoxes[index].RemoveDisplayedItem();
-
         nextEmptyIndex = (byte) index;
         
         return result;
     }
     
     #region SignalHandlers
-    private void OnItemBoxClickedPrimary(int id)
+    private void OnItemBoxClickedPrimary(ItemData item)
     {
-        if (itemMap[id] == null)
+        if (item == null)
         {
-            Debug.Log($"Nothing inside the clicked item box with id: {id}.");
+            Debug.Log($"Nothing inside the clicked item box.");
             return;
         }
         
-        ItemBoxPrimaryInteract.Invoke(itemMap[id]);
+        ItemBoxPrimaryInteract.Invoke(item);
     }
 
-    private void OnItemBoxClickedSecondary(int id)
+    private void OnItemBoxClickedSecondary(ItemData item)
     {
-        if (itemMap[id] == null)
+        if (item == null)
         {
-            Debug.Log($"Nothing inside the clicked item box with id: {id}.");
+            Debug.Log($"Nothing inside the clicked item box.");
             return;
         }
         
-        ItemBoxSecondaryInteract.Invoke(itemMap[id]);
+        ItemBoxSecondaryInteract.Invoke(item);
     }
     #endregion
 }

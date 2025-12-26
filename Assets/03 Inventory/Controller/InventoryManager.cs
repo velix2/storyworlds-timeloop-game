@@ -20,8 +20,9 @@ public class InventoryManager : MonoBehaviour
         if (display == null)
         {
             Debug.LogError("InventoryDisplay for Inventory Manager was not found.");
-            return;
         }
+        
+        ItemData.AttemptItemCombination.AddListener(OnAttemptItemCombination);
         
     }
 
@@ -33,6 +34,12 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This is the method you should use if you want to add an Item to Inventory.<br/>
+    /// Will also handle displaying the item.
+    /// </summary>
+    /// <param name="item">Item to be added</param>
+    /// <returns></returns>
     public bool AddItem(ItemData item)
     {
         items.Add(item);
@@ -42,6 +49,11 @@ public class InventoryManager : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// This is the method you should use to remove an Item from Inventory.<br/>
+    /// Will also handle the removal in display.
+    /// </summary>
+    /// <param name="item">Item to be removed</param>
     public void RemoveItem(ItemData item)
     {
         items.Remove(item);
@@ -62,6 +74,11 @@ public class InventoryManager : MonoBehaviour
     public void Close()
     {
         display.HideDisplay();
+    }
+
+    private void OnAttemptItemCombination(ItemData a, ItemData b)
+    {
+        Debug.Log("Attempting to combine " + a + " with " + b + ".");
     }
     
 }

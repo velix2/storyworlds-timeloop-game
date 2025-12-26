@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CursorManager : MonoBehaviour
 {
+    
     /// <summary>
     /// Changes Cursor depending on the given Interactable.<br/>
     /// Used by InteractionChecker.
@@ -10,13 +11,12 @@ public class CursorManager : MonoBehaviour
     /// <param name="interactable">Interactable the cursor should be based on</param>
     public static void ChangeCursorInteraction(Interactable interactable)
     {
-        SetTransparency(interactable.PrimaryNeedsInRange && !interactable.inRange);
         //TODO: get texture and apply to cursor
-        if (interactable == null)
-        {
-            return;
-        }
+        if (interactable == null) return;
+        
+        SetTransparency(interactable.PrimaryNeedsInRange && !interactable.inRange);
         Debug.Log($"Changed cursor! Primary: {interactable.Primary}, Secondary: {interactable.Secondary}");
+        
     }
 
     /// <summary>
