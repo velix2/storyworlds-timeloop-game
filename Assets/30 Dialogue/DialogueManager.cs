@@ -17,6 +17,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject imagePanel;
     [SerializeField] private Image speakerImage;
 
+    [SerializeField] private GameObject playerPanel;
+    [SerializeField] private TextMeshProUGUI playerText;
+    [SerializeField] private Transform playerTransform;
+
+    private Vector3 offset = new Vector3 (0, 1.5f, 0);
+
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
@@ -47,6 +53,8 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+        playerPanel.SetActive(false);
+
         InputManager.ContinueDialogue += ContinueStory;
 
         // Get all choices text
@@ -57,12 +65,6 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>(true);
             index++;
         }
-    }
-
-    private void Update()
-    {
-        if (!dialogueIsPlaying) return;
-
     }
 
     private void OnDisable()
@@ -84,13 +86,43 @@ public class DialogueManager : MonoBehaviour
         ContinueStory();
     }
 
+    public void EnterDialogueModePlayer(TextAsset inkJson)
+    {
+        currentStory = new Story(inkJson.text);
+        dialogueIsPlaying = true;
+        playerPanel.SetActive(true);
+
+        Vector3 playerPosition = playerTransform.position + offset;
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerPosition);
+        playerPanel.transform.position = screenPosition;
+
+        ContinueStoryPlayer();
+    }
+
+
     private void ExitDialogueMode()
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+        playerPanel.SetActive(false);
+        playerText.text = "";
         dialogueText.text = "";
     }
 
+    private void ContinueStoryPlayer()
+    {
+        if (!dialogueIsPlaying || isChoice) return;
+        
+        if(currentStory.canContinue)
+        {
+            playerText.text = currentStory.Continue();
+        }
+        else
+        {
+            ExitDialogueMode();
+        }
+
+    }
     private void ContinueStory()
     {
         if (!dialogueIsPlaying || isChoice) return;
@@ -110,6 +142,7 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    #region Tag handling
     private void HandleTags(List<string> currentTags)
     {
         string speakerID = "";
@@ -158,6 +191,50 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Function to set the speaker's name on the name box
+    /// </summary>
+    /// <param name="speakerID">ID of the current speaker</param>
+    /// <param name="speakerNameText">UI element to be set</param>
+    private void SetSpeakerName(string speakerID, TextMeshProUGUI speakerNameText)
+    {
+        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.GetSpeakerDirectionary();
+        if (speakerDictionary.ContainsKey(speakerID))
+        {
+            SpeakerData speaker = speakerDictionary[speakerID];
+            speakerNameText.text = speaker.speakerName;
+            speakerNameText.color = speaker.color;
+        }
+        else
+        {
+            Debug.LogError("Speaker with ID " + speakerID + " could not be found!");
+        }
+    }
+
+    /// <summary>
+    /// Function to set the portrait of the speaker according to the emotion.
+    /// If the image with given emotion cannot be found, the first image in the list is taken
+    /// </summary>
+    /// <param name="speakerID">ID of current speaker</param>
+    /// <param name="emotion">Emotion to be set</param>
+    /// <param name="portraitImage">UI element to be set</param>
+    private void SetSpeakerEmotion(string speakerID, Emotion emotion, Image portraitImage)
+    {
+        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.GetSpeakerDirectionary();
+        if (speakerDictionary.ContainsKey(speakerID))
+        {
+            SpeakerData speaker = speakerDictionary[speakerID];
+            Sprite portrait = speakerManager.GetSpeakerPortraitByEmotion(speakerID, emotion);
+            portraitImage.sprite = portrait;
+        }
+        else
+        {
+            Debug.LogError("Speaker with ID " + speakerID + " could not be found!");
+        }
+    }
+    #endregion
+
+
 
     private void DisplayChoices()
     {
@@ -209,47 +286,5 @@ public class DialogueManager : MonoBehaviour
         imagePanel.SetActive(true);
     }
 
-    /// <summary>
-    /// Function to set the speaker's name on the name box
-    /// </summary>
-    /// <param name="speakerID">ID of the current speaker</param>
-    /// <param name="speakerNameText">UI element to be set</param>
-    public void SetSpeakerName(string speakerID, TextMeshProUGUI speakerNameText)
-    {
-        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.GetSpeakerDirectionary();
-        if (speakerDictionary.ContainsKey(speakerID))
-        {
-            SpeakerData speaker = speakerDictionary[speakerID];
-            speakerNameText.text = speaker.speakerName;
-            speakerNameText.color = speaker.color;
-        }
-        else
-        {
-            Debug.LogError("Speaker with ID " + speakerID + " could not be found!");
-        }
-    }
-
-    /// <summary>
-    /// Function to set the portrait of the speaker according to the emotion.
-    /// If the image with given emotion cannot be found, the first image in the list is taken
-    /// </summary>
-    /// <param name="speakerID">ID of current speaker</param>
-    /// <param name="emotion">Emotion to be set</param>
-    /// <param name="portraitImage">UI element to be set</param>
-    public void SetSpeakerEmotion(string speakerID, Emotion emotion, Image portraitImage)
-    {
-        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.GetSpeakerDirectionary();
-        if (speakerDictionary.ContainsKey(speakerID))
-        {
-            SpeakerData speaker = speakerDictionary[speakerID];
-            Sprite portrait = speakerManager.GetSpeakerPortraitByEmotion(speakerID, emotion);
-            portraitImage.sprite = portrait;
-        }
-        else
-        {
-            Debug.LogError("Speaker with ID " + speakerID + " could not be found!");
-        }
-    }
-
-
+    
 }

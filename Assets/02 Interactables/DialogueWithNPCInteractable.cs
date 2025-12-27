@@ -7,13 +7,13 @@ public class DialogueWithNPCInteractable : InteractableTwoDimensional
     public override bool PrimaryNeedsInRange => true;
     public override bool SecondaryNeedsInRange => false;
 
-    [SerializeField] private TextAsset inkJson;
+    [SerializeField] private TextAsset[] inkJson;
 
     public override void PrimaryInteraction()
     {
         if(DialogueManager.GetInstance() != null)
         {
-            DialogueManager.GetInstance().EnterDialogueMode(inkJson);
+            DialogueManager.GetInstance().EnterDialogueMode(inkJson[0]);
         }
         else
         {
@@ -24,6 +24,13 @@ public class DialogueWithNPCInteractable : InteractableTwoDimensional
 
     public override void SecondaryInteraction()
     {
-        print("Secondary on TestInteractable");
+        if (DialogueManager.GetInstance() != null)
+        {
+            DialogueManager.GetInstance().EnterDialogueModePlayer(inkJson[1]);
+        }
+        else
+        {
+            Debug.LogError("There is no Dialogue Manager in the scene!");
+        }
     }
 }

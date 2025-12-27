@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     public static event MouseInteraction PrimaryInteraction;
     public static event MouseInteraction SecondaryInteraction;
     public static event DialogueInteraction ContinueDialogue;
+    public static event DialogueInteraction ContinueDialoguePlayer;
 
     private static InputManager _instance;
     private PlayerInputStandard playerControls;
@@ -35,6 +36,7 @@ public class InputManager : MonoBehaviour
         playerControls.Standard.PrimaryInteract.performed += SignalPrimaryInteraction;
         playerControls.Standard.SecondaryInteract.performed += SignalSecondaryInteraction;
         playerControls.Standard.ContinueDialogue.performed += SignalDialogueContinue;
+        playerControls.Standard.ContinueDialoguePlayer.performed += SignalDialogueContinuePlayer;
 
         Debug.Log(_instance);
     }
@@ -83,6 +85,11 @@ public class InputManager : MonoBehaviour
     private void SignalDialogueContinue(InputAction.CallbackContext context)
     {
         ContinueDialogue?.Invoke();  
+    }
+
+    private void SignalDialogueContinuePlayer(InputAction.CallbackContext context)
+    {
+        ContinueDialoguePlayer?.Invoke();
     }
 
 
