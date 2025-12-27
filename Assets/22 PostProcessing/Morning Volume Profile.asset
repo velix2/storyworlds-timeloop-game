@@ -34,6 +34,62 @@ MonoBehaviour:
   highlightsEnd:
     m_OverrideState: 0
     m_Value: 1
+--- !u!114 &-7037403418104898206
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb66dc641fe8ef4c843eb98a8fa4058, type: 3}
+  m_Name: FullScreenFog
+  m_EditorClassIdentifier: Meryuhi.Effects.Fog.Runtime::Meryuhi.Rendering.FullScreenFog
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.244
+  color:
+    m_OverrideState: 1
+    m_Value: {r: 0.48373845, g: 0.48113206, b: 0.6415094, a: 1}
+  densityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  startLine:
+    m_OverrideState: 1
+    m_Value: 2.4
+  endLine:
+    m_OverrideState: 0
+    m_Value: 10
+  startHeight:
+    m_OverrideState: 0
+    m_Value: 5
+  endHeight:
+    m_OverrideState: 0
+    m_Value: 0
+  density:
+    m_OverrideState: 1
+    m_Value: 0.16
+  noiseMode:
+    m_OverrideState: 1
+    m_Value: 1
+  noiseTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  noiseIntensity:
+    m_OverrideState: 0
+    m_Value: 0.593
+  noiseScale:
+    m_OverrideState: 0
+    m_Value: 1
+  noiseScrollSpeed:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,6 +105,7 @@ MonoBehaviour:
   components:
   - {fileID: 1553147508189370463}
   - {fileID: -8122570381210361925}
+  - {fileID: -7037403418104898206}
 --- !u!114 &1553147508189370463
 MonoBehaviour:
   m_ObjectHideFlags: 3
