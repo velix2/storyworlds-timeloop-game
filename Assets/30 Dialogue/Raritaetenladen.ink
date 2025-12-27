@@ -9,7 +9,7 @@ Marcus drückt den Anruf weg und betritt den Laden
 
 
 === call ===
-Hallo? #speaker:marcus #emotion:NORMAL
+Hallo? #speaker:marcus #emotion:SAD
 Hallo? Marcus? #speaker:marcus_handy #emotion:NORMAL
 Was gibt's?  #speaker:marcus #emotion:NORMAL
 Wann kommst du mal wieder nach Hause? #speaker:marcus_handy #emotion:NORMAL

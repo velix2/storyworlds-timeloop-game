@@ -112,7 +112,7 @@ public class DialogueManager : MonoBehaviour
 
     private void HandleTags(List<string> currentTags)
     {
-        string speaker_id = "";
+        string speakerID = "";
         // Loop through each tag and handle it accordingly
         foreach (string tag in currentTags)
         {
@@ -137,15 +137,15 @@ public class DialogueManager : MonoBehaviour
                     else
                     {
                         ActivatePanels();
-                        speaker_id = tagValue;
-                        speakerManager.SetSpeaker(tagValue, nameText);
+                        speakerID = tagValue;
+                        SetSpeakerName(speakerID, nameText);
                     }
                     break;
                 case EMOTION_TAG:
                     if(Enum.TryParse(tagValue, out Emotion emotion))
                     {
                         ActivatePanels();
-                        speakerManager.SetSpeakerEmotion(speaker_id, emotion, speakerImage);
+                        SetSpeakerEmotion(speakerID, emotion, speakerImage);
                     }
                     else
                     {
@@ -207,6 +207,48 @@ public class DialogueManager : MonoBehaviour
     {
         namePanel.SetActive(true);
         imagePanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// Function to set the speaker's name on the name box
+    /// </summary>
+    /// <param name="speakerID">ID of the current speaker</param>
+    /// <param name="speakerNameText">UI element to be set</param>
+    public void SetSpeakerName(string speakerID, TextMeshProUGUI speakerNameText)
+    {
+        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.GetSpeakerDirectionary();
+        if (speakerDictionary.ContainsKey(speakerID))
+        {
+            SpeakerData speaker = speakerDictionary[speakerID];
+            speakerNameText.text = speaker.speakerName;
+            speakerNameText.color = speaker.color;
+        }
+        else
+        {
+            Debug.LogError("Speaker with ID " + speakerID + " could not be found!");
+        }
+    }
+
+    /// <summary>
+    /// Function to set the portrait of the speaker according to the emotion.
+    /// If the image with given emotion cannot be found, the first image in the list is taken
+    /// </summary>
+    /// <param name="speakerID">ID of current speaker</param>
+    /// <param name="emotion">Emotion to be set</param>
+    /// <param name="portraitImage">UI element to be set</param>
+    public void SetSpeakerEmotion(string speakerID, Emotion emotion, Image portraitImage)
+    {
+        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.GetSpeakerDirectionary();
+        if (speakerDictionary.ContainsKey(speakerID))
+        {
+            SpeakerData speaker = speakerDictionary[speakerID];
+            Sprite portrait = speakerManager.GetSpeakerPortraitByEmotion(speakerID, emotion);
+            portraitImage.sprite = portrait;
+        }
+        else
+        {
+            Debug.LogError("Speaker with ID " + speakerID + " could not be found!");
+        }
     }
 
 

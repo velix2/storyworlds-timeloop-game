@@ -14,7 +14,7 @@ public class SpeakerData : ScriptableObject
 public struct Portrait
 {
     public Emotion emotion;
-    public Sprite portrait;
+    public Sprite sprite;
 }
 
 
