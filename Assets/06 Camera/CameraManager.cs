@@ -1,5 +1,6 @@
 using System;
 using Unity.Cinemachine;
+using UnityEditor.U2D.Sprites;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -7,8 +8,25 @@ public class CameraManager : MonoBehaviour
     private static CameraManager instance;
 
     private static CinemachineCamera mainVirtual;
-    private static CinemachineCamera current;
+    private static CinemachineCamera currentVCam;
     private static CinemachineBrain brain;
+
+    private static CinemachineBlendDefinition cutBlend = new CinemachineBlendDefinition(
+        CinemachineBlendDefinition.Styles.Cut,
+        0f);
+
+    private static CinemachineBlendDefinition easeIn = new CinemachineBlendDefinition(
+        CinemachineBlendDefinition.Styles.EaseIn, 1.0f);
+
+    [Serializable]
+    public enum BlendType
+    {
+        DEFAULT,
+        CUT
+    }
+
+    private static BlendType currentBlend;
+    private bool firstBlend = true;
     
     private void Awake()
     {
@@ -19,33 +37,72 @@ public class CameraManager : MonoBehaviour
         }
 
         instance = this;
-        mainVirtual = GameObject.FindGameObjectWithTag("DefaultVirtualCam").GetComponent<CinemachineCamera>();
+        brain = instance.GetComponent<CinemachineBrain>();
     }
 
-    public static void FocusCam(CinemachineCamera cam)
+    public static void FocusCam(CinemachineCamera cam, BlendType blend = BlendType.DEFAULT)
     {
-        mainVirtual.enabled = false;
-        if (current) current.enabled = false;
-        current = cam;
-        current.enabled = true;
+        SetBlend(blend);
+        if (mainVirtual) mainVirtual.enabled = false;
+        if (currentVCam) currentVCam.enabled = false;
+        currentVCam = cam;
+        currentVCam.enabled = true;
     }
 
-    public static void BackToMain()
+    public static void ChangeMainCamera(CinemachineCamera cam, BlendType blend = BlendType.DEFAULT)
     {
-        if (current)
+        SetBlend(blend);
+        if (mainVirtual) mainVirtual.enabled = false;
+        mainVirtual = cam;
+        mainVirtual.enabled = true;
+        Debug.Log("CHanged main cam to: " + mainVirtual);
+    }
+
+    /// <summary>
+    /// Extra version of ChangeMainCamera for CameraZones.<br/>
+    /// Made to have the very first transition in the scene instant cut to avoid awkward camera movement on game start.
+    /// </summary>
+    /// <param name="cam">Camera of the CameraZone</param>
+    public static void OnCameraZoneTransition(CinemachineCamera cam)
+    {
+        if (instance.firstBlend) {
+            ChangeMainCamera(cam, BlendType.CUT);
+            instance.firstBlend = false;
+        }
+        else ChangeMainCamera(cam, BlendType.DEFAULT);
+        
+    }
+
+    public static void BackToMain(BlendType blend = BlendType.DEFAULT)
+    {
+        SetBlend(blend);
+        if (currentVCam)
         {
-            current.enabled = false;
-            current = null;
+            currentVCam.enabled = false;
+            currentVCam = null;
         }
 
         mainVirtual.enabled = true;
     }
-
-    public static void ChangeMainCamera(CinemachineCamera cam)
-    {
-        mainVirtual.enabled = false;
-        mainVirtual = cam;
-        mainVirtual.enabled = true;
-    }
     
+    private static void SetBlend(BlendType blend)
+    {
+        if (currentBlend == blend) return;
+        switch (blend)
+        {
+            case BlendType.CUT:
+                brain.DefaultBlend = cutBlend;
+                break;
+            case BlendType.DEFAULT:
+                brain.DefaultBlend = easeIn;
+                break;
+            default:
+                Debug.Log("Blend setting for \"" + blend + "\" was not defined yet." );
+                break;
+        }
+        currentBlend = blend;
+        print(brain.DefaultBlend.Style);
+    }
+
+
 }
