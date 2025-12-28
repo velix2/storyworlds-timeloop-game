@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7684572385341050933}
   - component: {fileID: 3088400857377086401}
   m_Layer: 0
-  m_Name: Room Virtual Cam
+  m_Name: Inside Virtual Cam
   m_TagString: DefaultVirtualCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

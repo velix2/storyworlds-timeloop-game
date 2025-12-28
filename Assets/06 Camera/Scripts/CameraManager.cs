@@ -26,7 +26,6 @@ public class CameraManager : MonoBehaviour
     }
 
     private static BlendType currentBlend;
-    private bool firstBlend = true;
     
     private void Awake()
     {
@@ -57,22 +56,7 @@ public class CameraManager : MonoBehaviour
         mainVirtual.enabled = true;
         Debug.Log("CHanged main cam to: " + mainVirtual);
     }
-
-    /// <summary>
-    /// Extra version of ChangeMainCamera for CameraZones.<br/>
-    /// Made to have the very first transition in the scene instant cut to avoid awkward camera movement on game start.
-    /// </summary>
-    /// <param name="cam">Camera of the CameraZone</param>
-    public static void OnCameraZoneTransition(CinemachineCamera cam)
-    {
-        if (instance.firstBlend) {
-            ChangeMainCamera(cam, BlendType.CUT);
-            instance.firstBlend = false;
-        }
-        else ChangeMainCamera(cam, BlendType.DEFAULT);
-        
-    }
-
+    
     public static void BackToMain(BlendType blend = BlendType.DEFAULT)
     {
         SetBlend(blend);
