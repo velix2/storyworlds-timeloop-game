@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7602117291293820551}
   - component: {fileID: 4887908097685975056}
-  - component: {fileID: 7606683440867075458}
   m_Layer: 0
   m_Name: Camera Transition Zone
   m_TagString: Untagged
@@ -54,18 +53,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 1, y: 1, z: 1}
---- !u!114 &7606683440867075458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101431113566182036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88b2a55e0a7ebc0418c3f36873c1debe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraTransitionZone
-  cam: {fileID: 0}
-  blendType: 0
-  cameraType: 0

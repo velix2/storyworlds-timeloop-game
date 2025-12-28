@@ -120,21 +120,63 @@ namespace TimeManagement
         /// Also invokes onDaytimePhaseChanged, if daytime phase changed.
         /// </summary>
         /// <param name="minutes"></param>
-        public void PassTime(int minutes)
+        public static void PassTime(int minutes)
         {
-            CurrentTime += minutes;
+            if (Instance == null)
+            {
+                Debug.Log("There is no TimeHandler in the scene.");
+                return;
+            }
 
-            var dayHasEnded = CurrentTime >= dayStartTimeInMinutes + dayLengthInMinutes;
-            var currentDaytimePhase = CurrentDaytimePhase;
-            var payload = new TimePassedEventPayload(minutes, CurrentTime, dayHasEnded, currentDaytimePhase);
+            if (minutes < 0)
+            {
+                Debug.LogError("Tried passing negative minutes: " + minutes);
+                return;
+            }
+            Instance.CurrentTime += minutes;
 
-            onTimePassed?.Invoke(payload);
+            var dayHasEnded = Instance.CurrentTime >= Instance.dayStartTimeInMinutes + Instance.dayLengthInMinutes;
+            var currentDaytimePhase = Instance.CurrentDaytimePhase;
+            var payload = new TimePassedEventPayload(minutes, Instance.CurrentTime, dayHasEnded, currentDaytimePhase);
+
+            Instance.onTimePassed?.Invoke(payload);
             
-            if (dayHasEnded) onDayEnded?.Invoke();
+            if (dayHasEnded) Instance.onDayEnded?.Invoke();
 
-            if (currentDaytimePhase == _prevPhase) return;
-            _prevPhase = currentDaytimePhase;
-            onDayPhaseChanged?.Invoke(currentDaytimePhase);
+            if (currentDaytimePhase == Instance._prevPhase) return;
+            Instance._prevPhase = currentDaytimePhase;
+            Instance.onDayPhaseChanged?.Invoke(currentDaytimePhase);
+        }
+
+        public static void SkipToNextDaytimePhase()
+        {
+            if (Instance == null)
+            {
+                Debug.Log("There is no TimeHandler in the scene.");
+                return;
+            }
+            
+            int timeUntilNextPhase = Instance.CurrentTime;
+            switch (Instance.CurrentDaytimePhase)
+            {
+                case DaytimePhase.Morning:
+                    timeUntilNextPhase -= Instance.afternoonBeginInMinutes;
+                    break;
+                case DaytimePhase.Afternoon:
+                    timeUntilNextPhase -= Instance.eveningBeginInMinutes;
+                    break;
+                case DaytimePhase.Evening:
+                    timeUntilNextPhase -= Instance.nightBeginInMinutes;
+                    break;
+                case DaytimePhase.Night:
+                    Instance.ResetForNextCycle();
+                    goto default;
+                default:
+                    Debug.Log("Tried skipping to an unknown DaytimePhase.");
+                    return;
+            }
+            
+            PassTime(timeUntilNextPhase);
         }
 
         /// <summary>
