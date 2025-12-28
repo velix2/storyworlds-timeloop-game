@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
+using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -319,11 +320,11 @@ public class InteractionChecker : MonoBehaviour
         };
 
         List<RaycastResult> results = new List<RaycastResult>();
+        
         EventSystem.current.RaycastAll(eventData, results);
 
         return results.Select(r => r.gameObject.GetComponentInParent<Interactable>())
             .FirstOrDefault(i => i != null);;
-
     }
 
     #endregion

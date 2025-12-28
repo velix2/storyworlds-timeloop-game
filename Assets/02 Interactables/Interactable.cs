@@ -50,7 +50,9 @@ public abstract class Interactable : MonoBehaviour
         LOOK,
         GRAB,
         SPEAK,
-        ENTER
+        INSPECT,
+        ENTER_OPEN,
+        ENTER_CLOSED,
     }
 
 

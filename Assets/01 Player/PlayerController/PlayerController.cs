@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 10f;
 
     private bool movementBlocked;
+    private bool frozen;
 
     private void Start()
     {
@@ -41,21 +42,27 @@ public class PlayerController : MonoBehaviour
             if (DialogueManager.GetInstance().dialogueIsPlaying) return;
         }
 
+    
+        if (frozen) return;
+        Vector3 move;
         if (!movementBlocked)
         {
             Vector2 input = InputManager.GetPlayerMovement();
-            Vector3 move = new Vector3(input.x, 0, input.y);
+            move = new Vector3(input.x, 0, input.y);
             move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
             move.y = 0;
-            move = Vector3.ClampMagnitude(move, 1f);
-            Vector3 finalMove = move * speed;
-            controller.Move(finalMove * Time.deltaTime);
+            move = Vector3.ClampMagnitude(move, 1f) * speed;
         }
+        else move = Vector3.zero;
+        
+        Vector3 finalMove = move + Vector3.down * 9.81f;
+        controller.Move(finalMove * Time.deltaTime);
         
     }
 
     private void OnInventoryOpenInput()
     {
+        if (frozen) return;
         movementBlocked = true;
         interactionChecker.SetToUIMode();
         inventoryManager.Open();
@@ -63,6 +70,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnInventoryCloseInput()
     {
+        if (frozen) return;
         movementBlocked = false;
         interactionChecker.SetToPhysicsMode();
         inventoryManager.Close();
@@ -70,6 +78,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnHighlightAllInput(bool pressed)
     {
+        if (frozen) return;
+        
         if (pressed)
         {
             interactionChecker.HighlightAll();
