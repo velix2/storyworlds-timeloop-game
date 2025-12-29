@@ -1,5 +1,6 @@
 using Ink.Runtime;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class DialogueManager : MonoBehaviour
 {
     private static DialogueManager _instance;
 
+    [Header("Params")]
+    [SerializeField] private float typingSpeed = 0.04f;
+
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -16,6 +20,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private GameObject imagePanel;
     [SerializeField] private Image speakerImage;
+    [SerializeField] private GameObject continueIcon;
 
     [Header("Player")]
     [SerializeField] private GameObject playerPanel;
@@ -30,6 +35,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool dialoguePanelActivated { get; private set; }
     public bool isChoice {  get; private set; }
+    public bool isTyping { get; private set; }
 
     // Ink Tags
     private const string SPEAKER_TAG = "speaker";
@@ -38,6 +44,10 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private SpeakerManager speakerManager;
 
+    private Coroutine displayLineCoroutine;
+    private bool canContinueToNextLine = true;
+
+    private string currentLine = "";
 
     private void Awake()
     {
@@ -53,6 +63,11 @@ public class DialogueManager : MonoBehaviour
         dialoguePanelActivated = false;
         dialoguePanel.SetActive(false);
         playerPanel.SetActive(false);
+
+        isTyping = false;
+        isChoice = false;
+        canContinueToNextLine = true;
+        dialoguePanelActivated = false;
 
         InputManager.ContinueDialogue += ContinueStory;
 
@@ -100,6 +115,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ExitDialogueMode()
     {
+        isTyping = false;
         dialoguePanelActivated = false;
         dialoguePanel.SetActive(false);
         playerPanel.SetActive(false);
@@ -109,34 +125,59 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueStorySimple()
     {
-        if (!dialoguePanelActivated || isChoice) return;
-        
-        if(currentStory.canContinue)
-        {
-            playerText.text = currentStory.Continue();
-        }
-        else
-        {
-            ExitDialogueMode();
-        }
-
-    }
-    private void ContinueStory()
-    {
-        if (!dialoguePanelActivated || isChoice) return;
+        if (isTyping || isChoice) return;
 
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
-
-            DisplayChoices();
-
-            HandleTags(currentStory.currentTags);
+            if (displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            isTyping = true;
+            StartCoroutine(DisplayLine(currentStory.Continue(), playerText));
         }
         else
         {
             ExitDialogueMode();
         }
+    }
+    private void ContinueStory()
+    {
+        if (isTyping)
+        {
+            if (displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            dialogueText.text = currentLine;
+            isTyping = false;
+            canContinueToNextLine = true;
+            continueIcon.SetActive(true);
+            if (!isChoice)
+            {
+                DisplayChoices();
+            }
+        }
+        else if (!isChoice && canContinueToNextLine)
+        {
+            if (currentStory.canContinue)
+            {
+                isTyping = true;
+                if (displayLineCoroutine != null)
+                {
+                    StopCoroutine(displayLineCoroutine);
+                    displayLineCoroutine = null;
+                }
+                displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue(), dialogueText));
+
+                HandleTags(currentStory.currentTags);
+            }
+            else
+            {
+                ExitDialogueMode();
+            }
+        }
+
 
     }
 
@@ -263,6 +304,40 @@ public class DialogueManager : MonoBehaviour
         {
             choices[i].gameObject.SetActive(false);
         }
+    }
+
+    private void HideChoices()
+    {
+        foreach (GameObject choiceButton in choices)
+        {
+            choiceButton.SetActive(false);
+        }
+    }
+
+    private IEnumerator DisplayLine(string line, TextMeshProUGUI textObject)
+    {
+        currentLine = line;
+        textObject.text = "";
+
+        HideChoices();
+        canContinueToNextLine = false;
+        continueIcon.SetActive(false);
+
+        // Display each letter one at a time
+        foreach (char letter in line.ToCharArray())
+        {
+            textObject.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+
+        }
+        isTyping = false;
+        canContinueToNextLine = true;
+        continueIcon.SetActive(true);
+        if (!isChoice)
+        {
+            DisplayChoices();
+        }
+
     }
 
     public void MakeChoice(int index)
