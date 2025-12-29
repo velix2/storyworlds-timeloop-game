@@ -121,6 +121,12 @@ public class DialogueManager : MonoBehaviour
         playerPanel.SetActive(false);
         playerText.text = "";
         dialogueText.text = "";
+
+        if (displayLineCoroutine != null)
+        {
+            StopCoroutine(displayLineCoroutine);
+            displayLineCoroutine = null;
+        }
     }
 
     private void ContinueStorySimple()
@@ -132,6 +138,7 @@ public class DialogueManager : MonoBehaviour
             if (displayLineCoroutine != null)
             {
                 StopCoroutine(displayLineCoroutine);
+                displayLineCoroutine = null;
             }
             isTyping = true;
             StartCoroutine(DisplayLine(currentStory.Continue(), playerText));
@@ -148,6 +155,7 @@ public class DialogueManager : MonoBehaviour
             if (displayLineCoroutine != null)
             {
                 StopCoroutine(displayLineCoroutine);
+                displayLineCoroutine = null;
             }
             dialogueText.text = currentLine;
             isTyping = false;
