@@ -26,7 +26,7 @@ public class DialogueWithNPCInteractable : InteractableTwoDimensional
     {
         if (DialogueManager.GetInstance() != null)
         {
-            DialogueManager.GetInstance().EnterDialogueModePlayer(inkJson[1]);
+            DialogueManager.GetInstance().EnterDialogueModeSimple(inkJson[1]);
         }
         else
         {

@@ -17,11 +17,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject imagePanel;
     [SerializeField] private Image speakerImage;
 
+    [Header("Player")]
     [SerializeField] private GameObject playerPanel;
     [SerializeField] private TextMeshProUGUI playerText;
     [SerializeField] private Transform playerTransform;
-
-    private Vector3 offset = new Vector3 (0, 1.5f, 0);
 
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
@@ -29,7 +28,7 @@ public class DialogueManager : MonoBehaviour
 
     private Story currentStory;
 
-    public bool dialogueIsPlaying { get; private set; }
+    public bool dialoguePanelActivated { get; private set; }
     public bool isChoice {  get; private set; }
 
     // Ink Tags
@@ -51,7 +50,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        dialogueIsPlaying = false;
+        dialoguePanelActivated = false;
         dialoguePanel.SetActive(false);
         playerPanel.SetActive(false);
 
@@ -80,38 +79,37 @@ public class DialogueManager : MonoBehaviour
     public void EnterDialogueMode(TextAsset inkJson)
     {
         currentStory = new Story(inkJson.text);
-        dialogueIsPlaying = true;
+        dialoguePanelActivated = true;
         dialoguePanel.SetActive(true);
 
         ContinueStory();
     }
 
-    public void EnterDialogueModePlayer(TextAsset inkJson)
+    public void EnterDialogueModeSimple(TextAsset inkJson)
     {
         currentStory = new Story(inkJson.text);
-        dialogueIsPlaying = true;
+        dialoguePanelActivated = true;
         playerPanel.SetActive(true);
 
-        Vector3 playerPosition = playerTransform.position + offset;
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerPosition);
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
         playerPanel.transform.position = screenPosition;
 
-        ContinueStoryPlayer();
+        ContinueStorySimple();
     }
 
 
     private void ExitDialogueMode()
     {
-        dialogueIsPlaying = false;
+        dialoguePanelActivated = false;
         dialoguePanel.SetActive(false);
         playerPanel.SetActive(false);
         playerText.text = "";
         dialogueText.text = "";
     }
 
-    private void ContinueStoryPlayer()
+    private void ContinueStorySimple()
     {
-        if (!dialogueIsPlaying || isChoice) return;
+        if (!dialoguePanelActivated || isChoice) return;
         
         if(currentStory.canContinue)
         {
@@ -125,7 +123,7 @@ public class DialogueManager : MonoBehaviour
     }
     private void ContinueStory()
     {
-        if (!dialogueIsPlaying || isChoice) return;
+        if (!dialoguePanelActivated || isChoice) return;
 
         if (currentStory.canContinue)
         {
