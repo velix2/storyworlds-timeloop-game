@@ -79,7 +79,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ContinueDialoguePlayer",
+                    "name": "ContinueDialogueSimple",
                     "type": "Button",
                     "id": "4dcff91b-2a81-4cb8-a569-bea5ae509eea",
                     "expectedControlType": "",
@@ -228,7 +228,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ContinueDialoguePlayer",
+                    "action": "ContinueDialogueSimple",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

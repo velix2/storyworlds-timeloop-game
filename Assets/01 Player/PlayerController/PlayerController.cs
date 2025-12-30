@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         if(DialogueManager.Instance != null)
         {
-            if (DialogueManager.Instance.DialoguePanelActivated) return;
+            if (DialogueManager.Instance.DialogueIsPlaying) return;
         }
 
     

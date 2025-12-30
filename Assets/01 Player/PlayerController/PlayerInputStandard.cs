@@ -165,7 +165,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ContinueDialoguePlayer"",
+                    ""name"": ""ContinueDialogueSimple"",
                     ""type"": ""Button"",
                     ""id"": ""4dcff91b-2a81-4cb8-a569-bea5ae509eea"",
                     ""expectedControlType"": """",
@@ -314,7 +314,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ContinueDialoguePlayer"",
+                    ""action"": ""ContinueDialogueSimple"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -333,7 +333,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         m_Standard_InventoryClose = m_Standard.FindAction("InventoryClose", throwIfNotFound: true);
         m_Standard_HighlightAllInteractables = m_Standard.FindAction("HighlightAllInteractables", throwIfNotFound: true);
         m_Standard_ContinueDialogue = m_Standard.FindAction("ContinueDialogue", throwIfNotFound: true);
-        m_Standard_ContinueDialoguePlayer = m_Standard.FindAction("ContinueDialoguePlayer", throwIfNotFound: true);
+        m_Standard_ContinueDialogueSimple = m_Standard.FindAction("ContinueDialogueSimple", throwIfNotFound: true);
     }
 
     ~@PlayerInputStandard()
@@ -422,7 +422,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_InventoryClose;
     private readonly InputAction m_Standard_HighlightAllInteractables;
     private readonly InputAction m_Standard_ContinueDialogue;
-    private readonly InputAction m_Standard_ContinueDialoguePlayer;
+    private readonly InputAction m_Standard_ContinueDialogueSimple;
     /// <summary>
     /// Provides access to input actions defined in input action map "Standard".
     /// </summary>
@@ -467,9 +467,9 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @ContinueDialogue => m_Wrapper.m_Standard_ContinueDialogue;
         /// <summary>
-        /// Provides access to the underlying input action "Standard/ContinueDialoguePlayer".
+        /// Provides access to the underlying input action "Standard/ContinueDialogueSimple".
         /// </summary>
-        public InputAction @ContinueDialoguePlayer => m_Wrapper.m_Standard_ContinueDialoguePlayer;
+        public InputAction @ContinueDialogueSimple => m_Wrapper.m_Standard_ContinueDialogueSimple;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -520,9 +520,9 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @ContinueDialogue.started += instance.OnContinueDialogue;
             @ContinueDialogue.performed += instance.OnContinueDialogue;
             @ContinueDialogue.canceled += instance.OnContinueDialogue;
-            @ContinueDialoguePlayer.started += instance.OnContinueDialoguePlayer;
-            @ContinueDialoguePlayer.performed += instance.OnContinueDialoguePlayer;
-            @ContinueDialoguePlayer.canceled += instance.OnContinueDialoguePlayer;
+            @ContinueDialogueSimple.started += instance.OnContinueDialogueSimple;
+            @ContinueDialogueSimple.performed += instance.OnContinueDialogueSimple;
+            @ContinueDialogueSimple.canceled += instance.OnContinueDialogueSimple;
         }
 
         /// <summary>
@@ -558,9 +558,9 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @ContinueDialogue.started -= instance.OnContinueDialogue;
             @ContinueDialogue.performed -= instance.OnContinueDialogue;
             @ContinueDialogue.canceled -= instance.OnContinueDialogue;
-            @ContinueDialoguePlayer.started -= instance.OnContinueDialoguePlayer;
-            @ContinueDialoguePlayer.performed -= instance.OnContinueDialoguePlayer;
-            @ContinueDialoguePlayer.canceled -= instance.OnContinueDialoguePlayer;
+            @ContinueDialogueSimple.started -= instance.OnContinueDialogueSimple;
+            @ContinueDialogueSimple.performed -= instance.OnContinueDialogueSimple;
+            @ContinueDialogueSimple.canceled -= instance.OnContinueDialogueSimple;
         }
 
         /// <summary>
@@ -658,11 +658,11 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnContinueDialogue(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "ContinueDialoguePlayer" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ContinueDialogueSimple" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnContinueDialoguePlayer(InputAction.CallbackContext context);
+        void OnContinueDialogueSimple(InputAction.CallbackContext context);
     }
 }

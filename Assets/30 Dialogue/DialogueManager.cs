@@ -45,12 +45,13 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
 
-    public bool DialoguePanelActivated { get; private set; }    // Flag to signal if the dialogue is playing
+    public bool DialogueIsPlaying { get; private set; }         // Flag to signal if the dialogue is playing
                                                                 // is accessed to freeze player movement/turn off other interactions    
     public bool ChoicesDisplayed {  get; private set; }         // Flag to signal if choice box is active
                                                                 // Player should only be able to continue if they have made a choice
     public bool IsTyping { get; private set; }                  // Flag to signal if a dialogue line is still typing
                                                                 // Important for skipping a dialogue line
+    public bool SimpleDialogueIsPlaying { get; private set; }   // Flag to distinguish between simple and normal dialogue
 
     // Ink Tags (To add more adjust the tag handling function
     private const string SPEAKER_TAG = "speaker";
@@ -66,6 +67,7 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typingCoroutine;
 
     private VariableObserver variableObserver;                  // Allows access to ink global variables
+
 
     #endregion
 
@@ -87,23 +89,21 @@ public class DialogueManager : MonoBehaviour
         }
 
         variableObserver = new VariableObserver(loadGlobalsJSON);
+
+        DialogueIsPlaying = false;
+        IsTyping = false;
+        ChoicesDisplayed = false;
+        SimpleDialogueIsPlaying = false;
     }
 
     private void Start()
     {
-        DialoguePanelActivated = false;
+        // Hide dialogue box
         dialoguePanel.SetActive(false);
         playerPanel.SetActive(false);
-
-        IsTyping = false;
-        ChoicesDisplayed = false;
-        DialoguePanelActivated = false;
-
         HideChoices();
 
-        InputManager.ContinueDialogue += ContinueStory;
-
-        // Get all choices text
+        // Get all choices text components for easier access
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach(GameObject choice in choices)
@@ -111,20 +111,27 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>(true);
             index++;
         }
+
+        // Subscribe to events
+        InputManager.ContinueDialogue += ContinueStory;
+        InputManager.ContinueDialogueSimple += ContinueStorySimple;
     }
 
     private void OnDisable()
     {
         InputManager.ContinueDialogue -= ContinueStory;
+        InputManager.ContinueDialogueSimple -= ContinueStorySimple;
     }
 
-
+    #region Dialogue Calling Functions
+    
     public void EnterDialogueMode(TextAsset inkJson)
     {
-        if(!DialoguePanelActivated)
+        if(!DialogueIsPlaying)
         {
             currentStory = new Story(inkJson.text);
-            DialoguePanelActivated = true;
+            DialogueIsPlaying = true;
+            SimpleDialogueIsPlaying = false;
             dialoguePanel.SetActive(true);
 
             variableObserver.StartListening(currentStory);
@@ -134,6 +141,32 @@ public class DialogueManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Displays dialogue above the player. Does not support choices
+    /// </summary>
+    /// <param name="inkJson">Ink json to be displayed</param>
+    public void EnterDialogueModeSimple(TextAsset inkJson)
+    {
+        if (!DialogueIsPlaying)
+        {
+            currentStory = new Story(inkJson.text);
+            DialogueIsPlaying = true;
+            SimpleDialogueIsPlaying = true;
+            playerPanel.SetActive(true);
+
+            variableObserver.StartListening(currentStory);
+
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
+            playerPanel.transform.position = screenPosition;
+
+            ContinueStorySimple();
+        }
+
+    }
+
+    #endregion
+
+    #region Helper functions for processing the story
     private void ContinueStory()
     {
         if (ChoicesDisplayed) return;
@@ -173,11 +206,38 @@ public class DialogueManager : MonoBehaviour
         }
         
     }
+    private void ContinueStorySimple()
+    {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
+        if (IsTyping)
+        {
+            IsTyping = false;
+            playerText.text = currentLine;
+            return;
+        }
+
+        if (currentStory.canContinue)
+        {
+            IsTyping = true;
+            string line = currentStory.Continue().Trim();
+            typingCoroutine = StartCoroutine(DisplayLine(line, playerText));
+        }
+        else
+        {
+            ExitDialogueMode();
+        }
+    }
 
     private IEnumerator DisplayLine(string line, TextMeshProUGUI textObject)
     {
         textObject.text = "";
         currentLine = line;
+
         continueIcon.SetActive(false);
 
         foreach (char letter in line.ToCharArray())
@@ -186,95 +246,45 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
 
         }
-        typingCoroutine = null;
+
+        // Display continue icon when the text finished typing
         IsTyping = false;
         continueIcon.SetActive(true);
 
+        // Display choices if there are any
         if (currentStory.currentChoices.Count > 0)
         {
             DisplayChoices(currentStory.currentChoices);
         }
     }
 
+    /// <summary>
+    /// Displays up to 3 choices
+    /// </summary>
+    /// <param name="currentChoices">Choices from the ink file</param>
     private void DisplayChoices(List<Choice> currentChoices)
     {
+        if(currentChoices.Count > choices.Length)
+        {
+            Debug.LogError("It can be only displayed up to 3 choices.");
+            return;
+        }
+
         ChoicesDisplayed = true;
         int index = 0;
+        // Show choice buttons
         foreach (Choice choice in currentChoices)
         {
             choices[index].SetActive(true);
             choicesText[index].text = choice.text;
             index++;
         }
+        // Hide remaining choices
         for (int i = index; i < choices.Length; i++)
         {
             choices[i].SetActive(false);
         }
     }
-
-    public void EnterDialogueModeSimple(TextAsset inkJson)
-    {
-        if(DialoguePanelActivated)
-        {
-            currentStory = new Story(inkJson.text);
-            DialoguePanelActivated = true;
-            playerPanel.SetActive(true);
-
-            variableObserver.StartListening(currentStory);
-
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
-            playerPanel.transform.position = screenPosition;
-
-            ContinueStorySimple();
-        }
-        
-    }
-
-
-    private void ExitDialogueMode()
-    {
-        // Reset flags
-        DialoguePanelActivated = false;
-        IsTyping = false;
-
-        // Deactivate Panels
-        dialoguePanel.SetActive(false);
-        playerPanel.SetActive(false);
-        playerText.text = "";
-        dialogueText.text = "";
-
-        variableObserver.StopListening(currentStory);
-
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-            typingCoroutine = null;
-        }
-
-        Debug.Log("Exit dialogue");
-    }
-
-    private void ContinueStorySimple()
-    {
-        if (IsTyping || ChoicesDisplayed) return;
-
-        if (currentStory.canContinue)
-        {
-            if (typingCoroutine != null)
-            {
-                StopCoroutine(typingCoroutine);
-                typingCoroutine = null;
-            }
-            IsTyping = true;
-            StartCoroutine(DisplayLine(currentStory.Continue(), playerText));
-        }
-        else
-        {
-            ExitDialogueMode();
-        }
-    }
-    
-    
 
     private void HideChoices()
     {
@@ -284,25 +294,7 @@ public class DialogueManager : MonoBehaviour
         }
         ChoicesDisplayed = false;
     }
-
-    public void MakeChoice(int index)
-    {
-        currentStory.ChooseChoiceIndex(index);
-        HideChoices();
-        ContinueStory();
-    }
-
-    private void DeactivatePanels()
-    {
-        namePanel.SetActive(false);
-        imagePanel.SetActive(false);
-    }
-
-    private void ActivatePanels()
-    {
-        namePanel.SetActive(true);
-        imagePanel.SetActive(true);
-    }
+    #endregion
 
     #region Tag handling
     private void HandleTags(List<string> currentTags)
@@ -327,11 +319,11 @@ public class DialogueManager : MonoBehaviour
                     if (tagValue == "narrator")
                     {
                         nameText.text = "";
-                        DeactivatePanels();
+                        DeactivatePortraitPanels();
                     }
                     else
                     {
-                        ActivatePanels();
+                        ActivatePortraitPanels();
                         speakerID = tagValue;
                         SetSpeakerName(speakerID, nameText);
                     }
@@ -339,7 +331,7 @@ public class DialogueManager : MonoBehaviour
                 case EMOTION_TAG:
                     if (Enum.TryParse(tagValue, out Emotion emotion))
                     {
-                        ActivatePanels();
+                        ActivatePortraitPanels();
                         SetSpeakerEmotion(speakerID, emotion, speakerImage);
                     }
                     else
@@ -396,6 +388,50 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
+    #region Button functions
+    public void MakeChoice(int index)
+    {
+        currentStory.ChooseChoiceIndex(index);
+        HideChoices();
+        ContinueStory();
+    }
 
+    #endregion
+
+    private void ExitDialogueMode()
+    {
+        // Reset flags
+        DialogueIsPlaying = false;
+        IsTyping = false;
+        ChoicesDisplayed = false;
+        SimpleDialogueIsPlaying = false;
+
+        // Deactivate Panels
+        dialoguePanel.SetActive(false);
+        playerPanel.SetActive(false);
+        playerText.text = "";
+        dialogueText.text = "";
+
+        variableObserver.StopListening(currentStory);
+
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
+    }
+
+    private void DeactivatePortraitPanels()
+    {
+        namePanel.SetActive(false);
+        imagePanel.SetActive(false);
+    }
+
+    private void ActivatePortraitPanels()
+    {
+        namePanel.SetActive(true);
+        imagePanel.SetActive(true);
+    }
 
 }

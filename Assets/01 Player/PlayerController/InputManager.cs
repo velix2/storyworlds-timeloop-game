@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     public static event MouseInteraction PrimaryInteraction;
     public static event MouseInteraction SecondaryInteraction;
     public static event DialogueInteraction ContinueDialogue;
-    public static event DialogueInteraction ContinueDialoguePlayer;
+    public static event DialogueInteraction ContinueDialogueSimple;
 
     private static InputManager _instance;
     private PlayerInputStandard playerControls;
@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour
         playerControls.Standard.PrimaryInteract.performed += SignalPrimaryInteraction;
         playerControls.Standard.SecondaryInteract.performed += SignalSecondaryInteraction;
         playerControls.Standard.ContinueDialogue.performed += SignalDialogueContinue;
-        playerControls.Standard.ContinueDialoguePlayer.performed += SignalDialogueContinuePlayer;
+        playerControls.Standard.ContinueDialogueSimple.performed += SignalDialogueContinueSimple;
 
         Debug.Log(_instance);
     }
@@ -82,14 +82,13 @@ public class InputManager : MonoBehaviour
     }
     private void SignalDialogueContinue(InputAction.CallbackContext context)
     {
-        if (!DialogueManager.Instance.DialoguePanelActivated) return;
+        if (!DialogueManager.Instance.DialogueIsPlaying || DialogueManager.Instance.SimpleDialogueIsPlaying) return;
         ContinueDialogue?.Invoke();  
     }
-
-    private void SignalDialogueContinuePlayer(InputAction.CallbackContext context)
+    private void SignalDialogueContinueSimple(InputAction.CallbackContext context)
     {
-        if (!DialogueManager.Instance.DialoguePanelActivated) return;
-        ContinueDialoguePlayer?.Invoke();
+        if (!DialogueManager.Instance.DialogueIsPlaying || !DialogueManager.Instance.SimpleDialogueIsPlaying) return;
+        ContinueDialogueSimple?.Invoke();
     }
 
 

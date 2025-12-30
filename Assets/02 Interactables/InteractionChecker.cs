@@ -156,7 +156,7 @@ public class InteractionChecker : MonoBehaviour
 
     private void Update()
     {
-        if (DialogueManager.Instance.DialoguePanelActivated) return;
+        if (DialogueManager.Instance.DialogueIsPlaying) return;
 
         HighlightSingle(GetInteractableAtMousePosition());
     }
