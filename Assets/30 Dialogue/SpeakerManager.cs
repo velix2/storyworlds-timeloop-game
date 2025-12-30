@@ -1,16 +1,29 @@
 using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
+/// <summary>
+/// This script manages all the speaker data
+/// Every speaker is stored in speakerDirectionary and can be accessed through every other script
+/// The listof  speakers has to be initialized in the inspector
+/// </summary>
 public class SpeakerManager : MonoBehaviour
 {
-    public List<SpeakerData> speakers;  
-    private Dictionary<string, SpeakerData> speakerDictionary;
+    public static SpeakerManager Instance { get; private set; }
 
-    void Awake()
-    { 
+    [SerializeField] private List<SpeakerData> speakers;  
+    public Dictionary<string, SpeakerData> speakerDictionary;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Found more than one SpeakerManager in the scene!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
+        // Initialize the dictionary
         speakerDictionary = new Dictionary<string, SpeakerData>();
         foreach (var speaker in speakers)
         {
@@ -20,7 +33,12 @@ public class SpeakerManager : MonoBehaviour
 
     public SpeakerData GetSpeakerDataByID(string speakerID)
     {
-        return speakerDictionary[speakerID];
+        if (speakerDictionary.TryGetValue(speakerID, out SpeakerData speakerData))
+        {
+            return speakerData;
+        }
+        Debug.LogError($"Speaker with ID '{speakerID}' not found!");
+        return null;
     }
 
     /// <summary>
@@ -39,7 +57,13 @@ public class SpeakerManager : MonoBehaviour
 
         Sprite speakerPortrait = null;
 
-        foreach (Portrait p in speakerDictionary[speakerID].portraits)
+        SpeakerData speaker = GetSpeakerDataByID(speakerID);
+        if(speaker == null)
+        {
+            return null;
+        }
+
+        foreach (Portrait p in speaker.portraits)
         {
             if(p.emotion == emotion)
             {
@@ -50,18 +74,14 @@ public class SpeakerManager : MonoBehaviour
 
         if (speakerPortrait == null) 
         {
-            Debug.LogWarning("Portrait of " + speakerDictionary[speakerID].name 
+            Debug.LogWarning("Portrait of " + speaker.name 
                 + " with emotion " + emotion + " could not be found!");
-            return speakerDictionary[speakerID].portraits[0].sprite;
+            return speaker.portraits[0].sprite;
         }
         
         return speakerPortrait;
     }
 
-    public Dictionary<string, SpeakerData> GetSpeakerDirectionary()
-    {
-        return speakerDictionary;
-    }
 
    
 }

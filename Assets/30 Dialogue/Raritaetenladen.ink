@@ -6,22 +6,25 @@ INCLUDE globals.ink
 Marcus Handy beginnt zu klingeln. #speaker:narrator
 Es war seine Ex-Frau.
 Für einen Moment überlegt Marcus, ob er rangehen soll.
-    + [Rangehen]
++ [Rangehen]
     ~ state0 = 1
     -> call
-    + [Auflegen]
-Marcus drückt den Anruf weg und betritt den Laden
++ [Auflegen]
+    -> Ende
+
+=== Ende ===    
+Marcus drückt den Anruf weg und betritt den Laden.
 -> END
 
 === Markus_Sohn ===
 Marcus Handy beginnt wieder zu klingeln. #speaker:narrator
 Es war erneut seine Ex-Frau.
 Für einen Moment überlegt Marcus, ob er rangehen soll.
-    + [Rangehen]
+
++ [Rangehen]
     -> call_sohn
-    + [Auflegen]
-Marcus drückt den Anruf weg und betritt den Laden
--> END
++ [Auflegen]
+    -> Ende
 
 
 === call ===

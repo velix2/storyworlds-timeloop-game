@@ -1,7 +1,9 @@
+﻿
 using Ink.Runtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +16,8 @@ using UnityEngine.UI;
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {
-    private static DialogueManager _instance;
+    #region Variables
+    public static DialogueManager Instance { get; private set; }
 
     [Header("Params")]
     [SerializeField] private float typingSpeed = 0.04f;
@@ -41,44 +44,62 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerText;
     [SerializeField] private Transform playerTransform;
 
-    public bool dialoguePanelActivated { get; private set; }
-    public bool isChoice {  get; private set; }
-    public bool isTyping { get; private set; }
 
-    // Ink Tags
+    public bool DialoguePanelActivated { get; private set; }    // Flag to signal if the dialogue is playing
+                                                                // is accessed to freeze player movement/turn off other interactions    
+    public bool ChoicesDisplayed {  get; private set; }         // Flag to signal if choice box is active
+                                                                // Player should only be able to continue if they have made a choice
+    public bool IsTyping { get; private set; }                  // Flag to signal if a dialogue line is still typing
+                                                                // Important for skipping a dialogue line
+
+    // Ink Tags (To add more adjust the tag handling function
     private const string SPEAKER_TAG = "speaker";
     private const string EMOTION_TAG = "emotion";
     //private const string AUDIO_TAG = "audio";
 
-    [SerializeField] private SpeakerManager speakerManager;
 
+    [SerializeField] private SpeakerManager speakerManager;     // Grants access to all speaker data
+
+    // Variables to process through the story
     private Story currentStory;
     private string currentLine = "";
-    private Coroutine displayLineCoroutine;
-    private bool canContinueToNextLine = true;
+    private Coroutine typingCoroutine;
 
-    private VariableObserver variableObserver;
+    private VariableObserver variableObserver;                  // Allows access to ink global variables
+
+    #endregion
+
 
     private void Awake()
     {
-        if (_instance != null)
+        if (Instance != null && Instance != this)
         {
             Debug.LogWarning("Found more than one Dialogue Manager in the scene!");
+            Destroy(gameObject);
+            return;
         }
-        _instance = this;
+        Instance = this;
+
+        if (SpeakerManager.Instance == null)
+        {
+            Debug.LogError("DialogManager requires a SpeakerManager in the scene, but none was found.");
+            enabled = false;
+        }
+
         variableObserver = new VariableObserver(loadGlobalsJSON);
     }
 
     private void Start()
     {
-        dialoguePanelActivated = false;
+        DialoguePanelActivated = false;
         dialoguePanel.SetActive(false);
         playerPanel.SetActive(false);
 
-        isTyping = false;
-        isChoice = false;
-        canContinueToNextLine = true;
-        dialoguePanelActivated = false;
+        IsTyping = false;
+        ChoicesDisplayed = false;
+        DialoguePanelActivated = false;
+
+        HideChoices();
 
         InputManager.ContinueDialogue += ContinueStory;
 
@@ -97,41 +118,126 @@ public class DialogueManager : MonoBehaviour
         InputManager.ContinueDialogue -= ContinueStory;
     }
 
-    public static DialogueManager GetInstance()
-    {
-        return _instance;
-    }
 
     public void EnterDialogueMode(TextAsset inkJson)
     {
-        currentStory = new Story(inkJson.text);
-        dialoguePanelActivated = true;
-        dialoguePanel.SetActive(true);
+        if(!DialoguePanelActivated)
+        {
+            currentStory = new Story(inkJson.text);
+            DialoguePanelActivated = true;
+            dialoguePanel.SetActive(true);
 
-        variableObserver.StartListening(currentStory);
+            variableObserver.StartListening(currentStory);
 
-        ContinueStory();
+            ContinueStory();
+        }
+        
+    }
+
+    private void ContinueStory()
+    {
+        if (ChoicesDisplayed) return;
+        
+        // Safety measure so that only one coroutine is running
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
+        // Skip Effect
+        if (IsTyping)
+        {
+            IsTyping = false;
+            dialogueText.text = currentLine;
+            continueIcon.SetActive(true);
+            if (currentStory.currentChoices.Count > 0)
+            {
+                DisplayChoices(currentStory.currentChoices);
+            }
+            return;
+        }
+
+        // Continue story if possible
+        if (currentStory.canContinue)
+        {
+            IsTyping = true;
+            string line = currentStory.Continue().Trim();
+            typingCoroutine = StartCoroutine(DisplayLine(line, dialogueText));
+            HandleTags(currentStory.currentTags);
+            return;
+        }
+        else
+        {
+            ExitDialogueMode();
+        }
+        
+    }
+
+    private IEnumerator DisplayLine(string line, TextMeshProUGUI textObject)
+    {
+        textObject.text = "";
+        currentLine = line;
+        continueIcon.SetActive(false);
+
+        foreach (char letter in line.ToCharArray())
+        {
+            textObject.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+
+        }
+        typingCoroutine = null;
+        IsTyping = false;
+        continueIcon.SetActive(true);
+
+        if (currentStory.currentChoices.Count > 0)
+        {
+            DisplayChoices(currentStory.currentChoices);
+        }
+    }
+
+    private void DisplayChoices(List<Choice> currentChoices)
+    {
+        ChoicesDisplayed = true;
+        int index = 0;
+        foreach (Choice choice in currentChoices)
+        {
+            choices[index].SetActive(true);
+            choicesText[index].text = choice.text;
+            index++;
+        }
+        for (int i = index; i < choices.Length; i++)
+        {
+            choices[i].SetActive(false);
+        }
     }
 
     public void EnterDialogueModeSimple(TextAsset inkJson)
     {
-        currentStory = new Story(inkJson.text);
-        dialoguePanelActivated = true;
-        playerPanel.SetActive(true);
+        if(DialoguePanelActivated)
+        {
+            currentStory = new Story(inkJson.text);
+            DialoguePanelActivated = true;
+            playerPanel.SetActive(true);
 
-        variableObserver.StartListening(currentStory);
+            variableObserver.StartListening(currentStory);
 
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
-        playerPanel.transform.position = screenPosition;
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
+            playerPanel.transform.position = screenPosition;
 
-        ContinueStorySimple();
+            ContinueStorySimple();
+        }
+        
     }
 
 
     private void ExitDialogueMode()
     {
-        isTyping = false;
-        dialoguePanelActivated = false;
+        // Reset flags
+        DialoguePanelActivated = false;
+        IsTyping = false;
+
+        // Deactivate Panels
         dialoguePanel.SetActive(false);
         playerPanel.SetActive(false);
         playerText.text = "";
@@ -139,25 +245,27 @@ public class DialogueManager : MonoBehaviour
 
         variableObserver.StopListening(currentStory);
 
-        if (displayLineCoroutine != null)
+        if (typingCoroutine != null)
         {
-            StopCoroutine(displayLineCoroutine);
-            displayLineCoroutine = null;
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
         }
+
+        Debug.Log("Exit dialogue");
     }
 
     private void ContinueStorySimple()
     {
-        if (isTyping || isChoice) return;
+        if (IsTyping || ChoicesDisplayed) return;
 
         if (currentStory.canContinue)
         {
-            if (displayLineCoroutine != null)
+            if (typingCoroutine != null)
             {
-                StopCoroutine(displayLineCoroutine);
-                displayLineCoroutine = null;
+                StopCoroutine(typingCoroutine);
+                typingCoroutine = null;
             }
-            isTyping = true;
+            IsTyping = true;
             StartCoroutine(DisplayLine(currentStory.Continue(), playerText));
         }
         else
@@ -165,45 +273,35 @@ public class DialogueManager : MonoBehaviour
             ExitDialogueMode();
         }
     }
-    private void ContinueStory()
+    
+    
+
+    private void HideChoices()
     {
-        if (isTyping)
+        foreach (GameObject choiceButton in choices)
         {
-            if (displayLineCoroutine != null)
-            {
-                StopCoroutine(displayLineCoroutine);
-                displayLineCoroutine = null;
-            }
-            dialogueText.text = currentLine;
-            isTyping = false;
-            canContinueToNextLine = true;
-            continueIcon.SetActive(true);
-            if (!isChoice)
-            {
-                DisplayChoices();
-            }
+            choiceButton.SetActive(false);
         }
-        else if (!isChoice && canContinueToNextLine)
-        {
-            if (currentStory.canContinue)
-            {
-                isTyping = true;
-                if (displayLineCoroutine != null)
-                {
-                    StopCoroutine(displayLineCoroutine);
-                    displayLineCoroutine = null;
-                }
-                displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue(), dialogueText));
+        ChoicesDisplayed = false;
+    }
 
-                HandleTags(currentStory.currentTags);
-            }
-            else
-            {
-                ExitDialogueMode();
-            }
-        }
+    public void MakeChoice(int index)
+    {
+        currentStory.ChooseChoiceIndex(index);
+        HideChoices();
+        ContinueStory();
+    }
 
+    private void DeactivatePanels()
+    {
+        namePanel.SetActive(false);
+        imagePanel.SetActive(false);
+    }
 
+    private void ActivatePanels()
+    {
+        namePanel.SetActive(true);
+        imagePanel.SetActive(true);
     }
 
     #region Tag handling
@@ -226,7 +324,7 @@ public class DialogueManager : MonoBehaviour
             switch (tagKey)
             {
                 case SPEAKER_TAG:
-                    if(tagValue == "narrator")
+                    if (tagValue == "narrator")
                     {
                         nameText.text = "";
                         DeactivatePanels();
@@ -239,7 +337,7 @@ public class DialogueManager : MonoBehaviour
                     }
                     break;
                 case EMOTION_TAG:
-                    if(Enum.TryParse(tagValue, out Emotion emotion))
+                    if (Enum.TryParse(tagValue, out Emotion emotion))
                     {
                         ActivatePanels();
                         SetSpeakerEmotion(speakerID, emotion, speakerImage);
@@ -248,7 +346,7 @@ public class DialogueManager : MonoBehaviour
                     {
                         Debug.LogError("Invalid emotion tag was parsed!");
                     }
-                    break; 
+                    break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
                     break;
@@ -262,7 +360,7 @@ public class DialogueManager : MonoBehaviour
     /// <param name="speakerNameText">UI element to be set</param>
     private void SetSpeakerName(string speakerID, TextMeshProUGUI speakerNameText)
     {
-        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.GetSpeakerDirectionary();
+        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.speakerDictionary;
         if (speakerDictionary.ContainsKey(speakerID))
         {
             SpeakerData speaker = speakerDictionary[speakerID];
@@ -284,7 +382,7 @@ public class DialogueManager : MonoBehaviour
     /// <param name="portraitImage">UI element to be set</param>
     private void SetSpeakerEmotion(string speakerID, Emotion emotion, Image portraitImage)
     {
-        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.GetSpeakerDirectionary();
+        Dictionary<string, SpeakerData> speakerDictionary = speakerManager.speakerDictionary;
         if (speakerDictionary.ContainsKey(speakerID))
         {
             SpeakerData speaker = speakerDictionary[speakerID];
@@ -300,89 +398,4 @@ public class DialogueManager : MonoBehaviour
 
 
 
-    private void DisplayChoices()
-    {
-        List<Choice> currentChoices = currentStory.currentChoices;
-
-        if (currentChoices.Count > 0)
-        {
-            isChoice = true;
-        }
-
-        // UI can support up to 3 choices
-        if (currentChoices.Count > choices.Length)
-        {
-            Debug.LogError("More choices were given than the UI can support. Number of choices given: "
-                + currentChoices.Count);
-        }
-
-        int index = 0;
-        // Initialize choices
-        foreach (Choice choice in currentChoices)
-        {
-            choices[index].gameObject.SetActive(true);
-            choicesText[index].text = choice.text;
-            index++;
-        }
-        // Hide remaining choices
-        for (int i = index; i < choices.Length; i++)
-        {
-            choices[i].gameObject.SetActive(false);
-        }
-    }
-
-    private void HideChoices()
-    {
-        foreach (GameObject choiceButton in choices)
-        {
-            choiceButton.SetActive(false);
-        }
-    }
-
-    private IEnumerator DisplayLine(string line, TextMeshProUGUI textObject)
-    {
-        currentLine = line;
-        textObject.text = "";
-
-        HideChoices();
-        canContinueToNextLine = false;
-        continueIcon.SetActive(false);
-
-        // Display each letter one at a time
-        foreach (char letter in line.ToCharArray())
-        {
-            textObject.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
-
-        }
-        isTyping = false;
-        canContinueToNextLine = true;
-        continueIcon.SetActive(true);
-        if (!isChoice)
-        {
-            DisplayChoices();
-        }
-
-    }
-
-    public void MakeChoice(int index)
-    {
-        currentStory.ChooseChoiceIndex(index);
-        isChoice = false;
-        ContinueStory();
-    }
-
-    private void DeactivatePanels()
-    {
-        namePanel.SetActive(false);
-        imagePanel.SetActive(false);
-    }
-
-    private void ActivatePanels()
-    {
-        namePanel.SetActive(true);
-        imagePanel.SetActive(true);
-    }
-
-    
 }

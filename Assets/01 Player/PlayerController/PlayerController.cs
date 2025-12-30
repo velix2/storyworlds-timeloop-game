@@ -37,9 +37,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(DialogueManager.GetInstance() != null)
+        if(DialogueManager.Instance != null)
         {
-            if (DialogueManager.GetInstance().dialoguePanelActivated) return;
+            if (DialogueManager.Instance.DialoguePanelActivated) return;
         }
 
     

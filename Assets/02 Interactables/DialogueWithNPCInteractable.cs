@@ -11,9 +11,9 @@ public class DialogueWithNPCInteractable : InteractableTwoDimensional
 
     public override void PrimaryInteraction()
     {
-        if(DialogueManager.GetInstance() != null)
+        if(DialogueManager.Instance != null)
         {
-            DialogueManager.GetInstance().EnterDialogueMode(inkJson[0]);
+            DialogueManager.Instance.EnterDialogueMode(inkJson[0]);
         }
         else
         {
@@ -24,9 +24,9 @@ public class DialogueWithNPCInteractable : InteractableTwoDimensional
 
     public override void SecondaryInteraction()
     {
-        if (DialogueManager.GetInstance() != null)
+        if (DialogueManager.Instance != null)
         {
-            DialogueManager.GetInstance().EnterDialogueModeSimple(inkJson[1]);
+            DialogueManager.Instance.EnterDialogueModeSimple(inkJson[1]);
         }
         else
         {

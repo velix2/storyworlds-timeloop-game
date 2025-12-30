@@ -2365,6 +2365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   typingSpeed: 0.04
+  loadGlobalsJSON: {fileID: 4900000, guid: cd72574bcc7070549a735a6ea46b7b2f, type: 3}
   dialoguePanel: {fileID: 1319900805}
   dialogueText: {fileID: 535015372}
   namePanel: {fileID: 1582653728}
@@ -2372,13 +2373,13 @@ MonoBehaviour:
   imagePanel: {fileID: 1759390882}
   speakerImage: {fileID: 66903457}
   continueIcon: {fileID: 483335327}
-  playerPanel: {fileID: 1824586291}
-  playerText: {fileID: 1367207533}
-  playerTransform: {fileID: 878193202}
   choices:
   - {fileID: 314419384}
   - {fileID: 1418274478}
   - {fileID: 685670461}
+  playerPanel: {fileID: 1824586291}
+  playerText: {fileID: 1367207533}
+  playerTransform: {fileID: 878193202}
   speakerManager: {fileID: 1469702159}
 --- !u!4 &2081032240
 Transform:
