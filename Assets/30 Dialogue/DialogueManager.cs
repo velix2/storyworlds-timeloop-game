@@ -6,12 +6,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script manages the dialoguebox
+/// It reads the ink files, converts them into a story object and allows for players to make choices
+/// The typing effect is also handled in DialogueManager
+/// The most important functions across the scripts are EnterDialogueMode and EnterDialogueModeSimple (for text over the player)
+/// </summary>
 public class DialogueManager : MonoBehaviour
 {
     private static DialogueManager _instance;
 
     [Header("Params")]
     [SerializeField] private float typingSpeed = 0.04f;
+
+    [Header("Load Globals Json")]
+    [SerializeField] private TextAsset loadGlobalsJSON;
 
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
@@ -22,16 +31,15 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image speakerImage;
     [SerializeField] private GameObject continueIcon;
 
+    [Header("Choices UI")]
+    [SerializeField] private GameObject[] choices;
+
+    private TextMeshProUGUI[] choicesText;
+
     [Header("Player")]
     [SerializeField] private GameObject playerPanel;
     [SerializeField] private TextMeshProUGUI playerText;
     [SerializeField] private Transform playerTransform;
-
-    [Header("Choices UI")]
-    [SerializeField] private GameObject[] choices;
-    private TextMeshProUGUI[] choicesText;
-
-    private Story currentStory;
 
     public bool dialoguePanelActivated { get; private set; }
     public bool isChoice {  get; private set; }
@@ -44,10 +52,12 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private SpeakerManager speakerManager;
 
+    private Story currentStory;
+    private string currentLine = "";
     private Coroutine displayLineCoroutine;
     private bool canContinueToNextLine = true;
 
-    private string currentLine = "";
+    private VariableObserver variableObserver;
 
     private void Awake()
     {
@@ -56,6 +66,7 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("Found more than one Dialogue Manager in the scene!");
         }
         _instance = this;
+        variableObserver = new VariableObserver(loadGlobalsJSON);
     }
 
     private void Start()
@@ -97,6 +108,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePanelActivated = true;
         dialoguePanel.SetActive(true);
 
+        variableObserver.StartListening(currentStory);
+
         ContinueStory();
     }
 
@@ -105,6 +118,8 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJson.text);
         dialoguePanelActivated = true;
         playerPanel.SetActive(true);
+
+        variableObserver.StartListening(currentStory);
 
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
         playerPanel.transform.position = screenPosition;
@@ -121,6 +136,8 @@ public class DialogueManager : MonoBehaviour
         playerPanel.SetActive(false);
         playerText.text = "";
         dialogueText.text = "";
+
+        variableObserver.StopListening(currentStory);
 
         if (displayLineCoroutine != null)
         {
