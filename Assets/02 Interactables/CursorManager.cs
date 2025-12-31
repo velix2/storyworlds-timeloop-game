@@ -3,7 +3,13 @@ using UnityEngine;
 
 public class CursorManager : MonoBehaviour
 {
-    
+    [SerializeField] private Texture2D testCursor;
+    private void Start()
+    {
+        Vector2 hotspot = new Vector2(0, -24);
+        Cursor.SetCursor(testCursor, hotspot, CursorMode.Auto);
+    }
+
     /// <summary>
     /// Changes Cursor depending on the given Interactable.<br/>
     /// Used by InteractionChecker.
