@@ -434,4 +434,21 @@ public class DialogueManager : MonoBehaviour
         imagePanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Function to get a variable state from the globals dictionary
+    /// Use to access the dialogue's variable 
+    /// </summary>
+    /// <param name="variableName"></param>
+    /// <returns></returns>
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        Ink.Runtime.Object variable = null;
+        variableObserver.variables.TryGetValue(variableName, out variable);
+        if(variable == null)
+        {
+            Debug.LogWarning("Variable with name " +  variableName + " could not be found!");
+        }
+        return variable;
+    }
+
 }
