@@ -135,6 +135,7 @@ public class DialogueManager : MonoBehaviour
             dialoguePanel.SetActive(true);
 
             variableObserver.StartListening(currentStory);
+            CutsceneManager.Instance.PauseCutscene();
 
             ContinueStory();
         }
@@ -419,6 +420,8 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
             typingCoroutine = null;
         }
+
+        CutsceneManager.Instance.ContinueCutscene();
 
     }
 
