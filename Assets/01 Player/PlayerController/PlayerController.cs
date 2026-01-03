@@ -37,11 +37,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(DialogueManager.Instance != null)
+        if(DialogueManager.Instance != null && CutsceneManager.Instance != null)
         {
             if (DialogueManager.Instance.DialogueIsPlaying) return;
+            if (CutsceneManager.Instance.CutsceneIsPlaying) return;
         }
-
     
         if (frozen) return;
         Vector3 move;

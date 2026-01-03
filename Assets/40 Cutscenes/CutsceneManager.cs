@@ -3,7 +3,7 @@ using UnityEngine.Playables;
 
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] private PlayableAsset[] allCutscenes;
+    [SerializeField] private CutsceneDatabase cutsceneDatabase;
 
     [SerializeField] private PlayableDirector director;
     public bool CutsceneIsPlaying { get; private set; }
@@ -21,6 +21,11 @@ public class CutsceneManager : MonoBehaviour
 
         CutsceneIsPlaying = false;
     }
+    private void Start()
+    {
+        director.stopped += OnCutsceneFinished;
+    }
+
 
     public void PauseCutscene()
     {
@@ -38,7 +43,38 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
-    
+    public void StopCutscene()
+    {
+        director.Stop();
+    }
 
+    public void PlayCutscene(int index)
+    {
+        if (index >= 0 && index < cutsceneDatabase.cutscenes.Length)
+        {
+            CutsceneIsPlaying = true;
+            director.playableAsset = cutsceneDatabase.cutscenes[index];
+            director.Play();
+            Debug.Log("Cutscene started playing");
+        }
+        else
+        {
+            Debug.LogWarning("Invalid index for cutscene database");
+        }
+    }
+
+    private void OnCutsceneFinished(PlayableDirector director)
+    {
+        CutsceneIsPlaying = false;
+        Debug.Log("Cutscene has finished playing");
+    }
+
+    void OnDisable() 
+    { 
+        director.stopped -= OnCutsceneFinished;
+    }
 
 }
+
+    
+
