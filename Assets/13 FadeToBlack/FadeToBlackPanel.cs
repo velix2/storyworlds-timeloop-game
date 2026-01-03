@@ -77,7 +77,7 @@ namespace FadeToBlack
             while (_timer < fadeInSeconds)
             {
                 _timer += Time.deltaTime;
-                _image.color = new Color(0, 0, 0,  1.0f - (_timer / fadeInSeconds));
+                _image.color = new Color(0, 0, 0,  1.0f - (_timer / fadeOutSeconds));
                 yield return null;
             }
 
