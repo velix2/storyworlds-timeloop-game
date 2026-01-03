@@ -16,7 +16,7 @@ public class CutsceneTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
         if (other.CompareTag("Player") && !cutsceneManager.CutsceneIsPlaying) 
         {
             cutsceneManager.PlayCutscene(cutsceneIndex);
