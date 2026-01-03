@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 1541952193}
   - component: {fileID: 1541952192}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CutsceneTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1903,7 +1903,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1577684678}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
+  m_PlayableAsset: {fileID: 11400000, guid: df89b03bf5f24ba4aa027f7cd873c805, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1974,6 +1974,7 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 4cb1fc561a8adb94096060b1e5122135, type: 2}
+    - {fileID: 11400000, guid: a6026ea56a8313b4a83e2e36df0b5064, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -1984,6 +1985,20 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 4900000, guid: 9a40d2ff330b107418969ebdcf6e5e7d, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2081032239}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: PauseDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
