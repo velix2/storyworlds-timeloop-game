@@ -83,5 +83,10 @@ namespace FadeToBlack
 
             _image.enabled = false;
         }
+
+        public static FadeToBlackPanel GetAnyInScene()
+        {
+            return GameObject.FindFirstObjectByType<FadeToBlackPanel>();
+        }
     }
 }

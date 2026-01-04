@@ -16,7 +16,6 @@ namespace NPCs.NpcData.NpcRoutine
         [Serializable]
         public class RoutineElement
         {
-
             [Tooltip(
                 "Daytime from when the NPC will be moving to the specified location, or be there. Must be in the format of HH:MM (e.g. 13:00; 24h format)")]
             [SerializeField]
@@ -32,6 +31,10 @@ namespace NPCs.NpcData.NpcRoutine
             public SceneMetaData TargetScene => targetScene;
 
             public Vector3 TargetPositionInTargetScene => targetPositionInTargetScene;
+
+            [SerializeField] private bool teleportToLocation;
+
+            public bool TeleportToLocation => teleportToLocation;
 
             /// <summary>
             /// Returns the specified Daytime as minutes
@@ -71,7 +74,7 @@ namespace NPCs.NpcData.NpcRoutine
         }
 
         [SerializeField] private List<RoutineElement> routineElements;
-        
+
         public RoutineElement GetCurrentRoutineElement(int daytimeMinutes)
         {
             var currentRoutineElement = routineElements
