@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -10,6 +11,8 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private GameObject player;
     public bool CutsceneIsPlaying { get; private set; }
     public static CutsceneManager Instance { get; private set; }
+
+    private Action onCutsceneFinishedCallback;
 
     private void Awake()
     {
@@ -51,14 +54,18 @@ public class CutsceneManager : MonoBehaviour
         director.Stop();
     }
 
-    public void PlayCutscene(int index)
+    public void PlayCutscene(int index, Action callback = null)
     {
         if (index >= 0 && index < cutsceneDatabase.cutscenes.Length)
         {
             CutsceneIsPlaying = true;
+
+            onCutsceneFinishedCallback = callback;
+            InputManager.PlayerControls.Disable();
+
             director.playableAsset = cutsceneDatabase.cutscenes[index];
             director.Play();
-            player.SetActive(false);
+            //player.SetActive(false);
             Debug.Log("Cutscene started playing");
         }
         else
@@ -70,7 +77,10 @@ public class CutsceneManager : MonoBehaviour
     private void OnCutsceneFinished(PlayableDirector director)
     {
         CutsceneIsPlaying = false;
-        player.SetActive(true);
+        //player.SetActive(true);
+        InputManager.PlayerControls.Enable();
+        onCutsceneFinishedCallback?.Invoke();
+        onCutsceneFinishedCallback = null;
         Debug.Log("Cutscene has finished playing");
     }
 
@@ -78,6 +88,7 @@ public class CutsceneManager : MonoBehaviour
     { 
         director.stopped -= OnCutsceneFinished;
     }
+
 
 }
 
