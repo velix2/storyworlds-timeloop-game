@@ -85,7 +85,7 @@ public class InteractionChecker : MonoBehaviour
         //different interactable than the one highlighted
         if (interactable != null && interactable != highlightedInteractable)
         {
-            if (selectedItem) CursorManager.SetTransparency(interactable.inRange);
+            if (selectedItem) CursorManager.SetTransparency(!interactable.inRange);
             else CursorManager.ChangeCursorInteraction(interactable);
             
             if (!highlightingAll)
@@ -103,7 +103,7 @@ public class InteractionChecker : MonoBehaviour
             
             if (!highlightingAll)
             {
-                highlightedInteractable.Unhighlight();
+                highlightedInteractable?.Unhighlight();
                 
             }
             highlightedInteractable = null;
@@ -152,12 +152,13 @@ public class InteractionChecker : MonoBehaviour
     private void Start()
     {
         layerMask = LayerMask.GetMask(Interactable.LayerName);
+        CursorManager.CreateInstance();
+        
     }
 
     private void Update()
     {
         if (DialogueManager.Instance.DialogueIsPlaying) return;
-
         HighlightSingle(GetInteractableAtMousePosition());
     }
     
@@ -199,15 +200,17 @@ public class InteractionChecker : MonoBehaviour
     /// <param name="mousePosition"></param>
     private void OnSecondaryInteractionInput(Vector3 mousePosition)
     {
+        if (selectedItem != null)
+        {
+            DeselectItem();
+            return;
+        }
         if (highlightedInteractable != null && (!highlightedInteractable.SecondaryNeedsInRange || highlightedInteractable.inRange))
         {
-            if (selectedItem != null)
-            {
-                DeselectItem();
-                return;
-            }
             highlightedInteractable.SecondaryInteraction();
         }
+        
+        
     }
 
     #region Hightlight Zone
