@@ -53,6 +53,7 @@ public abstract class Interactable : MonoBehaviour
         INSPECT,
         ENTER_OPEN,
         ENTER_CLOSED,
+        _enumlength
     }
 
 
