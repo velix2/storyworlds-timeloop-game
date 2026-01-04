@@ -48,9 +48,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1683433373455059139, guid: af920985c014aa4e584afa30476b6a72, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -755185241860426685, guid: af920985c014aa4e584afa30476b6a72, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: af920985c014aa4e584afa30476b6a72, type: 3}
       propertyPath: m_Name
       value: SUV
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af920985c014aa4e584afa30476b6a72, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493117798010638100, guid: af920985c014aa4e584afa30476b6a72, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567934141543178872, guid: af920985c014aa4e584afa30476b6a72, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
