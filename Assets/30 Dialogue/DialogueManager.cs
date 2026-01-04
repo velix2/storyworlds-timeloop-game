@@ -3,10 +3,8 @@ using Ink.Runtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -102,14 +100,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Subscribe to events
-        InputManager.ContinueDialogue += ContinueStory;
-        InputManager.ContinueDialogueSimple += ContinueStorySimple;
+        DialogueInputManager.ContinueDialogue += ContinueStory;
+        DialogueInputManager.ContinueDialogueSimple += ContinueStorySimple;
     }
 
     private void OnDisable()
     {
-        InputManager.ContinueDialogue -= ContinueStory;
-        InputManager.ContinueDialogueSimple -= ContinueStorySimple;
+        DialogueInputManager.ContinueDialogue -= ContinueStory;
+        DialogueInputManager.ContinueDialogueSimple -= ContinueStorySimple;
     }
 
     #region Dialogue Calling Functions

@@ -5,12 +5,9 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public delegate void MouseInteraction(Vector3 position);
-    public delegate void DialogueInteraction();
 
     public static event MouseInteraction PrimaryInteraction;
     public static event MouseInteraction SecondaryInteraction;
-    public static event DialogueInteraction ContinueDialogue;
-    public static event DialogueInteraction ContinueDialogueSimple;
 
     private static InputManager _instance;
     private PlayerInputStandard playerControls;
@@ -35,8 +32,6 @@ public class InputManager : MonoBehaviour
 
         playerControls.Standard.PrimaryInteract.performed += SignalPrimaryInteraction;
         playerControls.Standard.SecondaryInteract.performed += SignalSecondaryInteraction;
-        playerControls.Standard.ContinueDialogue.performed += SignalDialogueContinue;
-        playerControls.Standard.ContinueDialogueSimple.performed += SignalDialogueContinueSimple;
 
         Debug.Log(_instance);
     }
@@ -80,16 +75,5 @@ public class InputManager : MonoBehaviour
     {
         SecondaryInteraction?.Invoke(GetMousePosition());
     }
-    private void SignalDialogueContinue(InputAction.CallbackContext context)
-    {
-        if (!DialogueManager.Instance.DialogueIsPlaying || DialogueManager.Instance.SimpleDialogueIsPlaying) return;
-        ContinueDialogue?.Invoke();  
-    }
-    private void SignalDialogueContinueSimple(InputAction.CallbackContext context)
-    {
-        if (!DialogueManager.Instance.DialogueIsPlaying || !DialogueManager.Instance.SimpleDialogueIsPlaying) return;
-        ContinueDialogueSimple?.Invoke();
-    }
-
 
 }
