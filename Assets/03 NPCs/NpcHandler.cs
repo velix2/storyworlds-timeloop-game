@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using FadeToBlack;
 using NPCs.NpcCharacter.NpcCharacterState;
 using NPCs.NpcData;
 using TimeManagement;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -56,7 +55,7 @@ namespace NPCs
             // Subscribe to scene load event
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
-        
+
         private void OnDisable()
         {
             // Unsubscribe from scene load event
@@ -85,21 +84,42 @@ namespace NPCs
             var npcViewsToLeave = _npcViewsInCurrentScene
                 .Where(character => !newNpcModelsInCurrentScene.Contains(character.Model)).ToList();
 
+            bool runFadeToBlack = false;
+            
             // Update their state to leaving
             foreach (var leavingNpcView in npcViewsToLeave)
             {
-                var currentScene = leavingNpcView.Model.CurrentRoutine.GetPreviousRoutineElement(daytime).TargetScene;
-                var targetScene = leavingNpcView.Model.CurrentRoutine.GetCurrentRoutineElement(daytime).TargetScene;
+                var previousRoutineElement = leavingNpcView.Model.CurrentRoutine.GetPreviousRoutineElement(daytime);
+                var currentRoutineElement = leavingNpcView.Model.CurrentRoutine.GetCurrentRoutineElement(daytime);
+                
+                if (currentRoutineElement.TeleportToLocation)
+                {
+                    // If should teleport, remove after a short while (for blackscreen to fade)
+                    Destroy(leavingNpcView.gameObject, 0.25f);
 
-                leavingNpcView.UpdateState(new NpcCharacterStateLeavingScene(currentScene, targetScene));
+                    runFadeToBlack = true;
+                }
+                else
+                {
+                    var currentScene = previousRoutineElement.TargetScene;
+                    var targetScene = currentRoutineElement.TargetScene;
+                    
+                    // Else animate exit
+                    leavingNpcView.UpdateState(new NpcCharacterStateLeavingScene(currentScene, targetScene));
+                }
 
                 // Remove from view
                 _npcViewsInCurrentScene.Remove(leavingNpcView);
             }
+            
+            // Cue a fade to black, if any exists
+            if (runFadeToBlack) FadeToBlackPanel.GetAnyInScene()?.FadeToBlack();
 
             // Figure out all NPCs that are new and need a new view element created
             var npcModelsToSpawn = newNpcModelsInCurrentScene
                 .Where(model => _npcViewsInCurrentScene.TrueForAll(character => character.Model != model)).ToList();
+
+            runFadeToBlack = false;
 
             // Spawn these models and append them to views list
             foreach (var npcModel in npcModelsToSpawn)
@@ -114,8 +134,10 @@ namespace NPCs
                 var npcCharacterComponent = Instantiate(npcModel.Prefab).GetComponent<NpcCharacter.NpcCharacter>();
                 npcCharacterComponent.Model = npcModel;
 
-                if (previousScene is not null)
+
+                if (previousScene is not null && !currentRoutineElement.TeleportToLocation)
                 {
+                    // Walk there if there was a previous event, and the NPC should not teleport
                     npcCharacterComponent.UpdateState(
                         new NpcCharacterStateEnteringScene(previousScene, currentScene, targetLocation));
                 }
@@ -124,11 +146,16 @@ namespace NPCs
                     npcCharacterComponent.UpdateState(
                         new NpcCharacterStateIdle());
                     npcCharacterComponent.transform.position = targetLocation;
-
+                    
+                    // Request fade to black
+                    runFadeToBlack = true;
                 }
+                
 
                 _npcViewsInCurrentScene.Add(npcCharacterComponent);
             }
+            
+            if (runFadeToBlack) FadeToBlackPanel.GetAnyInScene()?.FadeToBlack();
         }
 
         private void InitNPCs(Scene currentScene)
@@ -159,11 +186,11 @@ namespace NPCs
         {
             // Safeguard that only the authorative Handler reacts to this
             if (this != Instance) return;
-            
+
             // Clear views list so we start fresh
             _npcViewsInCurrentScene.Clear();
 
-            InitNPCs(loadedScene);
+            //InitNPCs(loadedScene);
         }
     }
 }

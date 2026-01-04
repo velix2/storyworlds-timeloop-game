@@ -48,9 +48,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4444447655194717219, guid: 16d08e0a14490befaa67e2fd2a403623, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 900865262074457681, guid: 16d08e0a14490befaa67e2fd2a403623, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 16d08e0a14490befaa67e2fd2a403623, type: 3}
       propertyPath: m_Name
       value: Railroad End
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 16d08e0a14490befaa67e2fd2a403623, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098841823290882196, guid: 16d08e0a14490befaa67e2fd2a403623, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645913288516809903, guid: 16d08e0a14490befaa67e2fd2a403623, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
