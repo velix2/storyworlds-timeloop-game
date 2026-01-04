@@ -29,6 +29,8 @@ public class SpeakerManager : MonoBehaviour
         {
             speakerDictionary[speaker.speakerId] = speaker;
         }
+        
+        DontDestroyOnLoad(gameObject);
     }
 
     public SpeakerData GetSpeakerDataByID(string speakerID)
