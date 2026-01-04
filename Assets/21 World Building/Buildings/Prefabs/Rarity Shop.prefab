@@ -107,21 +107,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5769484663829117588, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4573963422622550065}
+    - targetCorrespondingSourceObject: {fileID: 5769484663829117588, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 935411544499113884}
     - targetCorrespondingSourceObject: {fileID: -7560066243188634301, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9175725738393806518}
+    - targetCorrespondingSourceObject: {fileID: -7560066243188634301, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7286764237841910434}
     - targetCorrespondingSourceObject: {fileID: -4574738050372528787, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6416946541363025009}
+    - targetCorrespondingSourceObject: {fileID: -4574738050372528787, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8342597391185590891}
     - targetCorrespondingSourceObject: {fileID: 3461685604119679297, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5642707016573258187}
+    - targetCorrespondingSourceObject: {fileID: 3461685604119679297, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5654434103662941676}
     - targetCorrespondingSourceObject: {fileID: -1259294333316137723, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3160148695313018280}
+    - targetCorrespondingSourceObject: {fileID: -1259294333316137723, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1522833852559415104}
     - targetCorrespondingSourceObject: {fileID: -7206347349901426836, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8943347072276972254}
+    - targetCorrespondingSourceObject: {fileID: -7206347349901426836, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 83554429535770388}
   m_SourcePrefab: {fileID: 100100000, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
 --- !u!1 &240675205140062884 stripped
 GameObject:
@@ -204,6 +222,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2307497853120795835, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+--- !u!114 &83554429535770388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356045267990144292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: c63224f4ce9f0de76ad3f91019fda021, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &498138930940945502 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1865821458497404438, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
@@ -258,6 +292,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1697406090841675414, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+--- !u!114 &7286764237841910434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583281857292867339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &670870015789640172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1603963943520629668, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
@@ -420,6 +470,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5627465554244391375, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+--- !u!114 &5654434103662941676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388788001595050761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &4553680366660605366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6900385278981632002, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
@@ -528,6 +594,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1049928748687988745, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+--- !u!114 &935411544499113884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700527672356495580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &5885258482366839841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3557378181376072087, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
@@ -636,6 +718,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1045111890271186868, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+--- !u!114 &8342597391185590891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885520010313977637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &8122806539986166580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8049908967206730108, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
@@ -690,6 +788,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7566897327495880374, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}
+--- !u!114 &1522833852559415104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181653442180785997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: c63224f4ce9f0de76ad3f91019fda021, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &8383109976298436279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7736003384490323199, guid: a031165d47173b07c8ac78e465ec4c08, type: 3}

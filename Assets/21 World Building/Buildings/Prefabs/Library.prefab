@@ -74,27 +74,51 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7770355759108668905, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5211398192050944528}
+    - targetCorrespondingSourceObject: {fileID: -7770355759108668905, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4287517110969722458}
     - targetCorrespondingSourceObject: {fileID: -4994031172072136495, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1582978373163732589}
+    - targetCorrespondingSourceObject: {fileID: -4994031172072136495, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5748840379833746529}
     - targetCorrespondingSourceObject: {fileID: -8494475083098491146, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6180727464937269915}
+    - targetCorrespondingSourceObject: {fileID: -8494475083098491146, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6863514584020174626}
     - targetCorrespondingSourceObject: {fileID: -5686471317970145436, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2433449524297274491}
+    - targetCorrespondingSourceObject: {fileID: -5686471317970145436, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2546019828984284428}
     - targetCorrespondingSourceObject: {fileID: -3903991914822610376, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6876178235385535212}
+    - targetCorrespondingSourceObject: {fileID: -3903991914822610376, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6267655219271661468}
     - targetCorrespondingSourceObject: {fileID: -3569949539390092016, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7900722385126248737}
+    - targetCorrespondingSourceObject: {fileID: -3569949539390092016, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7975626318561110237}
     - targetCorrespondingSourceObject: {fileID: -2188204988767648781, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9107036997538955184}
+    - targetCorrespondingSourceObject: {fileID: -2188204988767648781, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4907371179388764318}
     - targetCorrespondingSourceObject: {fileID: -7865046428465962883, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 128786963671150517}
+    - targetCorrespondingSourceObject: {fileID: -7865046428465962883, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5630447745929217789}
   m_SourcePrefab: {fileID: 100100000, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
 --- !u!1 &1440167096661444977 stripped
 GameObject:
@@ -123,6 +147,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6265491734351522327, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+--- !u!114 &2546019828984284428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440167096661444977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &1754357892111042244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4994031172072136495, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
@@ -150,6 +190,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5698455256087809998, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+--- !u!114 &5748840379833746529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754357892111042244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &1942066282006905530 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4042687447699432623, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
@@ -204,6 +260,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2552736169894262534, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+--- !u!114 &6863514584020174626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951150524336361699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &3472457691208861288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7865046428465962883, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
@@ -231,6 +303,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6857398323468674282, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+--- !u!114 &5630447745929217789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472457691208861288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &3946066649117746178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7770355759108668905, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
@@ -258,6 +346,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8315304638460755378, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+--- !u!114 &4287517110969722458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946066649117746178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &4848396608225895910 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2188204988767648781, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
@@ -285,6 +389,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3687849774921441488, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+--- !u!114 &4907371179388764318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848396608225895910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &5932852822658630442 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8123546067275539775, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
@@ -366,6 +486,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5489404248975051240, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+--- !u!114 &6267655219271661468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726809337087620141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &7826664477974244101 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3569949539390092016, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
@@ -393,6 +529,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8721826553401664902, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+--- !u!114 &7975626318561110237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826664477974244101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &8532785762246421017 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3133498875991405556, guid: c5154ccce851ea9c897adae59fd57295, type: 3}

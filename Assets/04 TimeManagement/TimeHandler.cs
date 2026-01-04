@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DataClasses;
 using UnityEngine;
 using UnityEngine.Events;
@@ -111,6 +112,14 @@ namespace TimeManagement
 
         private void Start()
         {
+            // After everything finished setting up, call one initial Time event
+            StartCoroutine(PostStart());
+        }
+
+        // ReSharper disable Unity.PerformanceAnalysis
+        private IEnumerator PostStart()
+        {
+            yield return new WaitForEndOfFrame();
             // Send one initial PassTime for Setup
             PassTime(0);
         }
