@@ -20,6 +20,7 @@ public class CutsceneManager : MonoBehaviour
         Instance = this;
 
         CutsceneIsPlaying = false;
+        DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
