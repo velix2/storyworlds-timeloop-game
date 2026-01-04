@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class DialogueUI : MonoBehaviour
 {
     [Header("Dialogue UI")]
-    [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private GameObject dialogueUI;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private GameObject namePanel;
+    [SerializeField] private GameObject nameBox;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private GameObject imagePanel;
     [SerializeField] private Image speakerImage;
@@ -17,15 +17,15 @@ public class DialogueUI : MonoBehaviour
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
 
-    [Header("PLayer")]
+    [Header("Player")]
     [SerializeField] private GameObject playerPanel;
     [SerializeField] private TextMeshProUGUI playerText;
     [SerializeField] private Transform playerTransform;
 
     void Start()
     {
-        DialogueManager.Instance.RegisterDialogueUI(dialogueBox, dialogueText, namePanel, nameText, imagePanel, 
+        DialogueManager.Instance.RegisterDialogueUI(dialogueUI, dialogueText, nameBox, nameText, imagePanel, 
             speakerImage, continueIcon, choices, playerPanel, playerText, playerTransform);
-        dialogueBox.SetActive(false);
+        dialogueUI.SetActive(false);
     }
 }

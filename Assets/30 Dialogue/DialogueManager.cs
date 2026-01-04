@@ -26,9 +26,9 @@ public class DialogueManager : MonoBehaviour
     [Header("Load Globals Json")]
     [SerializeField] private TextAsset loadGlobalsJSON;
 
-    private GameObject dialogueBox;
+    private GameObject dialogueUI;
     private TextMeshProUGUI dialogueText;
-    private GameObject namePanel;
+    private GameObject nameBox;
     private TextMeshProUGUI nameText;
     private GameObject imagePanel;
     private Image speakerImage;
@@ -121,7 +121,7 @@ public class DialogueManager : MonoBehaviour
             currentStory = new Story(inkJson.text);
             DialogueIsPlaying = true;
             SimpleDialogueIsPlaying = false;
-            dialogueBox.SetActive(true);
+            dialogueUI.SetActive(true);
 
             variableObserver.StartListening(currentStory);
 
@@ -396,7 +396,7 @@ public class DialogueManager : MonoBehaviour
         SimpleDialogueIsPlaying = false;
 
         // Deactivate Panels
-        dialogueBox.SetActive(false);
+        dialogueUI.SetActive(false);
         playerPanel.SetActive(false);
         playerText.text = "";
         dialogueText.text = "";
@@ -413,13 +413,13 @@ public class DialogueManager : MonoBehaviour
 
     private void DeactivatePortraitPanels()
     {
-        namePanel.SetActive(false);
+        nameBox.SetActive(false);
         imagePanel.SetActive(false);
     }
 
     private void ActivatePortraitPanels()
     {
-        namePanel.SetActive(true);
+        nameBox.SetActive(true);
         imagePanel.SetActive(true);
     }
 
@@ -440,12 +440,12 @@ public class DialogueManager : MonoBehaviour
         return variable;
     }
 
-    public void RegisterDialogueUI(GameObject dialogueBox, TextMeshProUGUI dialogueText, GameObject namePanel,
+    public void RegisterDialogueUI(GameObject dialogueUI, TextMeshProUGUI dialogueText, GameObject nameBox,
         TextMeshProUGUI nameText, GameObject imagePanel, Image speakerImage, GameObject continueIcon, GameObject[] choices, 
         GameObject playerPanel, TextMeshProUGUI playerText, Transform playerTransform )
     {
-        this.dialogueBox = dialogueBox;
-        this.namePanel = namePanel;
+        this.dialogueUI = dialogueUI;
+        this.nameBox = nameBox;
         this.nameText = nameText;
         this.imagePanel = imagePanel;
         this.speakerImage = speakerImage;
