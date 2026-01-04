@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -25,24 +26,21 @@ public class DialogueManager : MonoBehaviour
     [Header("Load Globals Json")]
     [SerializeField] private TextAsset loadGlobalsJSON;
 
-    [Header("Dialogue UI")]
-    [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private GameObject namePanel;
-    [SerializeField] private TextMeshProUGUI nameText;
-    [SerializeField] private GameObject imagePanel;
-    [SerializeField] private Image speakerImage;
-    [SerializeField] private GameObject continueIcon;
-
-    [Header("Choices UI")]
-    [SerializeField] private GameObject[] choices;
+    private GameObject dialogueBox;
+    private TextMeshProUGUI dialogueText;
+    private GameObject namePanel;
+    private TextMeshProUGUI nameText;
+    private GameObject imagePanel;
+    private Image speakerImage;
+    private GameObject continueIcon;
+    private GameObject[] choices;
 
     private TextMeshProUGUI[] choicesText;
-    
-    
-    private GameObject PlayerPanel => GameObject.FindGameObjectWithTag("PlayerPanel");
-    private TextMeshProUGUI PlayerText => GameObject.FindGameObjectWithTag("PlayerText").GetComponent<TextMeshProUGUI>();
-    private Transform PlayerTransform => GameObject.FindGameObjectWithTag("Player").transform;
+
+
+    private GameObject playerPanel;
+    private TextMeshProUGUI playerText;
+    private Transform playerTransform;
 
 
     public bool DialogueIsPlaying { get; private set; }         // Flag to signal if the dialogue is playing
@@ -102,20 +100,6 @@ public class DialogueManager : MonoBehaviour
             Instance = null;
             return;
         }
-        
-        // Hide dialogue box
-        dialoguePanel.SetActive(false);
-        PlayerPanel.SetActive(false);
-        HideChoices();
-
-        // Get all choices text components for easier access
-        choicesText = new TextMeshProUGUI[choices.Length];
-        int index = 0;
-        foreach(GameObject choice in choices)
-        {
-            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>(true);
-            index++;
-        }
 
         // Subscribe to events
         InputManager.ContinueDialogue += ContinueStory;
@@ -137,7 +121,7 @@ public class DialogueManager : MonoBehaviour
             currentStory = new Story(inkJson.text);
             DialogueIsPlaying = true;
             SimpleDialogueIsPlaying = false;
-            dialoguePanel.SetActive(true);
+            dialogueBox.SetActive(true);
 
             variableObserver.StartListening(currentStory);
 
@@ -157,12 +141,12 @@ public class DialogueManager : MonoBehaviour
             currentStory = new Story(inkJson.text);
             DialogueIsPlaying = true;
             SimpleDialogueIsPlaying = true;
-            PlayerPanel.SetActive(true);
+            playerPanel.SetActive(true);
 
             variableObserver.StartListening(currentStory);
 
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(PlayerTransform.position + Vector3.up * 2);
-            PlayerPanel.transform.position = screenPosition;
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
+            playerPanel.transform.position = screenPosition;
 
             ContinueStorySimple();
         }
@@ -222,7 +206,7 @@ public class DialogueManager : MonoBehaviour
         if (IsTyping)
         {
             IsTyping = false;
-            PlayerText.text = currentLine;
+            playerText.text = currentLine;
             return;
         }
 
@@ -230,7 +214,7 @@ public class DialogueManager : MonoBehaviour
         {
             IsTyping = true;
             string line = currentStory.Continue().Trim();
-            typingCoroutine = StartCoroutine(DisplayLine(line, PlayerText));
+            typingCoroutine = StartCoroutine(DisplayLine(line, playerText));
         }
         else
         {
@@ -412,9 +396,9 @@ public class DialogueManager : MonoBehaviour
         SimpleDialogueIsPlaying = false;
 
         // Deactivate Panels
-        dialoguePanel.SetActive(false);
-        PlayerPanel.SetActive(false);
-        PlayerText.text = "";
+        dialogueBox.SetActive(false);
+        playerPanel.SetActive(false);
+        playerText.text = "";
         dialogueText.text = "";
 
         variableObserver.StopListening(currentStory);
@@ -454,6 +438,41 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("Variable with name " +  variableName + " could not be found!");
         }
         return variable;
+    }
+
+    public void RegisterDialogueUI(GameObject dialogueBox, TextMeshProUGUI dialogueText, GameObject namePanel,
+        TextMeshProUGUI nameText, GameObject imagePanel, Image speakerImage, GameObject continueIcon, GameObject[] choices, 
+        GameObject playerPanel, TextMeshProUGUI playerText, Transform playerTransform )
+    {
+        this.dialogueBox = dialogueBox;
+        this.namePanel = namePanel;
+        this.nameText = nameText;
+        this.imagePanel = imagePanel;
+        this.speakerImage = speakerImage;
+        this.continueIcon = continueIcon;
+        this.choices = choices;
+        this.playerPanel = playerPanel;
+        this.playerText = playerText;
+        this.playerTransform = playerTransform;
+        this.dialogueText = dialogueText;
+
+        InitializeChoices(choices);
+
+        Debug.Log("DialogueBox initiialized");
+    }
+
+    private void InitializeChoices(GameObject[] choices)
+    {
+        HideChoices();
+
+        // Get all choices text components for easier access
+        choicesText = new TextMeshProUGUI[choices.Length];
+        int index = 0;
+        foreach (GameObject choice in choices)
+        {
+            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>(true);
+            index++;
+        }
     }
 
 }
