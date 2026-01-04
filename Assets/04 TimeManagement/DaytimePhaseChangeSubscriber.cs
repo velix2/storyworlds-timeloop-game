@@ -7,18 +7,18 @@ namespace TimeManagement
     public abstract class DaytimePhaseChangeSubscriber<T> : MonoBehaviour
     {
         [Tooltip("The element that will be applied at morning")] [SerializeField]
-        private T elementMorning;
+        protected T elementMorning;
 
         [Tooltip("The element that will be applied at afternoon")] [SerializeField]
-        private T elementAfternoon;
+        protected T elementAfternoon;
 
         [Tooltip("The element that will be applied at evening")] [SerializeField]
-        private T elementEvening;
+        protected T elementEvening;
 
         [Tooltip("The element that will be applied at night")] [SerializeField]
-        private T elementNight;
+        protected T elementNight;
 
-        [SerializeField] private float invocationDelaySeconds;
+        [SerializeField] private float invocationDelaySeconds = 0.25f;
         
 
         private void OnEnable()

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 826df6f75486bf0e8ab6f12b7aa4a8fa
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - elementMorning: {fileID: 11400000, guid: 3cd7d108fada3f88ba0c9c1a687442ef, type: 2}
+  - elementAfternoon: {fileID: 11400000, guid: c523f6da603d8e85cbb2f7ccd4bfd207, type: 2}
+  - elementEvening: {fileID: 11400000, guid: 509bbc3a9a582457e82eafdc5f27d02e, type: 2}
+  - elementNight: {fileID: 11400000, guid: 96dafc60e0d534d35976e13e8875d5d0, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
