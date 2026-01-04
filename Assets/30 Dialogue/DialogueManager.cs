@@ -38,11 +38,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
 
     private TextMeshProUGUI[] choicesText;
-
-    [Header("Player")]
-    [SerializeField] private GameObject playerPanel;
-    [SerializeField] private TextMeshProUGUI playerText;
-    [SerializeField] private Transform playerTransform;
+    
+    
+    private GameObject PlayerPanel => GameObject.FindGameObjectWithTag("PlayerPanel");
+    private TextMeshProUGUI PlayerText => GameObject.FindGameObjectWithTag("PlayerText").GetComponent<TextMeshProUGUI>();
+    private Transform PlayerTransform => GameObject.FindGameObjectWithTag("Player").transform;
 
 
     public bool DialogueIsPlaying { get; private set; }         // Flag to signal if the dialogue is playing
@@ -81,26 +81,31 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         Instance = this;
-
-        if (SpeakerManager.Instance == null)
-        {
-            Debug.LogError("DialogManager requires a SpeakerManager in the scene, but none was found.");
-            enabled = false;
-        }
-
+        
         variableObserver = new VariableObserver(loadGlobalsJSON);
 
         DialogueIsPlaying = false;
         IsTyping = false;
         ChoicesDisplayed = false;
         SimpleDialogueIsPlaying = false;
+        
+        DontDestroyOnLoad(this);
     }
 
     private void Start()
     {
+        // Move this to start because it depends on SpeakerManager's Awake()
+        if (SpeakerManager.Instance == null)
+        {
+            Debug.LogError("DialogManager requires a SpeakerManager in the scene, but none was found.");
+            Destroy(gameObject);
+            Instance = null;
+            return;
+        }
+        
         // Hide dialogue box
         dialoguePanel.SetActive(false);
-        playerPanel.SetActive(false);
+        PlayerPanel.SetActive(false);
         HideChoices();
 
         // Get all choices text components for easier access
@@ -152,12 +157,12 @@ public class DialogueManager : MonoBehaviour
             currentStory = new Story(inkJson.text);
             DialogueIsPlaying = true;
             SimpleDialogueIsPlaying = true;
-            playerPanel.SetActive(true);
+            PlayerPanel.SetActive(true);
 
             variableObserver.StartListening(currentStory);
 
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
-            playerPanel.transform.position = screenPosition;
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(PlayerTransform.position + Vector3.up * 2);
+            PlayerPanel.transform.position = screenPosition;
 
             ContinueStorySimple();
         }
@@ -217,7 +222,7 @@ public class DialogueManager : MonoBehaviour
         if (IsTyping)
         {
             IsTyping = false;
-            playerText.text = currentLine;
+            PlayerText.text = currentLine;
             return;
         }
 
@@ -225,7 +230,7 @@ public class DialogueManager : MonoBehaviour
         {
             IsTyping = true;
             string line = currentStory.Continue().Trim();
-            typingCoroutine = StartCoroutine(DisplayLine(line, playerText));
+            typingCoroutine = StartCoroutine(DisplayLine(line, PlayerText));
         }
         else
         {
@@ -408,8 +413,8 @@ public class DialogueManager : MonoBehaviour
 
         // Deactivate Panels
         dialoguePanel.SetActive(false);
-        playerPanel.SetActive(false);
-        playerText.text = "";
+        PlayerPanel.SetActive(false);
+        PlayerText.text = "";
         dialogueText.text = "";
 
         variableObserver.StopListening(currentStory);
