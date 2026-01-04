@@ -14626,12 +14626,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 91713236}
     m_Modifications:
     - target: {fileID: 1365908248398041144, guid: 2a79be847289b2e13b005464977b54a1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1365908248398041144, guid: 2a79be847289b2e13b005464977b54a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 531.64
+      value: 530.9
       objectReference: {fileID: 0}
     - target: {fileID: 1365908248398041144, guid: 2a79be847289b2e13b005464977b54a1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14676,37 +14672,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1045959269603330239, guid: 2a79be847289b2e13b005464977b54a1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1074970980}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a79be847289b2e13b005464977b54a1, type: 3}
 --- !u!4 &1074970978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1365908248398041144, guid: 2a79be847289b2e13b005464977b54a1, type: 3}
   m_PrefabInstance: {fileID: 1074970977}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1074970979 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1045959269603330239, guid: 2a79be847289b2e13b005464977b54a1, type: 3}
-  m_PrefabInstance: {fileID: 1074970977}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1074970980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074970979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
-  enableTimeMinutes: 960
-  disableTimeMinutes: 600
-  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
-  materialNameToReplace: Window
 --- !u!1001 &1094018924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27381,10 +27353,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284288468}
     m_Modifications:
-    - target: {fileID: 349316775334011530, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
     - target: {fileID: 1426635978721978137, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
       propertyPath: m_Name
       value: rarity_shop
@@ -27429,26 +27397,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2725183773588076805, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
-    - target: {fileID: 4055703905497265228, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: c63224f4ce9f0de76ad3f91019fda021, type: 2}
-    - target: {fileID: 5121357326019190599, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
-    - target: {fileID: 5267240782914220720, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
-    - target: {fileID: 8045473371263306180, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: c63224f4ce9f0de76ad3f91019fda021, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

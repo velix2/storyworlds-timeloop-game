@@ -59,6 +59,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -3133498875991405556, guid: 6c7ab8f6d0f952c5c94682e278589670, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8498978197596102548}
+    - targetCorrespondingSourceObject: {fileID: -3133498875991405556, guid: 6c7ab8f6d0f952c5c94682e278589670, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5126975413649432712}
     - targetCorrespondingSourceObject: {fileID: 5207044347540290682, guid: 6c7ab8f6d0f952c5c94682e278589670, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4912568411950240150}
@@ -90,6 +93,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3909233067320746374, guid: 6c7ab8f6d0f952c5c94682e278589670, type: 3}
+--- !u!114 &5126975413649432712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670444265261819229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &1552991871235167531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5207044347540290682, guid: 6c7ab8f6d0f952c5c94682e278589670, type: 3}
