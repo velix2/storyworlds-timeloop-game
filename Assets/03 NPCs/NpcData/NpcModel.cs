@@ -10,6 +10,7 @@ namespace NPCs.NpcData
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private string characterName;
+        [SerializeField] private AnimatorOverrideController walkAnimator;
         [SerializeField] private DayRoutine defaultRoutine;
         private DayRoutine _currentRoutine;
 
