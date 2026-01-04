@@ -8,9 +8,11 @@ public class CutsceneManager : MonoBehaviour
 
     [SerializeField] private PlayableDirector director;
 
-    [SerializeField] private GameObject player;
     public bool CutsceneIsPlaying { get; private set; }
     public static CutsceneManager Instance { get; private set; }
+
+    public static event Action CutsceneStarted;
+    public static event Action CutsceneEnded;
 
     private Action onCutsceneFinishedCallback;
 
@@ -60,12 +62,12 @@ public class CutsceneManager : MonoBehaviour
         {
             CutsceneIsPlaying = true;
 
+            CutsceneStarted?.Invoke();
+
             onCutsceneFinishedCallback = callback;
-            InputManager.PlayerControls.Disable();
 
             director.playableAsset = cutsceneDatabase.cutscenes[index];
             director.Play();
-            //player.SetActive(false);
             Debug.Log("Cutscene started playing");
         }
         else
@@ -77,8 +79,8 @@ public class CutsceneManager : MonoBehaviour
     private void OnCutsceneFinished(PlayableDirector director)
     {
         CutsceneIsPlaying = false;
-        //player.SetActive(true);
-        InputManager.PlayerControls.Enable();
+
+        CutsceneEnded?.Invoke();
         onCutsceneFinishedCallback?.Invoke();
         onCutsceneFinishedCallback = null;
         Debug.Log("Cutscene has finished playing");

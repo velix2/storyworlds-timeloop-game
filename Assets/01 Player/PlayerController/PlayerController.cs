@@ -69,7 +69,30 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    
+    private void OnEnable()
+    {
+        CutsceneManager.CutsceneStarted += OnCutsceneStart;
+        CutsceneManager.CutsceneEnded += OnCutsceneEnd;
+    }
+
+    private void OnDisable()
+    {
+        CutsceneManager.CutsceneStarted -= OnCutsceneStart;
+        CutsceneManager.CutsceneEnded -= OnCutsceneEnd;
+    }
+
+    private void OnCutsceneStart()
+    {
+        animator.applyRootMotion = true;
+        InputManager.PlayerControls.Disable();
+    }
+
+    private void OnCutsceneEnd()
+    {
+        animator.applyRootMotion = false;
+        InputManager.PlayerControls.Enable();
+    }
+
 
     private void OnInventoryOpenInput()
     {
