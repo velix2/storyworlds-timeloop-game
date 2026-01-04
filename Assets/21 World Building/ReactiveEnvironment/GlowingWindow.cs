@@ -7,11 +7,11 @@ namespace World_Building.ReactiveEnvironment
     [RequireComponent(typeof(Renderer))]
     public class GlowingWindow : MonoBehaviour
     {
-        [SerializeField] private int enableTimeMinutes, disableTimeMinutes;
+        [SerializeField] private int enableTimeMinutes = 16 * 60, disableTimeMinutes = 10 * 60;
         [SerializeField] private Material glowMaterial;
         private Material _initialMaterial;
 
-        [SerializeField] private string materialNameToReplace;
+        [SerializeField] private string materialNameToReplace = "Window";
         private int _materialIndexToReplace = -1;
         
         private Renderer _renderer;
@@ -23,6 +23,8 @@ namespace World_Building.ReactiveEnvironment
 
         private void Start()
         {
+            materialNameToReplace += " (Instance)"; // Add this Suffix for what reason whatsoever
+            
             // Subscribe to Time Event
             TimeHandler.Instance.onTimePassed.AddListener(OnTimePasssed);
             
@@ -47,7 +49,7 @@ namespace World_Building.ReactiveEnvironment
         {
             var t = payload.NewDaytimeInMinutes;
             
-            bool setLightIsOn = false;
+            bool setLightIsOn;
             
             // Case enabled time span wraps around midnight (off < on)
             if (disableTimeMinutes < enableTimeMinutes)
@@ -61,18 +63,20 @@ namespace World_Building.ReactiveEnvironment
                 setLightIsOn = enableTimeMinutes <= t && t < disableTimeMinutes;
             }
             
-            if (setLightIsOn) OverrideMaterial();
-            else RestoreMaterial();
+            OverrideMaterial(setLightIsOn ? glowMaterial : _initialMaterial);
         }
 
-        private void OverrideMaterial()
+        private void OverrideMaterial(Material newMat)
         {
-            _renderer.materials[_materialIndexToReplace] = glowMaterial;
-        }
+            // Get a copy of the current materials array
+            Material[] tempMaterials = _renderer.materials;
 
-        private void RestoreMaterial()
-        {
-            _renderer.materials[_materialIndexToReplace] = _initialMaterial;
+            // Replace the specific element in your copy
+            tempMaterials[_materialIndexToReplace] = newMat;
+
+            // Reassign the entire array back to the renderer
+            _renderer.materials = tempMaterials;
         }
+        
     }
 }
