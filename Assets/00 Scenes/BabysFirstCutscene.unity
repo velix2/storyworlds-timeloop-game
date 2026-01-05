@@ -445,6 +445,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestInteractable2D
   inRange: 0
   spriteRenderer: {fileID: 403134470}
+  primary: 0
+  secondary: 0
+  primaryNeedsInRange: 1
+  secondaryNeedsInRange: 0
 --- !u!65 &403134473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1329,12 +1333,18 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 7223046147075166208, guid: df89b03bf5f24ba4aa027f7cd873c805, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 1830046665}
   - key: {fileID: -7237680828869470908, guid: df89b03bf5f24ba4aa027f7cd873c805, type: 2}
     value: {fileID: 403134475}
   - key: {fileID: 6789282277131314227, guid: df89b03bf5f24ba4aa027f7cd873c805, type: 2}
     value: {fileID: 1799117331}
+  - key: {fileID: 2024352387548323613, guid: df89b03bf5f24ba4aa027f7cd873c805, type: 2}
+    value: {fileID: 1830046665}
+  - key: {fileID: -6076640523460426202, guid: df89b03bf5f24ba4aa027f7cd873c805, type: 2}
+    value: {fileID: 1830046665}
+  - key: {fileID: 3389989271312719101, guid: df89b03bf5f24ba4aa027f7cd873c805, type: 2}
+    value: {fileID: 403134469}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1577684680
@@ -1797,6 +1807,17 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2021689873 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 755561353031177292, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+  m_PrefabInstance: {fileID: 4603238100740134977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d34e208ba6b714e91f620aa26c2f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1 &2081032238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,6 +3091,22 @@ PrefabInstance:
       propertyPath: drawInteractionZone
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3336914924444140678, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336914924444140678, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2021689873}
+    - target: {fileID: 3336914924444140678, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Freeze
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336914924444140678, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3461529967587347117, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -3088,7 +3125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.43
+      value: -4.72
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3096,7 +3133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.65
+      value: -4.38
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalRotation.w

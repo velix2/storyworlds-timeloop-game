@@ -36,6 +36,19 @@ public class InventoryManager : MonoBehaviour
         
     }
 
+    private bool open;
+    private bool wasOpen;
+    public void Freeze()
+    {
+        wasOpen = open;
+        if (open) Close();
+    }
+
+    public void Unfreeze()
+    {
+        if (wasOpen) Open();
+    }
+
     /// <summary>
     /// This is the method you should use if you want to add an Item to Inventory.<br/>
     /// Will also handle displaying the item.
@@ -68,6 +81,7 @@ public class InventoryManager : MonoBehaviour
     /// </summary>
     public void Open()
     {
+        open = true;
         display.ShowDisplay();
     }
 
@@ -76,6 +90,7 @@ public class InventoryManager : MonoBehaviour
     /// </summary>
     public void Close()
     {
+        open = false;
         display.HideDisplay();
     }
 

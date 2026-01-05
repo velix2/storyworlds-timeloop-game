@@ -48,6 +48,7 @@ public class InteractionChecker : MonoBehaviour
     private Interactable highlightedInteractable;
     private List<Interactable> inHighlightRange = new();
     private bool highlightingAll;
+    private bool frozen;
     
     /// <summary>
     /// Highlights all Interactables inside HighlightZone.<br/>
@@ -134,7 +135,17 @@ public class InteractionChecker : MonoBehaviour
             CursorManager.ResetCursor();
         }
     }
-    
+
+    public void Freeze()
+    {
+        UnhighlightAll();
+        frozen = true;
+    }
+
+    public void Unfreeze()
+    {
+        frozen = false;
+    }
     private void Awake()
     {
         //Setup event handlers
@@ -158,6 +169,7 @@ public class InteractionChecker : MonoBehaviour
 
     private void Update()
     {
+        if (frozen) return;
         if (DialogueManager.Instance.DialogueIsPlaying || CutsceneManager.Instance.CutsceneIsPlaying) return;
 
         HighlightSingle(GetInteractableAtMousePosition());
