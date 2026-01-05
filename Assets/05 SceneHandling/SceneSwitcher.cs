@@ -57,14 +57,14 @@ public class SceneSwitcher : MonoBehaviour
     private IEnumerator GoToSceneCoroutine(string sceneName)
     {
         
-        // Assert Scene exists
-        var scene = SceneManager.GetSceneByName(sceneName);
-
-        if (!scene.IsValid())
-        {
-            Debug.LogError($"Scene {sceneName} doesn't exist or is not valid");
-            yield break;
-        }
+        // // Assert Scene exists
+        // var scene = SceneManager.GetSceneByName(sceneName);
+        //
+        // if (!scene.IsValid())
+        // {
+        //     Debug.LogError($"Scene {sceneName} doesn't exist or is not valid");
+        //     yield break;
+        // }
         
         // Show fade to black
         FadeToBlackPanel.Instance.FadeToBlack();
