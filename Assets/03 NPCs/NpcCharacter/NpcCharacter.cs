@@ -8,7 +8,7 @@ namespace NPCs.NpcCharacter
     /// <summary>
     /// The component of the NPC in world. It essentially functions as a puppet for the model of the NPC, i.e. its day routine.
     /// </summary>
-    [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(NavMeshAgent), typeof(Animator))]
     public class NpcCharacter : MonoBehaviour
     {
         /// <summary>
@@ -30,10 +30,25 @@ namespace NPCs.NpcCharacter
             !Agent.pathPending && 
             Agent.remainingDistance <= Agent.stoppingDistance &&
             (!Agent.hasPath || Agent.velocity.sqrMagnitude == 0f);
+
+        private Animator animator;
         
         private void Awake()
         {
             Agent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
+            //IDs for animator variables
+            lookX = Animator.StringToHash("lookX");
+            lookY = Animator.StringToHash("lookY");
+            moveX = Animator.StringToHash("moveX");
+            moveY = Animator.StringToHash("moveY");
+            magnitude = Animator.StringToHash("moveMagnitude");
+            
+        }
+
+        private void Start()
+        {
+            animator.runtimeAnimatorController = Model.WalkAnimator;
         }
 
         private void OnDestroy()
@@ -57,6 +72,28 @@ namespace NPCs.NpcCharacter
         private void Update()
         {
             _state.OnUpdate();
+        }
+
+        
+        private int lookX;
+        private int lookY;
+        private int moveX;
+        private int moveY;
+        private int magnitude;
+        private void LateUpdate()
+        {
+            Vector2 move = new Vector2(Agent.desiredVelocity.x, Agent.desiredVelocity.z);
+            animator.SetFloat(moveY, move.y);
+            animator.SetFloat(moveX, move.x);
+            float mag = move.sqrMagnitude;
+            animator.SetFloat(magnitude, mag);
+            if (mag > 0.1)
+            {
+                animator.SetFloat(lookX, move.x);
+                animator.SetFloat(lookY, move.y);
+            }
+            
+            
         }
 
         /// <summary>

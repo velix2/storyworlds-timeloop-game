@@ -56,13 +56,13 @@ AnimatorController:
   m_Name: NPC Overworld
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: movX
+  - m_Name: moveX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: movY
+  - m_Name: moveY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -80,7 +80,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: magnitude
+  - m_Name: moveMagnitude
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -139,8 +139,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: movX
     m_Mirror: 0
-  m_BlendParameter: movX
-  m_BlendParameterY: movY
+  m_BlendParameter: moveX
+  m_BlendParameterY: moveY
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
@@ -155,7 +155,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: magnitude
+    m_ConditionEvent: moveMagnitude
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4651578763625853843}
@@ -259,7 +259,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: magnitude
+    m_ConditionEvent: moveMagnitude
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7667508723012510488}

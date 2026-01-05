@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCs.NpcData.NpcModel
   prefab: {fileID: 7720330513778223133, guid: 9963537546b965f829823f175c206451, type: 3}
   characterName: Tester
-  walkAnimator: {fileID: 22100000, guid: 479635d39320bdb4587976b093ce1197, type: 2}
+  walkAnimator: {fileID: 22100000, guid: 4f4d510768c5daf47b1d248c5fdd255a, type: 2}
   defaultRoutine: {fileID: 11400000, guid: 080b3a8abcf17915d9777457c81d0700, type: 2}
