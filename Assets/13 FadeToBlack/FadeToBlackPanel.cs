@@ -13,6 +13,33 @@ namespace FadeToBlack
         private float _timer;
 
 
+        #region Singleton
+
+        // Singleton stuff
+
+        /// <summary>
+        /// The singleton instance.
+        /// </summary>
+        public static FadeToBlackPanel Instance;
+
+        private void Awake()
+        {
+            if (Instance)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+            
+            _image = GetComponent<Image>();
+
+            // Don't destroy parent canvas
+            DontDestroyOnLoad(transform.parent.gameObject);
+        }
+
+        #endregion
+        
         /// <summary>
         /// Manually invoke a fade to black
         /// </summary>
@@ -20,11 +47,6 @@ namespace FadeToBlack
         {
             StopAllCoroutines();
             StartCoroutine(FadeIn());
-        }
-
-        private void Awake()
-        {
-            _image = GetComponent<Image>();
         }
 
         private void OnEnable()
@@ -82,11 +104,6 @@ namespace FadeToBlack
             }
 
             _image.enabled = false;
-        }
-
-        public static FadeToBlackPanel GetAnyInScene()
-        {
-            return GameObject.FindFirstObjectByType<FadeToBlackPanel>();
         }
     }
 }

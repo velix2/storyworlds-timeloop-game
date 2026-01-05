@@ -112,8 +112,8 @@ namespace NPCs
                 _npcViewsInCurrentScene.Remove(leavingNpcView);
             }
             
-            // Cue a fade to black, if any exists
-            if (runFadeToBlack) FadeToBlackPanel.GetAnyInScene()?.FadeToBlack();
+            // Cue a fade to black
+            if (runFadeToBlack) FadeToBlackPanel.Instance.FadeToBlack();
 
             // Figure out all NPCs that are new and need a new view element created
             var npcModelsToSpawn = newNpcModelsInCurrentScene
@@ -155,7 +155,7 @@ namespace NPCs
                 _npcViewsInCurrentScene.Add(npcCharacterComponent);
             }
             
-            if (runFadeToBlack) FadeToBlackPanel.GetAnyInScene()?.FadeToBlack();
+            if (runFadeToBlack) FadeToBlackPanel.Instance.FadeToBlack();
         }
 
         private void InitNPCs(Scene currentScene)
