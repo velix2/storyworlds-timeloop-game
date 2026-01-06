@@ -56,30 +56,15 @@ public class SceneSwitcher : MonoBehaviour
 
     private IEnumerator GoToSceneCoroutine(string sceneName)
     {
-        bool err = false;
-        
         // Will be set true when loading finishes
         _isSceneLoaded = false;
 
         // Show fade to black
         FadeToBlackPanel.Instance.SceneTransitionIn(() =>
-        {
-            try
-            { 
-                // Invoke Scene Loading when Transition finishes
-                SceneManager.LoadScene(sceneName);
-            }
-            catch (Exception e)
-            {
-                // Fade out again if error occurs
-                FadeToBlackPanel.Instance.SceneTransitionOut();
-                Debug.LogException(e);
-                err = true;
-            }
+            // Invoke Scene Loading when Transition finishes
+            SceneManager.LoadScene(sceneName)
+        );
 
-
-        });
-        
         bool timeoutOccured = false;
         // Await scene loaded with a 10 second timeout
         yield return new WaitUntil(() => _isSceneLoaded, TimeSpan.FromSeconds(10), () => timeoutOccured = true);
