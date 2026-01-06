@@ -51,10 +51,10 @@ PrefabInstance:
     - target: {fileID: -7040765603335079708, guid: d92e973bd34890c74b081425ceb80262, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+      objectReference: {fileID: 8992934318045909824, guid: d92e973bd34890c74b081425ceb80262, type: 3}
     - target: {fileID: 919132149155446097, guid: d92e973bd34890c74b081425ceb80262, type: 3}
       propertyPath: m_Name
-      value: house_larry
+      value: House Larry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -276,6 +276,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7865046428465962883, guid: d92e973bd34890c74b081425ceb80262, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1498224045707126046}
+    - targetCorrespondingSourceObject: {fileID: -7865046428465962883, guid: d92e973bd34890c74b081425ceb80262, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4075312426633143300}
   m_SourcePrefab: {fileID: 100100000, guid: d92e973bd34890c74b081425ceb80262, type: 3}
 --- !u!1 &271607851899512917 stripped
 GameObject:
@@ -1654,6 +1657,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6857398323468674282, guid: d92e973bd34890c74b081425ceb80262, type: 3}
+--- !u!114 &4075312426633143300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035165831785049367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 600
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1 &7294212125969579726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1603963943520629668, guid: d92e973bd34890c74b081425ceb80262, type: 3}

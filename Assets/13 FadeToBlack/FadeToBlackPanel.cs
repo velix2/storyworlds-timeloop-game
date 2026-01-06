@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using TimeManagement;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 namespace FadeToBlack
@@ -12,19 +14,48 @@ namespace FadeToBlack
         private Image _image;
         private float _timer;
 
+        private bool _isSceneTransitioning;
+
+        #region Singleton
+
+        // Singleton stuff
+
+        /// <summary>
+        /// The singleton instance.
+        /// </summary>
+        public static FadeToBlackPanel Instance;
+
+        private void Awake()
+        {
+            if (Instance)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+
+            _image = GetComponent<Image>();
+
+            // Don't destroy parent canvas
+            DontDestroyOnLoad(transform.parent.gameObject);
+        }
+
+        #endregion
 
         /// <summary>
         /// Manually invoke a fade to black
         /// </summary>
         public void FadeToBlack()
         {
-            StopAllCoroutines();
-            StartCoroutine(FadeIn());
-        }
+            // If there currently is a Scene Transition Fade happening to nothing
+            if (_isSceneTransitioning) return;
 
-        private void Awake()
-        {
-            _image = GetComponent<Image>();
+            StopAllCoroutines();
+            Action afterStay = () => StartCoroutine(FadeOut());
+            Action afterFadeIn = () => StartCoroutine(StayVisible(afterStay));
+            
+            StartCoroutine(FadeIn(afterFadeIn));
         }
 
         private void OnEnable()
@@ -42,10 +73,30 @@ namespace FadeToBlack
             FadeToBlack();
         }
 
-        private IEnumerator FadeIn()
+        public void SceneTransitionIn(Action onAnimationEnd = null)
+        {
+            _isSceneTransitioning = true;
+            
+            StartCoroutine(FadeIn(onAnimationEnd));
+        }
+
+        public void SceneTransitionOut(Action onAnimationEnd = null)
+        {
+            StartCoroutine(FadeOut(WrapperCallback));
+            return;
+
+            // Reset the transition flag when done as well
+            void WrapperCallback()
+            {
+                _isSceneTransitioning = false;
+                onAnimationEnd?.Invoke();
+            }
+        }
+
+        private IEnumerator FadeIn(Action onAnimationEnd = null)
         {
             _image.enabled = true;
-            
+
             _timer = 0f;
             while (_timer < fadeInSeconds)
             {
@@ -54,10 +105,10 @@ namespace FadeToBlack
                 yield return null;
             }
 
-            StartCoroutine(StayVisible());
+            onAnimationEnd?.Invoke();
         }
-        
-        private IEnumerator StayVisible()
+
+        private IEnumerator StayVisible(Action onAnimationEnd = null)
         {
             _timer = 0f;
             _image.color = new Color(0, 0, 0, 1);
@@ -66,18 +117,18 @@ namespace FadeToBlack
                 _timer += Time.deltaTime;
                 yield return null;
             }
-
-            StartCoroutine(FadeOut());
+            
+            onAnimationEnd?.Invoke();
         }
-        
-        
-        private IEnumerator FadeOut()
+
+
+        private IEnumerator FadeOut(Action onAnimationEnd = null)
         {
             _timer = 0f;
             while (_timer < fadeInSeconds)
             {
                 _timer += Time.deltaTime;
-                _image.color = new Color(0, 0, 0,  1.0f - (_timer / fadeInSeconds));
+                _image.color = new Color(0, 0, 0, 1.0f - (_timer / fadeOutSeconds));
                 yield return null;
             }
 

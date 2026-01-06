@@ -48,9 +48,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7577157442010290811, guid: 00870d3671b40229f956c8a4f17d8cc7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4449241569627442135, guid: 00870d3671b40229f956c8a4f17d8cc7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 00870d3671b40229f956c8a4f17d8cc7, type: 3}
       propertyPath: m_Name
       value: NormalCar2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 00870d3671b40229f956c8a4f17d8cc7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698918172101536541, guid: 00870d3671b40229f956c8a4f17d8cc7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786733526305945106, guid: 00870d3671b40229f956c8a4f17d8cc7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

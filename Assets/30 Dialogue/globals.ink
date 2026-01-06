@@ -1,0 +1,1 @@
+VAR state0 = 0

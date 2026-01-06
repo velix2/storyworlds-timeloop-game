@@ -15,7 +15,9 @@ MonoBehaviour:
   routineElements:
   - daytime: 8:00
     targetScene: {fileID: 11400000, guid: 833bde3950f8b8ad2a1edae1a9ae5ab7, type: 2}
-    targetPositionInTargetScene: {x: 0, y: 0, z: 5}
+    targetPositionInTargetScene: {x: 470, y: 5, z: 450}
+    teleportToLocation: 0
   - daytime: 11:00
     targetScene: {fileID: 11400000, guid: 34eb65b2716906c4da0c3c7382dba767, type: 2}
     targetPositionInTargetScene: {x: 0, y: 0, z: 2}
+    teleportToLocation: 1

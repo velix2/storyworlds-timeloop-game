@@ -10,6 +10,6 @@ public class DebugHelper : MonoBehaviour
 
     public void AdvanceTime()
     {
-        TimeHandler.Instance.PassTime(60);
+        TimeHandler.PassTime(60);
     }
 }

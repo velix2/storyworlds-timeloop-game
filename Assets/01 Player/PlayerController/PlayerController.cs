@@ -11,14 +11,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private InteractionChecker interactionChecker;
     [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private Animator animator;
 
     [Header("Parameters")] 
     [SerializeField] private float speed = 10f;
 
     private bool movementBlocked;
+    private bool frozen;
 
     private void Start()
     {
+        //IDs for animator variables
+        lookX = Animator.StringToHash("lookX");
+        lookY = Animator.StringToHash("lookY");
+        moveX = Animator.StringToHash("moveX");
+        moveY = Animator.StringToHash("moveY");
+        magnitude = Animator.StringToHash("moveMagnitude");
+        
         inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
         //TODO: AddListener for ItemObservation event, DialogueSystem needed
         
@@ -36,21 +45,58 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(DialogueManager.Instance != null && CutsceneManager.Instance != null)
+        {
+            if (DialogueManager.Instance.DialogueIsPlaying) return;
+            if (CutsceneManager.Instance.CutsceneIsPlaying) return;
+        }
+    
+        if (frozen) return;
+        Vector3 move;
         if (!movementBlocked)
         {
             Vector2 input = InputManager.GetPlayerMovement();
-            Vector3 move = new Vector3(input.x, 0, input.y);
+            move = new Vector3(input.x, 0, input.y);
             move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
             move.y = 0;
-            move = Vector3.ClampMagnitude(move, 1f);
-            Vector3 finalMove = move * speed;
-            controller.Move(finalMove * Time.deltaTime);
+            move = Vector3.ClampMagnitude(move, 1f) * speed;
         }
+        else move = Vector3.zero;
+        
+        
+        Vector3 finalMove = move + Vector3.down * 9.81f;
+        controller.Move(finalMove * Time.deltaTime);
         
     }
 
+    private void OnEnable()
+    {
+        CutsceneManager.CutsceneStarted += OnCutsceneStart;
+        CutsceneManager.CutsceneEnded += OnCutsceneEnd;
+    }
+
+    private void OnDisable()
+    {
+        CutsceneManager.CutsceneStarted -= OnCutsceneStart;
+        CutsceneManager.CutsceneEnded -= OnCutsceneEnd;
+    }
+
+    private void OnCutsceneStart()
+    {
+        animator.applyRootMotion = true;
+        InputManager.PlayerControls.Disable();
+    }
+
+    private void OnCutsceneEnd()
+    {
+        animator.applyRootMotion = false;
+        InputManager.PlayerControls.Enable();
+    }
+
+
     private void OnInventoryOpenInput()
     {
+        if (frozen) return;
         movementBlocked = true;
         interactionChecker.SetToUIMode();
         inventoryManager.Open();
@@ -58,6 +104,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnInventoryCloseInput()
     {
+        if (frozen) return;
         movementBlocked = false;
         interactionChecker.SetToPhysicsMode();
         inventoryManager.Close();
@@ -65,6 +112,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnHighlightAllInput(bool pressed)
     {
+        if (frozen) return;
+        
         if (pressed)
         {
             interactionChecker.HighlightAll();
@@ -74,5 +123,34 @@ public class PlayerController : MonoBehaviour
             interactionChecker.UnhighlightAll();
         }
     }
+
+    #region AnimationRelated
+
+    private int lookX;
+    private int lookY;
+    private int moveX;
+    private int moveY;
+    private int magnitude;
     
+    private void LateUpdate()
+    {
+        Vector2 input = InputManager.GetPlayerMovement();
+        AnimatorWalkDirection(input);
+    }
+    private void AnimatorWalkDirection(Vector2 value)
+    {
+        animator.SetFloat(moveY, value.y);
+        animator.SetFloat(moveX, value.x);
+        float mag = value.sqrMagnitude;
+        animator.SetFloat(magnitude, mag);
+        if (mag > 0.1) AnimatorLookDirection(value);
+        
+    }
+
+    private void AnimatorLookDirection(Vector2 value)
+    {
+        animator.SetFloat(lookX, value.x);
+        animator.SetFloat(lookY, value.y);
+    }
+    #endregion
 }
