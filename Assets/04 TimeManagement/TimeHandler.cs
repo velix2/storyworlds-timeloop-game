@@ -157,6 +157,27 @@ namespace TimeManagement
             Instance.onDayPhaseChanged?.Invoke(currentDaytimePhase);
         }
 
+        /// <summary>
+        /// Sets the time of day to a certain day phase. Does not trigger a day reset e.g. if in the evening, set to morning is called.
+        /// </summary>
+        /// <param name="phase">The phase to set the time to</param>
+        public void SetTimeToPhase(DaytimePhase phase)
+        {
+            var targetTime = phase switch
+            {
+                DaytimePhase.Night => nightBeginInMinutes,
+                DaytimePhase.Morning => morningBeginInMinutes,
+                DaytimePhase.Afternoon => afternoonBeginInMinutes,
+                DaytimePhase.Evening => eveningBeginInMinutes,
+                _ => throw new ArgumentOutOfRangeException(nameof(phase), phase, null)
+            };
+
+            CurrentTime = targetTime;
+            
+            // Trigger an empty pass time event so everything updates correctly
+            PassTime(0);
+        } 
+
         public static void SkipToNextDaytimePhase()
         {
             if (Instance == null)
