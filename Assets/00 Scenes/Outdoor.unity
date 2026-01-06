@@ -5903,6 +5903,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487c4da76b0bcd97b83044841e3eb9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneSwitcher
+  sceneMetaDatas:
+  - {fileID: 11400000, guid: 833bde3950f8b8ad2a1edae1a9ae5ab7, type: 2}
+  - {fileID: 11400000, guid: 0b4547b5cd1a693ea9ba2214b4b7f7eb, type: 2}
+  - {fileID: 11400000, guid: 34eb65b2716906c4da0c3c7382dba767, type: 2}
   transitionDelay: 0.25
 --- !u!4 &316131327
 Transform:
