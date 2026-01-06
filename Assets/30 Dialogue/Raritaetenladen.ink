@@ -1,6 +1,11 @@
 INCLUDE globals.ink
 
-{ state0 == 0: -> Markus_Frau | -> Markus_Sohn }
+{state0: 
+    - 0: 
+        -> Markus_Frau 
+    - else:
+        -> Markus_Sohn 
+}
 
 === Markus_Frau ===
 Marcus Handy beginnt zu klingeln. #speaker:narrator
