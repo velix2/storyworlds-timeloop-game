@@ -134,7 +134,6 @@ public class CursorManager : MonoBehaviour
     /// <param name="transparent"></param>
     public static void SetTransparency(bool transparent)
     {
-        Debug.Log("Trans: " + transparent);
         Color c = cursorImage.color;
         c.a = transparent ? 0.5f : 1;
         cursorImage.color = c;
