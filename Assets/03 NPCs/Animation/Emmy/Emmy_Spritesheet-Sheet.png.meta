@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6af442c978b0d4140bd59699b2a1832d
+guid: c2fd64e9888a71c4a843d662c99e31d1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_0
+      name: Emmy_Spritesheet-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -105,21 +105,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84e43ff39041c3a46b343300627e5c87
-      internalID: 1980595705
+      spriteID: d53eea8032c08814caa185ead1e6bedb
+      internalID: 847277307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_1
+      name: Emmy_Spritesheet-Sheet_1
       rect:
         serializedVersion: 2
         x: 30
@@ -127,21 +127,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bddd608f073f90a4e9c0f5eda49f1466
-      internalID: 102255315
+      spriteID: 27cef4fd3668ab44786c4600fee6caa5
+      internalID: -1580296571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_2
+      name: Emmy_Spritesheet-Sheet_2
       rect:
         serializedVersion: 2
         x: 60
@@ -149,21 +149,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9234487ee740544781396e7859184a4
-      internalID: 1208822235
+      spriteID: 9e157b0e04c592f44a61ce6eea136b9b
+      internalID: -867002465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_3
+      name: Emmy_Spritesheet-Sheet_3
       rect:
         serializedVersion: 2
         x: 90
@@ -171,21 +171,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68e39a4c18480674491cf1efac87b9f7
-      internalID: -141469343
+      spriteID: 858777a0b98b75a4ba6906f921cb12b9
+      internalID: 552041646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_4
+      name: Emmy_Spritesheet-Sheet_4
       rect:
         serializedVersion: 2
         x: 120
@@ -193,21 +193,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb8b48022df99fa4f8eaba0bd3e13bd9
-      internalID: -101114360
+      spriteID: e99076a2725385d439617f66a61a18f6
+      internalID: -1906812980
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_5
+      name: Emmy_Spritesheet-Sheet_5
       rect:
         serializedVersion: 2
         x: 150
@@ -215,21 +215,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7158ac5d4da817b4aafaca62bc1ca881
-      internalID: -151700786
+      spriteID: b13ba50edc88b194c8bab615978a6ab4
+      internalID: -78164393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_6
+      name: Emmy_Spritesheet-Sheet_6
       rect:
         serializedVersion: 2
         x: 180
@@ -237,21 +237,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80713d91a7288614fb05954894fdcac2
-      internalID: 1958752408
+      spriteID: 6e13a7ccc77d94142bd0359a1b557810
+      internalID: 1985547913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_7
+      name: Emmy_Spritesheet-Sheet_7
       rect:
         serializedVersion: 2
         x: 0
@@ -259,21 +259,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e36ea3aa1396d5d4e930807e598d01b5
-      internalID: 553440164
+      spriteID: de7151c15ddff2a4d93c0cccd7f1d252
+      internalID: 819188352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_8
+      name: Emmy_Spritesheet-Sheet_8
       rect:
         serializedVersion: 2
         x: 30
@@ -281,21 +281,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4ef3833683a4c94abb907adf1f11fb1
-      internalID: 1795463069
+      spriteID: 44c6393ff3d2620458d94cab31fca68b
+      internalID: 363727185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_9
+      name: Emmy_Spritesheet-Sheet_9
       rect:
         serializedVersion: 2
         x: 60
@@ -303,21 +303,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75069f07624533b4b83364f0141e74bf
-      internalID: 922491579
+      spriteID: 28563b95f279cf34189e59878319ed07
+      internalID: -752970936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_10
+      name: Emmy_Spritesheet-Sheet_10
       rect:
         serializedVersion: 2
         x: 90
@@ -325,21 +325,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 433f1b3eb81122247a9be13d5cfcd25e
-      internalID: 291197873
+      spriteID: 850e0e448edb6444ba4041d88ef23402
+      internalID: 1703839447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_11
+      name: Emmy_Spritesheet-Sheet_11
       rect:
         serializedVersion: 2
         x: 120
@@ -347,21 +347,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49856b94d9c067c45944a8d7f56926e4
-      internalID: -320650929
+      spriteID: 732480474283fe4468a5783b7facd824
+      internalID: 229007894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_12
+      name: Emmy_Spritesheet-Sheet_12
       rect:
         serializedVersion: 2
         x: 150
@@ -369,21 +369,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b61b27856f2d28048a771c2ea665bdd5
-      internalID: -983924637
+      spriteID: 7b73d11cc23286c479b48c855f9b9542
+      internalID: -1485701303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_13
+      name: Emmy_Spritesheet-Sheet_13
       rect:
         serializedVersion: 2
         x: 180
@@ -391,21 +391,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a5c4068fa0fab1449daa50735bae93e
-      internalID: -924594331
+      spriteID: 33b7b2ce995bdc7489a541602adb6476
+      internalID: 1734649716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_14
+      name: Emmy_Spritesheet-Sheet_14
       rect:
         serializedVersion: 2
         x: 0
@@ -413,21 +413,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ce13831e691f2a4b80aa2b9af10db03
-      internalID: 291442175
+      spriteID: 0d511004441d6864abb2467d56d8ec51
+      internalID: 41383171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_15
+      name: Emmy_Spritesheet-Sheet_15
       rect:
         serializedVersion: 2
         x: 30
@@ -435,21 +435,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c2453241ea0813469400a4ba05ba232
-      internalID: -1428237408
+      spriteID: 466fe6ca6078fd341aecf7573a2a64e5
+      internalID: -399198740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_16
+      name: Emmy_Spritesheet-Sheet_16
       rect:
         serializedVersion: 2
         x: 60
@@ -457,21 +457,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b9ed74f480e70e45865d04fcc419eda
-      internalID: -409484127
+      spriteID: a2602f584b6500849940fead3733d03f
+      internalID: 1573973160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_17
+      name: Emmy_Spritesheet-Sheet_17
       rect:
         serializedVersion: 2
         x: 90
@@ -479,21 +479,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e70765827fe97944f95bdbc55f454d41
-      internalID: -1043609937
+      spriteID: a7b8b0a737a97654d87ebba6c40db99c
+      internalID: 1695585292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_18
+      name: Emmy_Spritesheet-Sheet_18
       rect:
         serializedVersion: 2
         x: 120
@@ -501,21 +501,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a83cdfafcfbf8a48b373ab89c610f15
-      internalID: 299252371
+      spriteID: 1a2ec9a22f34c2f46a349afc4edcdb10
+      internalID: 1769633301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_19
+      name: Emmy_Spritesheet-Sheet_19
       rect:
         serializedVersion: 2
         x: 150
@@ -523,21 +523,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e26cff026d2f334bbda0049213aac7c
-      internalID: -634667049
+      spriteID: e8075e57cfe47cc4fb650d30b35a2038
+      internalID: -101176222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_20
+      name: Emmy_Spritesheet-Sheet_20
       rect:
         serializedVersion: 2
         x: 180
@@ -545,21 +545,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b59c59b3c7a4b6c4bb22f63dc501671f
-      internalID: -2050444208
+      spriteID: 35a43d7774c75f742bb09cf9b8fabe20
+      internalID: 1129384209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_21
+      name: Emmy_Spritesheet-Sheet_21
       rect:
         serializedVersion: 2
         x: 0
@@ -567,21 +567,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8b0a407e648766419353959ea8b54ed
-      internalID: -463652687
+      spriteID: d6d1f87042bf7d4469ef0835b27c5289
+      internalID: -109219720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_22
+      name: Emmy_Spritesheet-Sheet_22
       rect:
         serializedVersion: 2
         x: 30
@@ -589,21 +589,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8cf5ad1fc21e9647981ca45a0660e8a
-      internalID: -1950444948
+      spriteID: 0d285a3d5a286cb4ca21bcff502aa452
+      internalID: -613755012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_23
+      name: Emmy_Spritesheet-Sheet_23
       rect:
         serializedVersion: 2
         x: 60
@@ -611,21 +611,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed42647208208a04395df73b083a9521
-      internalID: 835337465
+      spriteID: 71a34b89334aed042986060de0c043b1
+      internalID: -410825428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_24
+      name: Emmy_Spritesheet-Sheet_24
       rect:
         serializedVersion: 2
         x: 90
@@ -633,21 +633,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2abdcc9420a1e5e4f8e3f24d71db17fc
-      internalID: 1078916092
+      spriteID: 4dcce7f6ba08d7c45a53d4d51698e9fb
+      internalID: -575796817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_25
+      name: Emmy_Spritesheet-Sheet_25
       rect:
         serializedVersion: 2
         x: 120
@@ -655,21 +655,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e6520c1c9438114a847c08a3fed7c32
-      internalID: 1584066035
+      spriteID: b002e8c50d212954f848d2f0f0f4775d
+      internalID: 1521462691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_26
+      name: Emmy_Spritesheet-Sheet_26
       rect:
         serializedVersion: 2
         x: 150
@@ -677,21 +677,21 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39cdf1319ebf6504c824102235ea2694
-      internalID: 1931227601
+      spriteID: 841f51b7bf86a824bb3017fa191341c5
+      internalID: -1743639539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timothy_Spirtesheet-Sheet_27
+      name: Emmy_Spritesheet-Sheet_27
       rect:
         serializedVersion: 2
         x: 180
@@ -699,15 +699,15 @@ TextureImporter:
         width: 30
         height: 60
       alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0ca81718e6adac4fac64541a0fbf9a2
-      internalID: -1795475997
+      spriteID: 907937ec43e61d140a8ce8f1565608a8
+      internalID: -362915348
       vertices: []
       indices: 
       edges: []
@@ -716,7 +716,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6fc2ce267841d4d429a9c1bfb477ca02
+    spriteID: ef230c53600ecd748bc44ffd2ad60e89
     internalID: 0
     vertices: []
     indices: 
@@ -726,36 +726,36 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":30.0,"y":60.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0833333358168602},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":30.0,"y":60.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05000000074505806},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Timothy_Spirtesheet-Sheet_0: 1980595705
-      Timothy_Spirtesheet-Sheet_1: 102255315
-      Timothy_Spirtesheet-Sheet_10: 291197873
-      Timothy_Spirtesheet-Sheet_11: -320650929
-      Timothy_Spirtesheet-Sheet_12: -983924637
-      Timothy_Spirtesheet-Sheet_13: -924594331
-      Timothy_Spirtesheet-Sheet_14: 291442175
-      Timothy_Spirtesheet-Sheet_15: -1428237408
-      Timothy_Spirtesheet-Sheet_16: -409484127
-      Timothy_Spirtesheet-Sheet_17: -1043609937
-      Timothy_Spirtesheet-Sheet_18: 299252371
-      Timothy_Spirtesheet-Sheet_19: -634667049
-      Timothy_Spirtesheet-Sheet_2: 1208822235
-      Timothy_Spirtesheet-Sheet_20: -2050444208
-      Timothy_Spirtesheet-Sheet_21: -463652687
-      Timothy_Spirtesheet-Sheet_22: -1950444948
-      Timothy_Spirtesheet-Sheet_23: 835337465
-      Timothy_Spirtesheet-Sheet_24: 1078916092
-      Timothy_Spirtesheet-Sheet_25: 1584066035
-      Timothy_Spirtesheet-Sheet_26: 1931227601
-      Timothy_Spirtesheet-Sheet_27: -1795475997
-      Timothy_Spirtesheet-Sheet_3: -141469343
-      Timothy_Spirtesheet-Sheet_4: -101114360
-      Timothy_Spirtesheet-Sheet_5: -151700786
-      Timothy_Spirtesheet-Sheet_6: 1958752408
-      Timothy_Spirtesheet-Sheet_7: 553440164
-      Timothy_Spirtesheet-Sheet_8: 1795463069
-      Timothy_Spirtesheet-Sheet_9: 922491579
+      Emmy_Spritesheet-Sheet_0: 847277307
+      Emmy_Spritesheet-Sheet_1: -1580296571
+      Emmy_Spritesheet-Sheet_10: 1703839447
+      Emmy_Spritesheet-Sheet_11: 229007894
+      Emmy_Spritesheet-Sheet_12: -1485701303
+      Emmy_Spritesheet-Sheet_13: 1734649716
+      Emmy_Spritesheet-Sheet_14: 41383171
+      Emmy_Spritesheet-Sheet_15: -399198740
+      Emmy_Spritesheet-Sheet_16: 1573973160
+      Emmy_Spritesheet-Sheet_17: 1695585292
+      Emmy_Spritesheet-Sheet_18: 1769633301
+      Emmy_Spritesheet-Sheet_19: -101176222
+      Emmy_Spritesheet-Sheet_2: -867002465
+      Emmy_Spritesheet-Sheet_20: 1129384209
+      Emmy_Spritesheet-Sheet_21: -109219720
+      Emmy_Spritesheet-Sheet_22: -613755012
+      Emmy_Spritesheet-Sheet_23: -410825428
+      Emmy_Spritesheet-Sheet_24: -575796817
+      Emmy_Spritesheet-Sheet_25: 1521462691
+      Emmy_Spritesheet-Sheet_26: -1743639539
+      Emmy_Spritesheet-Sheet_27: -362915348
+      Emmy_Spritesheet-Sheet_3: 552041646
+      Emmy_Spritesheet-Sheet_4: -1906812980
+      Emmy_Spritesheet-Sheet_5: -78164393
+      Emmy_Spritesheet-Sheet_6: 1985547913
+      Emmy_Spritesheet-Sheet_7: 819188352
+      Emmy_Spritesheet-Sheet_8: 363727185
+      Emmy_Spritesheet-Sheet_9: -752970936
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
