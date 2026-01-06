@@ -119,6 +119,10 @@ public class DialogueManager : MonoBehaviour
             currentStory = new Story(inkJson.text);
             DialogueIsPlaying = true;
             SimpleDialogueIsPlaying = false;
+
+            dialogueText.text = "";
+            nameText.text = "";
+
             dialogueUI.SetActive(true);
 
             variableObserver.StartListening(currentStory);
@@ -140,6 +144,7 @@ public class DialogueManager : MonoBehaviour
             currentStory = new Story(inkJson.text);
             DialogueIsPlaying = true;
             SimpleDialogueIsPlaying = true;
+            playerText.text = "";
             playerPanel.SetActive(true);
 
             variableObserver.StartListening(currentStory);
