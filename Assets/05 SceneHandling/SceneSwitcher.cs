@@ -31,7 +31,7 @@ public class SceneSwitcher : MonoBehaviour
     #endregion
 
     [SerializeField] private float transitionDelay = 0.25f;
-    
+
     private bool _isSceneLoaded;
 
     private void OnEnable()
@@ -56,31 +56,38 @@ public class SceneSwitcher : MonoBehaviour
 
     private IEnumerator GoToSceneCoroutine(string sceneName)
     {
-        
-        // // Assert Scene exists
-        // var scene = SceneManager.GetSceneByName(sceneName);
-        //
-        // if (!scene.IsValid())
-        // {
-        //     Debug.LogError($"Scene {sceneName} doesn't exist or is not valid");
-        //     yield break;
-        // }
-        
-        // Show fade to black
-        FadeToBlackPanel.Instance.FadeToBlack();
-        
-        yield return new WaitForSeconds(transitionDelay);
+        bool err = false;
         
         // Will be set true when loading finishes
         _isSceneLoaded = false;
+
+        // Show fade to black
+        FadeToBlackPanel.Instance.SceneTransitionIn(() =>
+        {
+            try
+            { 
+                // Invoke Scene Loading when Transition finishes
+                SceneManager.LoadScene(sceneName);
+            }
+            catch (Exception e)
+            {
+                // Fade out again if error occurs
+                FadeToBlackPanel.Instance.SceneTransitionOut();
+                Debug.LogException(e);
+                err = true;
+            }
+
+
+        });
         
-        // Invoke transition
-        SceneManager.LoadScene(sceneName);
-        
-        // Await scene loaded
-        yield return new WaitUntil(() => _isSceneLoaded);
-        
+        bool timeoutOccured = false;
+        // Await scene loaded with a 10 second timeout
+        yield return new WaitUntil(() => _isSceneLoaded, TimeSpan.FromSeconds(10), () => timeoutOccured = true);
+
         // Pass 0 time so that we ensure correct scene setup
-        TimeHandler.PassTime(0);
+        if (!timeoutOccured) TimeHandler.PassTime(0);
+
+        // Fade out from transition
+        FadeToBlackPanel.Instance.SceneTransitionOut();
     }
 }
