@@ -444,6 +444,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestInteractable2D
   inRange: 0
   spriteRenderer: {fileID: 403134470}
+  primary: 0
+  secondary: 0
+  primaryNeedsInRange: 1
+  secondaryNeedsInRange: 0
 --- !u!65 &403134473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -782,6 +786,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestInteractable2D
   inRange: 0
   spriteRenderer: {fileID: 733317575}
+  primary: 0
+  secondary: 0
+  primaryNeedsInRange: 1
+  secondaryNeedsInRange: 0
 --- !u!212 &733317575
 SpriteRenderer:
   serializedVersion: 2
@@ -1219,6 +1227,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1167807463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167807465}
+  - component: {fileID: 1167807464}
+  - component: {fileID: 1167807466}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1167807464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167807463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c2139bb2d05c94189be253b2c5b29b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneManager
+  cutsceneDatabase: {fileID: 0}
+  director: {fileID: 1167807466}
+--- !u!4 &1167807465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167807463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.67125, y: 0.56604, z: -3.65581}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1167807466
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167807463}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1230382440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1476,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1552433801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 680451418968921015, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+  m_PrefabInstance: {fileID: 2345581757452370349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1824586291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2563022717654091745, guid: 2804d5dc48775954ca4298b3d1949bc3, type: 3}
@@ -1570,6 +1647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2081032240}
   - component: {fileID: 2081032239}
+  - component: {fileID: 2081032241}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -1607,6 +1685,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2081032241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081032238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6659000c417936428335b829124e8a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueInputManager
 --- !u!1001 &541349866323037759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2889,6 +2979,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3200240286237993692, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 1552433801}
+    - target: {fileID: 3200240286237993692, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
       propertyPath: playerText
       value: 
       objectReference: {fileID: 1367207533}
@@ -3097,3 +3191,4 @@ SceneRoots:
   - {fileID: 605686922}
   - {fileID: 149560937}
   - {fileID: 617959813}
+  - {fileID: 1167807465}

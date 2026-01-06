@@ -33,7 +33,7 @@ Hallo? Marcus? #speaker:marcus_handy #emotion:NORMAL
 Was gibt's?  #speaker:marcus #emotion:NORMAL
 Wann kommst du mal wieder nach Hause? #speaker:marcus_handy #emotion:NORMAL
 Leon vermisst dich schon.
-Ich hab doch gesagt am Ende der Woche! #speaker:marcus #emotion:ANNOYED
+Ich hab doch gesagt am Ende der Woche! #speaker:marcus #emotion:ANGRY
 Frustriert legt Marcus auf. #speaker:narrator
 -> DONE
 
@@ -42,6 +42,6 @@ Hallo? #speaker:marcus #emotion:NORMAL
 Hallo, Dad? #speaker:marcus_handy #emotion:NORMAL
 Was gibt's, Leon?  #speaker:marcus #emotion:NORMAL
 Wann kommst du mal wieder nach Hause? #speaker:marcus_handy #emotion:NORMAL
-... #speaker:marcus #emotion:ANNOYED
+... #speaker:marcus #emotion:ANGRY
 Frustriert legt Marcus auf. #speaker:narrator
 -> DONE

@@ -26,5 +26,5 @@ public struct Portrait
 
 public enum Emotion
 {
-    NORMAL, ANNOYED, SAD, HAPPY
+    NORMAL, ANGRY, SAD, HAPPY, NERVOUS
 }
