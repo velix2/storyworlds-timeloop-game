@@ -1935,6 +1935,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.6, y: 5.1, z: 0}
   m_Center: {x: -1.2, y: 1.4999998, z: 0}
+--- !u!114 &2037437507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096217657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845c815b487f6fe389f551ea1430de21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReactiveInteriorWindow
+  elementMorning: {fileID: 2100000, guid: 52e776ee44e7af7b2bf09e7cfd0707d0, type: 2}
+  elementAfternoon: {fileID: 2100000, guid: 9235049d9e93fa63b88b5d5d72fff6d6, type: 2}
+  elementEvening: {fileID: 2100000, guid: 93bec28746c0e572fbf3dd43bd765584, type: 2}
+  elementNight: {fileID: 2100000, guid: 9cb7f279c0a516682bb848681f857167, type: 2}
+  invocationDelaySeconds: 0.25
+  materialNameToReplace: Window
 --- !u!1 &2091059492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,6 +2080,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2774192613837083858, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 237493537}
+    - targetCorrespondingSourceObject: {fileID: -2774192613837083858, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2037437507}
     - targetCorrespondingSourceObject: {fileID: -3950102531623649954, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1391851515}
@@ -2074,6 +2095,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 694107685797044174, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 219055287}
+    - targetCorrespondingSourceObject: {fileID: 694107685797044174, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2096217655}
   m_SourcePrefab: {fileID: 100100000, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
 --- !u!4 &2096217651 stripped
 Transform:
@@ -2095,6 +2119,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8835219900705437789, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
   m_PrefabInstance: {fileID: 2096217650}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2096217655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096217652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845c815b487f6fe389f551ea1430de21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReactiveInteriorWindow
+  elementMorning: {fileID: 2100000, guid: 52e776ee44e7af7b2bf09e7cfd0707d0, type: 2}
+  elementAfternoon: {fileID: 2100000, guid: 9235049d9e93fa63b88b5d5d72fff6d6, type: 2}
+  elementEvening: {fileID: 2100000, guid: 93bec28746c0e572fbf3dd43bd765584, type: 2}
+  elementNight: {fileID: 2100000, guid: 9cb7f279c0a516682bb848681f857167, type: 2}
+  invocationDelaySeconds: 0.25
+  materialNameToReplace: Window
 --- !u!1 &2096217656 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3950102531623649954, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
