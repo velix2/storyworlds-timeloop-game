@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2035520247998413774}
   - component: {fileID: 7557882449428184657}
   - component: {fileID: 3033539027753099043}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Snow Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2

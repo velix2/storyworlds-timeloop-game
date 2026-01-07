@@ -7,7 +7,7 @@ public class CameraManager : MonoBehaviour
 {
     private static CameraManager instance;
 
-    private static CinemachineCamera mainVirtual;
+    public static CinemachineCamera mainVirtual { get; private set; }
     private static CinemachineCamera currentVCam;
     private static CinemachineBrain brain;
 
@@ -37,6 +37,11 @@ public class CameraManager : MonoBehaviour
 
         instance = this;
         brain = instance.GetComponent<CinemachineBrain>();
+    }
+
+    private void Start()
+    {
+        mainVirtual = brain.ActiveVirtualCamera as CinemachineCamera;
     }
 
     public static void FocusCam(CinemachineCamera cam, BlendType blend = BlendType.DEFAULT)
