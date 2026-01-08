@@ -1176,6 +1176,7 @@ GameObject:
   - component: {fileID: 1129270576783215719}
   - component: {fileID: 4119169136892421011}
   - component: {fileID: 3599148926952531004}
+  - component: {fileID: 8134408682459943212}
   m_Layer: 5
   m_Name: Inventory Display
   m_TagString: Untagged
@@ -1203,7 +1204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1133}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &4119169136892421011
@@ -1237,6 +1238,28 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   itemBoxContainer: {fileID: 2083740533282340240}
+--- !u!95 &8134408682459943212
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032294926379615472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8f4db15f2369804882658d6b0b8d477, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8233741367351515528
 GameObject:
   m_ObjectHideFlags: 0
