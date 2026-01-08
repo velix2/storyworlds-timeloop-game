@@ -53,6 +53,7 @@ public class DialogueManager : MonoBehaviour
     private const string SPEAKER_TAG = "speaker";
     private const string EMOTION_TAG = "emotion";
     //private const string AUDIO_TAG = "audio";
+    private const string PAUSE_TAG = "pause";
 
 
     [SerializeField] private SpeakerManager speakerManager;     // Grants access to all speaker data
@@ -63,6 +64,8 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typingCoroutine;
 
     private VariableObserver variableObserver;                  // Allows access to ink global variables
+
+    private bool DialoguePaused = false;
 
 
     #endregion
@@ -183,6 +186,8 @@ public class DialogueManager : MonoBehaviour
             }
             return;
         }
+
+        if (DialoguePaused) return;
 
         // Continue story if possible
         if (currentStory.canContinue)
@@ -332,6 +337,9 @@ public class DialogueManager : MonoBehaviour
                         Debug.LogError("Invalid emotion tag was parsed!");
                     }
                     break;
+                case PAUSE_TAG:
+                    PauseDialogue();
+                    break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
                     break;
@@ -412,9 +420,6 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
             typingCoroutine = null;
         }
-
-        CutsceneManager.Instance.ContinueCutscene();
-
     }
 
     private void DeactivatePortraitPanels()
@@ -427,6 +432,21 @@ public class DialogueManager : MonoBehaviour
     {
         nameBox.SetActive(true);
         imagePanel.SetActive(true);
+    }
+
+    private void PauseDialogue()
+    {
+        dialogueUI.SetActive(false);
+        CutsceneManager.Instance.ContinueCutscene();
+        DialoguePaused = true;
+    }
+
+    public void ResumeDialogueInCutscene()
+    {
+        dialogueUI.SetActive(true);
+        DialoguePaused = false;
+        CutsceneManager.Instance.PauseCutscene();
+        ContinueStory();
     }
 
     /// <summary>
