@@ -45234,7 +45234,7 @@ MonoBehaviour:
   inRange: 0
   mode: 0
   isUnlocked: 1
-  targetSceneName: Felix1
+  targetSceneName: LarryHouse
 --- !u!114 &2119287605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46146,8 +46146,53 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5885258482366839841, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2320877398184429393}
+    - targetCorrespondingSourceObject: {fileID: 5885258482366839841, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2320877398184429392}
   m_SourcePrefab: {fileID: 100100000, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+--- !u!1 &2320877398184429391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5885258482366839841, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+  m_PrefabInstance: {fileID: 2320877398184429390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2320877398184429392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320877398184429391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54215b89c124224b6b1c0390c437497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.DoorInteractable
+  inRange: 0
+  mode: 0
+  isUnlocked: 1
+  targetSceneName: RarityShop
+--- !u!114 &2320877398184429393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320877398184429391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &2539060483133694288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46203,13 +46248,58 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1552991871235167531, guid: c788eecb96b72737aaddc93272b36eee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2539060483133694292}
+    - targetCorrespondingSourceObject: {fileID: 1552991871235167531, guid: c788eecb96b72737aaddc93272b36eee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2539060483133694291}
   m_SourcePrefab: {fileID: 100100000, guid: c788eecb96b72737aaddc93272b36eee, type: 3}
 --- !u!4 &2539060483133694289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6504552062937714362, guid: c788eecb96b72737aaddc93272b36eee, type: 3}
   m_PrefabInstance: {fileID: 2539060483133694288}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2539060483133694290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1552991871235167531, guid: c788eecb96b72737aaddc93272b36eee, type: 3}
+  m_PrefabInstance: {fileID: 2539060483133694288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2539060483133694291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539060483133694290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54215b89c124224b6b1c0390c437497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.DoorInteractable
+  inRange: 0
+  mode: 0
+  isUnlocked: 1
+  targetSceneName: Diner
+--- !u!114 &2539060483133694292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539060483133694290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &3061305975904327075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46808,13 +46898,58 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7686020654094555759, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5661750012972072786}
+    - targetCorrespondingSourceObject: {fileID: 7686020654094555759, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5661750012972072785}
   m_SourcePrefab: {fileID: 100100000, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
 --- !u!4 &5661750012972072783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2694174382132707838, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
   m_PrefabInstance: {fileID: 5661750012972072782}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5661750012972072784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7686020654094555759, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
+  m_PrefabInstance: {fileID: 5661750012972072782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5661750012972072785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661750012972072784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54215b89c124224b6b1c0390c437497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.DoorInteractable
+  inRange: 0
+  mode: 0
+  isUnlocked: 1
+  targetSceneName: Library
+--- !u!114 &5661750012972072786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661750012972072784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!114 &5823509905587848290
 MonoBehaviour:
   m_ObjectHideFlags: 0

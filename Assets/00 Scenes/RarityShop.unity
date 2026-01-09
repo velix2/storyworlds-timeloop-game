@@ -2535,6 +2535,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -3557378181376072087, guid: eaa2589b567b943c0877c05b3986ffa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1858866879}
+    - targetCorrespondingSourceObject: {fileID: -3557378181376072087, guid: eaa2589b567b943c0877c05b3986ffa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1858866878}
     - targetCorrespondingSourceObject: {fileID: 2550463727306718371, guid: eaa2589b567b943c0877c05b3986ffa5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1745378994}
@@ -2636,6 +2642,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.023913, y: 2.116567, z: 1.2415047}
   m_Center: {x: -0.0004204909, y: 1.0582834, z: 0.014463703}
+--- !u!1 &1858866877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3557378181376072087, guid: eaa2589b567b943c0877c05b3986ffa5, type: 3}
+  m_PrefabInstance: {fileID: 1745378989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1858866878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858866877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54215b89c124224b6b1c0390c437497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.DoorInteractable
+  inRange: 0
+  mode: 0
+  isUnlocked: 1
+  targetSceneName: Outdoor
+--- !u!114 &1858866879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858866877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1886920033
 GameObject:
   m_ObjectHideFlags: 0

@@ -3462,6 +3462,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4626136241353310502, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2096217667}
+    - targetCorrespondingSourceObject: {fileID: -4626136241353310502, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2096217671}
+    - targetCorrespondingSourceObject: {fileID: -4626136241353310502, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2096217670}
     - targetCorrespondingSourceObject: {fileID: 475510077849894624, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2096217666}
@@ -3684,6 +3690,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.20000005, y: 7.999999, z: 2.9999995}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2096217670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096217662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54215b89c124224b6b1c0390c437497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.DoorInteractable
+  inRange: 0
+  mode: 0
+  isUnlocked: 1
+  targetSceneName: Outdoor
+--- !u!114 &2096217671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096217662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &7409560499457915455
 PrefabInstance:
   m_ObjectHideFlags: 0

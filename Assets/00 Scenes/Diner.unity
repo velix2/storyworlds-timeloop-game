@@ -566,6 +566,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dbb78dd22e7b631e5a619dc3d00d5ad1, type: 3}
   m_PrefabInstance: {fileID: 201909655}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &268522964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5207044347540290682, guid: 913f4738e2f498047beef2a6d6d4485e, type: 3}
+  m_PrefabInstance: {fileID: 1808155076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &268522965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268522964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54215b89c124224b6b1c0390c437497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.DoorInteractable
+  inRange: 0
+  mode: 0
+  isUnlocked: 1
+  targetSceneName: Outdoor
+--- !u!114 &268522966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268522964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &272694828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2514,6 +2553,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4624214297579557721, guid: 913f4738e2f498047beef2a6d6d4485e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1808155094}
+    - targetCorrespondingSourceObject: {fileID: 5207044347540290682, guid: 913f4738e2f498047beef2a6d6d4485e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 268522966}
+    - targetCorrespondingSourceObject: {fileID: 5207044347540290682, guid: 913f4738e2f498047beef2a6d6d4485e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 268522965}
     - targetCorrespondingSourceObject: {fileID: 8792756729823927542, guid: 913f4738e2f498047beef2a6d6d4485e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1808155093}
