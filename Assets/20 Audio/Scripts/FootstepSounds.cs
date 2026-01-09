@@ -114,6 +114,7 @@ public class FootstepSounds : MonoBehaviour
     
     public void UpdateTerrainTextureDetector()
     {
+        if (Terrain.activeTerrain == null) return;
         terrainTextureDetector = Terrain.activeTerrain.gameObject.GetComponent<TerrainTextureDetector>();
         if (terrainTextureDetector == null) Debug.LogError("There is no TerrainTextureDetector on the Terrain GameObject in this Scene.");
     }

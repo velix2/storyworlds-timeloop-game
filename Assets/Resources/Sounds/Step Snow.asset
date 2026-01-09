@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: Step Snow
   m_EditorClassIdentifier: Assembly-CSharp::Sound
   audios:
-  - {fileID: 8300000, guid: 985eaa67fd34ee0408b41a0a3f4a85f5, type: 3}
   - {fileID: 8300000, guid: c45b6c83746f3cf4c9b618b7f9384289, type: 3}
   - {fileID: 8300000, guid: 6a3f47349d8473a4c95e805eddeb322b, type: 3}
   - {fileID: 8300000, guid: 76b92a605509da747b9bb322eec41eca, type: 3}
-  - {fileID: 8300000, guid: ed148f3e565c0434185cd9546e982e02, type: 3}
-  - {fileID: 8300000, guid: 2f3b1e2dd850c984181d4cdd227896ac, type: 3}
