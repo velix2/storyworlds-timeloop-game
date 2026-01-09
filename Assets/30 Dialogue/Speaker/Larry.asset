@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpeakerData
   speakerId: larry
   speakerName: Larry
-  color: {r: 1, g: 0.99603343, b: 0.76792455, a: 1}
   portraits:
   - emotion: 0
     sprite: {fileID: 21300000, guid: 03c05f1752220534586c297dffea33ba, type: 3}
   - emotion: 3
     sprite: {fileID: 21300000, guid: c7eac795e9b638646a4adacec685b8c9, type: 3}
+  - emotion: 2
+    sprite: {fileID: 21300000, guid: 3027b9a0ebc28124a80132db2878f9df, type: 3}
+  - emotion: 4
+    sprite: {fileID: 21300000, guid: 83e27a761a263c04091b59f4384d821c, type: 3}
+  - emotion: 1
+    sprite: {fileID: 21300000, guid: 0b3cf2d850bc16743b3b241b97f4f794, type: 3}
