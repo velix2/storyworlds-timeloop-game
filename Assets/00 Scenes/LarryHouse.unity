@@ -3027,6 +3027,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 8.099999, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1718541366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096217659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29d15cab7c142d191005261a5152b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GroundData
+  type: 4
 --- !u!114 &1720854867 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1576831125719340643, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
@@ -3449,6 +3462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: interior_house_larry
       objectReference: {fileID: 0}
+    - target: {fileID: 2550463727306718371, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3477,6 +3494,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2550463727306718371, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1695116491}
+    - targetCorrespondingSourceObject: {fileID: 2550463727306718371, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1718541366}
     - targetCorrespondingSourceObject: {fileID: 2226256450759356391, guid: ff68c41c7c156bbc0924ffed70397d91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1905408056}
