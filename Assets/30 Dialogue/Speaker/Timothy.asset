@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpeakerData
   speakerId: timothy
   speakerName: Timothy
-  color: {r: 0.7132075, g: 0.5153933, b: 0.5153933, a: 1}
   portraits:
   - emotion: 0
     sprite: {fileID: 21300000, guid: 5afc620c352f78c478776d708b2abdfd, type: 3}
+  - emotion: 1
+    sprite: {fileID: 21300000, guid: 6cf5949f10af9ca46a09ffa2c4e6acda, type: 3}
+  - emotion: 2
+    sprite: {fileID: 21300000, guid: 66a7efd39270e604d8ad131786e6b652, type: 3}
+  - emotion: 3
+    sprite: {fileID: 21300000, guid: dfd8739b1d1d6d845aa31843045ae029, type: 3}
+  - emotion: 4
+    sprite: {fileID: 21300000, guid: adc890507eb8b794ca94bd969dbad062, type: 3}

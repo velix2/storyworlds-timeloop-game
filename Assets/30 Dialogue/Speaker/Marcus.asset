@@ -20,3 +20,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 76dea3251dcda56498439baf241d9622, type: 3}
   - emotion: 1
     sprite: {fileID: 21300000, guid: 1c85e4938f8fe9f48bab621692ffd209, type: 3}
+  - emotion: 2
+    sprite: {fileID: 21300000, guid: 2f8edf889ff26284b9bf960a3b7aef7e, type: 3}
+  - emotion: 3
+    sprite: {fileID: 21300000, guid: 8280f85855bf8684f925bfe25bf82173, type: 3}
+  - emotion: 4
+    sprite: {fileID: 21300000, guid: b0adf5a51ae183440a8929747fed7a7f, type: 3}

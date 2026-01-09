@@ -358,7 +358,7 @@ public class DialogueManager : MonoBehaviour
         {
             SpeakerData speaker = speakerDictionary[speakerID];
             speakerNameText.text = speaker.speakerName;
-            speakerNameText.color = speaker.color;
+            //speakerNameText.color = speaker.color;
         }
         else
         {
