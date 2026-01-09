@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bc8ee25dbf14b7aa728f5a1590e613e, type: 3}
-  m_Name: OutdoorMeta
+  m_Name: LarryHouseMeta
   m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.SceneMetaData
   neighboringScenes:
-  - neighboringScene: {fileID: 11400000, guid: 833bde3950f8b8ad2a1edae1a9ae5ab7, type: 2}
-    transitionPosition: {x: 450, y: 8, z: 413}
-  sceneName: Outdoor
+  - neighboringScene: {fileID: 11400000, guid: 0b4547b5cd1a693ea9ba2214b4b7f7eb, type: 2}
+    transitionPosition: {x: 1.5, y: 0, z: -3.7}
+  sceneName: LarryHouse
