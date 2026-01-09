@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc8ee25dbf14b7aa728f5a1590e613e, type: 3}
+  m_Name: OutdoorMeta
+  m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.SceneMetaData
+  neighboringScenes:
+  - neighboringScene: {fileID: 11400000, guid: ed1bfd58c264e0f0dbb69bd74ce58955, type: 2}
+    transitionPosition: {x: 450, y: 8, z: 412}
+  - neighboringScene: {fileID: 11400000, guid: bbed61067a33b09298f7f04bd1d81bca, type: 2}
+    transitionPosition: {x: 569, y: 5, z: 412}
+  - neighboringScene: {fileID: 11400000, guid: c2f6c1c6bf8330e3ab9de593588385ee, type: 2}
+    transitionPosition: {x: 535, y: 6, z: 444}
+  - neighboringScene: {fileID: 11400000, guid: b16aeb82d4f45e1a193ae79d37dda2a9, type: 2}
+    transitionPosition: {x: 551, y: 5, z: 469}
+  sceneName: Outdoor

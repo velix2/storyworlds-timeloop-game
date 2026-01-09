@@ -39,13 +39,8 @@ public class SceneSwitcher : MonoBehaviour
     
     private bool _isSceneLoaded;
 
-    private SceneMetaData _currentSceneMetaData;
-
-    private void Start()
-    {
-        _currentSceneMetaData =
-            sceneMetaDatas.Find(data => data.RepresentedSceneName == SceneManager.GetActiveScene().name);
-    }
+    private SceneMetaData _currentSceneMetaData => sceneMetaDatas.Find(data => data.RepresentedSceneName == SceneManager.GetActiveScene().name);
+    
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -68,6 +63,7 @@ public class SceneSwitcher : MonoBehaviour
 
     private IEnumerator GoToSceneCoroutine(string sceneName)
     {
+        var currentSceneMetaData = _currentSceneMetaData;
         var targetSceneMetaData = sceneMetaDatas.Find(data => data.RepresentedSceneName == sceneName);
         
         
@@ -95,20 +91,24 @@ public class SceneSwitcher : MonoBehaviour
         else
         {
             // Find out where player is supposed to spawn
-            var playerPos = targetSceneMetaData.GetTransitionPositionOfNeighboringScene(_currentSceneMetaData);
+            var playerPos = targetSceneMetaData.GetTransitionPositionOfNeighboringScene(currentSceneMetaData);
 
             if (playerPos == Vector3.negativeInfinity)
             {
-                Debug.LogWarning($"Target Scene {sceneName} does not have neighbor {_currentSceneMetaData.RepresentedSceneName}. Player will not be teleported.");
+                Debug.LogWarning($"Target Scene {sceneName} does not have neighbor {currentSceneMetaData.RepresentedSceneName}. Player will not be teleported.");
             }
             else
             {
                 // Find player in scene
                 Debug.Log(SceneManager.GetActiveScene().name);
-                var playerTransform = FindAnyObjectByType<PlayerController>().transform;
+                var playerController = FindAnyObjectByType<PlayerController>();
+                var characterController = playerController.GetComponent<CharacterController>();
+                var playerTransform = playerController.transform;
 
-                // Teleport
+                // Teleport (with CC disable to fix position caching issues)
+                characterController.enabled = false;
                 playerTransform.position = playerPos;
+                characterController.enabled = true;
             }
         }
 
