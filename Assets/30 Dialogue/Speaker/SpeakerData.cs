@@ -11,7 +11,6 @@ public class SpeakerData : ScriptableObject
 {
     public string speakerId;  
     public string speakerName;
-    public Color color;
     public Portrait[] portraits;
 
 }
