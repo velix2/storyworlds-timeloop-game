@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,11 +14,14 @@ public class InventoryDisplay : MonoBehaviour
     
     [Header("References")]
     [SerializeField] private GameObject itemBoxContainer;
+    private Animator animator;
     private CanvasGroup canvasGroup;
 
     private ItemBox[] itemBoxes;
     private byte nextEmptyIndex = 0;
     public int Capacity => itemBoxes.Length;
+
+    private AnimationClip openClip;
     
     private void Awake()
     {
@@ -30,7 +34,15 @@ public class InventoryDisplay : MonoBehaviour
         }
         
         canvasGroup = GetComponent<CanvasGroup>();
-
+        animator = GetComponent<Animator>();
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == "Inventory_Open")
+            {
+                openClip = clip;
+                break;
+            }
+        }
     }
 
     /// <summary>
@@ -38,8 +50,8 @@ public class InventoryDisplay : MonoBehaviour
     /// </summary>
     public void ShowDisplay()
     {
-        //TODO: do the following with animations
         canvasGroup.alpha = 1;
+        StartCoroutine(PlayAnimation(true));
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
 
@@ -50,10 +62,17 @@ public class InventoryDisplay : MonoBehaviour
     /// </summary>
     public void HideDisplay()
     {
-        //TODO: do the following with animations
-        canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
+        StartCoroutine(PlayAnimation(false));
+        
+    }
+
+    private IEnumerator PlayAnimation(bool forward)
+    {
+        animator.Play(forward ? "Open" : "Close");
+        yield return new WaitForSeconds(openClip.length);
+        if (!forward) canvasGroup.alpha = 0;
     }
     
     public void AddItemToDisplay(ItemData item)

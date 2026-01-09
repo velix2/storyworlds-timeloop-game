@@ -11,6 +11,9 @@ namespace FadeToBlack
     public class FadeToBlackPanel : MonoBehaviour
     {
         [SerializeField] private float fadeInSeconds = 0.25f, stayVisibleSeconds = 0.1f, fadeOutSeconds = 0.25f;
+        public float FadeInSeconds => fadeInSeconds;
+        public float FadeOutSeconds => fadeOutSeconds;
+        public float StayVisibleSeconds => stayVisibleSeconds;
         private Image _image;
         private float _timer;
 

@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
     private void OnInventoryOpenInput()
     {
         if (frozen) return;
+        FreezeAnimation();
         movementBlocked = true;
         interactionChecker.SetToUIMode();
         inventoryManager.Open();
@@ -105,6 +106,7 @@ public class PlayerController : MonoBehaviour
     private void OnInventoryCloseInput()
     {
         if (frozen) return;
+        UnfreezeAnimation();
         movementBlocked = false;
         interactionChecker.SetToPhysicsMode();
         inventoryManager.Close();
@@ -134,6 +136,8 @@ public class PlayerController : MonoBehaviour
     
     private void LateUpdate()
     {
+        if (DialogueManager.Instance.DialogueIsPlaying) return;
+        if (frozen) return;
         Vector2 input = InputManager.GetPlayerMovement();
         AnimatorWalkDirection(input);
     }
@@ -151,6 +155,16 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetFloat(lookX, value.x);
         animator.SetFloat(lookY, value.y);
+    }
+
+    private void FreezeAnimation()
+    {
+        animator.enabled = false;
+    }
+
+    private void UnfreezeAnimation()
+    {
+        animator.enabled = true;
     }
     #endregion
 }
