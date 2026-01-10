@@ -617,7 +617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c2139bb2d05c94189be253b2c5b29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneManager
-  cutsceneDatabase: {fileID: 11400000, guid: 12510b4b095c56e42955a5913bfbcc83, type: 2}
   director: {fileID: 1577684679}
 --- !u!4 &636332276
 Transform:
@@ -726,6 +725,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1437454093641765418, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437454093641765418, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437454093641765418, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437454093641765418, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100738138179049974, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100738138179049974, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100738138179049974, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100738138179049974, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2632906182747804640, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -736,6 +767,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2632906182747804640, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939863138265666994, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939863138265666994, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939863138265666994, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939863138265666994, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3200240286237993692, guid: abe00934eb662d6448a8c32802646fd9, type: 3}
@@ -1194,7 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd22b175da5d984bb97f621afffa886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneTrigger
-  cutsceneIndex: 0
+  cutscene: {fileID: 11400000, guid: df89b03bf5f24ba4aa027f7cd873c805, type: 2}
 --- !u!65 &1541952193
 BoxCollider:
   m_ObjectHideFlags: 0

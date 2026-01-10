@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class CutsceneTrigger : MonoBehaviour
 {
     private CutsceneManager cutsceneManager;
-    [SerializeField] private int cutsceneIndex;
+    [SerializeField] private PlayableAsset cutscene;
 
     // Replace with ink variable
     private bool cutsceneHasPlayed = false;
@@ -23,7 +24,7 @@ public class CutsceneTrigger : MonoBehaviour
         if (other.CompareTag("Player") && !cutsceneManager.CutsceneIsPlaying) 
         {
             cutsceneHasPlayed = true;
-            cutsceneManager.PlayCutscene(cutsceneIndex);
+            cutsceneManager.PlayCutscene(cutscene);
         }
     }
 }
