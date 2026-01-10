@@ -9923,6 +9923,56 @@ Transform:
   - {fileID: 1920829144}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &373380992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373380994}
+  - component: {fileID: 373380993}
+  m_Layer: 0
+  m_Name: Location Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &373380993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373380992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63487b5972f1d747b781b1ce15b049a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocationMusicHolder
+  defaultMusic: {fileID: 0}
+  useTimeDependantMusic: 1
+  morningMusic: {fileID: 8300000, guid: aed5aa2c04738c34cb456557403e8e2c, type: 3}
+  afternoonMusic: {fileID: 8300000, guid: ec2c346ea9eff4345a758f2f767a1364, type: 3}
+  eveningMusic: {fileID: 8300000, guid: 0c37d6f70dedfad44a164685e54cd2c6, type: 3}
+  nightMusic: {fileID: 0}
+--- !u!4 &373380994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373380992}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &381173856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47605,6 +47655,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 157104355145403577}
+  - {fileID: 373380994}
   - {fileID: 6204769274633914342}
   - {fileID: 700363757}
   - {fileID: 1625156832}
