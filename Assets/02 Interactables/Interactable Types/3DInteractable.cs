@@ -11,7 +11,7 @@ public abstract class InteractableThreeDimensional : Interactable
     [Header("Outline")] 
     public override Color OutlineColor => outline.OutlineColor;
     [SerializeField] private Outline.Mode mode = Outline.Mode.OutlineAll;
-    public override float OutlineWidth => outline.OutlineWidth = 6.0f;
+    public override float OutlineWidth => outline.OutlineWidth;
 
 
     protected new void Awake()
@@ -20,6 +20,7 @@ public abstract class InteractableThreeDimensional : Interactable
         outline = GetComponent<Outline>();
         outline.enabled = false;
         outline.OutlineMode = mode;
+        outline.OutlineWidth = 6.0f;
     }
     
 
