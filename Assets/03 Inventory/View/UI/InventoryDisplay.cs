@@ -15,6 +15,7 @@ public class InventoryDisplay : MonoBehaviour
     [Header("References")] 
     [SerializeField] private AudioClip openAudio;
     [SerializeField] private AudioClip closeAudio;
+    [SerializeField] private AudioClip pickupAudio;
     [SerializeField] private GameObject itemBoxContainer;
     private Animator animator;
     private CanvasGroup canvasGroup;
@@ -91,7 +92,7 @@ public class InventoryDisplay : MonoBehaviour
         animating = false;
     }
     
-    public void AddItemToDisplay(ItemData item)
+    public void AddItemToDisplay(ItemData item, bool playSound = false)
     {
         if (nextEmptyIndex >= itemBoxes.Length)
         {
@@ -99,6 +100,7 @@ public class InventoryDisplay : MonoBehaviour
             return;
         }
         
+        if (playSound) AudioManager.PlaySFX(pickupAudio);
         itemBoxes[nextEmptyIndex++].DisplayItem(item);
     }
 

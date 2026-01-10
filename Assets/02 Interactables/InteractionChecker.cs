@@ -57,6 +57,7 @@ public class InteractionChecker : MonoBehaviour
     public void HighlightAll()
     {
         highlightingAll = true;
+        inHighlightRange.RemoveAll(x => x==null);
         foreach (Interactable interactable in inHighlightRange)
         {
             interactable.Highlight();
@@ -69,6 +70,8 @@ public class InteractionChecker : MonoBehaviour
     public void UnhighlightAll()
     {
         highlightingAll = false;
+        inHighlightRange.RemoveAll(x => x==null);
+        
         foreach (Interactable interactable in inHighlightRange)
         {
             interactable.Unhighlight();
@@ -90,7 +93,7 @@ public class InteractionChecker : MonoBehaviour
             
             if (!highlightingAll)
             {
-                highlightedInteractable?.Unhighlight();
+                if (highlightedInteractable != null)highlightedInteractable.Unhighlight();
                 interactable.Highlight();
             }
             highlightedInteractable = interactable;

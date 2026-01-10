@@ -12,12 +12,16 @@ public class ItemHolder : InteractableThreeDimensional
 
     public override void PrimaryInteraction()
     {
-        //TODO: Pickup and add to Inventory
+        if (InventoryManager.Instance.AddItem(item, true))
+        {
+            Destroy(gameObject);
+            Destroy(this);
+        }
     }
 
     public override void SecondaryInteraction()
     {
-        //TODO: Display observationText from itemData, dialogue system needed
+        DialogueManager.Instance.EnterDialogueModeSimple(item.ObservationText);
     }
     
     

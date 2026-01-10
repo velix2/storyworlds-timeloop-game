@@ -145,6 +145,5 @@ public abstract class Interactable : MonoBehaviour
         highlightOverwrite = false;
         Unhighlight();
     }
-
-
+    
 }
