@@ -15,30 +15,18 @@ public class FootstepSounds : MonoBehaviour
     private AudioSource source1;
     private AudioSource source2;
     private bool sourceAlternation;
-    private float pitchVariance = 0.05f;
+    private readonly float pitchVariance = 0.05f;
 
     private static LayerMask groundMask;
     private TerrainTextureDetector terrainTextureDetector;
     
     private void Start()
     {
-        AudioMixerGroup[] groups = AudioManager.Mixer.FindMatchingGroups("Steps");
-        AudioMixerGroup mixer;
-        if (groups.Length == 0)
-        {
-            Debug.LogWarning("No AudioMixerGroup \"Steps\" found.");
-            mixer = AudioManager.Mixer.outputAudioMixerGroup;
-        }
-        else
-        {
-            mixer = groups[0];
-        }
-        
         source1 = gameObject.AddComponent<AudioSource>();
-        source1.outputAudioMixerGroup = mixer;
+        source1.outputAudioMixerGroup = AudioManager.Instance.StepGroup;
         
         source2 = gameObject.AddComponent<AudioSource>();
-        source2.outputAudioMixerGroup = mixer;
+        source2.outputAudioMixerGroup = AudioManager.Instance.StepGroup;
         UpdateTerrainTextureDetector();
         
         if (staticsInitiated) return;
