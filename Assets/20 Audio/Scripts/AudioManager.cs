@@ -63,6 +63,11 @@ public class AudioManager : MonoBehaviour
         instance.StartCoroutine(FadeOut(activeMusicSource));
     }
 
+    public static void UnmuteMusic()
+    {
+        instance.StartCoroutine(FadeIn(activeMusicSource));
+    }
+
     private static void BlendMusic(AudioClip newSong)
     {
         inactiveMusicSource.clip = newSong;
