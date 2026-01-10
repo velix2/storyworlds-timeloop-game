@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Mono.Cecil;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -24,6 +25,10 @@ public class AudioManager : MonoBehaviour
 
     [Header("References")] 
     [SerializeField] private AudioSource musicSourcePrefab;
+    [SerializeField] private AudioSource sfxSourcePrefab;
+    
+    
+    #region Music
     private static AudioSource musicSource1;
     private static AudioSource musicSource2;
     private static bool alternatingMusicSource;
@@ -49,7 +54,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public static void ChangeMusic(AudioClip audio)
-    {
+    {   
         BlendMusic(audio);
     }
 
@@ -93,6 +98,53 @@ public class AudioManager : MonoBehaviour
         source.volume = 0.0f;
         source.Pause();
     }
+    
+    #endregion
+
+    #region Sound
+
+    private static List<AudioSource> availableSFX = new List<AudioSource>();
+    
+    public static void PlaySFXat(AudioClip clip, Vector3 worldPosition)
+    {
+        AudioSource source = PopAvailableSFX();
+        source.clip = clip;
+        source.transform.position = worldPosition;
+        source.Play();
+        instance.StartCoroutine(BlockSFXDuringPlay(source));
+    }
+
+    public static void PlaySFX(AudioClip clip)
+    {
+        AudioSource source = PopAvailableSFX();
+        source.clip = clip;
+        source.transform.position = Camera.main.transform.position;
+        source.transform.parent = Camera.main?.transform;
+        
+        source.Play();
+        instance.StartCoroutine(BlockSFXDuringPlay(source));
+    }
+
+    private static AudioSource PopAvailableSFX()
+    {
+        AudioSource result;
+        if (availableSFX.Count == 0) result = Instantiate(instance.sfxSourcePrefab);
+        else
+        {
+            result = availableSFX[0];
+            availableSFX.RemoveAt(0);
+        }
+        return result;
+    }
+
+    private static IEnumerator BlockSFXDuringPlay(AudioSource source)
+    {
+        availableSFX.Remove(source);
+        if (source.clip != null) yield return new WaitForSeconds(source.clip.length);
+        availableSFX.Add(source);
+        source.transform.parent = null;
+    }
+    #endregion
 
     private void Awake()
     {
@@ -106,7 +158,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private void Start()
-    {
+    { 
         SceneSwitcher.Instance.SceneSwitched.AddListener(ApplyMusicSource);
     }
 

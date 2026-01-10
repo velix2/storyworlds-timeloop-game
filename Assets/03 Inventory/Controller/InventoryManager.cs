@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
 
     public UnityEvent<ItemData> ItemSelected => display.ItemBoxPrimaryInteract;
     public UnityEvent<ItemData> ItemObserved => display.ItemBoxSecondaryInteract;
+    public bool IsReady => !display.Animating;
 
     private void Awake()
     {
