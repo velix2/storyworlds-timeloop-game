@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,6 +8,7 @@ public class DialogueUI : MonoBehaviour
 {
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialogueUI;
+    [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject nameBox;
     [SerializeField] private TextMeshProUGUI nameText;
@@ -24,9 +26,19 @@ public class DialogueUI : MonoBehaviour
 
     void Start()
     {
-        DialogueManager.Instance.RegisterDialogueUI(dialogueUI, dialogueText, nameBox, nameText, imagePanel, 
+        if(playerTransform == null)
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        if(playerTransform == null)
+        {
+            Debug.LogError("No player transform found!");
+            return;
+        }        
+
+        DialogueManager.Instance.RegisterDialogueUI(dialogueBox, dialogueText, nameBox, nameText, imagePanel, 
             speakerImage, continueIcon, choices, playerPanel, playerText, playerTransform);
-        dialogueUI.SetActive(false);
+        dialogueBox.SetActive(false);
         playerPanel.SetActive(false);
     }
 }

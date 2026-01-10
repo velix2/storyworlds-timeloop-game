@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -275,6 +276,15 @@ public class DialogueManager : MonoBehaviour
         {
             choices[index].SetActive(true);
             choicesText[index].text = choice.text;
+
+            // Initialize Buttons
+            Button button = choices[index].GetComponent<Button>();
+            button.onClick.RemoveAllListeners();
+
+            int cachedIndex = index;
+
+            button.onClick.AddListener(() => MakeChoice(cachedIndex));
+
             index++;
         }
         // Hide remaining choices
@@ -298,6 +308,8 @@ public class DialogueManager : MonoBehaviour
     private void HandleTags(List<string> currentTags)
     {
         string speakerID = "";
+        DeactivateSpeakerPanels();
+
         // Loop through each tag and handle it accordingly
         foreach (string tag in currentTags)
         {
@@ -317,24 +329,24 @@ public class DialogueManager : MonoBehaviour
                     if (tagValue == "narrator")
                     {
                         nameText.text = "";
-                        DeactivatePortraitPanels();
+                        DeactivateSpeakerPanels();
                     }
                     else
                     {
-                        ActivatePortraitPanels();
                         speakerID = tagValue;
                         SetSpeakerName(speakerID, nameText);
+                        nameBox.SetActive(true);
                     }
                     break;
                 case EMOTION_TAG:
                     if (Enum.TryParse(tagValue, out Emotion emotion))
                     {
-                        ActivatePortraitPanels();
+                        imagePanel.SetActive(true);
                         SetSpeakerEmotion(speakerID, emotion, speakerImage);
                     }
                     else
                     {
-                        Debug.LogError("Invalid emotion tag was parsed!");
+                        Debug.LogWarning("Invalid emotion tag for speaker " + speakerID + " was parsed!");
                     }
                     break;
                 case PAUSE_TAG:
@@ -422,13 +434,13 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void DeactivatePortraitPanels()
+    private void DeactivateSpeakerPanels()
     {
         nameBox.SetActive(false);
         imagePanel.SetActive(false);
     }
 
-    private void ActivatePortraitPanels()
+    private void ActivateSpeakerPanels()
     {
         nameBox.SetActive(true);
         imagePanel.SetActive(true);
