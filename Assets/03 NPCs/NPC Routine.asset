@@ -20,4 +20,4 @@ MonoBehaviour:
   - daytime: 11:00
     targetScene: {fileID: 11400000, guid: 34eb65b2716906c4da0c3c7382dba767, type: 2}
     targetPositionInTargetScene: {x: 0, y: 0, z: 2}
-    teleportToLocation: 1
+    teleportToLocation: 0

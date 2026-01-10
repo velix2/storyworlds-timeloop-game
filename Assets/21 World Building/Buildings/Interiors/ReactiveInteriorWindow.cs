@@ -19,7 +19,7 @@ public class ReactiveInteriorWindow : DaytimePhaseChangeSubscriber<Material>
         _renderer = GetComponent<Renderer>();
     }
 
-    private void Start()
+    protected override void BeforeStart()
     {
         materialNameToReplace += " (Instance)"; // Add this Suffix for what reason whatsoever
 

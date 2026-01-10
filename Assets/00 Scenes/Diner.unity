@@ -1083,6 +1083,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2277111578357349047, guid: 0b9c06fa02b38c5fcb73a6c535fd8d4d, type: 3}
   m_PrefabInstance: {fileID: 683430659}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &753366932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753366934}
+  - component: {fileID: 753366933}
+  m_Layer: 0
+  m_Name: Location Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &753366933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753366932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63487b5972f1d747b781b1ce15b049a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocationMusicHolder
+  defaultMusic: {fileID: 8300000, guid: 97cedf594e5508849a406e90516a7491, type: 3}
+  useTimeDependantMusic: 0
+  morningMusic: {fileID: 8300000, guid: 97cedf594e5508849a406e90516a7491, type: 3}
+  afternoonMusic: {fileID: 0}
+  eveningMusic: {fileID: 0}
+  nightMusic: {fileID: 8300000, guid: 97cedf594e5508849a406e90516a7491, type: 3}
+--- !u!4 &753366934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753366932}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 501.67902, y: 0, z: 497.73917}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775155410
 GameObject:
   m_ObjectHideFlags: 0
@@ -4014,3 +4064,4 @@ SceneRoots:
   - {fileID: 320226448}
   - {fileID: 1682118456412924669}
   - {fileID: 272694828}
+  - {fileID: 753366934}

@@ -5,6 +5,7 @@ using FadeToBlack;
 using SceneHandling;
 using TimeManagement;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
@@ -40,6 +41,8 @@ public class SceneSwitcher : MonoBehaviour
     private bool _isSceneLoaded;
 
     private SceneMetaData _currentSceneMetaData => sceneMetaDatas.Find(data => data.RepresentedSceneName == SceneManager.GetActiveScene().name);
+
+    public UnityEvent SceneSwitched = new UnityEvent();
     
     private void OnEnable()
     {
@@ -82,6 +85,9 @@ public class SceneSwitcher : MonoBehaviour
 
         // Pass 0 time so that we ensure correct scene setup
         if (!timeoutOccured) TimeHandler.PassTime(0);
+        
+        // Additional setup
+        SceneSwitched.Invoke();
         
         // Bring Player to correct location if we have the required meta data
         if (!targetSceneMetaData)

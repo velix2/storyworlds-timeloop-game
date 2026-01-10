@@ -33,6 +33,27 @@ namespace TimeManagement
             AfterOnDisable();
         }
 
+        private void Start()
+        {
+            BeforeStart();
+            
+            switch (TimeHandler.Instance.CurrentDaytimePhase)
+            {
+                case DaytimePhase.Night:
+                    ApplyElement(elementNight, DaytimePhase.Night);
+                    break;
+                case DaytimePhase.Morning:
+                    ApplyElement(elementMorning, DaytimePhase.Morning);
+                    break;
+                case DaytimePhase.Afternoon:
+                    ApplyElement(elementAfternoon, DaytimePhase.Afternoon);
+                    break;
+                case DaytimePhase.Evening:
+                    ApplyElement(elementEvening, DaytimePhase.Evening);
+                    break;
+            }
+        }
+
         /// <summary>
         /// Replacement for <see cref="OnEnable"/>. Works exactly the same.
         /// </summary>
@@ -44,6 +65,13 @@ namespace TimeManagement
         /// Replacement for <see cref="OnDisable"/>. Works exactly the same.
         /// </summary>
         protected virtual void AfterOnDisable()
+        {
+        }
+        
+        /// <summary>
+        /// Replacement for <see cref="Start"/>. Runs before the base class' Start.
+        /// </summary>
+        protected virtual void BeforeStart()
         {
         }
 
