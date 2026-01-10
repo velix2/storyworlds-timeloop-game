@@ -42,6 +42,7 @@ namespace FadeToBlack
 
             // Don't destroy parent canvas
             DontDestroyOnLoad(transform.parent.gameObject);
+            
         }
 
         #endregion
@@ -61,14 +62,9 @@ namespace FadeToBlack
             StartCoroutine(FadeIn(afterFadeIn));
         }
 
-        private void OnEnable()
+        private void Start()
         {
             TimeHandler.Instance.onDayPhaseChanged.AddListener(OnDaytimePhaseChanged);
-        }
-
-        private void OnDisable()
-        {
-            TimeHandler.Instance.onDayPhaseChanged.RemoveListener(OnDaytimePhaseChanged);
         }
 
         private void OnDaytimePhaseChanged(DaytimePhase phase)
@@ -136,6 +132,8 @@ namespace FadeToBlack
             }
 
             _image.enabled = false;
+
+            onAnimationEnd?.Invoke();
         }
     }
 }
