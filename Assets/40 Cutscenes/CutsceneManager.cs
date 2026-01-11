@@ -1,6 +1,5 @@
 using System;
 using Unity.Cinemachine;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;

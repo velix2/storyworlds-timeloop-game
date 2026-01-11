@@ -1,8 +1,4 @@
-using System;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using Object = UnityEngine.Object;
-
 
 public abstract class Interactable : MonoBehaviour
 {

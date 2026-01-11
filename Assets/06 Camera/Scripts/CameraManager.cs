@@ -1,6 +1,5 @@
 using System;
 using Unity.Cinemachine;
-using UnityEditor.U2D.Sprites;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
