@@ -11,8 +11,11 @@ public class InventoryDisplay : MonoBehaviour
 {
     [HideInInspector] public UnityEvent<ItemData> ItemBoxPrimaryInteract;
     [HideInInspector] public UnityEvent<ItemData> ItemBoxSecondaryInteract;
-    
-    [Header("References")]
+
+    [Header("References")] 
+    [SerializeField] private AudioClip openAudio;
+    [SerializeField] private AudioClip closeAudio;
+    [SerializeField] private AudioClip pickupAudio;
     [SerializeField] private GameObject itemBoxContainer;
     private Animator animator;
     private CanvasGroup canvasGroup;
@@ -22,7 +25,9 @@ public class InventoryDisplay : MonoBehaviour
     public int Capacity => itemBoxes.Length;
 
     private AnimationClip openClip;
-    
+    private bool animating;
+    public bool Animating => animating;
+
     private void Awake()
     {
         itemBoxes = itemBoxContainer.GetComponentsInChildren<ItemBox>();
@@ -43,6 +48,7 @@ public class InventoryDisplay : MonoBehaviour
                 break;
             }
         }
+        HideDisplayInstant();
     }
 
     /// <summary>
@@ -51,6 +57,7 @@ public class InventoryDisplay : MonoBehaviour
     public void ShowDisplay()
     {
         canvasGroup.alpha = 1;
+        AudioManager.PlaySFX(openAudio);
         StartCoroutine(PlayAnimation(true));
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
@@ -64,18 +71,28 @@ public class InventoryDisplay : MonoBehaviour
     {
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
+        AudioManager.PlaySFX(closeAudio);
         StartCoroutine(PlayAnimation(false));
         
     }
 
+    private void HideDisplayInstant()
+    {
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.alpha = 0;
+    }
+
     private IEnumerator PlayAnimation(bool forward)
     {
+        animating = true;
         animator.Play(forward ? "Open" : "Close");
         yield return new WaitForSeconds(openClip.length);
         if (!forward) canvasGroup.alpha = 0;
+        animating = false;
     }
     
-    public void AddItemToDisplay(ItemData item)
+    public void AddItemToDisplay(ItemData item, bool playSound = false)
     {
         if (nextEmptyIndex >= itemBoxes.Length)
         {
@@ -83,6 +100,7 @@ public class InventoryDisplay : MonoBehaviour
             return;
         }
         
+        if (playSound) AudioManager.PlaySFX(pickupAudio);
         itemBoxes[nextEmptyIndex++].DisplayItem(item);
     }
 

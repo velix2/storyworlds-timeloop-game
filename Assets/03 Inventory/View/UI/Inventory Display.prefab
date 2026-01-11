@@ -1237,6 +1237,9 @@ MonoBehaviour:
   ItemBoxSecondaryInteract:
     m_PersistentCalls:
       m_Calls: []
+  openAudio: {fileID: 8300000, guid: ecf232f43b4f9ea4cbd2c67c94ecab62, type: 3}
+  closeAudio: {fileID: 8300000, guid: c8b83c9a9e10f9e44918178f5d18b3c7, type: 3}
+  pickupAudio: {fileID: 8300000, guid: d200d15288f9f0f4ba0628fee56583da, type: 3}
   itemBoxContainer: {fileID: 2083740533282340240}
 --- !u!95 &8134408682459943212
 Animator:

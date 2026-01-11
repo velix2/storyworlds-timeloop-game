@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private bool movementBlocked;
     private bool frozen;
+    private bool inventoryOpen;
 
     private void Start()
     {
@@ -38,8 +39,6 @@ public class PlayerController : MonoBehaviour
 
         InputManager.PlayerControls.Standard.HighlightAllInteractables.started += _ => OnHighlightAllInput(true);
         InputManager.PlayerControls.Standard.HighlightAllInteractables.canceled += _ => OnHighlightAllInput(false);
-        
-        OnInventoryCloseInput();
     }
 
 
@@ -97,6 +96,9 @@ public class PlayerController : MonoBehaviour
     private void OnInventoryOpenInput()
     {
         if (frozen) return;
+        if (inventoryOpen) return;
+        if (!inventoryManager.IsReady) return;
+        inventoryOpen = true;
         FreezeAnimation();
         movementBlocked = true;
         interactionChecker.SetToUIMode();
@@ -106,6 +108,9 @@ public class PlayerController : MonoBehaviour
     private void OnInventoryCloseInput()
     {
         if (frozen) return;
+        if (!inventoryOpen) return;
+        if (!inventoryManager.IsReady) return;
+        inventoryOpen = false;
         UnfreezeAnimation();
         movementBlocked = false;
         interactionChecker.SetToPhysicsMode();
