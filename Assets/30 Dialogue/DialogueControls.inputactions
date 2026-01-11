@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "DialogueControls",
+    "maps": [
+        {
+            "name": "Standard",
+            "id": "0f69185f-3d1c-42cc-8c6f-48ad25878d09",
+            "actions": [
+                {
+                    "name": "ContinueDialogue",
+                    "type": "Button",
+                    "id": "c344933e-980b-402d-bc13-ac7574fdbff2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ContinueDialogueSimple",
+                    "type": "Button",
+                    "id": "c750948c-d2b5-4f42-b98e-3d29ae3af321",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4a6f6214-c4f2-4ab3-b4f2-0847c9f8b885",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7cc332b7-97d6-4c5d-a791-bef9a6b2a40c",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueDialogueSimple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

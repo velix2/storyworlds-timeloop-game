@@ -53,6 +53,7 @@ public abstract class Interactable : MonoBehaviour
         INSPECT,
         ENTER_OPEN,
         ENTER_CLOSED,
+        _enumlength
     }
 
 
@@ -144,6 +145,5 @@ public abstract class Interactable : MonoBehaviour
         highlightOverwrite = false;
         Unhighlight();
     }
-
-
+    
 }

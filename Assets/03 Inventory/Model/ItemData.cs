@@ -19,8 +19,8 @@ public class ItemData : ScriptableObject
     [SerializeField] private string itemName;
     public string ItemName => itemName;
 
-    [SerializeField] private string observationText;
-    public string ObservationText => observationText;
+    [SerializeField] private TextAsset observationText;
+    public TextAsset ObservationText => observationText;
 
     [SerializeField] private bool multiplePossible;
     public bool MultiplePossible => multiplePossible;

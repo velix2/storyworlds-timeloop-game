@@ -6,6 +6,6 @@ namespace DataClasses
     /// </summary>
     public static class GameData
     {
-        public const string StartingSceneName = "Felix1"; // TODO replace with actual starting scene name
+        public const string StartingSceneName = "LarryHouse"; 
     }
 }

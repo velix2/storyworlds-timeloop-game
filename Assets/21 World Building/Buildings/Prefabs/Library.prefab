@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Library
       objectReference: {fileID: 0}
+    - target: {fileID: 4042687447699432623, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123546067275539775, guid: c5154ccce851ea9c897adae59fd57295, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

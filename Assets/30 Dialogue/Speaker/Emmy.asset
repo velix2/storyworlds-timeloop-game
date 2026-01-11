@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756920aefe7afcb4eb50dea8d3b12d8a, type: 3}
+  m_Name: Emmy
+  m_EditorClassIdentifier: Assembly-CSharp::SpeakerData
+  speakerId: emmy
+  speakerName: Emmy
+  portraits:
+  - emotion: 0
+    sprite: {fileID: 21300000, guid: 99bb03bf2291a384b8f7f7764a23e8b8, type: 3}
+  - emotion: 1
+    sprite: {fileID: 21300000, guid: 6772c3cbc93b2394ab47fa107921435e, type: 3}
+  - emotion: 2
+    sprite: {fileID: 21300000, guid: 1103ed90f2c1a1743ab4d12be3e2b724, type: 3}
+  - emotion: 3
+    sprite: {fileID: 21300000, guid: 486655eca2f45bc4fa9a49e988a1a747, type: 3}
+  - emotion: 4
+    sprite: {fileID: 21300000, guid: abde88b30cc43544f97c89b96c93ce69, type: 3}

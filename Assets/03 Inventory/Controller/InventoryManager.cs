@@ -14,9 +14,21 @@ public class InventoryManager : MonoBehaviour
 
     public UnityEvent<ItemData> ItemSelected => display.ItemBoxPrimaryInteract;
     public UnityEvent<ItemData> ItemObserved => display.ItemBoxSecondaryInteract;
+    public bool IsReady => !display.Animating;
+
+    private static InventoryManager instance;
+    public static InventoryManager Instance => instance;
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        
         display = FindFirstObjectByType<InventoryDisplay>();
         if (display == null)
         {
@@ -29,11 +41,12 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
+        items.Capacity = display.Capacity;
+        
         foreach (var itemData in items)
         {
             display.AddItemToDisplay(itemData);
         }
-        
     }
 
     /// <summary>
@@ -42,13 +55,13 @@ public class InventoryManager : MonoBehaviour
     /// </summary>
     /// <param name="item">Item to be added</param>
     /// <returns></returns>
-    public bool AddItem(ItemData item)
+    public bool AddItem(ItemData item, bool playSound = false)
     {
+        if (items.Count == items.Capacity) return false;
+        
         if (item.MultiplePossible) item = item.MakeCopy();
         items.Add(item);
-        display.AddItemToDisplay(item);
-        
-        //TODO: capacity check
+        display.AddItemToDisplay(item, playSound);
         return true;
     }
 

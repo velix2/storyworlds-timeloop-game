@@ -11,7 +11,6 @@ public class SpeakerData : ScriptableObject
 {
     public string speakerId;  
     public string speakerName;
-    public Color color;
     public Portrait[] portraits;
 
 }
@@ -26,5 +25,5 @@ public struct Portrait
 
 public enum Emotion
 {
-    NORMAL, ANNOYED, SAD, HAPPY
+    NORMAL, ANGRY, SAD, HAPPY, NERVOUS
 }

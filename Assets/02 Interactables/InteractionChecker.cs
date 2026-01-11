@@ -57,6 +57,7 @@ public class InteractionChecker : MonoBehaviour
     public void HighlightAll()
     {
         highlightingAll = true;
+        inHighlightRange.RemoveAll(x => x==null);
         foreach (Interactable interactable in inHighlightRange)
         {
             interactable.Highlight();
@@ -69,6 +70,8 @@ public class InteractionChecker : MonoBehaviour
     public void UnhighlightAll()
     {
         highlightingAll = false;
+        inHighlightRange.RemoveAll(x => x==null);
+        
         foreach (Interactable interactable in inHighlightRange)
         {
             interactable.Unhighlight();
@@ -85,12 +88,12 @@ public class InteractionChecker : MonoBehaviour
         //different interactable than the one highlighted
         if (interactable != null && interactable != highlightedInteractable)
         {
-            if (selectedItem) CursorManager.SetTransparency(interactable.inRange);
+            if (selectedItem) CursorManager.SetTransparency(!interactable.inRange);
             else CursorManager.ChangeCursorInteraction(interactable);
             
             if (!highlightingAll)
             {
-                highlightedInteractable?.Unhighlight();
+                if (highlightedInteractable != null)highlightedInteractable.Unhighlight();
                 interactable.Highlight();
             }
             highlightedInteractable = interactable;
@@ -103,7 +106,7 @@ public class InteractionChecker : MonoBehaviour
             
             if (!highlightingAll)
             {
-                highlightedInteractable.Unhighlight();
+                highlightedInteractable?.Unhighlight();
                 
             }
             highlightedInteractable = null;
@@ -152,11 +155,13 @@ public class InteractionChecker : MonoBehaviour
     private void Start()
     {
         layerMask = LayerMask.GetMask(Interactable.LayerName);
+        CursorManager.CreateInstance();
+        
     }
 
     private void Update()
     {
-        if (DialogueManager.Instance.DialogueIsPlaying) return;
+        if (DialogueManager.Instance.DialogueIsPlaying || CutsceneManager.Instance.CutsceneIsPlaying) return;
 
         HighlightSingle(GetInteractableAtMousePosition());
     }
@@ -199,15 +204,17 @@ public class InteractionChecker : MonoBehaviour
     /// <param name="mousePosition"></param>
     private void OnSecondaryInteractionInput(Vector3 mousePosition)
     {
+        if (selectedItem != null)
+        {
+            DeselectItem();
+            return;
+        }
         if (highlightedInteractable != null && (!highlightedInteractable.SecondaryNeedsInRange || highlightedInteractable.inRange))
         {
-            if (selectedItem != null)
-            {
-                DeselectItem();
-                return;
-            }
             highlightedInteractable.SecondaryInteraction();
         }
+        
+        
     }
 
     #region Hightlight Zone

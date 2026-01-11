@@ -92,11 +92,7 @@ namespace TimeManagement
         /// Fired when time passes. Should e.g. be used to let the world react to progressing time.
         /// </summary>
         public UnityEvent<TimePassedEventPayload> onTimePassed = new();
-
-        /// <summary>
-        /// Invoked when day ends. Should be used for proper cleanup/reset of objects that persist over loops.
-        /// </summary>
-        public UnityEvent onDayEnded = new();
+        
 
         /// <summary>
         /// Invoked when day phase changes. Sends the new phase as payload.
@@ -107,9 +103,20 @@ namespace TimeManagement
         private void OnEnable()
         {
             // Subscribe to own event for cleanup
-            onDayEnded.AddListener(ResetForNextCycle);
+            onTimePassed.AddListener(ResetForNextCycleWrapper);
         }
 
+
+        private void OnDisable()
+        {
+            onTimePassed.RemoveListener(ResetForNextCycleWrapper);
+        }
+
+        private void ResetForNextCycleWrapper(TimePassedEventPayload payload)
+        {
+            if (payload.DayHasEnded) ResetForNextCycle();
+        }
+        
         private void Start()
         {
             // After everything finished setting up, call one initial Time event
@@ -147,15 +154,37 @@ namespace TimeManagement
             var dayHasEnded = Instance.CurrentTime >= Instance.dayStartTimeInMinutes + Instance.dayLengthInMinutes;
             var currentDaytimePhase = Instance.CurrentDaytimePhase;
             var payload = new TimePassedEventPayload(minutes, Instance.CurrentTime, dayHasEnded, currentDaytimePhase);
-
-            Instance.onTimePassed?.Invoke(payload);
             
-            if (dayHasEnded) Instance.onDayEnded?.Invoke();
-
-            if (currentDaytimePhase == Instance._prevPhase) return;
-            Instance._prevPhase = currentDaytimePhase;
-            Instance.onDayPhaseChanged?.Invoke(currentDaytimePhase);
+            
+            if (currentDaytimePhase != Instance._prevPhase)
+            {
+                Instance._prevPhase = currentDaytimePhase;
+                Instance.onDayPhaseChanged?.Invoke(currentDaytimePhase);
+            }
+            
+            Instance.onTimePassed?.Invoke(payload);
         }
+
+        /// <summary>
+        /// Sets the time of day to a certain day phase. Does not trigger a day reset e.g. if in the evening, set to morning is called.
+        /// </summary>
+        /// <param name="phase">The phase to set the time to</param>
+        public void SetTimeToPhase(DaytimePhase phase)
+        {
+            var targetTime = phase switch
+            {
+                DaytimePhase.Night => nightBeginInMinutes,
+                DaytimePhase.Morning => morningBeginInMinutes,
+                DaytimePhase.Afternoon => afternoonBeginInMinutes,
+                DaytimePhase.Evening => eveningBeginInMinutes,
+                _ => throw new ArgumentOutOfRangeException(nameof(phase), phase, null)
+            };
+
+            CurrentTime = targetTime;
+            
+            // Trigger an empty pass time event so everything updates correctly
+            PassTime(0);
+        } 
 
         public static void SkipToNextDaytimePhase()
         {
@@ -169,13 +198,13 @@ namespace TimeManagement
             switch (Instance.CurrentDaytimePhase)
             {
                 case DaytimePhase.Morning:
-                    timeUntilNextPhase -= Instance.afternoonBeginInMinutes;
+                    timeUntilNextPhase = -timeUntilNextPhase + Instance.afternoonBeginInMinutes;
                     break;
                 case DaytimePhase.Afternoon:
-                    timeUntilNextPhase -= Instance.eveningBeginInMinutes;
+                    timeUntilNextPhase = -timeUntilNextPhase + Instance.eveningBeginInMinutes;
                     break;
                 case DaytimePhase.Evening:
-                    timeUntilNextPhase -= Instance.nightBeginInMinutes;
+                    timeUntilNextPhase = -timeUntilNextPhase + Instance.nightBeginInMinutes;
                     break;
                 case DaytimePhase.Night:
                     Instance.ResetForNextCycle();

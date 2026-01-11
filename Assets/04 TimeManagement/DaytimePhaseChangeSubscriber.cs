@@ -7,18 +7,18 @@ namespace TimeManagement
     public abstract class DaytimePhaseChangeSubscriber<T> : MonoBehaviour
     {
         [Tooltip("The element that will be applied at morning")] [SerializeField]
-        private T elementMorning;
+        protected T elementMorning;
 
         [Tooltip("The element that will be applied at afternoon")] [SerializeField]
-        private T elementAfternoon;
+        protected T elementAfternoon;
 
         [Tooltip("The element that will be applied at evening")] [SerializeField]
-        private T elementEvening;
+        protected T elementEvening;
 
         [Tooltip("The element that will be applied at night")] [SerializeField]
-        private T elementNight;
+        protected T elementNight;
 
-        [SerializeField] private float invocationDelaySeconds;
+        [SerializeField] private float invocationDelaySeconds = 0.25f;
         
 
         private void OnEnable()
@@ -33,6 +33,27 @@ namespace TimeManagement
             AfterOnDisable();
         }
 
+        private void Start()
+        {
+            BeforeStart();
+            
+            switch (TimeHandler.Instance.CurrentDaytimePhase)
+            {
+                case DaytimePhase.Night:
+                    ApplyElement(elementNight, DaytimePhase.Night);
+                    break;
+                case DaytimePhase.Morning:
+                    ApplyElement(elementMorning, DaytimePhase.Morning);
+                    break;
+                case DaytimePhase.Afternoon:
+                    ApplyElement(elementAfternoon, DaytimePhase.Afternoon);
+                    break;
+                case DaytimePhase.Evening:
+                    ApplyElement(elementEvening, DaytimePhase.Evening);
+                    break;
+            }
+        }
+
         /// <summary>
         /// Replacement for <see cref="OnEnable"/>. Works exactly the same.
         /// </summary>
@@ -44,6 +65,13 @@ namespace TimeManagement
         /// Replacement for <see cref="OnDisable"/>. Works exactly the same.
         /// </summary>
         protected virtual void AfterOnDisable()
+        {
+        }
+        
+        /// <summary>
+        /// Replacement for <see cref="Start"/>. Runs before the base class' Start.
+        /// </summary>
+        protected virtual void BeforeStart()
         {
         }
 

@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private bool movementBlocked;
     private bool frozen;
+    private bool inventoryOpen;
 
     private void Start()
     {
@@ -38,18 +39,16 @@ public class PlayerController : MonoBehaviour
 
         InputManager.PlayerControls.Standard.HighlightAllInteractables.started += _ => OnHighlightAllInput(true);
         InputManager.PlayerControls.Standard.HighlightAllInteractables.canceled += _ => OnHighlightAllInput(false);
-        
-        OnInventoryCloseInput();
     }
 
 
     void Update()
     {
-        if(DialogueManager.Instance != null)
+        if(DialogueManager.Instance != null && CutsceneManager.Instance != null)
         {
             if (DialogueManager.Instance.DialogueIsPlaying) return;
+            if (CutsceneManager.Instance.CutsceneIsPlaying) return;
         }
-
     
         if (frozen) return;
         Vector3 move;
@@ -69,11 +68,38 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    
+    private void OnEnable()
+    {
+        CutsceneManager.CutsceneStarted += OnCutsceneStart;
+        CutsceneManager.CutsceneEnded += OnCutsceneEnd;
+    }
+
+    private void OnDisable()
+    {
+        CutsceneManager.CutsceneStarted -= OnCutsceneStart;
+        CutsceneManager.CutsceneEnded -= OnCutsceneEnd;
+    }
+
+    private void OnCutsceneStart()
+    {
+        animator.applyRootMotion = true;
+        InputManager.PlayerControls.Disable();
+    }
+
+    private void OnCutsceneEnd()
+    {
+        animator.applyRootMotion = false;
+        InputManager.PlayerControls.Enable();
+    }
+
 
     private void OnInventoryOpenInput()
     {
         if (frozen) return;
+        if (inventoryOpen) return;
+        if (!inventoryManager.IsReady) return;
+        inventoryOpen = true;
+        FreezeAnimation();
         movementBlocked = true;
         interactionChecker.SetToUIMode();
         inventoryManager.Open();
@@ -82,6 +108,10 @@ public class PlayerController : MonoBehaviour
     private void OnInventoryCloseInput()
     {
         if (frozen) return;
+        if (!inventoryOpen) return;
+        if (!inventoryManager.IsReady) return;
+        inventoryOpen = false;
+        UnfreezeAnimation();
         movementBlocked = false;
         interactionChecker.SetToPhysicsMode();
         inventoryManager.Close();
@@ -111,6 +141,8 @@ public class PlayerController : MonoBehaviour
     
     private void LateUpdate()
     {
+        if (DialogueManager.Instance.DialogueIsPlaying) return;
+        if (frozen) return;
         Vector2 input = InputManager.GetPlayerMovement();
         AnimatorWalkDirection(input);
     }
@@ -128,6 +160,16 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetFloat(lookX, value.x);
         animator.SetFloat(lookY, value.y);
+    }
+
+    private void FreezeAnimation()
+    {
+        animator.enabled = false;
+    }
+
+    private void UnfreezeAnimation()
+    {
+        animator.enabled = true;
     }
     #endregion
 }
