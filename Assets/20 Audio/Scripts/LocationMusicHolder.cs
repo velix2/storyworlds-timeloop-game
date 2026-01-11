@@ -18,6 +18,10 @@ public class LocationMusicHolder : MonoBehaviour
     private void Start()
     {
         TimeHandler.Instance.onDayPhaseChanged.AddListener(OnDayPhaseChanged);
+        
+        // Run once for setup
+        OnDayPhaseChanged(TimeHandler.Instance.CurrentDaytimePhase);
+        
         if (!useTimeDependantMusic) AudioManager.ChangeDefaultMusic(defaultMusic);
     }
 
