@@ -28,10 +28,11 @@ public class CursorManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogError("There already is a CursorManager instance...");
+            Debug.LogWarning("There already is a CursorManager instance...");
             return;
         }
         instance = this;
+        DontDestroyOnLoad(this);
         
         //Canvas Setup
         Canvas canvas = gameObject.AddComponent<Canvas>();
@@ -43,8 +44,6 @@ public class CursorManager : MonoBehaviour
 
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(1920, 1080);
-        
-        DontDestroyOnLoad(this);
         
         //Cursor Root Setup
         cursorRoot = new GameObject("Cursor Root Root");
@@ -73,6 +72,11 @@ public class CursorManager : MonoBehaviour
         ChangeCursorItem(null);
         ResetCursor();
         
+    }
+
+    private void Start()
+    {
+        SceneSwitcher.Instance.SceneSwitched.AddListener(ResetCursor);
     }
 
     public void LateUpdate()
