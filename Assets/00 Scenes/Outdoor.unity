@@ -4858,7 +4858,7 @@ Transform:
   m_GameObject: {fileID: 215304214}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1736482, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 534.816, y: 7.7591004, z: 438.48154}
+  m_LocalPosition: {x: 549.9, y: 7.7591004, z: 457.83154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21057,19 +21057,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2137478276}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3952941903355537630, guid: dfaacb7009552637fb8d8f21e5ea7634, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 549.9
       objectReference: {fileID: 0}
     - target: {fileID: 3952941903355537630, guid: dfaacb7009552637fb8d8f21e5ea7634, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.5
+      value: 11.549
       objectReference: {fileID: 0}
     - target: {fileID: 3952941903355537630, guid: dfaacb7009552637fb8d8f21e5ea7634, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 462.53
       objectReference: {fileID: 0}
     - target: {fileID: 3952941903355537630, guid: dfaacb7009552637fb8d8f21e5ea7634, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21108,11 +21108,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfaacb7009552637fb8d8f21e5ea7634, type: 3}
---- !u!4 &951249942 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3952941903355537630, guid: dfaacb7009552637fb8d8f21e5ea7634, type: 3}
-  m_PrefabInstance: {fileID: 951249941}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &957056194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2578182291870079840, guid: cd09d23a28aeecfa790f9eef96ea7690, type: 3}
@@ -45358,7 +45353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 534.816
+      value: 549.9
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -45366,7 +45361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 443.18
+      value: 462.53
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -45398,10 +45393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 951249942}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
 --- !u!4 &2137478276 stripped
@@ -46312,7 +46304,7 @@ PrefabInstance:
       objectReference: {fileID: 2137478276}
     - target: {fileID: 6703584752675490218, guid: 23cba9466b8daa644a1cd8a0404373ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 534.816
+      value: 549.9
       objectReference: {fileID: 0}
     - target: {fileID: 6703584752675490218, guid: 23cba9466b8daa644a1cd8a0404373ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46320,7 +46312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703584752675490218, guid: 23cba9466b8daa644a1cd8a0404373ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 438.48154
+      value: 457.83154
       objectReference: {fileID: 0}
     - target: {fileID: 6703584752675490218, guid: 23cba9466b8daa644a1cd8a0404373ee, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46953,6 +46945,7 @@ SceneRoots:
   - {fileID: 215304219}
   - {fileID: 4818021207677784282}
   - {fileID: 2137478275}
+  - {fileID: 951249941}
   - {fileID: 1547099356}
   - {fileID: 2141757484}
   - {fileID: 1258713037}

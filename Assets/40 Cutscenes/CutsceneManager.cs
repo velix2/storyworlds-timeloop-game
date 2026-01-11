@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -38,7 +39,6 @@ public class CutsceneManager : MonoBehaviour
         if(director.state == PlayState.Playing)
         {
             director.Pause();
-            Debug.Log("Position set");
         }
     }
 
@@ -55,20 +55,47 @@ public class CutsceneManager : MonoBehaviour
         director.Stop();
     }
 
-    public void PlayCutscene(PlayableAsset cutscene, Action callback = null)
+    public void PlayCutscene(TimelineAsset cutscene, Action callback = null)
     {
         CutsceneIsPlaying = true;
-
-        CutsceneStarted?.Invoke();
 
         onCutsceneFinishedCallback = callback;
 
         director.playableAsset = cutscene;
+        BindTimeline(cutscene);
+        CutsceneStarted?.Invoke();
         director.Play();
-        Debug.Log("Cutscene started playing");
-        
+
     }
 
+    private void BindTimeline(TimelineAsset cutscene)
+    {
+        foreach (var track in cutscene.GetOutputTracks())
+        {
+
+            if (track is AnimationTrack)
+            {
+                if (track.name == "Marcus")
+                {
+                    var player = GameObject.FindWithTag("Player");
+                    director.SetGenericBinding(track, player.GetComponent<Animator>());
+                }
+                else if (track.name.StartsWith("NPC_"))
+                {
+                    var npcName = track.name.Replace("NPC_", "");
+                    var npc = GameObject.Find(npcName);
+                    director.SetGenericBinding(track, npc.GetComponent<Animator>());
+                }
+            }
+            if (track is SignalTrack)
+            {
+                GameObject signalReceiverGameObject = GameObject.Find("CutsceneManager");
+                SignalReceiver receiver = signalReceiverGameObject.GetComponent<SignalReceiver>();
+                director.SetGenericBinding(track, receiver);
+                Debug.Log(receiver);
+            }
+        }
+    }
     private void OnCutsceneFinished(PlayableDirector director)
     {
         CutsceneIsPlaying = false;

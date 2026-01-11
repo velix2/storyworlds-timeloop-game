@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
         InputManager.PlayerControls.Disable();
         foreach (var col in colliders)
             col.enabled = false;
+        Physics.SyncTransforms();
     }
 
     private void OnCutsceneEnd()
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
         InputManager.PlayerControls.Enable();
         foreach (var col in colliders)
             col.enabled = true;
+        Physics.SyncTransforms();
     }
 
 

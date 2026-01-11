@@ -17,7 +17,7 @@ public class DialogueInputManager : MonoBehaviour
     {
         if (_instance != null && _instance != this)
         {
-            Debug.Log("Double Dialogue Input Manager");
+            Debug.Log("Double Dialogue Input Manager has been destroyed");
             Destroy(gameObject);
             return;
         }
@@ -28,11 +28,6 @@ public class DialogueInputManager : MonoBehaviour
         dialogueControls = new DialogueControls(); 
         DontDestroyOnLoad(gameObject);
 
-    }
-    void Start()
-    {
-        dialogueControls.Standard.ContinueDialogue.performed += SignalDialogueContinue;
-        dialogueControls.Standard.ContinueDialogueSimple.performed += SignalDialogueContinueSimple;
     }
 
     private void SignalDialogueContinue(InputAction.CallbackContext context)
@@ -47,12 +42,22 @@ public class DialogueInputManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        dialogueControls.Enable();
+        if (dialogueControls != null)
+        {
+            dialogueControls.Standard.ContinueDialogue.performed += SignalDialogueContinue;
+            dialogueControls.Standard.ContinueDialogueSimple.performed += SignalDialogueContinueSimple;
+            dialogueControls.Enable();
+        }
     }
 
     private void OnDisable()
     {
-        dialogueControls.Disable();
+        if (dialogueControls != null)
+        {
+            dialogueControls.Standard.ContinueDialogue.performed -= SignalDialogueContinue;
+            dialogueControls.Standard.ContinueDialogueSimple.performed -= SignalDialogueContinueSimple;
+            dialogueControls.Disable();
+        }
     }
 
 }

@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class CutsceneTrigger : MonoBehaviour
 {
     private CutsceneManager cutsceneManager;
-    [SerializeField] private PlayableAsset cutscene;
+    [SerializeField] private TimelineAsset cutscene;
 
     // Replace with ink variable
     private bool cutsceneHasPlayed = false;
