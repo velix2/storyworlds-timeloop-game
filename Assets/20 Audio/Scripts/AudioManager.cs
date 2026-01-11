@@ -158,6 +158,7 @@ public class AudioManager : MonoBehaviour
         }
         instance = this;
         ApplyMusicSource();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
