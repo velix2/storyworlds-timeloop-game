@@ -36,8 +36,6 @@ public class SceneSwitcher : MonoBehaviour
 
     [SerializeField] private List<SceneMetaData> sceneMetaDatas;
     
-    [SerializeField] private float transitionDelay = 0.25f;
-    
     private bool _isSceneLoaded;
 
     private SceneMetaData _currentSceneMetaData => sceneMetaDatas.Find(data => data.RepresentedSceneName == SceneManager.GetActiveScene().name);
