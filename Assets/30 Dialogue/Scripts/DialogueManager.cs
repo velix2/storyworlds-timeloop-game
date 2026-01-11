@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextAsset loadGlobalsJSON;
 
     private GameObject dialogueUI;
+    private GameObject dialogueBox;
     private TextMeshProUGUI dialogueText;
     private GameObject nameBox;
     private TextMeshProUGUI nameText;
@@ -124,10 +125,11 @@ public class DialogueManager : MonoBehaviour
             DialogueIsPlaying = true;
             SimpleDialogueIsPlaying = false;
 
+            Debug.Log(dialogueText);
             dialogueText.text = "";
             nameText.text = "";
 
-            dialogueUI.SetActive(true);
+            dialogueBox.SetActive(true);
 
             variableObserver.StartListening(currentStory);
             CutsceneManager.Instance.PauseCutscene();
@@ -420,7 +422,7 @@ public class DialogueManager : MonoBehaviour
         SimpleDialogueIsPlaying = false;
 
         // Deactivate Panels
-        dialogueUI.SetActive(false);
+        dialogueBox.SetActive(false);
         playerPanel.SetActive(false);
         playerText.text = "";
         dialogueText.text = "";
@@ -448,14 +450,14 @@ public class DialogueManager : MonoBehaviour
 
     private void PauseDialogue()
     {
-        dialogueUI.SetActive(false);
+        dialogueBox.SetActive(false);
         CutsceneManager.Instance.ContinueCutscene();
         DialoguePaused = true;
     }
 
     public void ResumeDialogueInCutscene()
     {
-        dialogueUI.SetActive(true);
+        dialogueBox.SetActive(true);
         DialoguePaused = false;
         CutsceneManager.Instance.PauseCutscene();
         ContinueStory();
@@ -478,11 +480,12 @@ public class DialogueManager : MonoBehaviour
         return variable;
     }
 
-    public void RegisterDialogueUI(GameObject dialogueUI, TextMeshProUGUI dialogueText, GameObject nameBox,
+    public void RegisterDialogueUI(GameObject dialogueUI, GameObject dialogueBox, TextMeshProUGUI dialogueText, GameObject nameBox,
         TextMeshProUGUI nameText, GameObject imagePanel, Image speakerImage, GameObject continueIcon, GameObject[] choices, 
         GameObject playerPanel, TextMeshProUGUI playerText, Transform playerTransform )
     {
         this.dialogueUI = dialogueUI;
+        this.dialogueBox = dialogueBox;
         this.nameBox = nameBox;
         this.nameText = nameText;
         this.imagePanel = imagePanel;

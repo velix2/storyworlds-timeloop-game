@@ -36,7 +36,7 @@ public class DialogueUI : MonoBehaviour
             return;
         }        
 
-        DialogueManager.Instance.RegisterDialogueUI(dialogueBox, dialogueText, nameBox, nameText, imagePanel, 
+        DialogueManager.Instance.RegisterDialogueUI(dialogueUI, dialogueBox, dialogueText, nameBox, nameText, imagePanel, 
             speakerImage, continueIcon, choices, playerPanel, playerText, playerTransform);
         dialogueBox.SetActive(false);
         playerPanel.SetActive(false);

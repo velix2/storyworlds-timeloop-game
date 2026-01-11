@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private bool frozen;
     private bool inventoryOpen;
 
+    private Collider[] colliders;
+
     private void Start()
     {
         //IDs for animator variables
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour
 
         InputManager.PlayerControls.Standard.HighlightAllInteractables.started += _ => OnHighlightAllInput(true);
         InputManager.PlayerControls.Standard.HighlightAllInteractables.canceled += _ => OnHighlightAllInput(false);
+
+        colliders = GetComponentsInChildren<Collider>(true);
     }
 
 
@@ -84,12 +88,16 @@ public class PlayerController : MonoBehaviour
     {
         animator.applyRootMotion = true;
         InputManager.PlayerControls.Disable();
+        foreach (var col in colliders)
+            col.enabled = false;
     }
 
     private void OnCutsceneEnd()
     {
         animator.applyRootMotion = false;
         InputManager.PlayerControls.Enable();
+        foreach (var col in colliders)
+            col.enabled = true;
     }
 
 

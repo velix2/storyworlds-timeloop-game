@@ -38,6 +38,7 @@ public class CutsceneManager : MonoBehaviour
         if(director.state == PlayState.Playing)
         {
             director.Pause();
+            Debug.Log("Position set");
         }
     }
 
