@@ -1,4 +1,6 @@
 using System;
+using Unity.Cinemachine;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -92,7 +94,24 @@ public class CutsceneManager : MonoBehaviour
                 GameObject signalReceiverGameObject = GameObject.Find("CutsceneManager");
                 SignalReceiver receiver = signalReceiverGameObject.GetComponent<SignalReceiver>();
                 director.SetGenericBinding(track, receiver);
-                Debug.Log(receiver);
+            }
+            if(track is CinemachineTrack)
+            {
+                GameObject mainCamera = GameObject.Find("Main Camera");
+                CinemachineBrain cinemachineBrain = mainCamera.GetComponent<CinemachineBrain>();
+                director.SetGenericBinding(track, cinemachineBrain);
+
+                foreach (TimelineClip clip in track.GetClips())
+                {
+                    SceneCameraProvider provider = FindFirstObjectByType<SceneCameraProvider>();
+                    var shot = clip.asset as CinemachineShot;
+                    if (shot == null) continue;
+
+                    string cameraId = clip.displayName;
+                    CinemachineCamera cam = provider.GetCamera(cameraId);
+
+                    director.SetReferenceValue(shot.VirtualCamera.exposedName, cam);
+                }
             }
         }
     }
