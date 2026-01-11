@@ -52,7 +52,7 @@ public class FootstepSounds : MonoBehaviour
         
         GroundData.groundType type = GroundData.groundType.DEFAULT;
         
-        if (Physics.Raycast(transform.position, -transform.up, out var hit, 5, groundMask))
+        if (Physics.Raycast(transform.position, -transform.up, out var hit, 3, groundMask))
         {
             GroundData ground = hit.transform.gameObject.GetComponent<GroundData>();
             if (ground != null)

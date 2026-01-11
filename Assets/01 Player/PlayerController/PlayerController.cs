@@ -170,12 +170,12 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat(lookY, value.y);
     }
 
-    private void FreezeAnimation()
+    public void FreezeAnimation()
     {
         animator.enabled = false;
     }
 
-    private void UnfreezeAnimation()
+    public void UnfreezeAnimation()
     {
         animator.enabled = true;
     }
