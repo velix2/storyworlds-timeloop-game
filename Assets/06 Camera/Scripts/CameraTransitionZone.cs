@@ -70,4 +70,9 @@ public class CameraTransitionZone : MonoBehaviour
                 break;
         }
     }
+
+    public CinemachineCamera GetMainCamera()
+    {
+        return cam;
+    }
 }

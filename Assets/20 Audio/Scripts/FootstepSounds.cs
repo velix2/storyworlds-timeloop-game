@@ -67,30 +67,38 @@ public class FootstepSounds : MonoBehaviour
 
         }
         
-        AudioClip clip;
+        AudioClip clip = null;
         switch (type)
         {
             case GroundData.groundType.WOOD:
-                clip = woodStep.GetAudioClip();
+                if(woodStep != null)
+                    clip = woodStep.GetAudioClip();
                 break;
             case GroundData.groundType.WET:
-                clip = wetStep.GetAudioClip();
+                if (wetStep != null)
+                    clip = wetStep.GetAudioClip();
                 break;
             case GroundData.groundType.SNOW:
-                clip = snowStep.GetAudioClip();
+                if (snowStep != null)
+                    clip = snowStep.GetAudioClip();
                 break;
             case GroundData.groundType.TILE:
-            default:    
-                clip = tileStep.GetAudioClip();
+            default:
+                if (tileStep != null)
+                    clip = tileStep.GetAudioClip();
                 break;
         }
 
+
+
         AudioSource source = sourceAlternation ? source1 : source2;
         sourceAlternation = !sourceAlternation;
-
-        source.pitch = UnityEngine.Random.Range(1.0f - pitchVariance, 1.0f + pitchVariance);
-        source.clip = clip;
-        source.Play();
+        if(source != null && clip != null)
+        {
+            source.pitch = UnityEngine.Random.Range(1.0f - pitchVariance, 1.0f + pitchVariance);
+            source.clip = clip;
+            source.Play();
+        }
     }
 
     private GroundData.groundType TerrainToGroundType(int textureIndex)

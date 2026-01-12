@@ -76,12 +76,16 @@ public class PlayerController : MonoBehaviour
     {
         CutsceneManager.CutsceneStarted += OnCutsceneStart;
         CutsceneManager.CutsceneEnded += OnCutsceneEnd;
+        CutsceneManager.CutsceneContinue += OnCutsceneContinue;
+        CutsceneManager.CutscenePaused += OnCutscenePaused;
     }
 
     private void OnDisable()
     {
         CutsceneManager.CutsceneStarted -= OnCutsceneStart;
         CutsceneManager.CutsceneEnded -= OnCutsceneEnd;
+        CutsceneManager.CutsceneContinue -= OnCutsceneContinue;
+        CutsceneManager.CutscenePaused -= OnCutscenePaused;
     }
 
     private void OnCutsceneStart()
@@ -96,8 +100,19 @@ public class PlayerController : MonoBehaviour
     {
         animator.applyRootMotion = false;
         InputManager.PlayerControls.Enable();
+        UnfreezeAnimation();
         foreach (var col in colliders)
             col.enabled = true;
+    }
+
+    private void OnCutsceneContinue()
+    {
+        UnfreezeAnimation();
+    }
+
+    private void OnCutscenePaused()
+    {
+        FreezeAnimation();
     }
 
 

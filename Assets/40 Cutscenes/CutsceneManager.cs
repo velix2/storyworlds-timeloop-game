@@ -3,6 +3,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using static CameraManager;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class CutsceneManager : MonoBehaviour
 
     public static event Action CutsceneStarted;
     public static event Action CutsceneEnded;
+
+    public static event Action CutscenePaused;
+    public static event Action CutsceneContinue;
 
     private Action onCutsceneFinishedCallback;
 
@@ -39,6 +43,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if(director.state == PlayState.Playing)
         {
+            CutscenePaused?.Invoke();
             director.Pause();
         }
     }
@@ -47,6 +52,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (director.state == PlayState.Paused)
         {
+            CutsceneContinue?.Invoke();
             director.Play();
         }
     }
@@ -116,12 +122,35 @@ public class CutsceneManager : MonoBehaviour
     }
     private void OnCutsceneFinished(PlayableDirector director)
     {
+        Debug.Log("Cutscene has finished playing");
+
         CutsceneIsPlaying = false;
 
-        CutsceneEnded?.Invoke();
         onCutsceneFinishedCallback?.Invoke();
         onCutsceneFinishedCallback = null;
-        Debug.Log("Cutscene has finished playing");
+        
+        CutsceneEnded?.Invoke();
+
+        SwitchBackToMainCam();
+
+    }
+
+    private void SwitchBackToMainCam()
+    {
+        CameraTransitionZone cameraTransitionZone = FindAnyObjectByType<CameraTransitionZone>();
+
+        CinemachineCamera mainCam;
+        if (cameraTransitionZone != null)
+        {
+            mainCam = cameraTransitionZone.GetMainCamera();
+        }
+        else
+        {
+            Debug.LogError("No Camera Transition Zone to switch back to main camera");
+            return;
+        }
+
+        CameraManager.FocusCam(mainCam);
     }
 
     void OnDisable() 

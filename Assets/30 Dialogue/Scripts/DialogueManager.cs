@@ -103,7 +103,10 @@ public class DialogueManager : MonoBehaviour
             Instance = null;
             return;
         }
+    }
 
+    private void OnEnable()
+    {
         // Subscribe to events
         DialogueInputManager.ContinueDialogue += ContinueStory;
         DialogueInputManager.ContinueDialogueSimple += ContinueStorySimple;
@@ -125,7 +128,6 @@ public class DialogueManager : MonoBehaviour
             DialogueIsPlaying = true;
             SimpleDialogueIsPlaying = false;
 
-            Debug.Log(dialogueText);
             dialogueText.text = "";
             nameText.text = "";
 
@@ -434,18 +436,20 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
             typingCoroutine = null;
         }
+
+        if(CutsceneManager.Instance.CutsceneIsPlaying)
+        {
+            CutsceneManager.Instance.ContinueCutscene();
+        }
+
+        Debug.Log("Dialogue is finished");
+
     }
 
     private void DeactivateSpeakerPanels()
     {
         nameBox.SetActive(false);
         imagePanel.SetActive(false);
-    }
-
-    private void ActivateSpeakerPanels()
-    {
-        nameBox.SetActive(true);
-        imagePanel.SetActive(true);
     }
 
     private void PauseDialogue()
@@ -459,8 +463,10 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueBox.SetActive(true);
         DialoguePaused = false;
-        CutsceneManager.Instance.PauseCutscene();
         ContinueStory();
+
+        CutsceneManager.Instance.PauseCutscene();
+        
     }
 
     /// <summary>
