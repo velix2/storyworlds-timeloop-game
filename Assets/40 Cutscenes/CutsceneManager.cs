@@ -75,6 +75,10 @@ public class CutsceneManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Since Unity deletes all Bindings when switching the scene, we have to bind them manually
+    /// </summary>
+    /// <param name="cutscene"></param>
     private void BindTimeline(TimelineAsset cutscene)
     {
         foreach (var track in cutscene.GetOutputTracks())
@@ -89,7 +93,7 @@ public class CutsceneManager : MonoBehaviour
                 }
                 else if (track.name.StartsWith("NPC_"))
                 {
-                    var npcName = track.name.Replace("NPC_", "");
+                    string npcName = track.name;
                     var npc = GameObject.Find(npcName);
                     director.SetGenericBinding(track, npc.GetComponent<Animator>());
                 }
