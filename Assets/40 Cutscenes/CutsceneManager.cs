@@ -3,7 +3,6 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-using static CameraManager;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -12,14 +11,13 @@ public class CutsceneManager : MonoBehaviour
     public bool CutsceneIsPlaying { get; private set; }
     public static CutsceneManager Instance { get; private set; }
 
+    // Events for Cutscenes
     public static event Action CutsceneStarted;
     public static event Action CutsceneEnded;
-
-    public static event Action CutscenePaused;
+    public static event Action CutscenePaused;      // When director.paused() is called
     public static event Action CutsceneContinue;
 
-    private Action onCutsceneFinishedCallback;
-
+    #region Unity setup
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -33,17 +31,48 @@ public class CutsceneManager : MonoBehaviour
         CutsceneIsPlaying = false;
         DontDestroyOnLoad(gameObject);
     }
-    private void Start()
+
+    private void OnEnable()
     {
         director.stopped += OnCutsceneFinished;
     }
 
+    void OnDisable()
+    {
+        director.stopped -= OnCutsceneFinished;
+    }
+    #endregion
+
+
+    /// <summary>
+    /// Call this funtion to play a cutscene
+    /// </summary>
+    /// <param name="cutscene"></param>
+    public void PlayCutscene(TimelineAsset cutscene)
+    {
+        Debug.Log("Cutscene started playing");
+        // Set flag
+        CutsceneIsPlaying = true;
+
+        // Prepare timeline
+        director.playableAsset = cutscene;
+        BindTimeline(cutscene);
+
+        // Freeze player
+        CutsceneStarted?.Invoke();
+
+        // Start the timeline
+        director.Play();
+    }
 
     public void PauseCutscene()
     {
-        if(director.state == PlayState.Playing)
+        if (director.state == PlayState.Playing)
         {
+            // Freeze player animation
             CutscenePaused?.Invoke();
+
+            // Pause cutscene
             director.Pause();
         }
     }
@@ -52,7 +81,10 @@ public class CutsceneManager : MonoBehaviour
     {
         if (director.state == PlayState.Paused)
         {
+            // Unfreeze player animation
             CutsceneContinue?.Invoke();
+
+            // Resume cutscene
             director.Play();
         }
     }
@@ -60,19 +92,6 @@ public class CutsceneManager : MonoBehaviour
     public void StopCutscene()
     {
         director.Stop();
-    }
-
-    public void PlayCutscene(TimelineAsset cutscene, Action callback = null)
-    {
-        CutsceneIsPlaying = true;
-
-        onCutsceneFinishedCallback = callback;
-
-        director.playableAsset = cutscene;
-        BindTimeline(cutscene);
-        CutsceneStarted?.Invoke();
-        director.Play();
-
     }
 
     /// <summary>
@@ -83,86 +102,116 @@ public class CutsceneManager : MonoBehaviour
     {
         foreach (var track in cutscene.GetOutputTracks())
         {
-
+            // Set bindings for animation track
             if (track is AnimationTrack)
             {
                 if (track.name == "Marcus")
                 {
-                    var player = GameObject.FindWithTag("Player");
+                    GameObject player = GameObject.FindWithTag("Player");
                     director.SetGenericBinding(track, player.GetComponent<Animator>());
                 }
-                else if (track.name.StartsWith("NPC_"))
+                else
                 {
                     string npcName = track.name;
-                    var npc = GameObject.Find(npcName);
+                    GameObject npc = GameObject.Find(npcName);
+
+                    if(npc == null)
+                    {
+                        Debug.LogError("No NPC with name \"" +  npcName + "\" could be found on the scene. " +
+                            "Make sure track name and object name are the same.");
+                        return;
+                    }
                     director.SetGenericBinding(track, npc.GetComponent<Animator>());
                 }
             }
+
+            // For Signal Track
             if (track is SignalTrack)
             {
-                GameObject signalReceiverGameObject = GameObject.Find("CutsceneManager");
-                SignalReceiver receiver = signalReceiverGameObject.GetComponent<SignalReceiver>();
+                CutsceneManager cutsceneManager = FindAnyObjectByType<CutsceneManager>();
+
+                if (cutsceneManager == null)
+                {
+                    Debug.LogError("No cutscene manager on the scene");
+                    return;
+                }
+
+                SignalReceiver receiver = cutsceneManager.GetComponent<SignalReceiver>();
+
+                if (receiver == null)
+                {
+                    Debug.LogError("There is no SignalReceiver on CutsceneManager-Object");
+                    return;
+                }
+
                 director.SetGenericBinding(track, receiver);
             }
+
+            // For camera bindings
             if(track is CinemachineTrack)
             {
-                GameObject mainCamera = GameObject.Find("Main Camera");
+                GameObject mainCamera = GameObject.FindWithTag("MainCamera");
+
+                if(mainCamera == null)
+                {
+                    Debug.LogError("No camera with tag MainCamera on the scene");
+                    return;
+                }
+
                 CinemachineBrain cinemachineBrain = mainCamera.GetComponent<CinemachineBrain>();
+
+                if (cinemachineBrain == null)
+                {
+                    Debug.LogError("No CinemachineBrain on main camera component");
+                    return;
+                }
+
                 director.SetGenericBinding(track, cinemachineBrain);
 
+                SceneCameraProvider provider = FindFirstObjectByType<SceneCameraProvider>();
+                if (provider == null)
+                {
+                    Debug.LogError("No SceneCameraProvider found on the scene. Please add one to the scene.");
+                    return;
+                }
+
+                // Set camaeras of all Cinemachine Clips
                 foreach (TimelineClip clip in track.GetClips())
                 {
-                    SceneCameraProvider provider = FindFirstObjectByType<SceneCameraProvider>();
-                    var shot = clip.asset as CinemachineShot;
+                    CinemachineShot shot = clip.asset as CinemachineShot;
                     if (shot == null) continue;
 
                     string cameraId = clip.displayName;
-                    CinemachineCamera cam = provider.GetCamera(cameraId);
+                    CinemachineCamera camera = provider.GetCamera(cameraId);
 
-                    director.SetReferenceValue(shot.VirtualCamera.exposedName, cam);
+                    if (camera == null)
+                    {
+                        Debug.LogError($"Camera '{cameraId}' not found on SceneCameraProvider script. " +
+                            $"Make sure display name of the timeline clip and id on SceneCameraProvider are the same.");
+                        continue;
+                    }
+                    director.SetReferenceValue(shot.VirtualCamera.exposedName, camera);
                 }
             }
         }
     }
+    
+    
+    /// <summary>
+    /// When cutscene stopped, this function will be called. It switches back to main camera.
+    /// </summary>
+    /// <param name="director"></param>
     private void OnCutsceneFinished(PlayableDirector director)
     {
-        Debug.Log("Cutscene has finished playing");
+        Debug.Log("Cutscene finished playing");
 
+        // Reset flags
         CutsceneIsPlaying = false;
-
-        onCutsceneFinishedCallback?.Invoke();
-        onCutsceneFinishedCallback = null;
         
+        // Unfreeze player
         CutsceneEnded?.Invoke();
 
-        SwitchBackToMainCam();
-
     }
-
-    private void SwitchBackToMainCam()
-    {
-        CameraTransitionZone cameraTransitionZone = FindAnyObjectByType<CameraTransitionZone>();
-
-        CinemachineCamera mainCam;
-        if (cameraTransitionZone != null)
-        {
-            mainCam = cameraTransitionZone.GetMainCamera();
-        }
-        else
-        {
-            Debug.LogError("No Camera Transition Zone to switch back to main camera");
-            return;
-        }
-
-        CameraManager.FocusCam(mainCam);
-    }
-
-    void OnDisable() 
-    { 
-        director.stopped -= OnCutsceneFinished;
-    }
-
-
 }
 
     

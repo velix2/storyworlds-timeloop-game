@@ -1229,8 +1229,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.DoorInteractable
   inRange: 0
   mode: 0
-  isUnlocked: 1
+  isAlwaysLocked: 0
+  textToSayWhenDoorIsLocked: Zugesperrt...
   targetSceneName: Outdoor
+  timePhasesUnlocked: []
 --- !u!114 &268522966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1361,7 +1363,7 @@ PrefabInstance:
       objectReference: {fileID: 908270571}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[0].first
@@ -1389,19 +1391,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[6].first
-      value: f67e304341d7eac4395c748c7d150bfd
+      value: 7bf94fc7bf85f71499d5f861faca7ad7
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[7].first
-      value: d2a00fcd72993644c9935304172621d8
+      value: f67e304341d7eac4395c748c7d150bfd
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[8].first
-      value: 6b84dbf2abb18b94894722e18e1322fa
+      value: d2a00fcd72993644c9935304172621d8
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[9].first
-      value: ac5a03ed4c38b5a4886dfd5e06f18272
+      value: 6b84dbf2abb18b94894722e18e1322fa
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[0].second
@@ -1409,6 +1411,10 @@ PrefabInstance:
       objectReference: {fileID: 1959580287}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[10].first
+      value: ac5a03ed4c38b5a4886dfd5e06f18272
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_ExposedReferences.m_References.Array.data[11].first
       value: 517067d6e8c6c5d479075716eaf98266
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
@@ -1434,21 +1440,25 @@ PrefabInstance:
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[6].second
       value: 
-      objectReference: {fileID: 1959580287}
+      objectReference: {fileID: 1720854867}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[7].second
       value: 
-      objectReference: {fileID: 1720854867}
+      objectReference: {fileID: 1959580287}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[8].second
       value: 
-      objectReference: {fileID: 1959580287}
+      objectReference: {fileID: 1720854867}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[9].second
       value: 
       objectReference: {fileID: 1959580287}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[10].second
+      value: 
+      objectReference: {fileID: 1959580287}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_ExposedReferences.m_References.Array.data[11].second
       value: 
       objectReference: {fileID: 1720854867}
     - target: {fileID: 6020865913977276666, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
@@ -3193,6 +3203,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1536922443}
     m_Modifications:
     - target: {fileID: 1576831125719340643, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
+      propertyPath: Priority.Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576831125719340643, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 1243479286}
@@ -4557,7 +4571,7 @@ Transform:
   m_GameObject: {fileID: 1217269471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3900003, y: 1.16, z: -0.6400006}
+  m_LocalPosition: {x: 0.11000085, y: 1.7500005, z: -6.2311697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5044,6 +5058,10 @@ PrefabInstance:
     - target: {fileID: 4887908097685975056, guid: 2f1efd1a89ca4664393bf7d3876b0914, type: 3}
       propertyPath: m_Center.z
       value: -4.439489
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602117291293820551, guid: 2f1efd1a89ca4664393bf7d3876b0914, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7602117291293820551, guid: 2f1efd1a89ca4664393bf7d3876b0914, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5943,6 +5961,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneTrigger
   cutscene: {fileID: 11400000, guid: 3a32c51557f28e64cae89e2f22e727f2, type: 2}
+  whenCompletedState: 3
+  SwitchBackToMainCamAfterCutscene: 1
 --- !u!4 &1636897986
 Transform:
   m_ObjectHideFlags: 0

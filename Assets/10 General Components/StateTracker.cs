@@ -1,4 +1,4 @@
-public class StateTracker
+public static class StateTracker
 {
     public enum IntroStates
     {
@@ -26,7 +26,7 @@ public class StateTracker
         IntroCompleted,
     }
 
-    public IntroStates IntroState = IntroStates.Init;
+    public static IntroStates IntroState = IntroStates.Init;
 
-    public bool IsInIntro = true;
+    public static bool IsInIntro = true;
 }

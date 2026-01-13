@@ -18,8 +18,6 @@ public class SceneCameraProvider : MonoBehaviour, ICameraProvider
         foreach (var c in cameras)
             if (c.id == id)
                 return c.vcam;
-
-        Debug.LogError($"Camera '{id}' not found");
         return null;
     }
 }
