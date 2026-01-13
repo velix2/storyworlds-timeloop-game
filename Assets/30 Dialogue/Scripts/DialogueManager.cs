@@ -69,6 +69,8 @@ public class DialogueManager : MonoBehaviour
 
     private bool DialoguePaused = false;
 
+    private bool LineIsFinished = false;
+
 
     #endregion
 
@@ -118,7 +120,7 @@ public class DialogueManager : MonoBehaviour
         DialogueInputManager.ContinueDialogueSimple -= ContinueStorySimple;
     }
 
-    #region Dialogue Calling Functions
+    #region Dialogue Normal
     
     public void EnterDialogueMode(TextAsset inkJson)
     {
@@ -138,40 +140,12 @@ public class DialogueManager : MonoBehaviour
 
             ContinueStory();
         }
-        
     }
 
-    /// <summary>
-    /// Displays dialogue above the player. Does not support choices
-    /// </summary>
-    /// <param name="inkJson">Ink json to be displayed</param>
-    public void EnterDialogueModeSimple(TextAsset inkJson)
-    {
-        if (!DialogueIsPlaying)
-        {
-            currentStory = new Story(inkJson.text);
-            DialogueIsPlaying = true;
-            SimpleDialogueIsPlaying = true;
-            playerText.text = "";
-            playerPanel.SetActive(true);
-
-            variableObserver.StartListening(currentStory);
-
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
-            playerPanel.transform.position = screenPosition;
-
-            ContinueStorySimple();
-        }
-
-    }
-
-    #endregion
-
-    #region Helper functions for processing the story
     private void ContinueStory()
     {
         if (ChoicesDisplayed) return;
-        
+
         // Safety measure so that only one coroutine is running
         if (typingCoroutine != null)
         {
@@ -207,33 +181,7 @@ public class DialogueManager : MonoBehaviour
         {
             ExitDialogueMode();
         }
-        
-    }
-    private void ContinueStorySimple()
-    {
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-            typingCoroutine = null;
-        }
 
-        if (IsTyping)
-        {
-            IsTyping = false;
-            playerText.text = currentLine;
-            return;
-        }
-
-        if (currentStory.canContinue)
-        {
-            IsTyping = true;
-            string line = currentStory.Continue().Trim();
-            typingCoroutine = StartCoroutine(DisplayLine(line, playerText));
-        }
-        else
-        {
-            ExitDialogueMode();
-        }
     }
 
     private IEnumerator DisplayLine(string line, TextMeshProUGUI textObject)
@@ -261,13 +209,42 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void ExitDialogueMode()
+    {
+        // Reset flags
+        DialogueIsPlaying = false;
+        IsTyping = false;
+        ChoicesDisplayed = false;
+        SimpleDialogueIsPlaying = false;
+
+        // Deactivate Panels
+        dialogueBox.SetActive(false);
+        dialogueText.text = "";
+
+        variableObserver.StopListening(currentStory);
+
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
+        if (CutsceneManager.Instance.CutsceneIsPlaying)
+        {
+            CutsceneManager.Instance.ContinueCutscene();
+        }
+
+        Debug.Log("Dialogue is finished");
+
+    }
+
     /// <summary>
     /// Displays up to 3 choices
     /// </summary>
     /// <param name="currentChoices">Choices from the ink file</param>
     private void DisplayChoices(List<Choice> currentChoices)
     {
-        if(currentChoices.Count > choices.Length)
+        if (currentChoices.Count > choices.Length)
         {
             Debug.LogError("It can be only displayed up to 3 choices.");
             return;
@@ -306,6 +283,98 @@ public class DialogueManager : MonoBehaviour
         }
         ChoicesDisplayed = false;
     }
+
+    #endregion
+
+    #region Dialogue Simple
+
+    /// <summary>
+    /// Displays dialogue above the player. Does not support choices
+    /// </summary>
+    /// <param name="dialogueLine">Line to be displayed</param>
+    public void EnterDialogueModeSimple(string dialogueLine)
+    {
+        if (!DialogueIsPlaying)
+        {
+            Debug.Log("Entering Simple Dialogue Mode");
+            DialogueIsPlaying = true;
+            SimpleDialogueIsPlaying = true;
+            playerText.text = "";
+            playerPanel.SetActive(true);
+
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(playerTransform.position + Vector3.up * 2);
+            playerPanel.transform.position = screenPosition;
+
+            currentLine = dialogueLine;
+
+            typingCoroutine = StartCoroutine(DisplayLineSimple(currentLine));
+
+
+        }
+
+    }
+    private void ContinueStorySimple()
+    {
+        if(LineIsFinished)
+        {
+            ExitDialogueModeSimple();
+        }
+
+        if (IsTyping)
+        {
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine);
+                typingCoroutine = null;
+            }
+            IsTyping = false;
+            playerText.text = currentLine;
+            LineIsFinished = true;
+            return;
+        }   
+
+    }
+
+    
+
+    private IEnumerator DisplayLineSimple(string line)
+    {
+        playerText.text = "";
+        IsTyping = true;
+
+        foreach (char letter in line.ToCharArray())
+        {
+            playerText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+
+        }
+
+        IsTyping = false;
+        LineIsFinished = true;
+
+    }
+
+    private void ExitDialogueModeSimple()
+    {
+        // Reset flags
+        DialogueIsPlaying = false;
+        IsTyping = false;
+        SimpleDialogueIsPlaying = false;
+        LineIsFinished = false;
+
+        // Deactivate Panels
+        playerPanel.SetActive(false);
+        playerText.text = "";
+
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+        Debug.Log("Dialogue is finished");
+    }
+
+
     #endregion
 
     #region Tag handling
@@ -415,36 +484,9 @@ public class DialogueManager : MonoBehaviour
 
     #endregion
 
-    private void ExitDialogueMode()
-    {
-        // Reset flags
-        DialogueIsPlaying = false;
-        IsTyping = false;
-        ChoicesDisplayed = false;
-        SimpleDialogueIsPlaying = false;
+   
 
-        // Deactivate Panels
-        dialogueBox.SetActive(false);
-        playerPanel.SetActive(false);
-        playerText.text = "";
-        dialogueText.text = "";
-
-        variableObserver.StopListening(currentStory);
-
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-            typingCoroutine = null;
-        }
-
-        if(CutsceneManager.Instance.CutsceneIsPlaying)
-        {
-            CutsceneManager.Instance.ContinueCutscene();
-        }
-
-        Debug.Log("Dialogue is finished");
-
-    }
+    
 
     private void DeactivateSpeakerPanels()
     {

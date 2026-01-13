@@ -7,13 +7,14 @@ public class DialogueWithNPCInteractable : InteractableTwoDimensional
     public override bool PrimaryNeedsInRange => true;
     public override bool SecondaryNeedsInRange => false;
 
-    [SerializeField] private TextAsset[] inkJson;
+    [SerializeField] private TextAsset inkJson;
+    [SerializeField] private string dialogueText;
 
     public override void PrimaryInteraction()
     {
         if(DialogueManager.Instance != null)
         {
-            DialogueManager.Instance.EnterDialogueMode(inkJson[0]);
+            DialogueManager.Instance.EnterDialogueMode(inkJson);
         }
         else
         {
@@ -26,7 +27,7 @@ public class DialogueWithNPCInteractable : InteractableTwoDimensional
     {
         if (DialogueManager.Instance != null)
         {
-            DialogueManager.Instance.EnterDialogueModeSimple(inkJson[1]);
+            DialogueManager.Instance.EnterDialogueModeSimple(dialogueText);
         }
         else
         {

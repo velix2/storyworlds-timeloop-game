@@ -701,8 +701,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueWithNPCInteractable
   inRange: 0
   spriteRenderer: {fileID: 403134470}
-  inkJson:
-  - {fileID: 4900000, guid: c7f33edb511e15940ac8fb45eeb99a2f, type: 3}
+  inkJson: {fileID: 0}
+  dialogueText: 
 --- !u!4 &455353002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
@@ -1114,9 +1114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueWithNPCInteractable
   inRange: 0
   spriteRenderer: {fileID: 799842396}
-  inkJson:
-  - {fileID: 4900000, guid: d5456fe53d0fe064fb70376261e5acb8, type: 3}
-  - {fileID: 4900000, guid: 8c9458076ef36744b95a9da1677db620, type: 3}
+  inkJson: {fileID: 0}
+  dialogueText: Das ist ein kleiner Mensch.
 --- !u!212 &799842396
 SpriteRenderer:
   serializedVersion: 2
@@ -1469,7 +1468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c2139bb2d05c94189be253b2c5b29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneManager
-  cutsceneDatabase: {fileID: 0}
   director: {fileID: 1167807466}
 --- !u!4 &1167807465
 Transform:
