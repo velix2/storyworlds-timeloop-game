@@ -17,6 +17,8 @@ public class CutsceneManager : MonoBehaviour
     public static event Action CutscenePaused;      // When director.paused() is called
     public static event Action CutsceneContinue;
 
+    private Action onFinishedCallback;
+
     #region Unity setup
     private void Awake()
     {
@@ -48,11 +50,13 @@ public class CutsceneManager : MonoBehaviour
     /// Call this funtion to play a cutscene
     /// </summary>
     /// <param name="cutscene"></param>
-    public void PlayCutscene(TimelineAsset cutscene)
+    public void PlayCutscene(TimelineAsset cutscene, Action callback = null)
     {
         Debug.Log("Cutscene started playing");
         // Set flag
         CutsceneIsPlaying = true;
+
+        onFinishedCallback = callback;
 
         // Prepare timeline
         director.playableAsset = cutscene;
@@ -210,6 +214,10 @@ public class CutsceneManager : MonoBehaviour
         
         // Unfreeze player
         CutsceneEnded?.Invoke();
+
+        // Perform additional callback methods
+        onFinishedCallback?.Invoke();
+        onFinishedCallback = null;
 
     }
 }
