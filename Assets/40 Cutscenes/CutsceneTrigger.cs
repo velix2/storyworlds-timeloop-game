@@ -1,4 +1,5 @@
 using Unity.Cinemachine;
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.Timeline;
 
@@ -8,10 +9,12 @@ public class CutsceneTrigger : MonoBehaviour
 
     [Header("Cutscene Timeline")]
     [SerializeField] private TimelineAsset cutscene;
-    [SerializeField] private StateTracker.IntroStates whenCompletedState;
+    [SerializeField] private StateTracker.IntroStates stateToBePlayed;
 
     [Header("Additional Settings")]
     [SerializeField] private bool SwitchBackToMainCamAfterCutscene = false;
+    [SerializeField] private bool SwitchSceneAfterCutscene = false;
+    [SerializeField] private string SceneToBeSwitchedTo;
 
     private void Start()
     {
@@ -33,8 +36,10 @@ public class CutsceneTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (StateTracker.IntroState == StateTracker.IntroStates.Init || StateTracker.IntroState != whenCompletedState - 1) return;
+        // If we are in last state of Intro or if not in the correct state, return
+        if (StateTracker.IntroState == StateTracker.IntroStates.IntroCompleted || StateTracker.IntroState != stateToBePlayed) return;
 
+        // Otherwise cutscene will be played
         if (other.CompareTag("Player") && !cutsceneManager.CutsceneIsPlaying) 
         {
             cutsceneManager.PlayCutscene(cutscene);
@@ -62,12 +67,33 @@ public class CutsceneTrigger : MonoBehaviour
         CameraManager.FocusCam(mainCam);
     }
 
+    /// <summary>
+    /// Switch the scene after cutscene
+    /// </summary>
+    /// <param name="sceneName">Scene to be switched</param>
+    private void SwtichScene(string sceneName)
+    {
+        SceneSwitcher.Instance.GoToScene(sceneName);
+    }
+
+    /// <summary>
+    /// Callback function after cútscene finished playing.
+    /// Event in Cutscene Manager has been added
+    /// </summary>
     private void OnCutsceneFinishedInTrigger()
     {
+        // Transition to new state
+        StateTracker.IntroState = stateToBePlayed + 1;
+
+        // Perform additional steps after cutscene ended
         if (SwitchBackToMainCamAfterCutscene)
         {
             SwitchBackToMainCamera();
         }
-        StateTracker.IntroState = whenCompletedState;
+        if(SwitchSceneAfterCutscene)
+        {
+            SwtichScene(SceneToBeSwitchedTo);
+        }
+        
     }
 }
