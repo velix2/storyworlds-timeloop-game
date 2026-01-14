@@ -24,16 +24,6 @@ public class CutsceneTrigger : MonoBehaviour
             Debug.LogError("Cutscene Manager could not be found");
         }
     }
-
-    private void OnEnable()
-    {
-        CutsceneManager.CutsceneEnded += OnCutsceneFinishedInTrigger;
-    }
-
-    private void OnDisable()
-    {
-        CutsceneManager.CutsceneEnded -= OnCutsceneFinishedInTrigger;
-    }
     private void OnTriggerEnter(Collider other)
     {
         // If we are in last state of Intro or if not in the correct state, return
@@ -42,7 +32,10 @@ public class CutsceneTrigger : MonoBehaviour
         // Otherwise cutscene will be played
         if (other.CompareTag("Player") && !cutsceneManager.CutsceneIsPlaying) 
         {
-            cutsceneManager.PlayCutscene(cutscene);
+            cutsceneManager.PlayCutscene(cutscene, () =>
+            {
+                OnCutsceneFinishedInTrigger();
+            });
         }
     }
 
@@ -77,8 +70,7 @@ public class CutsceneTrigger : MonoBehaviour
     }
 
     /// <summary>
-    /// Callback function after cútscene finished playing.
-    /// Event in Cutscene Manager has been added
+    /// Callback function after cutscene finished playing.
     /// </summary>
     private void OnCutsceneFinishedInTrigger()
     {
