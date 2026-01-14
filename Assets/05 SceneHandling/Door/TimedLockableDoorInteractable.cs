@@ -12,12 +12,10 @@ namespace Doors
     {
         [SerializeField] private List<TimePhase> timePhasesUnlocked;
         
-        protected override bool isUnlocked
+        protected override bool UnlockState
         {
             get
             {
-                if (isAlwaysLocked) return false;
-                
                 if (timePhasesUnlocked.Count == 0) return true;
                 var currentTime = TimeHandler.Instance.CurrentTime;
                 return timePhasesUnlocked.Any(phase => phase.IsBetween(currentTime));

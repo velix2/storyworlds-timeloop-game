@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Doors
 {
     /// <summary>
-    /// A door that always is either locked or unlocked.
+    /// A door that always is unlocked, unless overriden.
     /// </summary>
     public class DoorInteractable : InteractableThreeDimensional
     {
@@ -14,11 +14,13 @@ namespace Doors
         public override bool PrimaryNeedsInRange => true;
         public override bool SecondaryNeedsInRange => true;
 
-        [SerializeField] protected bool isAlwaysLocked;
+        public bool isLockOverriden = false;
+        public bool lockedOnOverride = false;
 
         [SerializeField] private string textToSayWhenDoorIsLocked = "Zugesperrt...";
         
-        protected virtual bool isUnlocked => !isAlwaysLocked;
+        private bool isUnlocked => isLockOverriden ? lockedOnOverride : UnlockState;
+        protected virtual bool UnlockState => true;
 
         [SerializeField] private string targetSceneName;
         
