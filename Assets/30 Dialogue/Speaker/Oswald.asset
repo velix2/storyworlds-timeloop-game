@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpeakerData
   speakerId: oswald
   speakerName: Oswald
-  color: {r: 0.8504464, g: 0.7073763, b: 0.93962264, a: 1}
   portraits:
   - emotion: 0
     sprite: {fileID: 21300000, guid: ebcbe7f0ab36917479c201b75370cfee, type: 3}
   - emotion: 4
     sprite: {fileID: 21300000, guid: 5034a23f381e0ba42abc033d6d0bfa8d, type: 3}
+  - emotion: 3
+    sprite: {fileID: 21300000, guid: ccbd2f540f09f4e4894b7a4611f6de9b, type: 3}
