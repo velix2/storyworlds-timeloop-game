@@ -26,7 +26,7 @@ public static class StateTracker
         IntroCompleted,
     }
 
-    public static IntroStates IntroState = IntroStates.LeftTrainCompleted;
+    public static IntroStates IntroState = IntroStates.Init;
 
     public static bool IsInIntro = true;
 }

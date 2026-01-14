@@ -84,6 +84,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         // Transition to new state
         StateTracker.IntroState = stateToBePlayed + 1;
+        Debug.Log("Game state is now: " + (stateToBePlayed + 1).ToString());
 
         // Perform additional steps after cutscene ended
         if (SwitchBackToMainCamAfterCutscene)
