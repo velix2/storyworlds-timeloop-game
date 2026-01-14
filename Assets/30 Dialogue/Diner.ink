@@ -31,8 +31,6 @@ Danke. #speaker:marcus #emotion:NORMAL
 
 EMMY!! ES TUT MIR LEID, DASS ICH ZU SPÄT BIN!! #speaker:larry_waiter
 
-... #pause: Kamera schwenkt zu Emmy und Larry
-
 Meine Güte, Larry! Beruhige dich erst einmal! #speaker:emmy #emotion:NERVOUS
 Ich werde mich sofort an die Arbeit machen! #speaker:larry_waiter #emotion:HAPPY
 Ich werde das hier sofort servieren!! #speaker:larry_waiter #emotion:HAPPY
