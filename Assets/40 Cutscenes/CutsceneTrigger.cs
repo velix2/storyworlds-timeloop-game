@@ -71,7 +71,7 @@ public class CutsceneTrigger : MonoBehaviour
     /// Switch the scene after cutscene
     /// </summary>
     /// <param name="sceneName">Scene to be switched</param>
-    private void SwtichScene(string sceneName)
+    private void SwitchScene(string sceneName)
     {
         SceneSwitcher.Instance.GoToScene(sceneName);
     }
@@ -92,7 +92,7 @@ public class CutsceneTrigger : MonoBehaviour
         }
         if(SwitchSceneAfterCutscene)
         {
-            SwtichScene(SceneToBeSwitchedTo);
+            SwitchScene(SceneToBeSwitchedTo);
         }
         
     }
