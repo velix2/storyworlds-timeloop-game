@@ -157,9 +157,8 @@ public class CutsceneManager : MonoBehaviour
                     return;
                 }
 
-                CinemachineBrain cinemachineBrain = mainCamera.GetComponent<CinemachineBrain>();
-
-                if (cinemachineBrain == null)
+                
+                if (!mainCamera.TryGetComponent<CinemachineBrain>(out var cinemachineBrain))
                 {
                     Debug.LogError("No CinemachineBrain on main camera component");
                     return;
