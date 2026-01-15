@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6a546eb073aeabb479d3545572693c35, type: 2}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].key
@@ -496,6 +496,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7805659057550799877, guid: 6a546eb073aeabb479d3545572693c35, type: 2}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_SceneBindings.Array.data[3].key
+      value: 
+      objectReference: {fileID: -9150702555793587714, guid: 6a546eb073aeabb479d3545572693c35, type: 2}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].key
+      value: 
+      objectReference: {fileID: 215510456991934878, guid: 6a546eb073aeabb479d3545572693c35, type: 2}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
       objectReference: {fileID: 1968399837}
@@ -508,8 +516,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1217269473}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_SceneBindings.Array.data[3].value
+      value: 
+      objectReference: {fileID: 1243479289}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].value
+      value: 
+      objectReference: {fileID: 1968399837}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[0].first
@@ -517,6 +533,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[1].first
+      value: 5154a0e0e32dc614ebd52c0ad5f17f10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_ExposedReferences.m_References.Array.data[2].first
       value: 1b2d230f8156fb447bd784ee8040dba5
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
@@ -525,6 +545,10 @@ PrefabInstance:
       objectReference: {fileID: 1720854867}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[1].second
+      value: 
+      objectReference: {fileID: 1720854867}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_ExposedReferences.m_References.Array.data[2].second
       value: 
       objectReference: {fileID: 1325267943}
     - target: {fileID: 6020865913977276666, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
@@ -3039,7 +3063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.DoorInteractable
   inRange: 0
   mode: 0
-  isAlwaysLocked: 0
+  isLockOverriden: 0
+  lockedOnOverride: 0
   textToSayWhenDoorIsLocked: Zugesperrt...
   targetSceneName: Outdoor
   timePhasesUnlocked: []
@@ -4978,11 +5003,27 @@ PrefabInstance:
       value: CutsceneTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: e6df8ed047d815e4fb3abb3d8bb964e4, type: 2}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: cutscene
       value: 
       objectReference: {fileID: 11400000, guid: 6a546eb073aeabb479d3545572693c35, type: 2}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: stateToBePlayed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: SceneToBeSwitchedTo
+      value: Outdoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: GetItemAfterCutscene
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: SwitchSceneAfterCutscene
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

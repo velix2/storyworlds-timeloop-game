@@ -15,6 +15,8 @@ public class CutsceneTrigger : MonoBehaviour
     [SerializeField] private bool SwitchBackToMainCamAfterCutscene = false;
     [SerializeField] private bool SwitchSceneAfterCutscene = false;
     [SerializeField] private string SceneToBeSwitchedTo;
+    [SerializeField] private bool GetItemAfterCutscene = false;
+    [SerializeField] private ItemData item;
 
     private void Start()
     {
@@ -82,6 +84,11 @@ public class CutsceneTrigger : MonoBehaviour
         if (SwitchBackToMainCamAfterCutscene)
         {
             SwitchBackToMainCamera();
+        }
+        if(GetItemAfterCutscene)
+        {
+            InventoryManager.Instance.AddItem(item);
+            Debug.Log("Got the " + item.name);
         }
         if(SwitchSceneAfterCutscene)
         {
