@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +37,6 @@ public class AudioManager : MonoBehaviour
     
     private static AudioClip currentDefaultMusic;
     private static bool playingDefaultMusic = true;
-
 
     public static void BackToDefaultMusic()
     {
@@ -134,8 +134,12 @@ public class AudioManager : MonoBehaviour
         if (availableSFX.Count == 0) result = Instantiate(instance.sfxSourcePrefab);
         else
         {
-            result = availableSFX[0];
-            availableSFX.RemoveAt(0);
+            do
+            {
+                result = availableSFX[0];
+                availableSFX.RemoveAt(0);
+            } while (availableSFX.Count != 0 && result == null);
+            if (result == null) result = Instantiate(instance.sfxSourcePrefab);
         }
         return result;
     }
@@ -157,30 +161,41 @@ public class AudioManager : MonoBehaviour
             return;
         }
         instance = this;
-        ApplyMusicSource();
+        CreateMusicSource();
         DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
-    { 
-        SceneSwitcher.Instance.SceneSwitched.AddListener(ApplyMusicSource);
+    {
+        CreateMusicSource();
+        GetMainCamera();
+        SceneSwitcher.Instance.SceneSwitched.AddListener(GetMainCamera);
     }
 
-    private static void ApplyMusicSource()
+    private static void CreateMusicSource()
     {
         if (musicSource1 == null)
         {
             musicSource1 = Instantiate(instance.musicSourcePrefab);
             DontDestroyOnLoad(musicSource1.gameObject);
         }
-        musicSource1.transform.parent = Camera.main?.transform;
         
         if (musicSource2 == null)
         {
             musicSource2 = Instantiate(instance.musicSourcePrefab);
             DontDestroyOnLoad(musicSource2.gameObject);
         }
-        musicSource2.transform.parent = Camera.main?.transform;
-    } 
+    }
 
+    private static Transform mainCamera;
+    private static void GetMainCamera()
+    {
+        mainCamera = Camera.main?.transform;
+    }
+
+    private void LateUpdate()
+    {
+        musicSource1.transform.position = mainCamera.position;
+        musicSource2.transform.position = mainCamera.position;
+    }
 }

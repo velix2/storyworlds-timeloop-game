@@ -225,7 +225,6 @@ GameObject:
   - component: {fileID: 755561353031177292}
   - component: {fileID: 2250858507068369244}
   - component: {fileID: 3319563869777509485}
-  - component: {fileID: 7694070103154000449}
   - component: {fileID: 7066129254045510526}
   - component: {fileID: 2441687700691232208}
   - component: {fileID: 1892976598693499006}
@@ -271,7 +270,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   controller: {fileID: 2250858507068369244}
   interactionChecker: {fileID: 3319563869777509485}
-  inventoryManager: {fileID: 7694070103154000449}
+  inventoryManager: {fileID: 0}
   animator: {fileID: 2441687700691232208}
   speed: 3
 --- !u!143 &2250858507068369244
@@ -318,20 +317,6 @@ MonoBehaviour:
   highlightZone: {fileID: 6432864729141488014}
   drawInteractionZone: 0
   drawHighlightZone: 0
---- !u!114 &7694070103154000449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3461529967587347117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4b1c319c25cf0f4fbe44caeec5422a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  items: []
-  recipes: []
 --- !u!114 &7066129254045510526
 MonoBehaviour:
   m_ObjectHideFlags: 0

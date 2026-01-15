@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController)), RequireComponent(typeof(InteractionChecker)), RequireComponent(typeof(InventoryManager))]
+[RequireComponent(typeof(CharacterController)), RequireComponent(typeof(InteractionChecker))]
 public class PlayerController : MonoBehaviour
 {
     [Header("References")]
@@ -28,9 +28,9 @@ public class PlayerController : MonoBehaviour
         moveY = Animator.StringToHash("moveY");
         magnitude = Animator.StringToHash("moveMagnitude");
         
-        inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
-        //TODO: AddListener for ItemObservation event, DialogueSystem needed
+        inventoryManager = InventoryManager.Instance;
         
+        inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
         interactionChecker.ItemExhausted.AddListener(inventoryManager.RemoveItem);
         
         InputManager.PlayerControls.Standard.InventoryOpen.performed += _ => OnInventoryOpenInput();
