@@ -132,15 +132,7 @@ public class CutsceneManager : MonoBehaviour
             // For Signal Track
             if (track is SignalTrack)
             {
-                CutsceneManager cutsceneManager = FindAnyObjectByType<CutsceneManager>();
-
-                if (cutsceneManager == null)
-                {
-                    Debug.LogError("No cutscene manager on the scene");
-                    return;
-                }
-
-                SignalReceiver receiver = cutsceneManager.GetComponent<SignalReceiver>();
+                SignalReceiver receiver = GetComponent<SignalReceiver>();
 
                 if (receiver == null)
                 {
@@ -149,6 +141,8 @@ public class CutsceneManager : MonoBehaviour
                 }
 
                 director.SetGenericBinding(track, receiver);
+
+                Debug.Log("Signal Receiver added");
             }
 
             // For camera bindings
@@ -198,6 +192,7 @@ public class CutsceneManager : MonoBehaviour
                 }
             }
         }
+        Debug.Log("Bindings added");
     }
     
     
