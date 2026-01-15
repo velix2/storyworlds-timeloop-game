@@ -58,12 +58,15 @@ public class CutsceneManager : MonoBehaviour
 
         onFinishedCallback = callback;
 
+        // Freeze player
+        CutsceneStarted?.Invoke();
+
         // Prepare timeline
         director.playableAsset = cutscene;
         BindTimeline(cutscene);
 
-        // Freeze player
-        CutsceneStarted?.Invoke();
+        director.RebuildGraph();
+        director.Evaluate();
 
         // Start the timeline
         director.Play();
@@ -141,7 +144,6 @@ public class CutsceneManager : MonoBehaviour
                 }
 
                 director.SetGenericBinding(track, receiver);
-
                 Debug.Log("Signal Receiver added");
             }
 
@@ -192,7 +194,7 @@ public class CutsceneManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Bindings added");
+        Debug.Log("Signals bound");
     }
     
     
