@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -28,25 +29,14 @@ public class InventoryManager : MonoBehaviour
         }
 
         instance = this;
+        DontDestroyOnLoad(this);
         
-        display = FindFirstObjectByType<InventoryDisplay>();
-        if (display == null)
-        {
-            Debug.LogError("InventoryDisplay for Inventory Manager was not found.");
-        }
-        
-        ItemData.AttemptItemCombination.AddListener(OnAttemptItemCombination);
         
     }
 
     private void Start()
     {
-        items.Capacity = display.Capacity;
-        
-        foreach (var itemData in items)
-        {
-            display.AddItemToDisplay(itemData);
-        }
+        OnSceneSwitched();
     }
 
     /// <summary>
@@ -127,6 +117,25 @@ public class InventoryManager : MonoBehaviour
             
         }
         return null;
+    }
+
+    private void OnSceneSwitched()
+    {
+        display = FindFirstObjectByType<InventoryDisplay>();
+        if (display == null)
+        {
+            Debug.LogError("InventoryDisplay for Inventory Manager was not found.");
+        }
+        
+        items.Capacity = display.Capacity;
+        foreach (var itemData in items)
+        {
+            display.AddItemToDisplay(itemData);
+        }
+        SceneSwitcher.Instance.SceneSwitched.AddListener(OnSceneSwitched);
+        
+        
+        ItemData.AttemptItemCombination.AddListener(OnAttemptItemCombination);
     }
     
 }

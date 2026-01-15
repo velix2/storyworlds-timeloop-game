@@ -69,6 +69,7 @@ public class InventoryDisplay : MonoBehaviour
     /// </summary>
     public void HideDisplay()
     {
+        print("hide");
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
         AudioManager.PlaySFX(closeAudio);
