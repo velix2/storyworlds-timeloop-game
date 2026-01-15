@@ -135,9 +135,8 @@ public class CutsceneManager : MonoBehaviour
             // For Signal Track
             if (track is SignalTrack)
             {
-                SignalReceiver receiver = GetComponent<SignalReceiver>();
-
-                if (receiver == null)
+                
+                if (!TryGetComponent<SignalReceiver>(out var receiver))
                 {
                     Debug.LogError("There is no SignalReceiver on CutsceneManager-Object");
                     return;
