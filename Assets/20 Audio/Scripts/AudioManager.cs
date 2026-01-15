@@ -134,8 +134,12 @@ public class AudioManager : MonoBehaviour
         if (availableSFX.Count == 0) result = Instantiate(instance.sfxSourcePrefab);
         else
         {
-            result = availableSFX[0];
-            availableSFX.RemoveAt(0);
+            do
+            {
+                result = availableSFX[0];
+                availableSFX.RemoveAt(0);
+            } while (availableSFX.Count != 0 && result == null);
+            if (result == null) result = Instantiate(instance.sfxSourcePrefab);
         }
         return result;
     }
