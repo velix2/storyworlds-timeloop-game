@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        colliders = GetComponentsInChildren<Collider>(true);
         //IDs for animator variables
         lookX = Animator.StringToHash("lookX");
         lookY = Animator.StringToHash("lookY");
@@ -38,8 +39,6 @@ public class PlayerController : MonoBehaviour
 
         InputManager.PlayerControls.Standard.HighlightAllInteractables.started += _ => OnHighlightAllInput(true);
         InputManager.PlayerControls.Standard.HighlightAllInteractables.canceled += _ => OnHighlightAllInput(false);
-
-        colliders = GetComponentsInChildren<Collider>(true);
     }
 
 
