@@ -19,7 +19,14 @@ namespace Doors
 
         [SerializeField] private string textToSayWhenDoorIsLocked = "Zugesperrt...";
         
-        private bool isUnlocked => isLockOverriden ? lockedOnOverride : UnlockState;
+        /// <summary>
+        /// Returns whether the door is unlocked, respecting the overriding value if override is active
+        /// </summary>
+        private bool isUnlocked => isLockOverriden ? !lockedOnOverride : UnlockState;
+        
+        /// <summary>
+        /// Returns whether the door is unlocked, assuming the override is not active.
+        /// </summary>
         protected virtual bool UnlockState => true;
 
         [SerializeField] private string targetSceneName;
