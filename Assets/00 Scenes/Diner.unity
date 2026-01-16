@@ -1722,6 +1722,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2300593632408891413, guid: 571f911a7a3975cdd9a79cd7fbec7845, type: 3}
       insertIndex: -1
       addedObject: {fileID: 282325677}
+    - targetCorrespondingSourceObject: {fileID: 2300593632408891413, guid: 571f911a7a3975cdd9a79cd7fbec7845, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 282325682}
+    - targetCorrespondingSourceObject: {fileID: 2300593632408891413, guid: 571f911a7a3975cdd9a79cd7fbec7845, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 282325681}
   m_SourcePrefab: {fileID: 100100000, guid: 571f911a7a3975cdd9a79cd7fbec7845, type: 3}
 --- !u!1 &282325676 stripped
 GameObject:
@@ -1749,6 +1755,55 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.23351723, y: 0.27412826, z: 0.2889359}
   m_Center: {x: 0.000000055879354, y: 0.000000022351747, z: -0.000000007450582}
+--- !u!114 &282325681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282325676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03b00a9e043407fa58f39c90dbb31fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoffeeMachineInteractable
+  inRange: 0
+  mode: 0
+  dialogueFreezeWhileBroken: Zwecklos, die Maschine jetzt schon einzufrieren. Ich
+    muss sie erst reparieren.
+  dialogueFreezeWhileRepaired: Spannend. Wenn das wirklich so funktioniert, wie ich
+    mir das vorstelle, sollte die Kaffeemaschine morgen immer noch funktionieren...
+  dialogueUnfreeze: "Jetzt m\xFCsste der Effekt wieder aufgehoben sein. Morgen also
+    kein Kaffee mehr."
+  dialogueLookWhileBroken: ...Soll da Rauch raus kommen?
+  dialogueLookWhileRepaired: Endlich wieder Kaffee!
+  dialogueInspectWhileBroken: Ich glaube, das kann ich reparieren. Brauche nur passendes
+    Werkzeug...
+  dialogueInspectWhileRepaired: "Sieht gut aus. H\xE4lt hoffentlich f\xFCrs Erste."
+  dialogueRepairWhileBroken: So, einfach bisschen das hier nach da, und dann das
+    festdrehen, das hier austauschen... Wunderbar!
+  dialogueRepairWhileRepaired: "Die Kaffeemaschine ist wieder funktionst\xFCchtig,
+    ich schraube lieber nicht weiter dran herum..."
+  repairToolsItemData: {fileID: 0}
+  freezeArtifact: {fileID: 0}
+--- !u!114 &282325682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282325676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &287917361
 PrefabInstance:
   m_ObjectHideFlags: 0
