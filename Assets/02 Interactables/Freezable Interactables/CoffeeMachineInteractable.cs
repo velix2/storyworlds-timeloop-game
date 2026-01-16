@@ -134,7 +134,8 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
 
     public string GetFreezableIdentifier()
     {
-        throw new System.NotImplementedException();
+        // try to make this as unique as possible, use name + scene
+        return nameof(CoffeeMachineInteractable) + "_" + gameObject.name + "_" + gameObject.scene.name;
     }
 
     private void Say(string s)
