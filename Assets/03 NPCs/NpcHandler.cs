@@ -59,7 +59,7 @@ namespace NPCs
         private void OnDisable()
         {
             // Unsubscribe from scene load event
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         private void OnTimePassed(TimePassedEventPayload payload)
