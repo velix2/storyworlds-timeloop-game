@@ -338,6 +338,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 01be8fd5859979747ab41d33bf0fb169, type: 2}
     - {fileID: 11400000, guid: 4cb1fc561a8adb94096060b1e5122135, type: 2}
     - {fileID: 11400000, guid: f6e65a0088f01824493514bfb71c228d, type: 2}
+    - {fileID: 11400000, guid: 9f33014c975ca754b8c9a77438d73e6a, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -375,6 +376,20 @@ MonoBehaviour:
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 4900000, guid: 960874f8f59665e48953e4c6516bae3c, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5184909577013347815}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: EnterDialogueMode
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 4900000, guid: 34652afd0b25ae048b26126deb5ae6a2, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0

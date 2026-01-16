@@ -8,17 +8,20 @@ Hm? Oh, sie ist es wieder... #speaker:marcus #emotion:NERVOUS
 + [Rangehen]
 -> call
 + [Auflegen]
--> continue
+-> no_call
 
 
 ===call===
 Was gibt's? #speaker:marcus #emotion:NORMAL
-Marcus? Ich wollte fragen, wann du mal wieder zu Besuch kommst? Du warst lange nicht mehr daheim. #narrator
+Marcus? Ich wollte fragen, wann du mal wieder zu Besuch kommst? Du warst lange nicht mehr daheim. #speaker:narrator
 Ich komme nächste Woche, davor muss ich noch etwas wichtiges erledigen. #speaker:marcus #emotion:NORMAL
-Kann das nicht warten? Leons Geburtstag ist bald und er vermisst dich schon sehr. #narrator
+Kann das nicht warten? Leons Geburtstag ist bald und er vermisst dich schon sehr. #speaker:narrator
 Das geht nicht. Ich bin gerade auf einer heißen Spur und die Chance kann ich mir nicht entgehen lassen. Tschüss. #speaker:marcus #emotion:NORMAL
 -> continue
 
+===no_call===
+Ich bin gerade nicht in Stimmung dafür... #speaker:marcus #emotion:NORMAL
+-> continue
 
 
 ===continue===
