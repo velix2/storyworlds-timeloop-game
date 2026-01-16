@@ -41,11 +41,13 @@ public class CutsceneTrigger : MonoBehaviour
         }
     }
 
+    /*
     /// <summary>
     /// Switch back to follow camera
     /// </summary>
     private void SwitchBackToMainCamera()
     {
+
         CameraTransitionZone cameraTransitionZone = FindAnyObjectByType<CameraTransitionZone>();
 
         CinemachineCamera mainCam;
@@ -61,6 +63,7 @@ public class CutsceneTrigger : MonoBehaviour
 
         CameraManager.FocusCam(mainCam);
     }
+    */
 
     /// <summary>
     /// Switch the scene after cutscene
@@ -83,7 +86,8 @@ public class CutsceneTrigger : MonoBehaviour
         // Perform additional steps after cutscene ended
         if (SwitchBackToMainCamAfterCutscene)
         {
-            SwitchBackToMainCamera();
+            //SwitchBackToMainCamera();
+            CameraManager.BackToMain();
         }
         if(GetItemAfterCutscene)
         {

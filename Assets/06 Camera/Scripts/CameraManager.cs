@@ -64,10 +64,16 @@ public class CameraManager : MonoBehaviour
     public static void BackToMain(BlendType blend = BlendType.DEFAULT)
     {
         SetBlend(blend);
-        if (currentVCam)
+        if (currentVCam != null)
         {
             currentVCam.enabled = false;
             currentVCam = null;
+        }
+        
+        CinemachineCamera cam = brain.ActiveVirtualCamera as CinemachineCamera;
+        if (cam != null && cam != mainVirtual)
+        {
+            cam.enabled = true;
         }
 
         mainVirtual.enabled = true;

@@ -14,7 +14,6 @@ public class CameraTransitionZone : MonoBehaviour
     }
     
     
-    
     private static bool firstBlend;
 
     private void Awake()
@@ -69,10 +68,5 @@ public class CameraTransitionZone : MonoBehaviour
                 Debug.Log("Case for " + blendType + "has not been implemented yet.");
                 break;
         }
-    }
-
-    public CinemachineCamera GetMainCamera()
-    {
-        return cam;
     }
 }
