@@ -4385,13 +4385,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1230776743139297704, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 204126059}
+    - targetCorrespondingSourceObject: {fileID: 1230776743139297704, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 204126058}
+    - targetCorrespondingSourceObject: {fileID: 1230776743139297704, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 204126057}
   m_SourcePrefab: {fileID: 100100000, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
 --- !u!4 &204126055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8860114260119296751, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
   m_PrefabInstance: {fileID: 204126054}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &204126056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1230776743139297704, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+  m_PrefabInstance: {fileID: 204126054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &204126057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204126056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54215b89c124224b6b1c0390c437497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Doors.TimedLockableDoorInteractable
+  inRange: 0
+  mode: 0
+  isLockOverriden: 0
+  lockedOnOverride: 0
+  textToSayWhenDoorIsLocked: Zugesperrt...
+  targetSceneName: Station
+  timePhasesUnlocked: []
+--- !u!114 &204126058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204126056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!65 &204126059
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204126056}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.03333746, y: 1.3765355, z: 1.3000002}
+  m_Center: {x: 0.003478881, y: -0.000015262462, z: 0.0616017}
 --- !u!1001 &204388453
 PrefabInstance:
   m_ObjectHideFlags: 0

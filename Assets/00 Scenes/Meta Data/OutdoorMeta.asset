@@ -21,4 +21,6 @@ MonoBehaviour:
     transitionPosition: {x: 535, y: 6.1, z: 443}
   - neighboringScene: {fileID: 11400000, guid: b16aeb82d4f45e1a193ae79d37dda2a9, type: 2}
     transitionPosition: {x: 551, y: 5, z: 469}
+  - neighboringScene: {fileID: 11400000, guid: 15191b6ce465948b3b45b3a225f873e9, type: 2}
+    transitionPosition: {x: 421.5, y: 20, z: 361.5}
   sceneName: Outdoor
