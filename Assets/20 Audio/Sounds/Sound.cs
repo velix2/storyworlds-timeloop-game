@@ -9,8 +9,9 @@ public class Sound : ScriptableObject
     private AudioClip[] clips;
     private AudioClip lastClip;
     
-    private void OnValidate()
+    private void Inititialize()
     {
+        if (clips != null) return; 
         if (audios.Length == 0)
         {
             Debug.LogError($"{name} has no audio clips!");
@@ -35,6 +36,7 @@ public class Sound : ScriptableObject
 
     public AudioClip GetAudioClip()
     {
+        Inititialize();
         if (audios.Length == 0) return null;
 
         int index = Random.Range(0, clips.Length);
