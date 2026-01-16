@@ -17,10 +17,7 @@ public class InventoryManager : MonoBehaviour
     {
         get
         {
-            if (display == null)
-            {
-                return null;
-            }
+            display = FindFirstObjectByType<InventoryDisplay>(FindObjectsInactive.Include);
             return display.ItemBoxPrimaryInteract;
         }
     }
@@ -28,11 +25,7 @@ public class InventoryManager : MonoBehaviour
     {
         get
         {
-            if (display == null)
-            {
-                Debug.LogError("[InventoryManager] display ist null (ItemSelected)");
-                return null;
-            }
+            display = FindFirstObjectByType<InventoryDisplay>(FindObjectsInactive.Include);
             return display.ItemBoxSecondaryInteract;
         }
     }
@@ -50,7 +43,6 @@ public class InventoryManager : MonoBehaviour
         }
 
         instance = this;
-        display = FindFirstObjectByType<InventoryDisplay>(FindObjectsInactive.Include);
 
         if (display == null)
             Debug.LogError("[InventoryManager] InventoryDisplay NICHT gefunden!");

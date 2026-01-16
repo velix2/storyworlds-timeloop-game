@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
         moveY = Animator.StringToHash("moveY");
         magnitude = Animator.StringToHash("moveMagnitude");
 
-        inventoryManager = InventoryManager.Instance;
-        Debug.Log(inventoryManager.ItemSelected);
+        inventoryManager = FindFirstObjectByType<InventoryManager>();
+        Debug.Log(inventoryManager);
         inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
         interactionChecker.ItemExhausted.AddListener(inventoryManager.RemoveItem);
         
