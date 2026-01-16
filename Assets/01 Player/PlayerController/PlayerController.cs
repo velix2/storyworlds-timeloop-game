@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         colliders = GetComponentsInChildren<Collider>(true);
-        inventoryManager = InventoryManager.Instance;
     }
 
     private void Start()
@@ -33,7 +32,9 @@ public class PlayerController : MonoBehaviour
         moveX = Animator.StringToHash("moveX");
         moveY = Animator.StringToHash("moveY");
         magnitude = Animator.StringToHash("moveMagnitude");
-        
+
+        inventoryManager = InventoryManager.Instance;
+        Debug.Log(inventoryManager.ItemSelected);
         inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
         interactionChecker.ItemExhausted.AddListener(inventoryManager.RemoveItem);
         

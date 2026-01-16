@@ -13,8 +13,29 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private List<ItemData> items = new List<ItemData>();
     [SerializeField] private List<RecipeData> recipes = new List<RecipeData>();
 
-    public UnityEvent<ItemData> ItemSelected => display.ItemBoxPrimaryInteract;
-    public UnityEvent<ItemData> ItemObserved => display.ItemBoxSecondaryInteract;
+    public UnityEvent<ItemData> ItemSelected
+    {
+        get
+        {
+            if (display == null)
+            {
+                return null;
+            }
+            return display.ItemBoxPrimaryInteract;
+        }
+    }
+    public UnityEvent<ItemData> ItemObserved
+    {
+        get
+        {
+            if (display == null)
+            {
+                Debug.LogError("[InventoryManager] display ist null (ItemSelected)");
+                return null;
+            }
+            return display.ItemBoxSecondaryInteract;
+        }
+    }
     public bool IsReady => !display.Animating;
 
     private static InventoryManager instance;
@@ -29,13 +50,18 @@ public class InventoryManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(this);
+        display = FindFirstObjectByType<InventoryDisplay>(FindObjectsInactive.Include);
+
+        if (display == null)
+            Debug.LogError("[InventoryManager] InventoryDisplay NICHT gefunden!");
+        DontDestroyOnLoad(gameObject);
         
         
     }
 
     private void Start()
     {
+
         OnSceneSwitched();
     }
 
