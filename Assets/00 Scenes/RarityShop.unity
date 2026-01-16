@@ -591,6 +591,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8012731709484120022, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: npcsToManage.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8915823811605975058, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Name
       value: Managers Holder

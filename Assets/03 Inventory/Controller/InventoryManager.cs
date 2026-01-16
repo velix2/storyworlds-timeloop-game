@@ -44,8 +44,6 @@ public class InventoryManager : MonoBehaviour
 
         instance = this;
 
-        if (display == null)
-            Debug.LogError("[InventoryManager] InventoryDisplay NICHT gefunden!");
         DontDestroyOnLoad(gameObject);
         
         

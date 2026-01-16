@@ -15496,6 +15496,10 @@ PrefabInstance:
       propertyPath: npcsToManage.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8012731709484120022, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: 'npcsToManage.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8788ed4c1f2ab57679531c8fef8a888c, type: 2}
     - target: {fileID: 8915823811605975058, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Name
       value: Managers Holder
