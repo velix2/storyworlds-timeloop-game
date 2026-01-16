@@ -19,17 +19,20 @@ public class PlayerController : MonoBehaviour
 
     private Collider[] colliders;
 
-    private void Start()
+    private void Awake()
     {
         colliders = GetComponentsInChildren<Collider>(true);
+        inventoryManager = InventoryManager.Instance;
+    }
+
+    private void Start()
+    {
         //IDs for animator variables
         lookX = Animator.StringToHash("lookX");
         lookY = Animator.StringToHash("lookY");
         moveX = Animator.StringToHash("moveX");
         moveY = Animator.StringToHash("moveY");
         magnitude = Animator.StringToHash("moveMagnitude");
-        
-        inventoryManager = InventoryManager.Instance;
         
         inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
         interactionChecker.ItemExhausted.AddListener(inventoryManager.RemoveItem);
