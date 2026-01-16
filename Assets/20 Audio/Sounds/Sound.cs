@@ -11,7 +11,8 @@ public class Sound : ScriptableObject
     
     private void Inititialize()
     {
-        if (clips != null) return; 
+        if (clips.Length != 0) return; 
+
         if (audios.Length == 0)
         {
             Debug.LogError($"{name} has no audio clips!");
@@ -19,7 +20,8 @@ public class Sound : ScriptableObject
         }
         if (audios.Length > 1)
         {
-            clips = new AudioClip[audios.Length -1];
+            clips = new AudioClip[audios.Length - 1];
+
             for (int i = 0; i < audios.Length - 1; i++)
             {
                 clips[i] = audios[i];
@@ -38,8 +40,7 @@ public class Sound : ScriptableObject
     {
         Inititialize();
         if (audios.Length == 0) return null;
-
-        int index = Random.Range(0, clips.Length);
+        int index = Random.Range(0, clips.Length - 1);
         AudioClip clip = clips[index];
         clips[index] = lastClip;
         lastClip = clip;
