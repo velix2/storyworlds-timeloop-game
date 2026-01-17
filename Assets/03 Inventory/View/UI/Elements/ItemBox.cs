@@ -20,12 +20,18 @@ public class ItemBox : InteractableUI
         }
         else
         {
+            print("Try to add to itembox");
             heldItem = item;
-            image.sprite = item.Sprite;
-            image.raycastTarget = true;
-            Color c = image.color;
-            c.a = 1f;
-            image.color = c;
+            if (image != null)
+            {
+                print("success");
+                image.sprite = item.Sprite;
+                image.raycastTarget = true;
+                Color c = image.color;
+                c.a = 1f;
+                image.color = c;
+            } else print("fail");
+            
         }
         
     }
