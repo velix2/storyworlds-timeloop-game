@@ -53,6 +53,7 @@ public class InventoryManager : MonoBehaviour
     {
 
         OnSceneSwitched();
+        SceneSwitcher.Instance.SceneSwitched.AddListener(OnSceneSwitched);
     }
 
     /// <summary>
@@ -67,7 +68,7 @@ public class InventoryManager : MonoBehaviour
         
         if (item.MultiplePossible) item = item.MakeCopy();
         items.Add(item);
-        display.AddItemToDisplay(item, playSound);
+        display?.AddItemToDisplay(item, playSound);
         return true;
     }
 
@@ -79,7 +80,7 @@ public class InventoryManager : MonoBehaviour
     public void RemoveItem(ItemData item)
     {
         items.Remove(item);
-        display.RemoveItemToDisplay(item);
+        display?.RemoveItemToDisplay(item);
     }
 
     /// <summary>
@@ -148,10 +149,6 @@ public class InventoryManager : MonoBehaviour
         {
             display.AddItemToDisplay(itemData);
         }
-        SceneSwitcher.Instance.SceneSwitched.AddListener(OnSceneSwitched);
-        
-        
-        ItemData.AttemptItemCombination.AddListener(OnAttemptItemCombination);
     }
     
 }
