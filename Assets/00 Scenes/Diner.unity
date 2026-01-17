@@ -3536,7 +3536,7 @@ PrefabInstance:
       objectReference: {fileID: 1886920035}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9200001
+      value: 7.497
       objectReference: {fileID: 0}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3544,7 +3544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6350007
+      value: 3.0500011
       objectReference: {fileID: 0}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4891,7 +4891,7 @@ Transform:
   m_GameObject: {fileID: 1217269471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.575001, y: 1.7500005, z: 0.61969805}
+  m_LocalPosition: {x: 0.11000085, y: 1.7500005, z: -6.2311697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6281,7 +6281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneTrigger
   cutscene: {fileID: 11400000, guid: 3a32c51557f28e64cae89e2f22e727f2, type: 2}
-  stateToBePlayed: 0
+  stateToBePlayed: 2
   SwitchBackToMainCamAfterCutscene: 0
   SwitchSceneAfterCutscene: 1
   SceneToBeSwitchedTo: Outdoor
