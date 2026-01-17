@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
     [Header("Parameters")] 
     [SerializeField] private float speed = 10f;
 
-    private bool movementBlocked;
-    private bool frozen;
+    public static bool movementBlocked;
     private bool inventoryOpen;
+    
 
     private Collider[] colliders;
 
@@ -53,8 +53,7 @@ public class PlayerController : MonoBehaviour
             if (DialogueManager.Instance.DialogueIsPlaying) return;
             if (CutsceneManager.Instance.CutsceneIsPlaying) return;
         }
-    
-        if (frozen) return;
+        
         Vector3 move;
         if (!movementBlocked)
         {
@@ -94,6 +93,7 @@ public class PlayerController : MonoBehaviour
         InputManager.PlayerControls.Disable();
         foreach (var col in colliders)
             col.enabled = false;
+        OnInventoryCloseInput();
     }
 
     private void OnCutsceneEnd()
@@ -118,9 +118,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnInventoryOpenInput()
     {
-        if (frozen) return;
         if (inventoryOpen) return;
         if (!inventoryManager.IsReady) return;
+        if (DialogueManager.Instance.DialogueIsPlaying) return;
         inventoryOpen = true;
         FreezeAnimation();
         movementBlocked = true;
@@ -130,7 +130,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnInventoryCloseInput()
     {
-        if (frozen) return;
         if (!inventoryOpen) return;
         if (!inventoryManager.IsReady) return;
         inventoryOpen = false;
@@ -142,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnHighlightAllInput(bool pressed)
     {
-        if (frozen) return;
+        if (movementBlocked) return;
         
         if (pressed)
         {
@@ -165,7 +164,11 @@ public class PlayerController : MonoBehaviour
     private void LateUpdate()
     {
         if (DialogueManager.Instance.DialogueIsPlaying) return;
-        if (frozen) return;
+        if (movementBlocked)
+        {
+            animator.SetFloat(magnitude, 0);
+            return;
+        }
         Vector2 input = InputManager.GetPlayerMovement();
         AnimatorWalkDirection(input);
     }
