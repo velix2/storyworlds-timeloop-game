@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00 Scenes/RarityShop.unity
     guid: d7c18a42cbde224f2afff35f61058862
+  - enabled: 1
+    path: Assets/00 Scenes/Station.unity
+    guid: a563b55234cbbcb65a5cf6f2da787b6e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
