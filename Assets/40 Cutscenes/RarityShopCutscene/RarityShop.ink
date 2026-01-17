@@ -1,4 +1,4 @@
-Hallo, ist da jemand? #speaker:oswald #emotion:NORMAL
+Hallo?[nl]Ist da jemand? #speaker:oswald #emotion:NORMAL
 
 ... #pause: Marcus geht zu oswald
 

@@ -132,6 +132,28 @@ public class CutsceneManager : MonoBehaviour
                 }
             }
 
+            if(track is ActivationTrack)
+            {
+                if (track.name == "Marcus")
+                {
+                    GameObject player = GameObject.FindWithTag("Player");
+                    director.SetGenericBinding(track, player);
+                }
+                else
+                {
+                    string npcName = track.name;
+                    GameObject npc = GameObject.Find(npcName);
+
+                    if (npc == null)
+                    {
+                        Debug.LogError("No NPC with name \"" + npcName + "\" could be found on the scene. " +
+                            "Make sure track name and object name are the same.");
+                        return;
+                    }
+                    director.SetGenericBinding(track, npc);
+                }
+            }
+
             // For Signal Track
             if (track is SignalTrack)
             {

@@ -173,6 +173,7 @@ public class DialogueManager : MonoBehaviour
         {
             IsTyping = true;
             string line = currentStory.Continue().Trim();
+            line = line.Replace("[nl]", "\n");
             typingCoroutine = StartCoroutine(DisplayLine(line, dialogueText));
             HandleTags(currentStory.currentTags);
             return;

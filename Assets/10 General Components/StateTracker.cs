@@ -28,7 +28,7 @@ public static class StateTracker
         IntroCompleted,
     }
 
-    private static IntroStates _introState = IntroStates.IntroCompleted;
+    private static IntroStates _introState = IntroStates.Init;
 
     public static bool IsInIntro = true;
 
