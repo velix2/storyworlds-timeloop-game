@@ -1,6 +1,7 @@
 using System;
 using SceneHandling;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace NPCs.NpcCharacter.NpcCharacterState
 {
@@ -35,6 +36,17 @@ namespace NPCs.NpcCharacter.NpcCharacterState
 
         public override void OnStateBecameActive()
         {
+            // 1. Find the closest valid point on the NavMesh
+            float maxSearchDistance = 5.0f; 
+            if (NavMesh.SamplePosition(_entrancePos, out NavMeshHit hit, maxSearchDistance, NavMesh.AllAreas))
+            {
+                // 2. Move the transform to the valid point
+                Character.transform.position = hit.position;
+    
+                // 3. Now it is safe to enable the agent
+                Character.GetComponent<NavMeshAgent>().enabled = true;
+            }
+            
             Character.transform.position = _entrancePos;
             Character.MoveTo(_targetPos);
         }

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCs.NpcHandler
   npcsToManage:
-  - {fileID: 11400000, guid: 8788ed4c1f2ab57679531c8fef8a888c, type: 2}
+  - {fileID: 11400000, guid: c0e657d58bfab4fe68233aaf5f356db2, type: 2}
 --- !u!1 &2961984995166276397
 GameObject:
   m_ObjectHideFlags: 0
