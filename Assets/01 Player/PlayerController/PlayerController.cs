@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
         CutsceneManager.CutsceneEnded += OnCutsceneEnd;
         CutsceneManager.CutsceneContinue += OnCutsceneContinue;
         CutsceneManager.CutscenePaused += OnCutscenePaused;
+        DialogueManager.DialogueModeChanged += OnDialogueModeChanged;
     }
 
     private void OnDisable()
@@ -85,6 +86,7 @@ public class PlayerController : MonoBehaviour
         CutsceneManager.CutsceneEnded -= OnCutsceneEnd;
         CutsceneManager.CutsceneContinue -= OnCutsceneContinue;
         CutsceneManager.CutscenePaused -= OnCutscenePaused;
+        DialogueManager.DialogueModeChanged -= OnDialogueModeChanged;
     }
 
     private void OnCutsceneStart()
@@ -117,7 +119,19 @@ public class PlayerController : MonoBehaviour
         FreezeAnimation();
     }
 
-
+    private void OnDialogueModeChanged()
+    {
+        if(DialogueManager.Instance.DialogueIsPlaying)
+        {
+            InputManager.PlayerControls.Standard.Disable();
+            FreezeAnimation();
+        }
+        else
+        {
+            InputManager.PlayerControls.Standard.Enable();
+            UnfreezeAnimation();
+        }
+    }
     private void OnInventoryOpenInput()
     {
         if (inventoryOpen) return;

@@ -71,6 +71,8 @@ public class DialogueManager : MonoBehaviour
 
     private bool LineIsFinished = false;
 
+    public static event Action DialogueModeChanged;
+
 
     #endregion
 
@@ -132,7 +134,7 @@ public class DialogueManager : MonoBehaviour
 
             dialogueText.text = "";
             nameText.text = "";
-
+            DialogueModeChanged?.Invoke();
             dialogueBox.SetActive(true);
 
             variableObserver.StartListening(currentStory);
@@ -214,6 +216,8 @@ public class DialogueManager : MonoBehaviour
     {
         // Reset flags
         DialogueIsPlaying = false;
+        if(!CutsceneManager.Instance.CutsceneIsPlaying)
+            DialogueModeChanged?.Invoke();
         IsTyping = false;
         ChoicesDisplayed = false;
         SimpleDialogueIsPlaying = false;
@@ -299,6 +303,7 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("Entering Simple Dialogue Mode");
             DialogueIsPlaying = true;
+            DialogueModeChanged?.Invoke();
             SimpleDialogueIsPlaying = true;
             playerText.text = "";
             playerPanel.SetActive(true);
@@ -359,6 +364,7 @@ public class DialogueManager : MonoBehaviour
     {
         // Reset flags
         DialogueIsPlaying = false;
+        DialogueModeChanged?.Invoke();
         IsTyping = false;
         SimpleDialogueIsPlaying = false;
         LineIsFinished = false;
