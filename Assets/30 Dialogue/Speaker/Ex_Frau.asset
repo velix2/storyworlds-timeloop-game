@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 756920aefe7afcb4eb50dea8d3b12d8a, type: 3}
-  m_Name: Marcus_Handy
+  m_Name: Ex_Frau
   m_EditorClassIdentifier: Assembly-CSharp::SpeakerData
-  speakerId: marcus_handy
-  speakerName: Marcus' Frau
-  color: {r: 1, g: 1, b: 1, a: 1}
+  speakerId: ex_frau
+  speakerName: Ex-Frau
   portraits:
   - emotion: 0
     sprite: {fileID: 21300000, guid: 99c2d6f1e235fc34c9f98b1f1ffeeb10, type: 3}
