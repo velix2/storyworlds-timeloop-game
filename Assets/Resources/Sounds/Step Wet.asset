@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3529b983e5f994da1772ac268b2434, type: 3}
   m_Name: Step Wet
   m_EditorClassIdentifier: Assembly-CSharp::Sound
-  audios:
+  possibleAudios:
   - {fileID: 8300000, guid: 4f28154157180cb469bb4ae5f43cc95b, type: 3}
   - {fileID: 8300000, guid: a540fa9aacb58824980c4dac2695c84a, type: 3}
   - {fileID: 8300000, guid: 2d71e7e38bf108149806fa860e6585c4, type: 3}

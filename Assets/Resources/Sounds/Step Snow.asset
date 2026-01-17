@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3529b983e5f994da1772ac268b2434, type: 3}
   m_Name: Step Snow
   m_EditorClassIdentifier: Assembly-CSharp::Sound
-  audios:
+  possibleAudios:
   - {fileID: 8300000, guid: c45b6c83746f3cf4c9b618b7f9384289, type: 3}
   - {fileID: 8300000, guid: 6a3f47349d8473a4c95e805eddeb322b, type: 3}
   - {fileID: 8300000, guid: 76b92a605509da747b9bb322eec41eca, type: 3}
