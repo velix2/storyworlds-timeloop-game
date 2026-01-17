@@ -49,6 +49,22 @@ namespace NPCs.NpcCharacter
         private void Start()
         {
             animator.runtimeAnimatorController = Model.WalkAnimator;
+            
+            // Place Agent on next best location on mesh
+            if (!Agent.isOnNavMesh)
+            {
+                var searchRadius = 2f;
+                // 1. Try to find the nearest valid point on the NavMesh
+                if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, searchRadius, NavMesh.AllAreas))
+                {
+                    // 2. Teleport the agent to that specific point
+                    Agent.Warp(hit.position);
+                }
+                else
+                {
+                    Debug.LogWarning("Could not find a NavMesh location within radius: " + searchRadius);
+                }
+            }
         }
 
         private void OnDestroy()
@@ -82,6 +98,18 @@ namespace NPCs.NpcCharacter
         private int magnitude;
         private void LateUpdate()
         {
+            if (IsAtDestination)
+            {
+                animator.SetFloat(lookX, 0f);
+                animator.SetFloat(lookY, -1f);
+                
+                animator.SetFloat(moveY, 0);
+                animator.SetFloat(moveX, 0);
+                
+                animator.SetFloat(magnitude, 0);
+                return;
+            }
+            
             Vector2 move = new Vector2(Agent.desiredVelocity.x, Agent.desiredVelocity.z);
             animator.SetFloat(moveY, move.y);
             animator.SetFloat(moveX, move.x);
