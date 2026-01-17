@@ -232,7 +232,7 @@ public class InteractionChecker : MonoBehaviour
     private void OnHightlightZoneTriggerEnter(Collider collider)
     {
         Interactable interactable = collider.gameObject.GetComponent<Interactable>();
-        if (interactable != null)
+        if (interactable != null && interactable.enabled)
         {
             inHighlightRange.Add(interactable);
             if (highlightingAll) interactable.Highlight();
@@ -322,7 +322,9 @@ public class InteractionChecker : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         Physics.Raycast(ray, out var hit, Mathf.Infinity, layerMask);
         
-        return hit.collider?.gameObject.GetComponent<Interactable>();
+        Interactable interactable = hit.collider?.gameObject.GetComponent<Interactable>();
+        if (interactable && interactable.enabled) return interactable;
+        return null;
     }
 
     private Interactable UIRaycast(Vector3 mousePosition)
@@ -336,8 +338,10 @@ public class InteractionChecker : MonoBehaviour
         
         EventSystem.current.RaycastAll(eventData, results);
 
-        return results.Select(r => r.gameObject.GetComponentInParent<Interactable>())
-            .FirstOrDefault(i => i != null);;
+        Interactable interactable = results.Select(r => r.gameObject.GetComponentInParent<Interactable>())
+            .FirstOrDefault(i => i != null);
+        if (interactable && interactable.enabled) return interactable;
+        return null;
     }
 
     #endregion

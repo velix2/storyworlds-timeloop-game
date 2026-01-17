@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
@@ -140,6 +141,17 @@ public abstract class Interactable : MonoBehaviour
     {
         highlightOverwrite = false;
         Unhighlight();
+    }
+
+    public void Enable()
+    {
+        enabled = true;
+    }
+
+    public void Disable()
+    {
+        enabled = false;
+        UndoHighlightPermanently();
     }
     
 }
