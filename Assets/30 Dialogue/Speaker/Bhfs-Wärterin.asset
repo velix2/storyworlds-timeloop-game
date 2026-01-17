@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 756920aefe7afcb4eb50dea8d3b12d8a, type: 3}
-  m_Name: Npc1
+  m_Name: "Bhfs-W\xE4rterin"
   m_EditorClassIdentifier: Assembly-CSharp::SpeakerData
-  speakerId: npc1
-  speakerName: Npc1
+  speakerId: mary
+  speakerName: Mary
   portraits: []
