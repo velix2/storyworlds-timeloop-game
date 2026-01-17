@@ -16,15 +16,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MousePosition",
-                    "type": "PassThrough",
-                    "id": "4bf48a08-1ea4-47c9-8e65-07368499f3d4",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "PrimaryInteract",
                     "type": "Button",
                     "id": "03434c68-1914-486d-b60e-cdfb10cc4009",
@@ -128,17 +119,6 @@
                 },
                 {
                     "name": "",
-                    "id": "0b26d2b3-342a-4e09-a8b7-ccd76f299a9a",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MousePosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0ee9b3f3-959b-4110-9002-5e7336950440",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -189,6 +169,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "HighlightAllInteractables",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "MousePosition",
+            "id": "e50a5665-9628-44c3-b4f9-582b8c7a2641",
+            "actions": [
+                {
+                    "name": "MousePosition",
+                    "type": "PassThrough",
+                    "id": "04ed4c0f-e285-4ae7-abd2-0dae2fdc18d8",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3b60c309-4b8c-4163-92c6-0e75139ca5c5",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

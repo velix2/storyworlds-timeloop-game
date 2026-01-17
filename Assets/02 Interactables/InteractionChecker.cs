@@ -158,7 +158,16 @@ public class InteractionChecker : MonoBehaviour
 
     private void Update()
     {
-        if (DialogueManager.Instance.DialogueIsPlaying || CutsceneManager.Instance.CutsceneIsPlaying) return;
+        if (DialogueManager.Instance.DialogueIsPlaying || CutsceneManager.Instance.CutsceneIsPlaying)
+        {
+            if (highlightedInteractable != null)
+            {
+                highlightedInteractable.Unhighlight();
+                highlightedInteractable = null;
+                CursorManager.ResetCursor();
+            }
+            return;
+        }
 
         HighlightSingle(GetInteractableAtMousePosition());
     }

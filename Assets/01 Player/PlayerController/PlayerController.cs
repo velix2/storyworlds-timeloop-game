@@ -90,19 +90,21 @@ public class PlayerController : MonoBehaviour
     private void OnCutsceneStart()
     {
         animator.applyRootMotion = true;
-        InputManager.PlayerControls.Disable();
+        InputManager.PlayerControls.Standard.Disable();
         foreach (var col in colliders)
             col.enabled = false;
         OnInventoryCloseInput();
+        interactionChecker.SetToDisabledMode();
     }
 
     private void OnCutsceneEnd()
     {
         animator.applyRootMotion = false;
-        InputManager.PlayerControls.Enable();
+        InputManager.PlayerControls.Standard.Enable();
         UnfreezeAnimation();
         foreach (var col in colliders)
             col.enabled = true;
+        interactionChecker.SetToPhysicsMode();
     }
 
     private void OnCutsceneContinue()

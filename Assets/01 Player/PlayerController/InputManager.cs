@@ -63,7 +63,7 @@ public class InputManager : MonoBehaviour
 
     public static Vector3 GetMousePosition()
     {
-        return _instance.playerControls.Standard.MousePosition.ReadValue<Vector2>();
+        return _instance.playerControls.MousePosition.MousePosition.ReadValue<Vector2>();
     }
 
     private void SignalPrimaryInteraction(InputAction.CallbackContext context)

@@ -32,8 +32,10 @@ public class MotelDoorInteractable : InteractableThreeDimensional
     {
         if ((int)StateTracker.IntroState == (int)StateTracker.IntroStates.NoTrainRunsCompleted)
         {
-            Unhighlight();
             CutsceneManager.Instance.PlayCutscene(cutscene, OnCutsceneEnd);
+            
+            Unhighlight();
+            CursorManager.ResetCursor();
         }
     }
 

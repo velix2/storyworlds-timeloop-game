@@ -102,15 +102,6 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MousePosition"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""4bf48a08-1ea4-47c9-8e65-07368499f3d4"",
-                    ""expectedControlType"": ""Vector3"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""PrimaryInteract"",
                     ""type"": ""Button"",
                     ""id"": ""03434c68-1914-486d-b60e-cdfb10cc4009"",
@@ -214,17 +205,6 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0b26d2b3-342a-4e09-a8b7-ccd76f299a9a"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MousePosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""0ee9b3f3-959b-4110-9002-5e7336950440"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -279,6 +259,34 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MousePosition"",
+            ""id"": ""e50a5665-9628-44c3-b4f9-582b8c7a2641"",
+            ""actions"": [
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""04ed4c0f-e285-4ae7-abd2-0dae2fdc18d8"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3b60c309-4b8c-4163-92c6-0e75139ca5c5"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -286,17 +294,20 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         // Standard
         m_Standard = asset.FindActionMap("Standard", throwIfNotFound: true);
         m_Standard_Movement = m_Standard.FindAction("Movement", throwIfNotFound: true);
-        m_Standard_MousePosition = m_Standard.FindAction("MousePosition", throwIfNotFound: true);
         m_Standard_PrimaryInteract = m_Standard.FindAction("PrimaryInteract", throwIfNotFound: true);
         m_Standard_SecondaryInteract = m_Standard.FindAction("SecondaryInteract", throwIfNotFound: true);
         m_Standard_InventoryOpen = m_Standard.FindAction("InventoryOpen", throwIfNotFound: true);
         m_Standard_InventoryClose = m_Standard.FindAction("InventoryClose", throwIfNotFound: true);
         m_Standard_HighlightAllInteractables = m_Standard.FindAction("HighlightAllInteractables", throwIfNotFound: true);
+        // MousePosition
+        m_MousePosition = asset.FindActionMap("MousePosition", throwIfNotFound: true);
+        m_MousePosition_MousePosition = m_MousePosition.FindAction("MousePosition", throwIfNotFound: true);
     }
 
     ~@PlayerInputStandard()
     {
         UnityEngine.Debug.Assert(!m_Standard.enabled, "This will cause a leak and performance issues, PlayerInputStandard.Standard.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_MousePosition.enabled, "This will cause a leak and performance issues, PlayerInputStandard.MousePosition.Disable() has not been called.");
     }
 
     /// <summary>
@@ -373,7 +384,6 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Standard;
     private List<IStandardActions> m_StandardActionsCallbackInterfaces = new List<IStandardActions>();
     private readonly InputAction m_Standard_Movement;
-    private readonly InputAction m_Standard_MousePosition;
     private readonly InputAction m_Standard_PrimaryInteract;
     private readonly InputAction m_Standard_SecondaryInteract;
     private readonly InputAction m_Standard_InventoryOpen;
@@ -394,10 +404,6 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Standard/Movement".
         /// </summary>
         public InputAction @Movement => m_Wrapper.m_Standard_Movement;
-        /// <summary>
-        /// Provides access to the underlying input action "Standard/MousePosition".
-        /// </summary>
-        public InputAction @MousePosition => m_Wrapper.m_Standard_MousePosition;
         /// <summary>
         /// Provides access to the underlying input action "Standard/PrimaryInteract".
         /// </summary>
@@ -447,9 +453,6 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @MousePosition.started += instance.OnMousePosition;
-            @MousePosition.performed += instance.OnMousePosition;
-            @MousePosition.canceled += instance.OnMousePosition;
             @PrimaryInteract.started += instance.OnPrimaryInteract;
             @PrimaryInteract.performed += instance.OnPrimaryInteract;
             @PrimaryInteract.canceled += instance.OnPrimaryInteract;
@@ -479,9 +482,6 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @MousePosition.started -= instance.OnMousePosition;
-            @MousePosition.performed -= instance.OnMousePosition;
-            @MousePosition.canceled -= instance.OnMousePosition;
             @PrimaryInteract.started -= instance.OnPrimaryInteract;
             @PrimaryInteract.performed -= instance.OnPrimaryInteract;
             @PrimaryInteract.canceled -= instance.OnPrimaryInteract;
@@ -530,6 +530,102 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="StandardActions" /> instance referencing this action map.
     /// </summary>
     public StandardActions @Standard => new StandardActions(this);
+
+    // MousePosition
+    private readonly InputActionMap m_MousePosition;
+    private List<IMousePositionActions> m_MousePositionActionsCallbackInterfaces = new List<IMousePositionActions>();
+    private readonly InputAction m_MousePosition_MousePosition;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "MousePosition".
+    /// </summary>
+    public struct MousePositionActions
+    {
+        private @PlayerInputStandard m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public MousePositionActions(@PlayerInputStandard wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "MousePosition/MousePosition".
+        /// </summary>
+        public InputAction @MousePosition => m_Wrapper.m_MousePosition_MousePosition;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_MousePosition; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="MousePositionActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(MousePositionActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="MousePositionActions" />
+        public void AddCallbacks(IMousePositionActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MousePositionActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MousePositionActionsCallbackInterfaces.Add(instance);
+            @MousePosition.started += instance.OnMousePosition;
+            @MousePosition.performed += instance.OnMousePosition;
+            @MousePosition.canceled += instance.OnMousePosition;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="MousePositionActions" />
+        private void UnregisterCallbacks(IMousePositionActions instance)
+        {
+            @MousePosition.started -= instance.OnMousePosition;
+            @MousePosition.performed -= instance.OnMousePosition;
+            @MousePosition.canceled -= instance.OnMousePosition;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="MousePositionActions.UnregisterCallbacks(IMousePositionActions)" />.
+        /// </summary>
+        /// <seealso cref="MousePositionActions.UnregisterCallbacks(IMousePositionActions)" />
+        public void RemoveCallbacks(IMousePositionActions instance)
+        {
+            if (m_Wrapper.m_MousePositionActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="MousePositionActions.AddCallbacks(IMousePositionActions)" />
+        /// <seealso cref="MousePositionActions.RemoveCallbacks(IMousePositionActions)" />
+        /// <seealso cref="MousePositionActions.UnregisterCallbacks(IMousePositionActions)" />
+        public void SetCallbacks(IMousePositionActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MousePositionActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MousePositionActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="MousePositionActions" /> instance referencing this action map.
+    /// </summary>
+    public MousePositionActions @MousePosition => new MousePositionActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Standard" which allows adding and removing callbacks.
     /// </summary>
@@ -544,13 +640,6 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMovement(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "MousePosition" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMousePosition(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "PrimaryInteract" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -586,5 +675,20 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHighlightAllInteractables(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "MousePosition" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="MousePositionActions.AddCallbacks(IMousePositionActions)" />
+    /// <seealso cref="MousePositionActions.RemoveCallbacks(IMousePositionActions)" />
+    public interface IMousePositionActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "MousePosition" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMousePosition(InputAction.CallbackContext context);
     }
 }
