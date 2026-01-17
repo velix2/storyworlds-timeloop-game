@@ -9,7 +9,7 @@ public class Sound : ScriptableObject
     private AudioClip[] clips;
     private AudioClip lastClip;
     
-    private void Inititialize()
+    /*private void Inititialize()
     {
         if (audios.Length == 0)
         {
@@ -33,16 +33,35 @@ public class Sound : ScriptableObject
         {
             lastClip = audios[0];
         }
-    }
+    }*/
     
 
     public AudioClip GetAudioClip()
     {
-        Inititialize();
+        /*Inititialize();
         if (audios.Length == 0) return null;
         int index = Random.Range(0, clips.Length - 1);
         AudioClip clip = clips[index];
         clips[index] = lastClip;
+        lastClip = clip;
+        return clip;*/
+
+        if (audios == null || audios.Length == 0)
+        {
+            Debug.LogError($"{name} has no audio clips!");
+            return null;
+        }
+
+        if (audios.Length == 1)
+            return audios[0];
+
+        AudioClip clip;
+        do
+        {
+            clip = audios[Random.Range(0, audios.Length)];
+        }
+        while (clip == lastClip);
+
         lastClip = clip;
         return clip;
     }
