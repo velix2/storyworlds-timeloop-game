@@ -11,6 +11,8 @@ public static class StateTracker
         DinerCompleted,
         NoTrainRunsCompleted,
         MotelCompleted,
+        LarryWaitingCompleted,
+        LarryCookingCompleted,
         LarryDinnerCompleted,
 
         // Original day
@@ -28,7 +30,6 @@ public static class StateTracker
         IntroCompleted,
     }
 
-    private static IntroStates _introState = IntroStates.Init;
 
     public static bool IsInIntro = true;
 

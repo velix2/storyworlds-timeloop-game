@@ -21,7 +21,7 @@ Da bist du ja! Lass uns rein gehen! #speaker:larry #emotion:HAPPY
 ... #pause: Larry und Marcus gehen die Treppe rauf und stellen sich vor die Tür
 Wie heißt du eigentlich? #speaker:larry #emotion:NORMAL
 Marcus. Und Sie? #speaker:marcus #emotion:NORMAL
-Ich bin der Laurence, aber du kannst Larry zu mir sagen!#speaker:Larry #emotion:HAPPY
+Ich bin der Laurence, aber du kannst Larry zu mir sagen!#speaker:larry #emotion:HAPPY
 Freut mich. #speaker:marcus #emotion:NORMAL
 Und sietzen brauchen wir uns doch auch nicht, oder? Zumindestens bin ich nicht der Mensch für sowas. #speaker:marcus #emotion:NORMAL
 Ich schätze, dass das in Ordnung ist. #speaker:marcus #emotion:NORMAL
