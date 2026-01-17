@@ -5,12 +5,12 @@ using Random = System.Random;
 
 public class FootstepSounds : MonoBehaviour
 {
-    private static bool staticsInitiated;
+    private static bool staticsInitiated = false;
 
-    private static Sound wetStep;
-    private static Sound woodStep;
-    private static Sound snowStep;
-    private static Sound tileStep;
+    private static SoundRepeating wetStep;
+    private static SoundRepeating woodStep;
+    private static SoundRepeating snowStep;
+    private static SoundRepeating tileStep;
 
     private AudioSource source1;
     private AudioSource source2;
@@ -30,10 +30,10 @@ public class FootstepSounds : MonoBehaviour
         UpdateTerrainTextureDetector();
         
         if (staticsInitiated) return;
-        wetStep = Resources.Load<Sound>("Sounds/Step Wet");
-        woodStep = Resources.Load<Sound>("Sounds/Step Wood");
-        snowStep = Resources.Load<Sound>("Sounds/Step Snow");
-        tileStep = Resources.Load<Sound>("Sounds/Step Tile");
+        wetStep = Resources.Load<SoundRepeating>("Sounds/Step Wet");
+        woodStep = Resources.Load<SoundRepeating>("Sounds/Step Wood");
+        snowStep = Resources.Load<SoundRepeating>("Sounds/Step Snow");
+        tileStep = Resources.Load<SoundRepeating>("Sounds/Step Tile");
 
         groundMask = LayerMask.GetMask("Ground");
         
