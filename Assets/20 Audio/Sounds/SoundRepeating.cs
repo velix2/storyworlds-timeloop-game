@@ -30,8 +30,6 @@ public class SoundRepeating : ScriptableObject
         if (possibleAudios.Length == 1) return possibleAudios[0];
         //(possibleAudios.Length > 1) => audioPooling;
         int index = Random.Range(0, audioPool.Length);
-
-        Debug.LogWarning(index);
         AudioClip clip = audioPool[index];
         audioPool[index] = lastClip;
         lastClip = clip;
