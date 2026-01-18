@@ -4,21 +4,36 @@ using UnityEngine;
 
 public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezable
 {
-    private enum RepairState
+    private enum CoffeeMachineRepairState
     {
         Broken,
         Repaired
     }
 
-    private RepairState _repairState = RepairState.Broken;
+    private bool IsQuestAvailable => !StateTracker.IsInIntro;
+
+    private CoffeeMachineRepairState _repairState = CoffeeMachineRepairState.Broken;
+    
+    private CoffeeMachineRepairState RepairState
+    {
+        get => _repairState;
+        set
+        {
+            _repairState = value;
+            smokeParticles.SetActive(_repairState == CoffeeMachineRepairState.Broken && IsQuestAvailable); // Update smoke particles
+        }
+    }
 
     [Space] [Header("Dialogues")] [SerializeField]
-    private string dialogueFreezeWhileBroken =
+    private string dialogueAnyInteractWhileIntro =
+        "Ohh, Kaffee... Wenn ich mehr Zeit hätte, würde ich mir einen genehmigen...";
+
+    [SerializeField] private string dialogueFreezeWhileBroken =
         "Zwecklos, die Maschine jetzt schon einzufrieren. Ich muss sie erst reparieren.";
 
     [SerializeField] private string dialogueFreezeWhileRepaired =
         "Spannend. Wenn das wirklich so funktioniert, wie ich mir das vorstelle, sollte die Kaffeemaschine morgen immer noch funktionieren...";
-    
+
     [SerializeField] private string dialogueUnfreeze =
         "Jetzt müsste der Effekt wieder aufgehoben sein. Morgen also kein Kaffee mehr.";
 
@@ -35,6 +50,9 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
 
     [SerializeField] private string dialogueRepairWhileRepaired =
         "Die Kaffeemaschine ist wieder funktionstüchtig, ich schraube lieber nicht weiter dran herum...";
+    
+    [Space] [SerializeField] private GameObject smokeParticles;
+    
 
 
     /// <summary>
@@ -53,82 +71,80 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
     public override interactionType Secondary => interactionType.LOOK;
     public override bool PrimaryNeedsInRange => true;
     public override bool SecondaryNeedsInRange => false;
+    
 
     private void Start()
     {
         thisFreezable = this;
-        
+
         // Check if this thing is frozen
         if (thisFreezable.CheckForStoredState(out var stateIndex))
         {
-            _repairState = (RepairState)stateIndex;
+            RepairState = (CoffeeMachineRepairState)stateIndex;
         }
     }
 
     public override void PrimaryInteraction()
     {
-        Say(_repairState is RepairState.Broken ? dialogueInspectWhileBroken : dialogueInspectWhileRepaired);
+        if (!IsQuestAvailable) Say(dialogueAnyInteractWhileIntro);
+        else Say(RepairState is CoffeeMachineRepairState.Broken ? dialogueInspectWhileBroken : dialogueInspectWhileRepaired);
     }
 
     public override void SecondaryInteraction()
     {
-        Say(_repairState is RepairState.Broken ? dialogueLookWhileBroken : dialogueLookWhileRepaired);
+        if (!IsQuestAvailable) Say(dialogueAnyInteractWhileIntro);
+        else Say(RepairState is CoffeeMachineRepairState.Broken ? dialogueLookWhileBroken : dialogueLookWhileRepaired);
     }
 
     public override bool ItemInteraction(ItemData otherItem)
     {
+        if (!IsQuestAvailable) return base.ItemInteraction(otherItem); // Default response during intro
+        
         if (otherItem.Equals(repairToolsItemData))
         {
-            if (_repairState is RepairState.Broken)
+            if (RepairState is CoffeeMachineRepairState.Broken)
             {
                 // Player repairs
                 Say(dialogueRepairWhileBroken);
 
-                _repairState = RepairState.Repaired;
+                RepairState = CoffeeMachineRepairState.Repaired;
 
                 return false;
             }
-            else
-            {
-                Say(dialogueRepairWhileRepaired);
 
-                return false;
-            }
+            Say(dialogueRepairWhileRepaired);
+
+            return false;
         }
-        else if (otherItem.Equals(freezeArtifact))
+
+        if (otherItem.Equals(freezeArtifact))
         {
             // Player wants to freeze
 
             // Check if machine is still broken
-            if (_repairState == RepairState.Broken)
+            if (RepairState == CoffeeMachineRepairState.Broken)
             {
                 Say(dialogueFreezeWhileBroken);
                 return false;
             }
-            else
+
+            // check if frozen -> unfreeze, else freeze
+            if (thisFreezable.CheckForStoredState(out _))
             {
-                // check if frozen -> unfreeze, else freeze
-                if (thisFreezable.CheckForStoredState(out _))
-                {
-                    Say(dialogueUnfreeze);
-                    thisFreezable.UnfreezeState();
+                Say(dialogueUnfreeze);
+                thisFreezable.UnfreezeState();
 
-                    return false;
-                }
-                else
-                {
-                    Say(dialogueFreezeWhileRepaired);
-                    thisFreezable.StoreState((int)_repairState);
-
-                    return false;
-                }
+                return false;
             }
+
+            Say(dialogueFreezeWhileRepaired);
+            thisFreezable.StoreState((int)RepairState);
+
+            return false;
         }
-        else
-        {
-            // Interacted with any other item -> default response
-            return base.ItemInteraction(otherItem);
-        }
+
+        // Interacted with any other item -> default response
+        return base.ItemInteraction(otherItem);
     }
 
 
@@ -140,7 +156,6 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
 
     private void Say(string s)
     {
-        // TODO replace with call to simple dialogue
-        Debug.Log("Marcus: " + s);
+        DialogueManager.Instance.EnterDialogueModeSimple(s);
     }
 }

@@ -230,8 +230,6 @@ namespace TimeManagement
             
             // Send a Pass Time signal with 0 mins just for proper set up of all events etc.
             PassTime(0);
-
-            // TODO all the other stuff we will need to do
         }
 
         #endregion

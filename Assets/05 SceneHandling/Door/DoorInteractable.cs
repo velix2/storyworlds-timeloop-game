@@ -35,9 +35,7 @@ namespace Doors
         {
             if (!isUnlocked)
             {
-                // TODO play dialogue
-                Debug.Log("Marcus: " + textToSayWhenDoorIsLocked);
-                //DialogueManager.Instance.EnterDialogueModeSimple(textToSayWhenDoorIsLocked);
+                DialogueManager.Instance.EnterDialogueModeSimple(textToSayWhenDoorIsLocked);
                 return;
             }
             SceneSwitcher.Instance.GoToScene(targetSceneName);
