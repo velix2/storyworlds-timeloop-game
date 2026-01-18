@@ -388,6 +388,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9f33014c975ca754b8c9a77438d73e6a, type: 2}
     - {fileID: 11400000, guid: eb2a61f70cb9b934e8cd9d7979b8b056, type: 2}
     - {fileID: 11400000, guid: 4d54d93e2156fee48a4bc93de31a4d98, type: 2}
+    - {fileID: 11400000, guid: 074df14a42a48324c80627ec32a0d6a7, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -468,6 +469,20 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 4900000, guid: d8fb764a372a12744bbd76998fe2d3d0, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5474325991842119153}
+          m_TargetAssemblyTypeName: FadeToBlack.FadeToBlackPanel, Assembly-CSharp
+          m_MethodName: FadeToBlack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -754,6 +769,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 341490827209761323, guid: 2a0211d57f40391c8939c2dae1023128, type: 3}
   m_PrefabInstance: {fileID: 4630303797663186026}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5474325991842119153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 845149206668951963, guid: 2a0211d57f40391c8939c2dae1023128, type: 3}
+  m_PrefabInstance: {fileID: 4630303797663186026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11036feebc0bacb7a8c467ba63b74484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeToBlack.FadeToBlackPanel
 --- !u!1001 &5163360978122016457
 PrefabInstance:
   m_ObjectHideFlags: 0
