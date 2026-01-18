@@ -1589,7 +1589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.110001
+      value: 5.117001
       objectReference: {fileID: 0}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5147,7 +5147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: stateToBePlayed
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: SceneToBeSwitchedTo
