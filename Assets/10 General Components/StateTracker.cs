@@ -12,7 +12,7 @@ public static class StateTracker
         NoTrainRunsCompleted,
         MotelCompleted,
         LarryWaitingCompleted,
-        LarryCookingCompleted,
+        LarrySweetHomeCompleted,
         LarryDinnerCompleted,
 
         // Original day
@@ -35,7 +35,7 @@ public static class StateTracker
 
     public static UnityEvent<IntroStates> OnIntroStateChanged = new UnityEvent<IntroStates>();
 
-    private static IntroStates _introState = IntroStates.Init;
+    private static IntroStates _introState = IntroStates.LarrySweetHomeCompleted;
 
     public static IntroStates IntroState
     {
