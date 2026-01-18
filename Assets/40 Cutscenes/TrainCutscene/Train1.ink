@@ -1,18 +1,23 @@
-Willkommen. Wie kann ich ihnen behilflich sein? #speaker:mary
+Willkommen in der Echo's Lake Train Station! #speaker:mary
 
 ... #pause: Camera schwenkt zu Mary und Marcus kommt rein
 
-Wann würde der nächste Zug fahren, wenn ich fragen dürfte? #speaker:marcus #emotion:NORMAL
-Es tut mir leid, aber ist das Gleis aufgrund des kommenden Schneesturms heute gesperrt. #speaker:mary
-Heute wird leider kein Zug mehr fahren. #speaker:mary
-... #speaker:marcus #emotion:ANGRY
-Wann würde das Gleis denn wieder freigegeben werden? #speaker:marcus #emotion:NORMAL
-Sobald der Sturm vorbeigezogen ist. Doch gerade leider bleibt uns nichts anderes übrig, als zu warten. #speaker:mary
+Ich würde gerne eine Fahrkarte für den nächsten Zug kaufen. #speaker:marcus #emotion:NORMAL
+Das können Sie tun, aber es ist noch nicht ganz klar, wann der nächste Zug fährt. #speaker:mary
+Was meinen Sie damit? #speaker:marcus #emotion:NORMAL
+Es hat uns eine Meldung erreicht, dass die Gleise aufgrund des kommenden Schneesturms leider nicht befahrbar sind. #speaker:mary
+Deswegen wird heute leider kein Zug mehr fahren. Wir können noch nicht so ganz sagen, wann sich der Zug wieder hier hochtraut. #speaker:mary
+Unsere wunderschönen Bergstrecken haben zwar eine fantastische Aussicht, sind aber nicht für Stürme geeignet. #speaker:mary
+... #speaker:marcus #emotion:NORMAL
+Obwohl unsere R180 Lokomotive normalerweise gut mit den Höhenunterschieden zurecht kommt, ist sie leider auch schon etwas älter... #speaker:mary
+...und rutscht bei solchem Wetter schnell den Berg wieder runter. Das können wir unseren Fahrgästen nicht zumuten. #speaker:mary
+Ah... Verstehe nun dann- #speaker:marcus #emotion:NERVOUS
+Für solche Fälle haben wir normalerweise unsere zuverlässige A500Neo - wir nennen sie Emma - aber die ist leider in Reparatur- #speaker:mary
 Verstehe. Ich bedanke mich für die Information. #speaker:marcus #emotion:NORMAL
 
 ... #pause: Marcus bereitet sich darauf vor zu gehen
 
 (Der Tag kann nicht noch schlimmer werden, oder?) #speaker:marcus #emotion:NORMAL
-(Es wäre fürs erste klüger, zum Motel in der Nähe zu gehen. Hoffentlich haben sie ein Zimmer für mich...) #speaker:marcus #emotion:NORMAL
+(Es wird langsam dunkel... Ich sollte mir ein Zimmer im Motel nehmen.) #speaker:marcus #emotion:NORMAL
 
 -> END
