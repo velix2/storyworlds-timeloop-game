@@ -1,26 +1,24 @@
 Echo's Lake... Endlich bin ich da. #speaker:marcus #emotion:NORMAL
-Es ist verdammt kalt hier... Noch kälter als daheim...  #speaker:marcus #emotion:NORMAL
-Am besten keine Zeit verschwenden und auf zu Oswald's Rarities. #speaker:marcus #emotion:NORMAL
+Es ist verdammt kalt hier... #speaker:marcus #emotion:NORMAL
+Am besten verschwende ich keine Zeit und gehe direkt los. #speaker:marcus #emotion:NORMAL
 
 ... #pause: Frau ruft an
 
-Hm? Oh, sie ist es wieder... #speaker:marcus #emotion:NERVOUS
+Hm? Oh, was will sie jetzt schon wieder? #speaker:marcus #emotion:NERVOUS
 + [Rangehen]
 -> call
-+ [Auflegen]
--> no_call
 
 
 ===call===
 Was gibt's? #speaker:marcus #emotion:NORMAL
-Marcus? Ich wollte fragen, wann du mal wieder zu Besuch kommst? Du warst lange nicht mehr daheim. #speaker:ex_frau
-Ich komme nächste Woche, davor muss ich noch etwas wichtiges erledigen. #speaker:marcus #emotion:NORMAL
-Kann das nicht warten? Leons Geburtstag ist bald und er vermisst dich schon sehr. #speaker:ex_frau
-Das geht nicht. Ich bin gerade auf einer heißen Spur und die Chance kann ich mir nicht entgehen lassen. Tschüss. #speaker:marcus #emotion:NORMAL
--> continue
-
-===no_call===
-Ich bin gerade nicht in Stimmung dafür... #speaker:marcus #emotion:NORMAL
+Marcus? Wo bist du? #speaker:ex_frau
+Ich bin gerade in Echo's Lake angekommen. #speaker:marcus #emotion:NORMAL
+Echo's Lake? Wo soll das denn sein? Du weißt aber schon, dass du nächste Woche dran bist, auf unseren Sohn aufzupassen, oder? #speaker:ex_frau
+Das ist mir bewusst. #speaker:marcus #emotion:NERVOUS
+Ach, ja? Das glaube ich wohl kaum. Letztes Mal warst du auch schon nicht da! #speaker:ex_frau
+Im Gegensatz zu dir, habe ich viel zu tun! Dieses Mal bin ich auf einer heißen Spur, die mir erheblich bei meiner Forschung helfen wird! #speaker:marcus #emotion:ANGRY
+Immer wieder deine ach so geliebte Arbeit. Und was ist mit L-... #speaker:ex_frau
+Ich muss jetzt auflegen. Tschüss. #speaker:marcus #emotion:NERVOUS
 -> continue
 
 
@@ -28,6 +26,6 @@ Ich bin gerade nicht in Stimmung dafür... #speaker:marcus #emotion:NORMAL
 ... #pause: Marcus legt auf
 
 ... #speaker:marcus #emotion:SAD
-Dann mal los. #speaker:marcus #emotion:NORMAL
+Dann mal los zu Oswald's Rarities. #speaker:marcus #emotion:NORMAL
 
 -> END

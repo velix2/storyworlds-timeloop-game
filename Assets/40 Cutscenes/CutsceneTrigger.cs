@@ -1,3 +1,4 @@
+using TimeManagement;
 using Unity.Cinemachine;
 using Unity.VectorGraphics;
 using UnityEngine;
@@ -11,12 +12,20 @@ public class CutsceneTrigger : MonoBehaviour
     [SerializeField] private TimelineAsset cutscene;
     [SerializeField] private StateTracker.IntroStates stateToBePlayed;
 
-    [Header("Additional Settings")]
+    [Header("Callback Back To MainCam")]
     [SerializeField] private bool SwitchBackToMainCamAfterCutscene = false;
+
+    [Header("Callback Switch Scene")]
     [SerializeField] private bool SwitchSceneAfterCutscene = false;
     [SerializeField] private string SceneToBeSwitchedTo;
+
+    [Header("Callback Get Item")]
     [SerializeField] private bool GetItemAfterCutscene = false;
     [SerializeField] private ItemData item;
+
+    [Header("Callback Progress Time")]
+    [SerializeField] private bool SkipTimeAfterCutscene = false;
+    [SerializeField] private int AmountInMinutes = 0;
 
     private void Start()
     {
@@ -93,6 +102,10 @@ public class CutsceneTrigger : MonoBehaviour
         {
             InventoryManager.Instance.AddItem(item);
             Debug.Log("Got the " + item.name);
+        }
+        if(SkipTimeAfterCutscene)
+        {
+            TimeHandler.PassTime(AmountInMinutes);
         }
         if(SwitchSceneAfterCutscene)
         {
