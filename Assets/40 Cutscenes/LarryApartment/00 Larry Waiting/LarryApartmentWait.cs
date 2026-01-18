@@ -36,7 +36,7 @@ public class LarryApartmentWait : InteractableTwoDimensional
 
     private void OnCutsceneEnd()
     {
-        CutsceneManager.CutsceneEnded -= OnCutsceneEnd;
+        //CutsceneManager.CutsceneEnded -= OnCutsceneEnd;
         StateTracker.IntroState = StateTracker.IntroStates.LarryWaitingCompleted;
         SceneSwitcher.Instance.GoToScene(nextScene);
     }
@@ -44,8 +44,11 @@ public class LarryApartmentWait : InteractableTwoDimensional
     
     public override void PrimaryInteraction()
     {
-        CutsceneManager.CutsceneEnded += OnCutsceneEnd;
-        CutsceneManager.Instance.PlayCutscene(larryWaitingCutscene);
+        //CutsceneManager.CutsceneEnded += OnCutsceneEnd;
+        CutsceneManager.Instance.PlayCutscene(larryWaitingCutscene, () =>
+        {
+            OnCutsceneEnd();
+        });
         Unhighlight();
         CursorManager.ResetCursor();
     }
