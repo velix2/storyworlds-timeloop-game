@@ -15846,11 +15846,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Signals.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: 'm_Events.m_Signals.Array.data[4]'
@@ -15869,6 +15869,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4d54d93e2156fee48a4bc93de31a4d98, type: 2}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: 'm_Events.m_Signals.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 074df14a42a48324c80627ec32a0d6a7, type: 2}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -15882,6 +15886,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[7].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
@@ -15901,6 +15909,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 700363758}
@@ -15917,6 +15929,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 700363758}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 700363759}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -15930,6 +15946,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
@@ -15949,6 +15969,10 @@ PrefabInstance:
       value: EnterDialogueMode
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeToBlack
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DialogueManager, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -15963,6 +15987,10 @@ PrefabInstance:
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DialogueManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FadeToBlack.FadeToBlackPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -15996,6 +16024,10 @@ PrefabInstance:
       propertyPath: m_Events.m_Events.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.TextAsset, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16012,6 +16044,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378360f93a61c4849b5ead722d50c5db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+--- !u!114 &700363759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5474325991842119153, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+  m_PrefabInstance: {fileID: 700363757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11036feebc0bacb7a8c467ba63b74484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeToBlack.FadeToBlackPanel
 --- !u!4 &702019248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6072440526105485870, guid: e81e270e049714a07a34139b3204dbe3, type: 3}
