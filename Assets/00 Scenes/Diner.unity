@@ -6288,7 +6288,7 @@ MonoBehaviour:
   GetItemAfterCutscene: 0
   item: {fileID: 0}
   SkipTimeAfterCutscene: 1
-  AmountInMinutes: 60
+  AmountInMinutes: 45
 --- !u!4 &1636897986
 Transform:
   m_ObjectHideFlags: 0
