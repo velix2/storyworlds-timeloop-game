@@ -389,6 +389,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: eb2a61f70cb9b934e8cd9d7979b8b056, type: 2}
     - {fileID: 11400000, guid: 4d54d93e2156fee48a4bc93de31a4d98, type: 2}
     - {fileID: 11400000, guid: 074df14a42a48324c80627ec32a0d6a7, type: 2}
+    - {fileID: 11400000, guid: 1e070466e0d4f134198090f7456bf87d, type: 2}
+    - {fileID: 11400000, guid: e0a651372cb353441845cca5097d3c70, type: 2}
+    - {fileID: 11400000, guid: b50837c290f49b4449330b50753331c2, type: 2}
+    - {fileID: 11400000, guid: 0e3b8802461aad64da73743f1a4579db, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -483,6 +487,62 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5184909577013347815}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: EnterDialogueMode
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 4900000, guid: 50dc93fc2da7d36419b8a9484164285f, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5184909577013347815}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: EnterDialogueMode
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 4900000, guid: 4a2b5069563e17247921c90e8b68caba, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5184909577013347815}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: EnterDialogueMode
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 4900000, guid: f23beba50f23a1545ba2a6b9836b5275, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5184909577013347815}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: EnterDialogueMode
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 4900000, guid: a9f2b94b9d581324888f346e3f75091a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

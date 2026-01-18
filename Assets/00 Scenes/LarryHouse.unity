@@ -2026,7 +2026,7 @@ PrefabInstance:
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: 'm_Events.m_Signals.Array.data[6]'
       value: 
-      objectReference: {fileID: 11400000, guid: b1f90a856388887488745064cce3038b, type: 2}
+      objectReference: {fileID: 11400000, guid: 074df14a42a48324c80627ec32a0d6a7, type: 2}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: 'm_Events.m_Signals.Array.data[7]'
       value: 
