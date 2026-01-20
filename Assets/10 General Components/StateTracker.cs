@@ -31,11 +31,11 @@ public static class StateTracker
     }
 
 
-    public static bool IsInIntro = true;
+    public static bool IsInIntro => IntroState != IntroStates.IntroCompleted;
 
     public static UnityEvent<IntroStates> OnIntroStateChanged = new UnityEvent<IntroStates>();
 
-    private static IntroStates _introState = IntroStates.LarrySweetHomeCompleted;
+    private static IntroStates _introState = IntroStates.IntroCompleted;
 
     public static IntroStates IntroState
     {

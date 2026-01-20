@@ -1,3 +1,4 @@
+using System.Collections;
 using TimeManagement;
 using UnityEngine;
 using UnityEngine.Timeline;
@@ -10,6 +11,10 @@ public class CouchInteractable : InteractableThreeDimensional
     [SerializeField] private string beforeDinner = "Hoffentlich wird das nicht mein Schlafplatz sein.";
     [SerializeField] private string afterDinner = "Mein Schlafplatz. Leider.";
     [SerializeField] private string duringTimeloop = "Mein Schlafplatz.";
+
+    [Space]
+    [SerializeField] private string goToSleepText = "Gute Nacht...";
+    
     
     
     public override interactionType Primary
@@ -39,7 +44,9 @@ public class CouchInteractable : InteractableThreeDimensional
         }
         else
         {
-            //TODO: Sleepy-time
+            DialogueManager.Instance.EnterDialogueModeSimple(goToSleepText);
+
+            StartCoroutine(SleepAfterDialogueClosed());
         }
     }
 
@@ -61,5 +68,13 @@ public class CouchInteractable : InteractableThreeDimensional
         { 
             DialogueManager.Instance.EnterDialogueModeSimple(duringTimeloop);
         }
+    }
+
+    private IEnumerator SleepAfterDialogueClosed()
+    {
+        yield return new WaitWhile(() => DialogueManager.Instance.SimpleDialogueIsPlaying);
+        
+        // Reset day
+        TimeHandler.PassTime(9999);
     }
 }
