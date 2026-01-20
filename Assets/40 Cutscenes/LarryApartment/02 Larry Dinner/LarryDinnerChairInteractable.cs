@@ -13,9 +13,9 @@ public class LarryDinnerChairInteractable : InteractableThreeDimensional
     
     public override void PrimaryInteraction()
     {
-        if (StateTracker.IntroState == StateTracker.IntroStates.LarrySweetHomeCompleted)
+        if ((int)StateTracker.IntroState == (int)StateTracker.IntroStates.LarrySweetHomeCompleted)
         {
-            CutsceneManager.Instance.PlayCutscene(cutscene);
+            CutsceneManager.Instance.PlayCutscene(cutscene, OnCutsceneEnd);
             CursorManager.ResetCursor();
             Unhighlight();
         }
@@ -25,12 +25,13 @@ public class LarryDinnerChairInteractable : InteractableThreeDimensional
         }
         
     }
+    
 
     public override void SecondaryInteraction(){}
 
     private void OnCutsceneEnd()
     {
-        StateTracker.IntroState = StateTracker.IntroStates.LarryDinnerCompleted;
+        StateTracker.IntroState = (StateTracker.IntroStates)((int)StateTracker.IntroState + 1);
     }
     
     

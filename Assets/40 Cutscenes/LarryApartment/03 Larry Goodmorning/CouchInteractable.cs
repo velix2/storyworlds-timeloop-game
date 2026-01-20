@@ -6,6 +6,8 @@ using UnityEngine.Timeline;
 public class CouchInteractable : InteractableThreeDimensional
 {
     [Header("Cutscene")] [SerializeField] private TimelineAsset firstSleepCutscene;
+    [SerializeField] private CharacterController playerCharacterController;
+    [SerializeField] private Collider collider;
 
     [Header("Observation Texts")] 
     [SerializeField] private string beforeDinner = "Hoffentlich wird das nicht mein Schlafplatz sein.";
@@ -35,9 +37,11 @@ public class CouchInteractable : InteractableThreeDimensional
     {
         if (StateTracker.IsInIntro)
         {
-            if (StateTracker.IntroState == StateTracker.IntroStates.LarryDinnerCompleted)
+            if ((int)StateTracker.IntroState == (int)StateTracker.IntroStates.LarryDinnerCompleted)
             {
-                CutsceneManager.Instance.PlayCutscene(firstSleepCutscene);
+                playerCharacterController.enabled = false;
+                collider.enabled = false;
+                CutsceneManager.Instance.PlayCutscene(firstSleepCutscene, OnCutsceneEnd);
                 CursorManager.ResetCursor();
                 Unhighlight();
             }
@@ -49,20 +53,22 @@ public class CouchInteractable : InteractableThreeDimensional
             StartCoroutine(SleepAfterDialogueClosed());
         }
     }
+    
+    private void OnCutsceneEnd()
+    {
+        playerCharacterController.enabled = true;
+        collider.enabled = true;
+        StateTracker.IntroState = (StateTracker.IntroStates)((int)StateTracker.IntroState + 1);
+    }
 
     public override void SecondaryInteraction()
     {
         if (StateTracker.IsInIntro)
         {
-            switch (StateTracker.IntroState)
+            if ((int)StateTracker.IntroState < (int)StateTracker.IntroStates.LarryDinnerCompleted)
             {
-                case StateTracker.IntroStates.LarrySweetHomeCompleted:
-                    DialogueManager.Instance.EnterDialogueModeSimple(beforeDinner);
-                    break;
-                default:
-                    DialogueManager.Instance.EnterDialogueModeSimple(afterDinner);
-                    break;
-            }
+                DialogueManager.Instance.EnterDialogueModeSimple(beforeDinner);
+            } else DialogueManager.Instance.EnterDialogueModeSimple(afterDinner);
         }
         else
         { 
