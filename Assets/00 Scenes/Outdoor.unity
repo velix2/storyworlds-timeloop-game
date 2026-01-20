@@ -16377,11 +16377,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Signals.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: 'm_Events.m_Signals.Array.data[4]'
@@ -16416,6 +16416,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 51171fb96e69bc747ac1690db783186d, type: 2}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: 'm_Events.m_Signals.Array.data[12]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 20e5b355c40e42d4488dff4cb1aa2545, type: 2}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -16445,6 +16449,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[11].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[12].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
@@ -16480,6 +16488,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 700363758}
@@ -16509,6 +16521,10 @@ PrefabInstance:
       objectReference: {fileID: 700363758}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 700363758}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 700363758}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
@@ -16572,6 +16588,10 @@ PrefabInstance:
       value: EnterDialogueMode
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnterDialogueMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DialogueManager, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -16604,6 +16624,10 @@ PrefabInstance:
       value: DialogueManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 4900000, guid: a9f2b94b9d581324888f346e3f75091a, type: 3}
@@ -16631,6 +16655,10 @@ PrefabInstance:
       propertyPath: m_Events.m_Events.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 4900000, guid: 929f9799ae83a5344ac2363b667b8069, type: 3}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 4900000, guid: 01c50dcaa34c18c4d990449b71383be2, type: 3}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.TextAsset, UnityEngine
@@ -16661,6 +16689,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Events.m_Events.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.TextAsset, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.TextAsset, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -49007,7 +49039,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 755561353031177292, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: speed
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 755561353031177292, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: cameraTransform
