@@ -18,14 +18,11 @@ public static class StateTracker
         // Original day
         SonCallCompleted,
         TimothyFirstEncounterCompleted,
-        //NoTrainRunsDayTwoCompleted,
         DinerWithRadioCompleted,
         DayReflectionCompleted,
 
         // First repeating day
         SonCallRepeatCompleted,
-        TimothyFirstEncounterCompletedRepeat,
-        //NoTrainRunsDayTwoRepeatCompleted,
         DinerWithRadioRepeatCompleted,
 
         IntroCompleted,

@@ -8528,7 +8528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneTrigger
   cutscene: {fileID: 11400000, guid: 873eb664a39df654c91c739586d5e838, type: 2}
-  stateToBePlayed: 14
+  stateToBePlayed: 13
   SwitchBackToMainCamAfterCutscene: 0
   SwitchSceneAfterCutscene: 1
   SceneToBeSwitchedTo: Outdoor
