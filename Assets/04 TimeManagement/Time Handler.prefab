@@ -45,15 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManagement.TimeHandler
   dayStartTimeInMinutes: 480
+  firstIntroDayStartTimeInMinutes: 735
   dayLengthInMinutes: 960
   morningBeginInMinutes: 480
   afternoonBeginInMinutes: 780
   eveningBeginInMinutes: 930
   nightBeginInMinutes: 1140
   onTimePassed:
-    m_PersistentCalls:
-      m_Calls: []
-  onDayEnded:
     m_PersistentCalls:
       m_Calls: []
   onDayPhaseChanged:

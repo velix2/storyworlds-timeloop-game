@@ -14,6 +14,13 @@ public class ReactiveSnowfall : DaytimePhaseChangeSubscriber<float>
 
     protected override void ApplyElement(float snowflakeMultiplier, DaytimePhase _)
     {
+        var shouldSnow = StateTracker.IntroState >= StateTracker.IntroStates.SonCallCompleted;
+           
+        // No snow on intro first day
+        if (!shouldSnow) _particleSystem.Stop();
+        // Resume snow else
+        else if (_particleSystem.isStopped) _particleSystem.Play();
+        
         var emission = _particleSystem.emission;
         emission.rateOverTimeMultiplier = snowflakeMultiplier;
     }

@@ -18,6 +18,9 @@ namespace TimeManagement
         /// </summary>
         [Tooltip("Defines at what time the game day starts in minutes, i.e. 8*60 = 8:00")] [SerializeField]
         private int dayStartTimeInMinutes = 8 * 60;
+        
+        [Tooltip("Defines at what time the first intro day starts in minutes, i.e. 12*60 = 12:00")] [SerializeField]
+        private int firstIntroDayStartTimeInMinutes = 12 * 60;
 
         /// <summary>
         /// Defines how long a game day is, i.e. after how many in game minutes the day resets
@@ -81,7 +84,7 @@ namespace TimeManagement
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            CurrentTime = dayStartTimeInMinutes;
+            CurrentTime = firstIntroDayStartTimeInMinutes;
         }
 
         #endregion
