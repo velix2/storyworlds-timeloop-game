@@ -23,6 +23,7 @@ public static class StateTracker
 
         // First repeating day
         SonCallRepeatCompleted,
+        NoTrainRuns2Completed,
         DinerWithRadioRepeatCompleted,
 
         IntroCompleted,
