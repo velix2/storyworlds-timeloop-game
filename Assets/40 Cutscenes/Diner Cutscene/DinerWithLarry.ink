@@ -28,13 +28,12 @@ Wenn das für dich in Ordnung ist, dann würde ich dein Angebot erneut annehmen.
 
 ... #pause: Emmy bringt Marcus sein Essen 
 
-Hier ist der Kaffee. #speaker:emmy #emotion:HAPPY
-
 Larry, du solltest besser arbeiten. Mein Vater ist heute da und wenn er dich beim Faulenzen erwischt, haben wir ein Problem. #speaker:emmy #emotion:NORMAL
 Ich faulenze doch gar nicht... #speaker:larry #emotion:SAD
 Auf jeden Fall, wir sehen uns dann, Marcus! #speaker:larry #emotion:HAPPY
 
 ... #pause: Emmy und Larry gehen wieder während Kamera wieder auf Marcus fokussiert
 
-
+Vielleicht kann ich die Chance nutzen, um mich in der Stadt umzusehen... #speaker:marcus #emotion:NORMAL
+Danach leg ich mich am besten wieder auf Larry Coach. #speaker:marcus #semotion:NERVOUS
 -> END

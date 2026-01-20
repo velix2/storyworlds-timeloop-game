@@ -23,12 +23,10 @@ Und wie können wir den Tag besser verbringen als mit Musik. Lauschen sie dem ne
 Marcus! Ich dachte, du würdest gehen, aber dass du mich jetzt schon vermisst, hätte ich nicht gedacht! #speaker:larry #emotion:HAPPY
 Das Gleis ist wegen dem Schneefall noch unbefahrbar... Das heißt, ich sitze hier noch ein Weilchen fest... #speaker:marcus #emotion:ANGRY
 Oh. Das klingt nicht gut. Wenn du magst, kannst du noch eine Nacht bei mir übernachten! #speaker:larry #emotion:NORMAL
-Ich habe nie etwas gegen mehr Gesellschaft! #speaker:marcus #emotion:HAPPY
+Ich habe nie etwas gegen mehr Gesellschaft! #speaker:larry #emotion:HAPPY
 Wenn das für dich in Ordnung ist, dann würde ich dein Angebot erneut annehmen. #speaker:marcus #emotion:NORMAL
 
 ... #pause: Emmy bringt Marcus sein Essen 
-
-Hier ist der Kaffee. #speaker:emmy #emotion:HAPPY
 
 Larry, du solltest besser arbeiten. Mein Vater ist heute da und wenn er dich beim Faulenzen erwischt, haben wir ein Problem. #speaker:emmy #emotion:NORMAL
 Ich faulenze doch gar nicht... #speaker:larry #emotion:SAD
@@ -36,5 +34,6 @@ Auf jeden Fall, wir sehen uns dann, Marcus! #speaker:larry #emotion:HAPPY
 
 ... #pause: Emmy und Larry gehen wieder während Kamera wieder auf Marcus fokussiert
 
-
+Vielleicht kann ich die Chance nutzen, um mich in der Stadt umzusehen... #speaker:marcus #emotion:NORMAL
+Danach leg ich mich am besten wieder auf Larrys Coach. #speaker:marcus #emotion:NERVOUS
 -> END
