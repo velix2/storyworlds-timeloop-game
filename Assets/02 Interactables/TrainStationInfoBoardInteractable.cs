@@ -3,6 +3,7 @@ using UnityEngine;
 public class TrainStationInfoBoardInteractable : InteractableThreeDimensional
 {
     [SerializeField] private string beforeNoTrainRuns2Dialogue;
+    [SerializeField] private string onNoTrainRuns2Dialogue;
     [SerializeField] private string afterNoTrainRuns2Dialogue;
     
     
@@ -12,8 +13,20 @@ public class TrainStationInfoBoardInteractable : InteractableThreeDimensional
     public override bool SecondaryNeedsInRange => true;
     public override void PrimaryInteraction()
     {
-        DialogueManager.Instance.EnterDialogueModeSimple(StateTracker.IntroState >= StateTracker.IntroStates.SonCallRepeatCompleted ? afterNoTrainRuns2Dialogue : beforeNoTrainRuns2Dialogue);
-        
+        switch (StateTracker.IntroState)
+        {
+            // Also allow state afterwards for repeating interact
+            case StateTracker.IntroStates.SonCallRepeatCompleted or StateTracker.IntroStates.NoTrainRuns2Completed:
+                DialogueManager.Instance.EnterDialogueModeSimple(onNoTrainRuns2Dialogue);
+                break;
+            case < StateTracker.IntroStates.SonCallRepeatCompleted:
+                DialogueManager.Instance.EnterDialogueModeSimple(beforeNoTrainRuns2Dialogue);
+                break;
+            default:
+                DialogueManager.Instance.EnterDialogueModeSimple(afterNoTrainRuns2Dialogue);
+                break;
+        }
+
         // increment to the next intro state
         if (StateTracker.IntroState is StateTracker.IntroStates.SonCallRepeatCompleted) StateTracker.IntroState = StateTracker.IntroStates.NoTrainRuns2Completed;
     }

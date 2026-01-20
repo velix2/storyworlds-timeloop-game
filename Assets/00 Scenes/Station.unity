@@ -3565,6 +3565,8 @@ MonoBehaviour:
   inRange: 0
   mode: 0
   beforeNoTrainRuns2Dialogue: "Kein Zug f\xE4hrt... Verdammt!"
+  onNoTrainRuns2Dialogue: "Immer noch kein Zug, das gibt es doch nicht! Ich sollte
+    ins Diner schauen. vielleicht wei\xDF da wer irgendwas..."
   afterNoTrainRuns2Dialogue: Immer noch kein Zug, das gibt es doch nicht!
 --- !u!1001 &1265057509
 PrefabInstance:
