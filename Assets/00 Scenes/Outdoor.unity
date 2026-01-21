@@ -50196,7 +50196,10 @@ PrefabInstance:
       addedObject: {fileID: 5661750012972072786}
     - targetCorrespondingSourceObject: {fileID: 7686020654094555759, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5661750012972072785}
+      addedObject: {fileID: 5661750012972072787}
+    - targetCorrespondingSourceObject: {fileID: 7686020654094555759, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5661750012972072793}
   m_SourcePrefab: {fileID: 100100000, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
 --- !u!4 &5661750012972072783 stripped
 Transform:
@@ -50208,25 +50211,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7686020654094555759, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
   m_PrefabInstance: {fileID: 5661750012972072782}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5661750012972072785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5661750012972072784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e54215b89c124224b6b1c0390c437497, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneHandling.DoorInteractable
-  inRange: 0
-  mode: 0
-  isLockOverriden: 0
-  lockedOnOverride: 0
-  textToSayWhenDoorIsLocked: Zugesperrt...
-  targetSceneName: Library
-  timePhasesUnlocked: []
 --- !u!114 &5661750012972072786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50245,6 +50229,58 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &5661750012972072787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661750012972072784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f2d81afedb4716ad20dc0aebaa6717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Doors.DoorOverrideOnCutsceneExtension
+  whenToOverride:
+  - introState: 0
+    isDoorUnlocked: 0
+  - introState: 1
+    isDoorUnlocked: 0
+  - introState: 2
+    isDoorUnlocked: 0
+  - introState: 3
+    isDoorUnlocked: 0
+  - introState: 4
+    isDoorUnlocked: 0
+  - introState: 5
+    isDoorUnlocked: 0
+  - introState: 6
+    isDoorUnlocked: 0
+  - introState: 7
+    isDoorUnlocked: 0
+  - introState: 8
+    isDoorUnlocked: 0
+--- !u!114 &5661750012972072793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661750012972072784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54215b89c124224b6b1c0390c437497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Doors.TimedLockableDoorInteractable
+  inRange: 0
+  mode: 0
+  isLockOverriden: 0
+  lockedOnOverride: 0
+  textToSayWhenDoorIsLocked: Die Bibliothek hat geschlossen...
+  targetSceneName: Library
+  timePhasesUnlocked:
+  - startTime: 600
+    endTime: 1140
 --- !u!1001 &5825589739050950773
 PrefabInstance:
   m_ObjectHideFlags: 0
