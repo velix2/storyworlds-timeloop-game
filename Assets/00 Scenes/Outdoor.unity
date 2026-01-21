@@ -48657,6 +48657,31 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2119287606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119287599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f2d81afedb4716ad20dc0aebaa6717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Doors.DoorOverrideOnCutsceneExtension
+  whenToOverride:
+  - introState: 0
+    isDoorUnlocked: 0
+  - introState: 1
+    isDoorUnlocked: 0
+  - introState: 2
+    isDoorUnlocked: 0
+  - introState: 3
+    isDoorUnlocked: 0
+  - introState: 4
+    isDoorUnlocked: 0
+  - introState: 5
+    isDoorUnlocked: 0
 --- !u!1001 &2121868900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49724,9 +49749,11 @@ MonoBehaviour:
   mode: 0
   isLockOverriden: 0
   lockedOnOverride: 0
-  textToSayWhenDoorIsLocked: Zugesperrt...
+  textToSayWhenDoorIsLocked: Hat geschlossen...
   targetSceneName: RarityShop
-  timePhasesUnlocked: []
+  timePhasesUnlocked:
+  - startTime: 660
+    endTime: 1140
 --- !u!114 &2320877398184429393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49836,7 +49863,9 @@ MonoBehaviour:
   lockedOnOverride: 0
   textToSayWhenDoorIsLocked: Zugesperrt...
   targetSceneName: Diner
-  timePhasesUnlocked: []
+  timePhasesUnlocked:
+  - startTime: 480
+    endTime: 1320
 --- !u!114 &2539060483133694292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49996,6 +50025,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2686056532150298488, guid: c587a9ddce3d330f9b3e9a7651bb7d10, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2119287604}
+    - targetCorrespondingSourceObject: {fileID: 2686056532150298488, guid: c587a9ddce3d330f9b3e9a7651bb7d10, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2119287606}
   m_SourcePrefab: {fileID: 100100000, guid: c587a9ddce3d330f9b3e9a7651bb7d10, type: 3}
 --- !u!1001 &4601429549085622568
 PrefabInstance:
