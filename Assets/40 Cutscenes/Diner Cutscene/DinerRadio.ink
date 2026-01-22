@@ -8,23 +8,26 @@ Marcus schaut in die Speisekarte. #speaker:narrator
 ... #pause: Emmy kommt in die Szene
 
 Was darf ich Ihnen dieses Mal bringen? #speaker:emmy #emotion:HAPPY
-Einen Kaffee, bitte. #speaker:marcus #emotion:NORMAL
+Einen Kaffee und einen American Diner Omelette, bitte. #speaker:marcus #emotion:NORMAL
+Unsere Kaffeemaschine ist kaputt gegangen und der Mechaniker kommt erst morgen. #speaker:emmy #emotion:SAD
+Deswegen können wir heute leider keinen Kaffee servieren. #speaker:emmy #emotion:SAD
+Verstehe. Dann einen Tee, bitte. #speaker:marcus #emotion:NORMAL
 Kommt sofort. #speaker:emmy #emotion:HAPPY
 
 ... #pause: Emmy verlässt die Szene und Kamera schwenkt zum Radio und zurück
 
 Einen wunderschönen guten Morgen, Echo's Lake! Es ist Mittwoch und das Schneetreiben hat noch immer nicht nachgelasssen. #speaker:radio
-Also braucht ihr nicht einmal daran zu denken, das Auto freizumachen! Das gilt natürlich auch für Züge! #speaker:radio
-Und wie können wir den Tag besser verbringen als mit Musik. Lauschen sie dem neuesten Hit 'Snow Patrol'! #speaker:radio
-(Jetzt muss ich mich wohl wieder um einen neuen Schlafplatz kümmern. Wie lästig...) #speaker:marcus #emotion:NERVOUS
+Die lokalen Straßen und Strecken sind noch immer komplett zugeschüttet! #speaker:radio
+Also denkt nicht einmal daran, das Auto freizuräumen! Das gilt natürlich auch für Züge! #speaker:radio
+Aber keine Sorge, Echo's Lake Radio weiß wie es euch den Tag schöner machen kann! Lauscht dem neuesten Hit: 'Snow Patrol'! #speaker:radio
 
 ... #pause: Larry kommt in die Szene
 
 Marcus! Ich dachte, du würdest gehen, aber dass du mich jetzt schon vermisst, hätte ich nicht gedacht! #speaker:larry #emotion:HAPPY
 Das Gleis ist wegen dem Schneefall noch unbefahrbar... Das heißt, ich sitze hier noch ein Weilchen fest... #speaker:marcus #emotion:ANGRY
-Oh. Das klingt nicht gut. Wenn du magst, kannst du noch eine Nacht bei mir übernachten! #speaker:larry #emotion:NORMAL
-Ich habe nie etwas gegen mehr Gesellschaft! #speaker:larry #emotion:HAPPY
-Wenn das für dich in Ordnung ist, dann würde ich dein Angebot erneut annehmen. #speaker:marcus #emotion:NORMAL
+Oh. Das klingt nicht gut. Wenn du magst, kannst du noch eine Nacht bei mir verbringen! #speaker:larry #emotion:NORMAL
+Dann würde ich dein Angebot erneut annehmen. #speaker:marcus #emotion:NORMAL
+Super! Ich habe nie etwas gegen mehr Gesellschaft! #speaker:larry #emotion:HAPPY
 
 ... #pause: Emmy bringt Marcus sein Essen 
 
@@ -34,6 +37,6 @@ Auf jeden Fall, wir sehen uns dann, Marcus! #speaker:larry #emotion:HAPPY
 
 ... #pause: Emmy und Larry gehen wieder während Kamera wieder auf Marcus fokussiert
 
-Vielleicht kann ich die Chance nutzen, um mich in der Stadt umzusehen... #speaker:marcus #emotion:NORMAL
-Danach leg ich mich am besten wieder auf Larrys Coach. #speaker:marcus #emotion:NERVOUS
+(Vielleicht kann ich die Chance nutzen, um mich in der Stadt umzusehen...) #speaker:marcus #emotion:NORMAL
+(Danach lege ich mich am besten wieder auf Larrys Coach...) #speaker:marcus #emotion:NERVOUS
 -> END

@@ -19,12 +19,12 @@ public static class StateTracker
         SonCallCompleted,
         TimothyFirstEncounterCompleted,
         DinerWithRadioCompleted,
-        DayReflectionCompleted,
 
         // First repeating day
         SonCallRepeatCompleted,
         NoTrainRuns2Completed,
         DinerWithRadioRepeatCompleted,
+        EverythingRepeatsCompleted,
 
         IntroCompleted,
     }
@@ -34,7 +34,7 @@ public static class StateTracker
 
     public static UnityEvent<IntroStates> OnIntroStateChanged = new UnityEvent<IntroStates>();
 
-    private static IntroStates _introState = IntroStates.LarryDinnerCompleted;
+    private static IntroStates _introState = IntroStates.TimothyFirstEncounterCompleted;
 
     public static IntroStates IntroState
     {
