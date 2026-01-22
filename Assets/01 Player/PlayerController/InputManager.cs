@@ -66,6 +66,11 @@ public class InputManager : MonoBehaviour
         return _instance.playerControls.MousePosition.MousePosition.ReadValue<Vector2>();
     }
 
+    public static bool GetSprinting()
+    {
+        return _instance.playerControls.Standard.Sprint.ReadValue<float>() >= 0.1f;
+    }
+
     private void SignalPrimaryInteraction(InputAction.CallbackContext context)
     {
         PrimaryInteraction?.Invoke(GetMousePosition());
