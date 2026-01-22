@@ -56,14 +56,14 @@ public class CouchInteractable : InteractableThreeDimensional
     
     private void OnCutsceneEnd()
     {
-        StateTracker.IntroState = (StateTracker.IntroStates)((int)StateTracker.IntroState + 1);
+        if (StateTracker.IsInIntro) StateTracker.IntroState++;
+        
         //TODO: do a better day reset
         TimeHandler.PassTime(9999);
     }
     
     private void Start()
     {
-        print(newDayBegins);
         if (newDayBegins)
         {
             StartCoroutine(SonCall());
