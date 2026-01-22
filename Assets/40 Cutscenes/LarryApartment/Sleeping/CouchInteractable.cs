@@ -6,8 +6,6 @@ using UnityEngine.Timeline;
 public class CouchInteractable : InteractableThreeDimensional
 {
     [Header("Cutscene")] [SerializeField] private TimelineAsset firstSleepCutscene;
-    [SerializeField] private CharacterController playerCharacterController;
-    [SerializeField] private Collider collider;
 
     [Header("Observation Texts")] 
     [SerializeField] private string beforeDinner = "Hoffentlich wird das nicht mein Schlafplatz sein.";
@@ -23,7 +21,7 @@ public class CouchInteractable : InteractableThreeDimensional
     {
         get
         {
-            if (!StateTracker.IsInIntro || StateTracker.IntroState == StateTracker.IntroStates.LarrySweetHomeCompleted)
+            if (!StateTracker.IsInIntro || StateTracker.IntroState == StateTracker.IntroStates.LarryDinnerCompleted)
             {
                 return interactionType.GRAB;
             }
@@ -39,8 +37,6 @@ public class CouchInteractable : InteractableThreeDimensional
         {
             if ((int)StateTracker.IntroState == (int)StateTracker.IntroStates.LarryDinnerCompleted)
             {
-                playerCharacterController.enabled = false;
-                collider.enabled = false;
                 CutsceneManager.Instance.PlayCutscene(firstSleepCutscene, OnCutsceneEnd);
                 CursorManager.ResetCursor();
                 Unhighlight();
@@ -49,16 +45,15 @@ public class CouchInteractable : InteractableThreeDimensional
         else
         {
             DialogueManager.Instance.EnterDialogueModeSimple(goToSleepText);
-
             StartCoroutine(SleepAfterDialogueClosed());
         }
     }
     
     private void OnCutsceneEnd()
     {
-        playerCharacterController.enabled = true;
-        collider.enabled = true;
         StateTracker.IntroState = (StateTracker.IntroStates)((int)StateTracker.IntroState + 1);
+        TimeHandler.PassTime(9999);
+        
     }
 
     public override void SecondaryInteraction()

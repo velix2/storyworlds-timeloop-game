@@ -192,9 +192,11 @@ public class AudioManager : MonoBehaviour
     {
         mainCamera = Camera.main?.transform;
     }
+    
 
     private void LateUpdate()
     {
+        if (mainCamera == null) return;
         musicSource1.transform.position = mainCamera.position;
         musicSource2.transform.position = mainCamera.position;
     }
