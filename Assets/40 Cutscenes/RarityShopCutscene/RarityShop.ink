@@ -10,7 +10,7 @@ Oh ja, richtig! #speaker:oswald #emotion:NORMAL
 ...  #speaker:marcus #emotion:NORMAL
 ... #speaker:oswald #emotion:NERVOUS
 Was ist nun mit dem Amulett? #speaker:marcus #emotion:NORMAL
-Ach ja, das Schmuckstück, von dem man sich nachsagt, es habe magische Kräfte![nl]Für jeden Sammler ein Must-Have!#speaker:oswald #emotion:NORMAL
+Ach ja, das Schmuckstück, von dem man sich nachsagt, es habe magische Kräfte! Für jeden Sammler ein Must-Have!#speaker:oswald #emotion:NORMAL
 Es gibt aber keine Rückgabegarantie! #speaker:oswald #emotion:HAPPY
 Sparen Sie mir bitte die Details. Wo ist es? #speaker:marcus #emotion:NORMAL
 ...#speaker:oswald #emotion:NERVOUS
@@ -22,15 +22,15 @@ Wollen Sie mich veralbern? Da fehlt ja die Hälfte! #speaker:marcus #emotion:ANG
 Nun, schauen Sie mich doch nicht so dämonisch an, sonst verscheuchen Sie noch alle guten Geister!#speaker:oswald #emotion:NERVOUS
 Falls Sie wollen, gebe ich Ihnen noch als Bonus dieses andere Schmuckstück kostenlos mit. Das ist doch ein Schnapper, oder?#speaker:oswald #emotion:HAPPY
 ... #speaker:marcus #emotion:ANGRY
-Okay, ich verstehe.#speaker:oswald #emotion:NERVOUS
+Okay, ich verstehe. #speaker:oswald #emotion:NERVOUS
 Wissen Sie, die Sache ist die... Ich, alter Mann, wachte an einem friedlichen Freitagmorgen auf... #speaker:oswald #emotion:NERVOUS
-Es war Freitag, der Dreizehnte. Damit hatte das Schicksal also bereits bestimmt, dass ich vom Pech verfolgt werden würde- #speaker:oswald #emotion:NERVOUS
-Du hast sie verloren? #speaker:marcus #emotion:ANGRY
-Verloren ist der falsche Begriff! Es wurde mir gestohlen! Ich habe ihn auf frischer Tat ertappt... #speaker:oswald #emotion:NERVOUS
-... Nur leider konnte ich ihn nur teilweise aufhalten.#speaker:oswald #emotion:NERVOUS
+Es war Freitag der Dreizehnte. Damit hatte das Schicksal also bereits bestimmt, dass ich vom Pech verfolgt werden würde- #speaker:oswald #emotion:NERVOUS
+Du hast es verloren? #speaker:marcus #emotion:ANGRY
+Verloren ist der falsche Begriff! Es wurde mir gestohlen! Ich hatte den Dieb auf frischer Tat ertappt! #speaker:oswald #emotion:NERVOUS
+... Nur leider konnte ich ihn nur teilweise aufhalten. #speaker:oswald #emotion:NERVOUS
 ... #speaker:marcus #emotion:NORMAL
 Und deshalb ist Ihre Ware auch in diesem Zustand, mein Herr. Ich verfluche diesen Dieb! #speaker:oswald #emotion:NORMAL
-\*Seufz\*.[nl]Dann nehm ich halt nur die Hälfte...#speaker:marcus #emotion:NORMAL
+\*Seufz\*.[nl]Dann nehm ich halt nur die Hälfte... #speaker:marcus #emotion:NORMAL
 Das freut mich. Das macht dann 3000 Dollar! #speaker:oswald #emotion:HAPPY
 ... #speaker:marcus #emotion:ANGRY
 3-300! Ich meinte natürlich 300 Dollar. Das war nur ein Scherz! Nur ein kleiner Insider zwischen Sammlern! #speaker:oswald #emotion:NERVOUS

@@ -17,10 +17,12 @@ Alles klar. Kommt sofort. #speaker:emmy #emotion:HAPPY
 ... #speaker:marcus #emotion:NORMAL
 (In diesem Diner sieht es gar nicht so schlecht aus.) #speaker:marcus #emotion:NORMAL
 Während Marcus wartet, holt er das Amulett aus seiner Tasche und betrachtet es. #speaker:narrator
-(Es ist bedauerlich, dass ich nicht beide Artefakte erwerben konnte. Aber das ist wohl besser als nichts.) #speaker:marcus #emotion:NORMAL
+(Es ist bedauerlich, dass ich nur die eine Hälfte erwerben konnte. Aber das ist wohl besser als nichts.) #speaker:marcus #emotion:NORMAL
 (Sobald ich wieder im Labor bin, sollte ich es sofort untersuchen.) #speaker:marcus #emotion:NORMAL
 (Es könnte der Hinweis sein, auf den ich schon so lange gewartet habe...) #speaker:marcus #emotion:NORMAL
-(Dennoch frage ich mich, wer das andere gestohlen haben könnte...) #speaker:marcus #emotion:NORMAL
+(Dennoch frage ich mich, wer die andere Hälfte gestohlen haben könnte.) #speaker:marcus #emotion:NORMAL
+(Ein Dieb soll bei Oswald eingebrochen sein, was?) #speaker:marcus #emotion:NORMAL
+(Wer weiß, wie sehr man der Aussage dieses alten Mannes Glauben schenken darf.) #speaker:marcus #emotion:NORMAL
 
 ... #pause: Emmy bringt Marcus sein Essen
 

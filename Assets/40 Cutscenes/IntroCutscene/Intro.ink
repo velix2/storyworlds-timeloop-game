@@ -1,5 +1,6 @@
 Echo's Lake... Endlich bin ich da. #speaker:marcus #emotion:NORMAL
 Es ist verdammt kalt hier... #speaker:marcus #emotion:NORMAL
+Oswald's Rarities sollte um diese Uhrzeit offen haben. #speaker:marcus #emotion:NORMAL
 Am besten verschwende ich keine Zeit und gehe direkt los. #speaker:marcus #emotion:NORMAL
 
 ... #pause: Frau ruft an
@@ -16,8 +17,8 @@ Ich bin gerade in Echo's Lake angekommen. #speaker:marcus #emotion:NORMAL
 Echo's Lake? Wo soll das denn sein? Du weißt aber schon, dass du nächste Woche dran bist, auf unseren Sohn aufzupassen, oder? #speaker:ex_frau
 Das ist mir bewusst. #speaker:marcus #emotion:NERVOUS
 Ach, ja? Das glaube ich wohl kaum. Letztes Mal warst du auch schon nicht da! #speaker:ex_frau
-Im Gegensatz zu dir, habe ich viel zu tun! Dieses Mal bin ich auf einer heißen Spur, die mir erheblich bei meiner Forschung helfen wird! #speaker:marcus #emotion:ANGRY
-Immer wieder deine ach so geliebte Arbeit. Und was ist mit L-... #speaker:ex_frau
+Im Gegensatz zu dir, habe ich viel zu tun! #speaker:marcus #emotion:ANGRY
+Lass mich raten, es geht wieder um deine ach so geliebte Forschung! Und was ist mit L-... #speaker:ex_frau
 Ich muss jetzt auflegen. Tschüss. #speaker:marcus #emotion:NERVOUS
 -> continue
 
