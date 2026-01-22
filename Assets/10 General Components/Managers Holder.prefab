@@ -101,6 +101,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d66ac9bdba2a5f1498957d1a742a21a9, type: 2}
   - {fileID: 11400000, guid: 7c34e088864db964c9748fbbc40588f4, type: 2}
   - {fileID: 11400000, guid: 60e41c6dd1bdb15408c11aec93c010d5, type: 2}
+  - {fileID: 11400000, guid: e12db35e52c0ec841b5fa9a6a14fe0cc, type: 2}
 --- !u!1 &3160639045422419374
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +397,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0e3b8802461aad64da73743f1a4579db, type: 2}
     - {fileID: 11400000, guid: 51171fb96e69bc747ac1690db783186d, type: 2}
     - {fileID: 11400000, guid: 20e5b355c40e42d4488dff4cb1aa2545, type: 2}
+    - {fileID: 11400000, guid: 296cb49fb854fa3469cb1f7bccbb5dfe, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -573,6 +575,20 @@ MonoBehaviour:
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 4900000, guid: 01c50dcaa34c18c4d990449b71383be2, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5184909577013347815}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: EnterDialogueMode
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 4900000, guid: 748f4a2fc870a3d4fba0acff3c5a9b76, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
