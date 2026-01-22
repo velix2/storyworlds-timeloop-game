@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0079dfd13db21974d89d7fe528a8368c
+guid: 0a7a8de49208c6b44bb8c05a18d24dc6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cursor_0
+      name: CursorSpritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,14 +112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07d6bddbebd40f344bd23c2d38db4185
-      internalID: -984279655
+      spriteID: 366f8d34a158b3441b7e108bd9b28564
+      internalID: 1171424181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_1
+      name: CursorSpritesheet_1
       rect:
         serializedVersion: 2
         x: 48
@@ -134,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffafc36d6b36b3c44a9e3033d69e6a20
-      internalID: -421571060
+      spriteID: 68d6a7c748652af44b2c0fa1eb5bf4c5
+      internalID: -475157184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_2
+      name: CursorSpritesheet_2
       rect:
         serializedVersion: 2
         x: 96
@@ -156,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bcf3956c8ac8c4489ff51efab9bdd3c
-      internalID: -732723434
+      spriteID: 3386f05b6c846c642980b7a1bfc30628
+      internalID: 715574328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_3
+      name: CursorSpritesheet_3
       rect:
         serializedVersion: 2
         x: 144
@@ -178,14 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32807d42af2502b4b80323939a0797ce
-      internalID: -1944309821
+      spriteID: 82d247b36950dec49874bdff69f93536
+      internalID: 45554261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_4
+      name: CursorSpritesheet_4
       rect:
         serializedVersion: 2
         x: 192
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ea5d540207d9214080c826e73d17733
-      internalID: 1368060410
+      spriteID: 53cb3071ac116d641b73c6731c82e498
+      internalID: 776808439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_5
+      name: CursorSpritesheet_5
       rect:
         serializedVersion: 2
         x: 240
@@ -222,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43ee2d5b5886d7d4baca5244301b01c6
-      internalID: -1047961139
+      spriteID: 5498424c4f5ed9f45aa5d2aa099958ff
+      internalID: -2066994732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_6
+      name: CursorSpritesheet_6
       rect:
         serializedVersion: 2
         x: 288
@@ -244,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ef452fd41aa7a2419d02aaf982884fa
-      internalID: -894028505
+      spriteID: 463c56993bdd9474894350e9ba548567
+      internalID: -76037332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_7
+      name: CursorSpritesheet_7
       rect:
         serializedVersion: 2
         x: 0
@@ -266,14 +266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c95bc549b905514482d408da4afae08
-      internalID: 1767176306
+      spriteID: e38933af6b480b64daa46bb0296e5fd5
+      internalID: 847868875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_8
+      name: CursorSpritesheet_8
       rect:
         serializedVersion: 2
         x: 48
@@ -288,14 +288,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 720e3e14379598945b8233799f2ad88d
-      internalID: -814377664
+      spriteID: 4a0383d668f68154a81aaf2af59c9b19
+      internalID: -725073409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_9
+      name: CursorSpritesheet_9
       rect:
         serializedVersion: 2
         x: 96
@@ -310,14 +310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54e3b7b3479340e49aa98e97040fc7cb
-      internalID: 1725741496
+      spriteID: 1dc91a1aed38efa4ba268394e4f6bb38
+      internalID: 253974546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_10
+      name: CursorSpritesheet_10
       rect:
         serializedVersion: 2
         x: 144
@@ -332,14 +332,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9c2729e88df5114aa783a768d186929
-      internalID: 2063358579
+      spriteID: 3c5f7e28da48bd548afa11c77a815708
+      internalID: -1397376784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_11
+      name: CursorSpritesheet_11
       rect:
         serializedVersion: 2
         x: 192
@@ -354,14 +354,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09d268575c451ef4f9fae2ff34c7c953
-      internalID: -736742283
+      spriteID: b98a80f5b143ec04eac1d723d907537e
+      internalID: 659054961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_12
+      name: CursorSpritesheet_12
       rect:
         serializedVersion: 2
         x: 240
@@ -376,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ca0e186ee32518468e6707f7f0d9cfb
-      internalID: 2046804026
+      spriteID: cd5ffa7715f76d54a8a3bef33e73a2f6
+      internalID: 576505054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_13
+      name: CursorSpritesheet_13
       rect:
         serializedVersion: 2
         x: 288
@@ -398,14 +398,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab977d49ebaa0647a0f9eb86f578f32
-      internalID: 1332776727
+      spriteID: 17979006c9fe08345bae716408fca9c0
+      internalID: 1973938465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_14
+      name: CursorSpritesheet_14
       rect:
         serializedVersion: 2
         x: 0
@@ -420,14 +420,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42a694a8f34cbe74d841fc5817b82fdf
-      internalID: 690311179
+      spriteID: 1ad2f4f586304784abfd0117a59922c5
+      internalID: 1765397539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_15
+      name: CursorSpritesheet_15
       rect:
         serializedVersion: 2
         x: 48
@@ -442,14 +442,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd0f3d634ebe2004685594f973309c8b
-      internalID: 1127384836
+      spriteID: 0aed4e2f061171543ab4ffc576f92d23
+      internalID: -778996655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_16
+      name: CursorSpritesheet_16
       rect:
         serializedVersion: 2
         x: 96
@@ -464,14 +464,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 663cbe8410e64d94bbc3135eb95ed74a
-      internalID: -1737788701
+      spriteID: 1b8f52ffe9372454289ca7006bdd11a3
+      internalID: 144824738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_17
+      name: CursorSpritesheet_17
       rect:
         serializedVersion: 2
         x: 144
@@ -486,14 +486,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61fa4b00fb383bb4ca553bba185881a6
-      internalID: 1553493516
+      spriteID: 1c055a55a5addf24a842dc67964032e7
+      internalID: -84612539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_18
+      name: CursorSpritesheet_18
       rect:
         serializedVersion: 2
         x: 192
@@ -508,14 +508,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33d131a1576c4984490c1f241c63736e
-      internalID: 1058727255
+      spriteID: 8dafaeca83bc2c64ab60477da98eeea2
+      internalID: 305815952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_19
+      name: CursorSpritesheet_19
       rect:
         serializedVersion: 2
         x: 240
@@ -530,14 +530,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c35fc0545381d30438e5ceb0b118b785
-      internalID: -980374091
+      spriteID: d63d2d05021da46479f01437da50e4d3
+      internalID: -986276366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_20
+      name: CursorSpritesheet_20
       rect:
         serializedVersion: 2
         x: 288
@@ -552,14 +552,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 931596e4ce4a92d40b50b8145bcd7071
-      internalID: -470496972
+      spriteID: d703aec95275b7c48b9d7e900964e6a9
+      internalID: 562825930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_21
+      name: CursorSpritesheet_21
       rect:
         serializedVersion: 2
         x: 0
@@ -574,14 +574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c7e54cbdfd64fc4288f88a7bf547101
-      internalID: -766462579
+      spriteID: 62af4401cde87a546863bc547488c0dd
+      internalID: 865159028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_22
+      name: CursorSpritesheet_22
       rect:
         serializedVersion: 2
         x: 48
@@ -596,14 +596,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49593b6820caf6548932f98d250fccd0
-      internalID: -945279220
+      spriteID: e1ce44d8ddc4f304aa22c0c1f8e6f12b
+      internalID: 1147998585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_23
+      name: CursorSpritesheet_23
       rect:
         serializedVersion: 2
         x: 96
@@ -618,14 +618,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 023bc4ce5ae85bb44b396e705e012237
-      internalID: -847637612
+      spriteID: ded7211b3b9e4e248809ed55e3f9f2c4
+      internalID: -1124569714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_24
+      name: CursorSpritesheet_24
       rect:
         serializedVersion: 2
         x: 144
@@ -640,14 +640,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3d4fe96acacf6d4a87b14e94da9f95b
-      internalID: 1314233003
+      spriteID: 7c960a0f36d2272439308629c6c50b0a
+      internalID: -1658380412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_25
+      name: CursorSpritesheet_25
       rect:
         serializedVersion: 2
         x: 192
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20a573c8809505d44adc075f1f152a56
-      internalID: -1544504569
+      spriteID: bf2783b4934cb794098e33a48905f44d
+      internalID: 98912315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_26
+      name: CursorSpritesheet_26
       rect:
         serializedVersion: 2
         x: 240
@@ -684,14 +684,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d308f4f052444b547849e241d8829e3b
-      internalID: 2033014402
+      spriteID: 50e97909c5f62a7409938eab698b56e7
+      internalID: 1433229847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_27
+      name: CursorSpritesheet_27
       rect:
         serializedVersion: 2
         x: 288
@@ -706,14 +706,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3797d88f94c5c85478648757d547525f
-      internalID: -1402882864
+      spriteID: 1ecf53a1882b54e459dae51632bb2756
+      internalID: -87410752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_28
+      name: CursorSpritesheet_28
       rect:
         serializedVersion: 2
         x: 0
@@ -728,14 +728,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbcbdd215af1d904a87e4e92de3da43b
-      internalID: -1565684738
+      spriteID: da2aa68d7fd85d047b3e85917316fbe3
+      internalID: -1801669647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_29
+      name: CursorSpritesheet_29
       rect:
         serializedVersion: 2
         x: 48
@@ -750,14 +750,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 616169c3fe4b73f43af8bb9a57cc201c
-      internalID: -65257229
+      spriteID: 1432ee7d2e284c246ae71067e980428a
+      internalID: 260543614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_30
+      name: CursorSpritesheet_30
       rect:
         serializedVersion: 2
         x: 96
@@ -772,14 +772,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b793ec8034e0c4c4988619aa3915b357
-      internalID: -1365985390
+      spriteID: 33a13b3656900184f996f5e16c8a1e7f
+      internalID: -1029256655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_31
+      name: CursorSpritesheet_31
       rect:
         serializedVersion: 2
         x: 144
@@ -794,14 +794,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa4eb967655a22b43b530b58bfb1fb4a
-      internalID: -396409456
+      spriteID: 6f19d7a238f189c4f97fb067ff096a36
+      internalID: -904937424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_32
+      name: CursorSpritesheet_32
       rect:
         serializedVersion: 2
         x: 192
@@ -816,14 +816,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70ce1aeca02004d468775fbd6def6971
-      internalID: -1227240055
+      spriteID: 3ff8c795f1b332843a3922c663370407
+      internalID: -57547380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_33
+      name: CursorSpritesheet_33
       rect:
         serializedVersion: 2
         x: 240
@@ -838,14 +838,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbedb7ac57bd87f48b54d1886c9c3c77
-      internalID: -977186124
+      spriteID: 77c69a3f5837f1b4fb931153ab919c12
+      internalID: 554817230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_34
+      name: CursorSpritesheet_34
       rect:
         serializedVersion: 2
         x: 288
@@ -860,14 +860,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 850ffd332ce75b14b9e2f8c64c6fbbba
-      internalID: -687497327
+      spriteID: 746a7e44030f2714bb90e0c62e18586b
+      internalID: 736111742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_35
+      name: CursorSpritesheet_35
       rect:
         serializedVersion: 2
         x: 0
@@ -882,14 +882,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f15697d67198d994b83351f4e543f5a4
-      internalID: 1786422637
+      spriteID: 5a446bc1451d64945b86912c5401a2fe
+      internalID: -963542017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_36
+      name: CursorSpritesheet_36
       rect:
         serializedVersion: 2
         x: 48
@@ -904,14 +904,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 530b97e246599cd40a7c40917abe16fc
-      internalID: -1495945318
+      spriteID: 6dd04fa8e31b5694fba1df72bb85b72f
+      internalID: 193808400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_37
+      name: CursorSpritesheet_37
       rect:
         serializedVersion: 2
         x: 96
@@ -926,14 +926,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60980b44988c47e45a91a7173a60a32b
-      internalID: 1306085765
+      spriteID: 8ab855be4b43c574cbcff3ebc77bd11b
+      internalID: -138848664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_38
+      name: CursorSpritesheet_38
       rect:
         serializedVersion: 2
         x: 144
@@ -948,14 +948,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f62e5ec59b115746abbf74eb539861d
-      internalID: 1453433326
+      spriteID: 655450fa4d40feb4ba1a32b34f794f9c
+      internalID: -336171287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_39
+      name: CursorSpritesheet_39
       rect:
         serializedVersion: 2
         x: 192
@@ -970,14 +970,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e9491df8ca6cab45bde2ec59b8f6698
-      internalID: 2135990653
+      spriteID: 174b0759ec8347e4588b31e04664ae6c
+      internalID: 662911188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_40
+      name: CursorSpritesheet_40
       rect:
         serializedVersion: 2
         x: 240
@@ -992,14 +992,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 052fab6f9329d144090a8f5079231dcb
-      internalID: 644709462
+      spriteID: 689d855d81d9e7e48b53fd2baa7a0f9d
+      internalID: 2013009873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_41
+      name: CursorSpritesheet_41
       rect:
         serializedVersion: 2
         x: 288
@@ -1014,14 +1014,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 102bc8aa2d9875449bdea0525c8d3772
-      internalID: 815657511
+      spriteID: 9fabc7521f7db4e4799ab4a934a1b44c
+      internalID: 1609294636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_42
+      name: CursorSpritesheet_42
       rect:
         serializedVersion: 2
         x: 0
@@ -1036,14 +1036,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59664f149a4bd4048acecbba55f3fbb6
-      internalID: 1403477349
+      spriteID: 2cf61a71ae7ce0443b3d5fe4e2b39ce0
+      internalID: -8965786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_43
+      name: CursorSpritesheet_43
       rect:
         serializedVersion: 2
         x: 48
@@ -1058,14 +1058,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fd7d9907585ffc4a8ac00d61e528de8
-      internalID: 352094991
+      spriteID: 0a58f7b8560b9d048995b0452c5d6219
+      internalID: 1905370975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_44
+      name: CursorSpritesheet_44
       rect:
         serializedVersion: 2
         x: 96
@@ -1080,14 +1080,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6f4f4ce4d0dedb4c99dac402890151c
-      internalID: 1302368425
+      spriteID: b8ef2f1a72c857a498c10701434514e1
+      internalID: 1195383097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_45
+      name: CursorSpritesheet_45
       rect:
         serializedVersion: 2
         x: 144
@@ -1102,14 +1102,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d7f69a756136124ab5811b6447e7054
-      internalID: -960246442
+      spriteID: cf4ca7ff38d319346afaa64543ad3f0c
+      internalID: 580631239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_46
+      name: CursorSpritesheet_46
       rect:
         serializedVersion: 2
         x: 192
@@ -1124,14 +1124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7045738f326b02a4087fd81695b1985d
-      internalID: 801756001
+      spriteID: 79d803904212851438028a3be021bc07
+      internalID: -2015278900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_47
+      name: CursorSpritesheet_47
       rect:
         serializedVersion: 2
         x: 240
@@ -1146,14 +1146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4146f1b2cdcb2fc4896dfdf5223c2cdf
-      internalID: -172233534
+      spriteID: b831de78e460b624d870638e977acdd0
+      internalID: -104688721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cursor_48
+      name: CursorSpritesheet_48
       rect:
         serializedVersion: 2
         x: 288
@@ -1168,8 +1168,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da22ba2fe05b56e4fb6be336dc735385
-      internalID: -495623527
+      spriteID: 7b8b54fd6602e504aacdb50ab15620bb
+      internalID: -1459092507
       vertices: []
       indices: 
       edges: []
@@ -1178,7 +1178,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3f2d7698d64cf8b4c9ed75f7a148de25
+    spriteID: b05201efed59d4b4cb72a4275438e52e
     internalID: 0
     vertices: []
     indices: 
@@ -1188,57 +1188,57 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":true,"isAlternate":false}'
     nameFileIdTable:
-      Cursor_0: -984279655
-      Cursor_1: -421571060
-      Cursor_10: 2063358579
-      Cursor_11: -736742283
-      Cursor_12: 2046804026
-      Cursor_13: 1332776727
-      Cursor_14: 690311179
-      Cursor_15: 1127384836
-      Cursor_16: -1737788701
-      Cursor_17: 1553493516
-      Cursor_18: 1058727255
-      Cursor_19: -980374091
-      Cursor_2: -732723434
-      Cursor_20: -470496972
-      Cursor_21: -766462579
-      Cursor_22: -945279220
-      Cursor_23: -847637612
-      Cursor_24: 1314233003
-      Cursor_25: -1544504569
-      Cursor_26: 2033014402
-      Cursor_27: -1402882864
-      Cursor_28: -1565684738
-      Cursor_29: -65257229
-      Cursor_3: -1944309821
-      Cursor_30: -1365985390
-      Cursor_31: -396409456
-      Cursor_32: -1227240055
-      Cursor_33: -977186124
-      Cursor_34: -687497327
-      Cursor_35: 1786422637
-      Cursor_36: -1495945318
-      Cursor_37: 1306085765
-      Cursor_38: 1453433326
-      Cursor_39: 2135990653
-      Cursor_4: 1368060410
-      Cursor_40: 644709462
-      Cursor_41: 815657511
-      Cursor_42: 1403477349
-      Cursor_43: 352094991
-      Cursor_44: 1302368425
-      Cursor_45: -960246442
-      Cursor_46: 801756001
-      Cursor_47: -172233534
-      Cursor_48: -495623527
-      Cursor_5: -1047961139
-      Cursor_6: -894028505
-      Cursor_7: 1767176306
-      Cursor_8: -814377664
-      Cursor_9: 1725741496
+      CursorSpritesheet_0: 1171424181
+      CursorSpritesheet_1: -475157184
+      CursorSpritesheet_10: -1397376784
+      CursorSpritesheet_11: 659054961
+      CursorSpritesheet_12: 576505054
+      CursorSpritesheet_13: 1973938465
+      CursorSpritesheet_14: 1765397539
+      CursorSpritesheet_15: -778996655
+      CursorSpritesheet_16: 144824738
+      CursorSpritesheet_17: -84612539
+      CursorSpritesheet_18: 305815952
+      CursorSpritesheet_19: -986276366
+      CursorSpritesheet_2: 715574328
+      CursorSpritesheet_20: 562825930
+      CursorSpritesheet_21: 865159028
+      CursorSpritesheet_22: 1147998585
+      CursorSpritesheet_23: -1124569714
+      CursorSpritesheet_24: -1658380412
+      CursorSpritesheet_25: 98912315
+      CursorSpritesheet_26: 1433229847
+      CursorSpritesheet_27: -87410752
+      CursorSpritesheet_28: -1801669647
+      CursorSpritesheet_29: 260543614
+      CursorSpritesheet_3: 45554261
+      CursorSpritesheet_30: -1029256655
+      CursorSpritesheet_31: -904937424
+      CursorSpritesheet_32: -57547380
+      CursorSpritesheet_33: 554817230
+      CursorSpritesheet_34: 736111742
+      CursorSpritesheet_35: -963542017
+      CursorSpritesheet_36: 193808400
+      CursorSpritesheet_37: -138848664
+      CursorSpritesheet_38: -336171287
+      CursorSpritesheet_39: 662911188
+      CursorSpritesheet_4: 776808439
+      CursorSpritesheet_40: 2013009873
+      CursorSpritesheet_41: 1609294636
+      CursorSpritesheet_42: -8965786
+      CursorSpritesheet_43: 1905370975
+      CursorSpritesheet_44: 1195383097
+      CursorSpritesheet_45: 580631239
+      CursorSpritesheet_46: -2015278900
+      CursorSpritesheet_47: -104688721
+      CursorSpritesheet_48: -1459092507
+      CursorSpritesheet_5: -2066994732
+      CursorSpritesheet_6: -76037332
+      CursorSpritesheet_7: 847868875
+      CursorSpritesheet_8: -725073409
+      CursorSpritesheet_9: 253974546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
