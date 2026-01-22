@@ -159,7 +159,7 @@ public class CursorManager : MonoBehaviour
     private static bool LoadSpriteMap()
     {
         Debug.Log("Loading CursorSpriteMap...");
-        Sprite[] sprites = Resources.LoadAll<Sprite>("Cursor");
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Cursor/CursorSpritesheet");
         int length = (int)Interactable.interactionType._enumlength;
         
         if (sprites.Length != length * length)
