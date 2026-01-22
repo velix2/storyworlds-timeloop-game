@@ -302,8 +302,6 @@ MonoBehaviour:
   inRange: 0
   mode: 0
   firstSleepCutscene: {fileID: 11400000, guid: 884306412dcad4b42b203765719e6ed6, type: 2}
-  playerCharacterController: {fileID: 2119755085}
-  collider: {fileID: 248938085}
   beforeDinner: Hoffentlich wird das nicht mein Schlafplatz sein.
   afterDinner: Mein Schlafplatz. Leider.
   duringTimeloop: Mein Schlafplatz.
@@ -341,11 +339,11 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 8607784637848160910, guid: 884306412dcad4b42b203765719e6ed6, type: 2}
-    value: {fileID: 2119755080}
   - key: {fileID: 3832633649663810761, guid: 884306412dcad4b42b203765719e6ed6, type: 2}
     value: {fileID: 267576128}
   - key: {fileID: -4496674046352747807, guid: 884306412dcad4b42b203765719e6ed6, type: 2}
+    value: {fileID: 2119755080}
+  - key: {fileID: -1171760674412620123, guid: 884306412dcad4b42b203765719e6ed6, type: 2}
     value: {fileID: 2119755080}
   m_ExposedReferences:
     m_References: []
@@ -1671,7 +1669,7 @@ PrefabInstance:
       objectReference: {fileID: 1886920035}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.0941093
+      value: 1.7991092
       objectReference: {fileID: 0}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1679,7 +1677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.05
+      value: 6.734
       objectReference: {fileID: 0}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2029,7 +2027,7 @@ Transform:
   m_GameObject: {fileID: 1217269471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.5939994, y: 1.75, z: 1.8500006}
+  m_LocalPosition: {x: 4.2989993, y: 1.75, z: 2.5340004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2258,9 +2256,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 3484167128064394197, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484167128064394197, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484167128064394197, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484167128064394197, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484167128064394197, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.094
+      value: -0.203
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2268,7 +2286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.85
+      value: 2.534
       objectReference: {fileID: 0}
     - target: {fileID: 5862972710683035175, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3697,11 +3715,6 @@ GameObject:
 --- !u!95 &2119755080 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2441687700691232208, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
-  m_PrefabInstance: {fileID: 1243479285}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &2119755085 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 2250858507068369244, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
   m_PrefabInstance: {fileID: 1243479285}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7409560499457915455

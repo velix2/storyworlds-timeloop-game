@@ -27,10 +27,11 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         //IDs for animator variables
-        lookX = Animator.StringToHash("lookX");
-        lookY = Animator.StringToHash("lookY");
-        moveX = Animator.StringToHash("moveX");
-        moveY = Animator.StringToHash("moveY");
+        animatorLookX = Animator.StringToHash("lookX");
+        animatorLookY = Animator.StringToHash("lookY");
+        animatorMoveX = Animator.StringToHash("moveX");
+        animatorMoveY = Animator.StringToHash("moveY");
+        animatorSprinting = Animator.StringToHash("sprinting");
         magnitude = Animator.StringToHash("moveMagnitude");
 
         inventoryManager = FindFirstObjectByType<InventoryManager>();
@@ -57,11 +58,12 @@ public class PlayerController : MonoBehaviour
         Vector3 move;
         if (!movementBlocked)
         {
+            bool sprinting = InputManager.GetSprinting();
             Vector2 input = InputManager.GetPlayerMovement();
             move = new Vector3(input.x, 0, input.y);
             move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
             move.y = 0;
-            move = Vector3.ClampMagnitude(move, 1f) * speed;
+            move = Vector3.ClampMagnitude(move, 1f) * (sprinting? 2.0f * speed : speed);
         }
         else move = Vector3.zero;
         
@@ -171,10 +173,11 @@ public class PlayerController : MonoBehaviour
 
     #region AnimationRelated
 
-    private int lookX;
-    private int lookY;
-    private int moveX;
-    private int moveY;
+    private int animatorLookX;
+    private int animatorLookY;
+    private int animatorMoveX;
+    private int animatorMoveY;
+    private int animatorSprinting;
     private int magnitude;
     
     private void LateUpdate()
@@ -186,12 +189,13 @@ public class PlayerController : MonoBehaviour
             return;
         }
         Vector2 input = InputManager.GetPlayerMovement();
+        AnimatorSprinting(InputManager.GetSprinting());
         AnimatorWalkDirection(input);
     }
     private void AnimatorWalkDirection(Vector2 value)
     {
-        animator.SetFloat(moveY, value.y);
-        animator.SetFloat(moveX, value.x);
+        animator.SetFloat(animatorMoveY, value.y);
+        animator.SetFloat(animatorMoveX, value.x);
         float mag = value.sqrMagnitude;
         animator.SetFloat(magnitude, mag);
         if (mag > 0.1) AnimatorLookDirection(value);
@@ -200,8 +204,13 @@ public class PlayerController : MonoBehaviour
 
     private void AnimatorLookDirection(Vector2 value)
     {
-        animator.SetFloat(lookX, value.x);
-        animator.SetFloat(lookY, value.y);
+        animator.SetFloat(animatorLookX, value.x);
+        animator.SetFloat(animatorLookY, value.y);
+    }
+
+    private void AnimatorSprinting(bool value)
+    {
+        animator.SetBool(animatorSprinting, value);
     }
 
     public void FreezeAnimation()
