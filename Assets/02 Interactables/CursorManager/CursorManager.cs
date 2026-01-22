@@ -96,7 +96,7 @@ public class CursorManager : MonoBehaviour
         ApplyCursor(GetInteractionCursor(interactable));
         
         SetTransparency(interactable.PrimaryNeedsInRange && !interactable.inRange);
-        Debug.Log($"Changed cursor! Primary: {interactable.Primary}, Secondary: {interactable.Secondary}");
+        //Debug.Log($"Changed cursor! Primary: {interactable.Primary}, Secondary: {interactable.Secondary}");
         
     }
 
@@ -116,7 +116,7 @@ public class CursorManager : MonoBehaviour
             itemPreview.sprite = item.Sprite;
         }
         else itemPreview.enabled = false;
-        Debug.Log($"Your cursor now shows that {item} is selected.");
+        //Debug.Log($"Your cursor now shows that {item} is selected.");
     }
     
     /// <summary>
@@ -128,7 +128,7 @@ public class CursorManager : MonoBehaviour
         SetTransparency(false);
         ApplyCursor(cursorMap[0, 0]);
         itemPreview.enabled = false;
-        Debug.Log("Cursor Reset!");
+        //Debug.Log("Cursor Reset!");
     }
 
     /// <summary>

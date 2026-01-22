@@ -34,7 +34,7 @@ public static class StateTracker
 
     public static UnityEvent<IntroStates> OnIntroStateChanged = new UnityEvent<IntroStates>();
 
-    private static IntroStates _introState = IntroStates.RarityShopCompleted;
+    private static IntroStates _introState = IntroStates.LarryDinnerCompleted;
 
     public static IntroStates IntroState
     {
@@ -45,4 +45,25 @@ public static class StateTracker
             OnIntroStateChanged.Invoke(_introState);
         }
     }
+
+    public enum SonCallStates
+    {
+        //replace names relating to the story progress
+        firstCall,
+        secondCall
+    }
+
+    public static bool newSonStateAvailable = true;
+
+    private static SonCallStates _sonCallState;
+    public static SonCallStates SonCallState
+    {
+        get => _sonCallState;
+        set
+        {
+            newSonStateAvailable = value != _sonCallState;
+            _sonCallState = value;
+        }
+    }
+
 }
