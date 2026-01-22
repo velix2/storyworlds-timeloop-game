@@ -3,6 +3,7 @@ using Ink.Runtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TimeManagement;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -56,6 +57,7 @@ public class DialogueManager : MonoBehaviour
     private const string EMOTION_TAG = "emotion";
     //private const string AUDIO_TAG = "audio";
     private const string PAUSE_TAG = "pause";
+    private const string COST_TAG = "cost";
 
 
     [SerializeField] private SpeakerManager speakerManager;     // Grants access to all speaker data
@@ -431,6 +433,16 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case PAUSE_TAG:
                     PauseDialogue();
+                    break;
+                case COST_TAG:
+                    if (int.TryParse(tagValue, out int timeInMinutes))
+                    {
+                        TimeHandler.PassTime(timeInMinutes);
+                    }
+                    else
+                    {
+                        Debug.LogError(tagValue + " is not a number");
+                    }
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
