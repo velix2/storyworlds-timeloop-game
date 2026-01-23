@@ -246,6 +246,20 @@ namespace TimeManagement
             
             // Send a Pass Time signal with 0 mins just for proper set up of all events etc.
             PassTime(0);
+
+            ResetQuestProgression();
+        }
+
+        /// <summary>
+        /// Called to reset all quest progressions which are not frozen
+        /// </summary>
+        private void ResetQuestProgression()
+        {
+            //Evelyn Coffee Quest
+            if (StateTracker.EvelynQuestState == StateTracker.EvelynQuestStates.CoffeeGiven)
+            {
+                StateTracker.EvelynQuestState = StateTracker.EvelynQuestStates.TalkedTo;
+            }
         }
 
         #endregion
