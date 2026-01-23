@@ -99,6 +99,8 @@ public class CouchInteractable : InteractableThreeDimensional
                 AudioManager.PlaySFX(telephoneRing);
                 yield return new WaitForSeconds(telephoneRing.length);
                 DialogueManager.Instance.EnterDialogueMode(call);
+
+                StateTracker.SonCallState = StateTracker.SonCallStates.secondCall;
             }
         }
         
