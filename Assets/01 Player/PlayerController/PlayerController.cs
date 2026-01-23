@@ -26,14 +26,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        //IDs for animator variables
-        animatorLookX = Animator.StringToHash("lookX");
-        animatorLookY = Animator.StringToHash("lookY");
-        animatorMoveX = Animator.StringToHash("moveX");
-        animatorMoveY = Animator.StringToHash("moveY");
-        animatorSprinting = Animator.StringToHash("sprinting");
-        magnitude = Animator.StringToHash("moveMagnitude");
-
         inventoryManager = FindFirstObjectByType<InventoryManager>();
         Debug.Log(inventoryManager);
         inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
@@ -173,12 +165,12 @@ public class PlayerController : MonoBehaviour
 
     #region AnimationRelated
 
-    private int animatorLookX;
-    private int animatorLookY;
-    private int animatorMoveX;
-    private int animatorMoveY;
-    private int animatorSprinting;
-    private int magnitude;
+    private int animatorLookX = Animator.StringToHash("lookX");
+    private int animatorLookY = Animator.StringToHash("lookY");
+    private int animatorMoveX = Animator.StringToHash("moveX");
+    private int animatorMoveY = Animator.StringToHash("moveY");
+    private int animatorSprinting = Animator.StringToHash("sprinting");
+    private int magnitude = Animator.StringToHash("moveMagnitude");
     
     private void LateUpdate()
     {
