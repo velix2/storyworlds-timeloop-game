@@ -14,8 +14,11 @@ Das hast du gestern schon erzählt. #speaker:marcus #emotion:NORMAL
 O-oh... Hab ich das...? #speaker:leon
 Ja, das hast du. Wenn es sonst nichts Neues gibt, lege ich wieder auf. Auf Wiedersehen.  #speaker:marcus #emotion:NORMAL
 ... #speaker:marcus #emotion:NERVOUS
--> END
+-> continue
 
 === no_call ===
 (Ich hab keine Zeit dafür.) #speaker:marcus #emotion:NORMAL
--> END
+-> continue
+
+=== continue ===
+Mal sehen ob, ich heute endlich nach Hause kann.
