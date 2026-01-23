@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Coffee
   observationText: 
   multiplePossible: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 2c59d272dc9b49d4a8f7cdfc1d2581d9, type: 3}
