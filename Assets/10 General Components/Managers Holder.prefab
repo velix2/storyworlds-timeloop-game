@@ -208,6 +208,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   items: []
   recipes: []
+--- !u!1 &3593890546961776959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5112862642066258959}
+  - component: {fileID: 8325603659066282304}
+  m_Layer: 0
+  m_Name: GlowSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5112862642066258959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3593890546961776959}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1251.7021, y: -0.00001, z: 1253.6986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6020865913977276666}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8325603659066282304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3593890546961776959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7eaf1fb2a8905b4188d16a76e917821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlowSpawner
+  glowEffect: {fileID: 1652143759095011288, guid: e2c1ac940434a5242b54d72b66654687, type: 3}
 --- !u!1 &4084461828683346661
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +443,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 51171fb96e69bc747ac1690db783186d, type: 2}
     - {fileID: 11400000, guid: 20e5b355c40e42d4488dff4cb1aa2545, type: 2}
     - {fileID: 11400000, guid: 296cb49fb854fa3469cb1f7bccbb5dfe, type: 2}
+    - {fileID: 11400000, guid: 48a014d483c0ec94883ee360534cf142, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -595,6 +641,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8325603659066282304}
+          m_TargetAssemblyTypeName: GlowSpawner, Assembly-CSharp
+          m_MethodName: SpawnGlowOnPlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8915823811605975058
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +696,7 @@ Transform:
   - {fileID: 2855274553877640216}
   - {fileID: 5282299705039260165}
   - {fileID: 1073920098195988883}
+  - {fileID: 5112862642066258959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4265395224437543919
