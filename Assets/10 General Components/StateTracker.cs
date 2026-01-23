@@ -76,38 +76,16 @@ public static class StateTracker
 
     #region CoffeeMachineQuest
 
-    public enum CoffeeMachineQuestStates
-    {
-        Init,
-        
-        IntroductoryCutsceneCompleted,
-
-        // Player may talk to Evelynn here, not necessary tho
-        // Player may look at coffee machine here (get hint for tools), not necessary
-        
-        // Tool finding wont be another state, but will be necessary to advance
-        
-        CoffeeMachineRepaired,
-        
-        
-        DayAfterRepairStartCompleted, // Quick reminder for player in the morning to check the diner
-        
-        TalkedToEvelynnCompleted,
-        TriedToLeaveTownCompleted, // One final cutscene maybe for reflection here
-        CoffeeMachineQuestCompleted
-    }
-
-    public static CoffeeMachineQuestStates CoffeeMachineQuestState = CoffeeMachineQuestStates.Init;
-
-    #endregion
-
+    
     public enum EvelynQuestStates
     {
-        INIT,
-        CUTSCENE_WATCHED,
-        TALKED_TO,
-        COFFEE_GIVEN
+        Init,
+        IntroCutsceneWatched,
+        TalkedTo,
+        CoffeeGiven
     }
+
+    public static bool triedLeaving;
 
     private static EvelynQuestStates _evelynQuestState;
     public static EvelynQuestStates EvelynQuestState
@@ -115,4 +93,8 @@ public static class StateTracker
         get => _evelynQuestState;
         set => _evelynQuestState = value;
     }
+
+    #endregion
+
+    
 }

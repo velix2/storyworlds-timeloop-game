@@ -48,7 +48,7 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
     {
         switch (StateTracker.EvelynQuestState)
         {
-            case StateTracker.EvelynQuestStates.COFFEE_GIVEN:
+            case StateTracker.EvelynQuestStates.CoffeeGiven:
                 return outside ? readyForRideDialogue : regularDialogue;
             default:
                 return noCoffeeDialogue;
@@ -65,7 +65,7 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
         if (otherItem == coffeeReference)
         {
             DialogueManager.Instance.EnterDialogueMode(coffeeGet);
-            StateTracker.EvelynQuestState = StateTracker.EvelynQuestStates.COFFEE_GIVEN;
+            StateTracker.EvelynQuestState = StateTracker.EvelynQuestStates.CoffeeGiven;
             return true;
         }
         else
@@ -94,10 +94,10 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
                     break;
                 case "Diner":
                     animator.SetBool(animatorSitting, true);
-                    if (!StateTracker.IsInIntro && StateTracker.EvelynQuestState == StateTracker.EvelynQuestStates.INIT)
+                    if (!StateTracker.IsInIntro && StateTracker.EvelynQuestState == StateTracker.EvelynQuestStates.Init)
                     {
                         CutsceneManager.Instance.PlayCutscene(outOfCoffeeCutscene);
-                        StateTracker.EvelynQuestState = StateTracker.EvelynQuestStates.CUTSCENE_WATCHED;
+                        StateTracker.EvelynQuestState = StateTracker.EvelynQuestStates.IntroCutsceneWatched;
                     }
                     
                     break;
