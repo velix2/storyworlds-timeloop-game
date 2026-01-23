@@ -4507,7 +4507,9 @@ MonoBehaviour:
   lockedOnOverride: 0
   textToSayWhenDoorIsLocked: Zugesperrt...
   targetSceneName: Station
-  timePhasesUnlocked: []
+  timePhasesUnlocked:
+  - startTime: 360
+    endTime: 1320
 --- !u!114 &204126058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23805,7 +23807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 64598898947106246, guid: 11e6d4ca3cd83b60a88e4ef0826ede2d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 193116723606412297, guid: 11e6d4ca3cd83b60a88e4ef0826ede2d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -32980,6 +32982,7 @@ Transform:
   - {fileID: 1600585649}
   - {fileID: 533254449}
   - {fileID: 142594650}
+  - {fileID: 2326998111762473757}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1432873418
@@ -37313,6 +37316,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3492396374586381408, guid: f9026b8cdae81eb629c4865d47776962, type: 3}
   m_PrefabInstance: {fileID: 1555025590}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1656897773
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 673537175102401079, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_Name
+      value: Opening Times Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 533.3767
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.928425
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 443.975
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475353494833380409, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: dialogueLine
+      value: "\"Oswald's Rarities - Ge\xF6ffnet von 11:00 bis 19:00\""
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
 --- !u!4 &1657841706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2578182291870079840, guid: cd09d23a28aeecfa790f9eef96ea7690, type: 3}
@@ -42066,6 +42130,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5896826948970995150, guid: 6e052ace77449aea1aa825d0c6d77d40, type: 3}
   m_PrefabInstance: {fileID: 1325738585}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1884787275
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 673537175102401079, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_Name
+      value: Opening Times Board (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 566.92755
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.7846875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 412.72504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475353494833380409, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: dialogueLine
+      value: "\"Echo's Lake Public Library - Ge\xF6ffnet von 10:00 bis 19:00. Dienstags
+        geschlossen.\""
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
 --- !u!4 &1886593121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3492396374586381408, guid: f9026b8cdae81eb629c4865d47776962, type: 3}
@@ -46449,6 +46575,84 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd09d23a28aeecfa790f9eef96ea7690, type: 3}
+--- !u!1001 &2045155927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 282672692808824591, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d6ef84351128f13daad0a5be18d94c9c, type: 2}
+    - target: {fileID: 673537175102401079, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_Name
+      value: Opening Times Board (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 549.024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.8168554
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 469.61667
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957575708977527709, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d6ef84351128f13daad0a5be18d94c9c, type: 2}
+    - target: {fileID: 3997063243021654176, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 12be192aa26ffb7cda24a6a1bea3febf, type: 2}
+    - target: {fileID: 4475353494833380409, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: dialogueLine
+      value: "\"Wir sind jeden Tag au\xDFer Freitag von 8 bis 22 Uhr f\xFCr euch
+        da!\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784773807909167905, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d6ef84351128f13daad0a5be18d94c9c, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
 --- !u!4 &2045460646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3492396374586381408, guid: f9026b8cdae81eb629c4865d47776962, type: 3}
@@ -49368,6 +49572,11 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!4 &2326998111762473757 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+  m_PrefabInstance: {fileID: 4857577722772446003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2539060483133694288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49767,6 +49976,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23cba9466b8daa644a1cd8a0404373ee, type: 3}
+--- !u!1001 &4857577722772446003
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1432257691}
+    m_Modifications:
+    - target: {fileID: 673537175102401079, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_Name
+      value: Opening Times Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 420.611
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 359.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094488055165636480, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475353494833380409, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
+      propertyPath: dialogueLine
+      value: "\"Echo's Lake Station Office - Ge\xF6ffnet von 6:00 bis 22:00\""
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2330ac8ed3c0a38b8ebd499174ea09f, type: 3}
 --- !u!1001 &5661750012972072782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50515,3 +50785,6 @@ SceneRoots:
   - {fileID: 1079413953}
   - {fileID: 574925916}
   - {fileID: 1850981811163273041}
+  - {fileID: 1656897773}
+  - {fileID: 1884787275}
+  - {fileID: 2045155927}
