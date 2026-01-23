@@ -15691,7 +15691,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ba5d2079a5509624d8ea23ddd72aa07d, type: 2}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].key
@@ -15802,6 +15802,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8160466337627867174, guid: ba5d2079a5509624d8ea23ddd72aa07d, type: 2}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_SceneBindings.Array.data[27].key
+      value: 
+      objectReference: {fileID: 4642091251036270482, guid: ba5d2079a5509624d8ea23ddd72aa07d, type: 2}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
       objectReference: {fileID: 2137478279}
@@ -15897,6 +15901,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[26].value
       value: 
       objectReference: {fileID: 1222281845}
+    - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_SceneBindings.Array.data[27].value
+      value: 
+      objectReference: {fileID: 1222281843}
     - target: {fileID: 2280302722379744498, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.size
       value: 12
@@ -28464,7 +28472,6 @@ GameObject:
   - component: {fileID: 1222281845}
   - component: {fileID: 1222281846}
   - component: {fileID: 1222281847}
-  - component: {fileID: 1222281848}
   - component: {fileID: 1222281849}
   m_Layer: 0
   m_Name: NPC_Larry
@@ -28550,33 +28557,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.26071167, y: 0.5598731, z: 0.04055786}
   m_Center: {x: -0.0007578532, y: 0.29319486, z: 0.000005086263}
---- !u!320 &1222281848
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222281843}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 86c2d3e31db6e514a9e7140a94c2e352, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 7941072543291972603, guid: 86c2d3e31db6e514a9e7140a94c2e352, type: 2}
-    value: {fileID: 1233218619}
-  - key: {fileID: 5240983229894247292, guid: 86c2d3e31db6e514a9e7140a94c2e352, type: 2}
-    value: {fileID: 1222281845}
-  - key: {fileID: 413645061441004111, guid: 86c2d3e31db6e514a9e7140a94c2e352, type: 2}
-    value: {fileID: 2137478279}
-  - key: {fileID: 8758095861076865898, guid: 86c2d3e31db6e514a9e7140a94c2e352, type: 2}
-    value: {fileID: 1222281845}
-  - key: {fileID: 3272023182873915557, guid: 86c2d3e31db6e514a9e7140a94c2e352, type: 2}
-    value: {fileID: 2137478279}
-  m_ExposedReferences:
-    m_References: []
 --- !u!114 &1222281849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49666,15 +49646,15 @@ PrefabInstance:
       objectReference: {fileID: 2137478276}
     - target: {fileID: 6703584752675490218, guid: 23cba9466b8daa644a1cd8a0404373ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 513.7471
+      value: 550.9998
       objectReference: {fileID: 0}
     - target: {fileID: 6703584752675490218, guid: 23cba9466b8daa644a1cd8a0404373ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.7130938
+      value: 6.8027387
       objectReference: {fileID: 0}
     - target: {fileID: 6703584752675490218, guid: 23cba9466b8daa644a1cd8a0404373ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 489.15054
+      value: 464.31754
       objectReference: {fileID: 0}
     - target: {fileID: 6703584752675490218, guid: 23cba9466b8daa644a1cd8a0404373ee, type: 3}
       propertyPath: m_LocalRotation.w
