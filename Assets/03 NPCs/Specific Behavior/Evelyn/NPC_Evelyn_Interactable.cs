@@ -9,6 +9,7 @@ using UnityEngine.Timeline;
 public class NPC_Evelyn_Interactable : InteractableTwoDimensional
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private TruckInteractable truck;
     private int animatorSitting = Animator.StringToHash("sitting");
     private int animatorTalkedTo = Animator.StringToHash("talkedTo");
     [Header("Dialogue")] 

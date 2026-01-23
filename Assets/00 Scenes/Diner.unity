@@ -8356,7 +8356,7 @@ MonoBehaviour:
   SwitchSceneAfterCutscene: 0
   SceneToBeSwitchedTo: 
   GetItemAfterCutscene: 0
-  item: {fileID: 0}
+  items: []
   SkipTimeAfterCutscene: 0
   AmountInMinutes: 0
 --- !u!4 &854467276
@@ -8537,7 +8537,7 @@ MonoBehaviour:
   SwitchSceneAfterCutscene: 1
   SceneToBeSwitchedTo: Outdoor
   GetItemAfterCutscene: 0
-  item: {fileID: 0}
+  items: []
   SkipTimeAfterCutscene: 0
   AmountInMinutes: 0
 --- !u!1001 &870700916
@@ -11661,7 +11661,7 @@ MonoBehaviour:
   SwitchSceneAfterCutscene: 1
   SceneToBeSwitchedTo: Outdoor
   GetItemAfterCutscene: 0
-  item: {fileID: 0}
+  items: []
   SkipTimeAfterCutscene: 1
   AmountInMinutes: 45
 --- !u!4 &1636897986
