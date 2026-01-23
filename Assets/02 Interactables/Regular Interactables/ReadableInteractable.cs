@@ -9,7 +9,7 @@ public class ReadableInteractable : InteractableThreeDimensional
     [SerializeField] private string dialogueLine;
     
     
-    public override interactionType Primary => interactionType.LOOK;
+    public override interactionType Primary => interactionType.INSPECT;
     public override interactionType Secondary => interactionType.NONE;
     public override bool PrimaryNeedsInRange => true;
     public override bool SecondaryNeedsInRange => true;

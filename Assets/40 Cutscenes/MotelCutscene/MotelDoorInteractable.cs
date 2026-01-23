@@ -56,6 +56,6 @@ public class MotelDoorInteractable : InteractableThreeDimensional
 
     private void OnCutsceneEnd()
     {
-        StateTracker.IntroState = StateTracker.IntroStates.MotelCompleted;
+        StateTracker.IntroState++;
     }
 }

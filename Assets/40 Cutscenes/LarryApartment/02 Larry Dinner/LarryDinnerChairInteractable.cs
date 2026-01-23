@@ -31,8 +31,6 @@ public class LarryDinnerChairInteractable : InteractableThreeDimensional
 
     private void OnCutsceneEnd()
     {
-        StateTracker.IntroState = (StateTracker.IntroStates)((int)StateTracker.IntroState + 1);
+        StateTracker.IntroState++;
     }
-    
-    
 }

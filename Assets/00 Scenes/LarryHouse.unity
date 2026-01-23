@@ -301,7 +301,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CouchInteractable
   inRange: 0
   mode: 0
-  firstSleepCutscene: {fileID: 11400000, guid: 884306412dcad4b42b203765719e6ed6, type: 2}
+  sleepCutscene: {fileID: 11400000, guid: 884306412dcad4b42b203765719e6ed6, type: 2}
+  telephoneRing: {fileID: 8300000, guid: 7c0c9a285fad6294b9584e621f0be73b, type: 3}
+  sonCalls:
+  - {fileID: 4900000, guid: 5b76d3de7a47971489efd32d4c2dcf10, type: 3}
+  - {fileID: 4900000, guid: 88a0d2b6572106e43b918d1106844048, type: 3}
   beforeDinner: Hoffentlich wird das nicht mein Schlafplatz sein.
   afterDinner: Mein Schlafplatz. Leider.
   duringTimeloop: Mein Schlafplatz.
@@ -1342,6 +1346,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2215901504533519528, guid: 3ca427402f0ef1347adc69f0ba78d0bf, type: 3}
   m_PrefabInstance: {fileID: 1293054623}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &565328151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 877690123683537706, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+  m_PrefabInstance: {fileID: 1610947610}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &565328152 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+  m_PrefabInstance: {fileID: 1610947610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &595590698
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1669,7 +1683,7 @@ PrefabInstance:
       objectReference: {fileID: 1886920035}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7991092
+      value: 1.7971094
       objectReference: {fileID: 0}
     - target: {fileID: 4875386205037752144, guid: 1d3dfa8c0ecd2ff4a8c225a3a7be0ebd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1850,6 +1864,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 236466477594105958, guid: 96d2dab7cb7d5fa008aa5672beb80d54, type: 3}
   m_PrefabInstance: {fileID: 1173726413}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1191616428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5111285939186502527, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+  m_PrefabInstance: {fileID: 1610947610}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1191616435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191616428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2a4c8cf76f8c144b3ca394e2e9bdf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LarryNoteInteractable
+  inRange: 0
+  mode: 0
+  noteText: 
 --- !u!1 &1217269471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,7 +2061,7 @@ Transform:
   m_GameObject: {fileID: 1217269471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.2989993, y: 1.75, z: 2.5340004}
+  m_LocalPosition: {x: 4.2969995, y: 1.75, z: 2.5340004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2244,6 +2278,10 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1217269477}
+    - target: {fileID: 1132809220480524402, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2250858507068369244, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2566,6 +2604,52 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2000004, y: 5.1, z: 3.0000002}
   m_Center: {x: 0.0000000022351756, y: -0.049999952, z: -0.0000000014901145}
+--- !u!1 &1393176549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1393176550}
+  - component: {fileID: 1393176551}
+  m_Layer: 0
+  m_Name: LarryNoteInteractable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1393176550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393176549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.51989, y: 2.07535, z: 1.3092}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 565328152}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1393176551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393176549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c9c8c707c3bf84c82064bfc419d8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LarryNoteHider
+  note: {fileID: 565328151}
 --- !u!1001 &1410764322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2837,6 +2921,80 @@ Transform:
   - {fileID: 1730655309}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1610947610
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1393176550}
+    m_Modifications:
+    - target: {fileID: 877690123683537706, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_Name
+      value: Info Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.70000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.75889
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.4188849
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.2317998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.664546
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.664546
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.24161679
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.24161679
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874343742855818392, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -39.961
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829864627117283404, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      propertyPath: dialogueLine
+      value: "\"Hallo Marcus, ich bin schon weg, da ich arbeiten muss. Falls wir
+        uns nicht mehr sehen, w\xFCnsche ich dir noch einen wundervollen Tag.\""
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4829864627117283404, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5111285939186502527, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1191616435}
+  m_SourcePrefab: {fileID: 100100000, guid: 84e1c68cb90c31e49aebd95814469be5, type: 3}
 --- !u!1001 &1652596443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3705,8 +3863,6 @@ MonoBehaviour:
     isDoorUnlocked: 0
   - introState: 8
     isDoorUnlocked: 0
-  - introState: 9
-    isDoorUnlocked: 0
 --- !u!1 &2119755077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3461529967587347117, guid: ad5d3042c9d1b944d8c8407eeb9f49c4, type: 3}
@@ -3788,3 +3944,4 @@ SceneRoots:
   - {fileID: 277308294}
   - {fileID: 342595921}
   - {fileID: 1589087074}
+  - {fileID: 1393176550}
