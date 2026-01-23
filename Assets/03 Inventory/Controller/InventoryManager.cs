@@ -64,7 +64,11 @@ public class InventoryManager : MonoBehaviour
     /// <returns></returns>
     public bool AddItem(ItemData item, bool playSound = false)
     {
-        if (items.Count == items.Capacity) return false;
+        if (items.Count == items.Capacity)
+        {
+            DialogueManager.Instance.EnterDialogueModeSimple("Ich habe keinen Platz mehr.");
+            return false;
+        }
         
         if (item.MultiplePossible) item = item.MakeCopy();
         items.Add(item);
@@ -81,6 +85,16 @@ public class InventoryManager : MonoBehaviour
     {
         items.Remove(item);
         display?.RemoveItemToDisplay(item);
+    }
+
+    /// <summary>
+    /// Checks if inventory already holds this item.
+    /// </summary>
+    /// <param name="item"></param>
+    /// <returns></returns>
+    public bool HasItem(ItemData item)
+    {
+        return items.Contains(item);
     }
 
     /// <summary>

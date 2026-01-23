@@ -10,7 +10,7 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
         Repaired
     }
 
-    private bool IsQuestAvailable => !StateTracker.IsInIntro;
+    private bool IsQuestAvailable => !StateTracker.IsInIntro && StateTracker.EvelynQuestState >= StateTracker.EvelynQuestStates.TALKED_TO;
 
     private CoffeeMachineRepairState _repairState = CoffeeMachineRepairState.Broken;
     
@@ -20,7 +20,7 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
         set
         {
             _repairState = value;
-            smokeParticles.SetActive(_repairState == CoffeeMachineRepairState.Broken && IsQuestAvailable); // Update smoke particles
+            smokeParticles.SetActive(_repairState == CoffeeMachineRepairState.Broken && !StateTracker.IsInIntro); // Update smoke particles
         }
     }
 
@@ -37,7 +37,7 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
     [SerializeField] private string dialogueUnfreeze =
         "Jetzt müsste der Effekt wieder aufgehoben sein. Morgen also kein Kaffee mehr.";
 
-    [SerializeField] private string dialogueLookWhileBroken = "...Soll da Rauch raus kommen?";
+    [SerializeField] private string dialogueLookWhileBroken = "...\nSoll da Rauch raus kommen?";
     [SerializeField] private string dialogueLookWhileRepaired = "Endlich wieder Kaffee!";
 
     [SerializeField] private string dialogueInspectWhileBroken =
@@ -50,9 +50,15 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
 
     [SerializeField] private string dialogueRepairWhileRepaired =
         "Die Kaffeemaschine ist wieder funktionstüchtig, ich schraube lieber nicht weiter dran herum...";
+
+    [SerializeField] private string dialogueGetCoffeeWhileBroken =
+        "In dem Zustand wird höchstens Asche rauskommen.";
+
+    [SerializeField] private string dialogueGetCoffeeAlready =
+        "Einer reicht.";
     
     [Space] [SerializeField] private GameObject smokeParticles;
-    
+    [SerializeField] private AudioClip coffeeDischarge;
 
 
     /// <summary>
@@ -64,10 +70,25 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
     /// The artifact the player can (un)freeze the state with.
     /// </summary>
     [SerializeField] private ItemData freezeArtifact;
+    /// <summary>
+    /// Player can interact with repaired machine to get coffee.
+    /// </summary>
+    [SerializeField] private ItemData coffee;
 
     private IFreezable thisFreezable;
 
-    public override interactionType Primary => interactionType.INSPECT;
+    public override interactionType Primary
+    {
+        get
+        {
+            if (IsQuestAvailable)
+            {
+                return interactionType.GRAB;
+            }
+
+            return interactionType.NONE;
+        }
+    }
     public override interactionType Secondary => interactionType.LOOK;
     public override bool PrimaryNeedsInRange => true;
     public override bool SecondaryNeedsInRange => false;
@@ -86,13 +107,33 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
 
     public override void PrimaryInteraction()
     {
-        if (!IsQuestAvailable) Say(dialogueAnyInteractWhileIntro);
-        else Say(RepairState is CoffeeMachineRepairState.Broken ? dialogueInspectWhileBroken : dialogueInspectWhileRepaired);
+        if (IsQuestAvailable)
+        {
+            switch (_repairState)
+            {
+                case CoffeeMachineRepairState.Broken:
+                    Say(dialogueGetCoffeeWhileBroken);
+                    break;
+                default:
+                    if (!InventoryManager.Instance.HasItem(coffee))
+                    {
+                        if (InventoryManager.Instance.AddItem(coffee))
+                        {
+                            AudioManager.PlaySFX(coffeeDischarge);
+                        }
+                    }
+                    else
+                    {
+                        DialogueManager.Instance.EnterDialogueModeSimple(dialogueGetCoffeeAlready);
+                    }
+                    break;
+            }
+        }
     }
 
     public override void SecondaryInteraction()
     {
-        if (!IsQuestAvailable) Say(dialogueAnyInteractWhileIntro);
+        if (!StateTracker.IsInIntro) Say(dialogueAnyInteractWhileIntro);
         else Say(RepairState is CoffeeMachineRepairState.Broken ? dialogueLookWhileBroken : dialogueLookWhileRepaired);
     }
 

@@ -66,4 +66,18 @@ public static class StateTracker
         }
     }
 
+    public enum EvelynQuestStates
+    {
+        INIT,
+        CUTSCENE_WATCHED,
+        TALKED_TO,
+        COFFEE_GIVEN
+    }
+
+    private static EvelynQuestStates _evelynQuestState;
+    public static EvelynQuestStates EvelynQuestState
+    {
+        get => _evelynQuestState;
+        set => _evelynQuestState = value;
+    }
 }

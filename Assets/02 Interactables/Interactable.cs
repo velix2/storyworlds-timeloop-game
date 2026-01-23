@@ -108,8 +108,7 @@ public abstract class Interactable : MonoBehaviour
     /// <returns>bool value informs if the applied item is used up and should be removed from the inventory</returns>
     public virtual bool ItemInteraction(ItemData otherItem)
     {
-        //TODO: Default dialogue if items are not applicable (failsafe if otherwise not defined)
-        Debug.Log($"You tried to use {otherItem} on {name}");
+        DialogueManager.Instance.EnterDialogueModeSimple("Das wird so nicht funktionieren.");
         return false;
     }
 
