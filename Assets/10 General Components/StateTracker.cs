@@ -34,7 +34,7 @@ public static class StateTracker
 
     public static UnityEvent<IntroStates> OnIntroStateChanged = new UnityEvent<IntroStates>();
 
-    private static IntroStates _introState = IntroStates.SonCallCompleted;
+    private static IntroStates _introState = IntroStates.IntroCompleted;
 
     public static IntroStates IntroState
     {
@@ -61,7 +61,7 @@ public static class StateTracker
         get => _sonCallState;
         set
         {
-            newSonStateAvailable = value != _sonCallState;
+            //newSonStateAvailable = value != _sonCallState;
             _sonCallState = value;
         }
     }
