@@ -12,5 +12,5 @@ Leon, das kann warten. Dein Vater hat viel zu tun. #speaker:marcus #emotion:NORM
 ... #speaker:leon
 Nun, wenn es sonst nichts gibt, lege ich auf. Tschüss. #speaker:marcus #emotion:NORMAL
 ... #speaker:marcus #emotion:NORMAL
-Ich sollte besser mal zum Bahnhof gehen. Sonst verpasse ich meinen Zug.#speaker:marcus #emotion:NORMAL
+(Ich sollte besser mal zum Bahnhof gehen. Sonst verpasse ich meinen Zug.) #speaker:marcus #emotion:NORMAL
 -> END
