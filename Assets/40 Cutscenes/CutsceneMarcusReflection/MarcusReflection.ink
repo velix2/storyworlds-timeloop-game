@@ -21,6 +21,12 @@ Und dann muss es etwas... nein, es muss eine andere Person geben, die diese Zeit
 
 Da bist du ja Marcus. Ich hab mir schon Sorgen gemacht, weil du so plötzlich abgehauen ist... Alles okay, bei dir? 
 Ja. Mir mir geht es gut.
+Okay, ich muss dann wieder arbeiten. Ich hab gehört die Gleise sind immer noch gesperrt.
+Ich denke, ich muss dir das nicht nochmal sagen, aber bei mir bist du immer willkommen!
+
+... #pause: Larry geht
+
+...
 
 
 -> END
