@@ -8,7 +8,7 @@ Heute haben wir in Mathe das kleine Einmal-Eins gelernt und im kreativen Schreib
 Ich hab über dich geschrieben, also wollte ich dir meine Geschichte unbedingt vorlesen- #speaker:leon
 Wegen so etwas unwichtigem rufst du mich an? #speaker:marcus #emotion:ANGRY
 A-aber... #speaker:leon
-Leon, das kann warten. Dein Vater hat viel zu tun.
+Leon, das kann warten. Dein Vater hat viel zu tun. #speaker:marcus #emotion:NORMAL
 ... #speaker:leon
 Nun, wenn es sonst nichts gibt, lege ich auf. Tschüss. #speaker:marcus #emotion:NORMAL
 ... #speaker:marcus #emotion:NORMAL
