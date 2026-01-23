@@ -32,8 +32,6 @@ public class InputManager : MonoBehaviour
 
         playerControls.Standard.PrimaryInteract.performed += SignalPrimaryInteraction;
         playerControls.Standard.SecondaryInteract.performed += SignalSecondaryInteraction;
-
-        Debug.Log(_instance);
     }
 
     public static InputManager GetInstance()

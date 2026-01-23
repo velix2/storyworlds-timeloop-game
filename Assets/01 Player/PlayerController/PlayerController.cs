@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         inventoryManager = FindFirstObjectByType<InventoryManager>();
-        Debug.Log(inventoryManager);
         inventoryManager.ItemSelected.AddListener(interactionChecker.SelectItem);
         interactionChecker.ItemExhausted.AddListener(inventoryManager.RemoveItem);
         

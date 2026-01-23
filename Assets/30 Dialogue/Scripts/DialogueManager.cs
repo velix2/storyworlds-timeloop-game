@@ -565,8 +565,6 @@ public class DialogueManager : MonoBehaviour
         this.dialogueText = dialogueText;
 
         InitializeChoices(choices);
-
-        Debug.Log("DialogueBox initiialized");
     }
 
     private void InitializeChoices(GameObject[] choices)
