@@ -5150,9 +5150,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: items.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: SceneToBeSwitchedTo
       value: Outdoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: 'items.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e6df8ed047d815e4fb3abb3d8bb964e4, type: 2}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: 'items.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c63f18a09203f342a886036e80fd847, type: 2}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: GetItemAfterCutscene
       value: 1

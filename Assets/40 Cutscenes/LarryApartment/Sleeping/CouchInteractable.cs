@@ -58,8 +58,7 @@ public class CouchInteractable : InteractableThreeDimensional
     {
         if (StateTracker.IsInIntro) StateTracker.IntroState++;
         
-        //TODO: do a better day reset
-        TimeHandler.PassTime(9999);
+        TimeHandler.ResetDay();
     }
     
     private void Start()
@@ -100,6 +99,8 @@ public class CouchInteractable : InteractableThreeDimensional
                 AudioManager.PlaySFX(telephoneRing);
                 yield return new WaitForSeconds(telephoneRing.length);
                 DialogueManager.Instance.EnterDialogueMode(call);
+
+                StateTracker.SonCallState = StateTracker.SonCallStates.secondCall;
             }
         }
         

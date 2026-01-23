@@ -1,6 +1,4 @@
 using TimeManagement;
-using Unity.Cinemachine;
-using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.Timeline;
 
@@ -21,7 +19,7 @@ public class CutsceneTrigger : MonoBehaviour
 
     [Header("Callback Get Item")]
     [SerializeField] private bool GetItemAfterCutscene = false;
-    [SerializeField] private ItemData item;
+    [SerializeField] private ItemData[] items;
 
     [Header("Callback Progress Time")]
     [SerializeField] private bool SkipTimeAfterCutscene = false;
@@ -100,8 +98,11 @@ public class CutsceneTrigger : MonoBehaviour
         }
         if(GetItemAfterCutscene)
         {
-            InventoryManager.Instance.AddItem(item);
-            Debug.Log("Got the " + item.name);
+            foreach(ItemData item in items)
+            {
+                InventoryManager.Instance.AddItem(item);
+            }
+            
         }
         if(SkipTimeAfterCutscene)
         {

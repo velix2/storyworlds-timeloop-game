@@ -168,6 +168,19 @@ namespace TimeManagement
             Instance.onTimePassed?.Invoke(payload);
         }
 
+        public static void ResetDay()
+        {
+            if (Instance == null)
+            {
+                Debug.Log("There is no TimeHandler in the scene.");
+                return;
+            }
+
+            // Set this to night, so that we trigger a daytime phase change for sure after reset
+            Instance._prevPhase = DaytimePhase.Night;
+            Instance.ResetForNextCycle();
+        }
+
         /// <summary>
         /// Sets the time of day to a certain day phase. Does not trigger a day reset e.g. if in the evening, set to morning is called.
         /// </summary>
