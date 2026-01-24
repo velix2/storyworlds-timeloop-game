@@ -18,6 +18,9 @@ public class LeaveTownScript : MonoBehaviour
     [SerializeField] private float targetFogDensity;
     [SerializeField] private float targetFogIntensity;
 
+    [SerializeField] private AudioClip respawnSound;
+    
+
     private float _fogDistanceDecreasePerSecond;
     private float _fogDensityIncreasePerSecond;
     private float _fogIntensityIncreasePerSecond;
@@ -60,6 +63,20 @@ public class LeaveTownScript : MonoBehaviour
         // Await dialogue end
         yield return new WaitWhile(() => DialogueManager.Instance.DialogueIsPlaying);
         
+        while (_animationProgressSec <= animationDuration - respawnSound.length)
+        {
+            _fullScreenFogComponent.density.value += _fogDensityIncreasePerSecond * Time.deltaTime;
+            _fullScreenFogComponent.intensity.value += _fogIntensityIncreasePerSecond * Time.deltaTime;
+            
+            _fullScreenFogComponent.startLine.value -= _fogDistanceDecreasePerSecond * Time.deltaTime;
+
+            _animationProgressSec += Time.deltaTime;
+            yield return null;
+        }
+        
+        AudioManager.MuteMusic();
+        AudioManager.PlaySFX(respawnSound);
+        
         // Animate fog stuff
         while (_animationProgressSec <= animationDuration)
         {
@@ -75,8 +92,6 @@ public class LeaveTownScript : MonoBehaviour
         StateTracker.Evelyn.QuestState = StateTracker.EvelynState.QuestStates.TriedLeavingTown;
         
         TimeHandler.ResetDay();
-        
-        print("is this visible");
     }
 
     private void OnDisable()

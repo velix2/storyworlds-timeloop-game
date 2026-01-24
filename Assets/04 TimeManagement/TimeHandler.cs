@@ -223,8 +223,11 @@ namespace TimeManagement
                     timeUntilNextPhase = -timeUntilNextPhase + Instance.nightBeginInMinutes;
                     break;
                 case DaytimePhase.Night:
+                    
+                    CouchInteractable.newDayBegins = true; // Absolutely not the best way to get son to call. But I'm too lazy for a better solution and it works.
+                    
                     Instance.ResetForNextCycle();
-                    goto default;
+                    return;
                 default:
                     Debug.Log("Tried skipping to an unknown DaytimePhase.");
                     return;

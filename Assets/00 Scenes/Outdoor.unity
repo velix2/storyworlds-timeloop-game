@@ -4478,6 +4478,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1230776743139297704, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 204126057}
+    - targetCorrespondingSourceObject: {fileID: 3273721365528364944, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 480120334}
+    - targetCorrespondingSourceObject: {fileID: 2773118163473185126, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1298442005}
+    - targetCorrespondingSourceObject: {fileID: 8045805114238012524, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 546680638}
   m_SourcePrefab: {fileID: 100100000, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
 --- !u!4 &204126055 stripped
 Transform:
@@ -11228,6 +11237,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3492396374586381408, guid: f9026b8cdae81eb629c4865d47776962, type: 3}
   m_PrefabInstance: {fileID: 479257595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &480120329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3273721365528364944, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+  m_PrefabInstance: {fileID: 204126054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &480120334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480120329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 1320
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!4 &484244594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2578182291870079840, guid: cd09d23a28aeecfa790f9eef96ea7690, type: 3}
@@ -12354,6 +12384,27 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd09d23a28aeecfa790f9eef96ea7690, type: 3}
+--- !u!1 &546680633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8045805114238012524, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+  m_PrefabInstance: {fileID: 204126054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &546680638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546680633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 1320
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!4 &547501901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7522939003612023166, guid: 89644c64599e1f0579638761f3df9d36, type: 3}
@@ -30136,6 +30187,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1129626082720443868, guid: fe54095f03415059b8a4b7a17141407c, type: 3}
   m_PrefabInstance: {fileID: 1296684941}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1298442000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2773118163473185126, guid: 3210562bd36b3fd97b256dc1128a6f41, type: 3}
+  m_PrefabInstance: {fileID: 204126054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1298442005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298442000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
+  enableTimeMinutes: 960
+  disableTimeMinutes: 1320
+  glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
+  materialNameToReplace: Window
 --- !u!1001 &1299015103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49618,9 +49690,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284288468}
     m_Modifications:
+    - target: {fileID: 83554429535770388, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 83554429535770388, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: disableTimeMinutes
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 935411544499113884, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 660
+      objectReference: {fileID: 0}
+    - target: {fileID: 935411544499113884, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: disableTimeMinutes
+      value: 1140
+      objectReference: {fileID: 0}
     - target: {fileID: 1426635978721978137, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
       propertyPath: m_Name
       value: rarity_shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522833852559415104, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522833852559415104, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: disableTimeMinutes
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 1767589674835230115, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
       propertyPath: m_LocalPosition.x
@@ -49661,6 +49757,30 @@ PrefabInstance:
     - target: {fileID: 1767589674835230115, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654434103662941676, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 660
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654434103662941676, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: disableTimeMinutes
+      value: 1140
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286764237841910434, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 660
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286764237841910434, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: disableTimeMinutes
+      value: 1140
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342597391185590891, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 660
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342597391185590891, guid: df999117f2bb90f148c3178f6e2f9d75, type: 3}
+      propertyPath: disableTimeMinutes
+      value: 1140
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49730,6 +49850,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 24952813}
     m_Modifications:
+    - target: {fileID: 5126975413649432712, guid: c788eecb96b72737aaddc93272b36eee, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 480
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126975413649432712, guid: c788eecb96b72737aaddc93272b36eee, type: 3}
+      propertyPath: disableTimeMinutes
+      value: 1320
+      objectReference: {fileID: 0}
     - target: {fileID: 5840921394847650816, guid: c788eecb96b72737aaddc93272b36eee, type: 3}
       propertyPath: m_Name
       value: Diner
@@ -50233,6 +50361,14 @@ PrefabInstance:
     - target: {fileID: 3326033665301551940, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
       propertyPath: m_Name
       value: Library
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863514584020174626, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863514584020174626, guid: 6c24ca5f88a8d84f8a0e97a795acd7d9, type: 3}
+      propertyPath: disableTimeMinutes
+      value: 1140
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
