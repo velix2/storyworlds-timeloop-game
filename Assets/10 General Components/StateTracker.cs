@@ -81,7 +81,9 @@ public static class StateTracker
         {
             Init,
             IntroCutsceneWatched,
-            TalkedTo
+            TalkedTo,
+            TriedLeavingTown,
+            Completed
         }
         
         /// <summary>

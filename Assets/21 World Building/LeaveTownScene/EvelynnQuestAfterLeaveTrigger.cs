@@ -7,13 +7,13 @@ public class EvelynnQuestAfterLeaveTrigger : MonoBehaviour
 
     private void Start()
     {
-        if (StateTracker.EvelynQuestState != StateTracker.EvelynQuestStates.TriedLeavingTown)
+        if (StateTracker.Evelyn.QuestState != StateTracker.EvelynState.QuestStates.TriedLeavingTown)
         {
             Destroy(gameObject);
             return;
         }
 
-        StateTracker.EvelynQuestState = StateTracker.EvelynQuestStates.QuestCompleted;
+        StateTracker.Evelyn.QuestState = StateTracker.EvelynState.QuestStates.Completed;
         DialogueManager.Instance.EnterDialogueMode(dialogueJson);
     }
 }
