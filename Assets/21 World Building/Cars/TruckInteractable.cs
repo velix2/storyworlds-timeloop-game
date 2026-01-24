@@ -6,7 +6,7 @@ public class TruckInteractable : InteractableThreeDimensional
     {
         get
         {
-            return StateTracker.EvelynQuestState < StateTracker.EvelynQuestStates.TalkedTo
+            return StateTracker.Evelyn.QuestState < StateTracker.EvelynState.QuestStates.TalkedTo
                 ? "Wem gehört der Truck?"
                 : "Evelyn's Truck.";
 

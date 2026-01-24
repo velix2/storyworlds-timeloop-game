@@ -10,7 +10,7 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
         Repaired
     }
 
-    private bool IsQuestAvailable => !StateTracker.IsInIntro && StateTracker.EvelynQuestState >= StateTracker.EvelynQuestStates.TalkedTo;
+    private bool IsQuestAvailable => !StateTracker.IsInIntro && StateTracker.Evelyn.QuestState >= StateTracker.EvelynState.QuestStates.TalkedTo;
 
     private CoffeeMachineRepairState _repairState = CoffeeMachineRepairState.Broken;
     
@@ -133,7 +133,7 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
 
     public override void SecondaryInteraction()
     {
-        if (!StateTracker.IsInIntro) Say(dialogueAnyInteractWhileIntro);
+        if (StateTracker.IntroState < StateTracker.IntroStates.SonCallCompleted) Say(dialogueAnyInteractWhileIntro);
         else Say(RepairState is CoffeeMachineRepairState.Broken ? dialogueLookWhileBroken : dialogueLookWhileRepaired);
     }
 

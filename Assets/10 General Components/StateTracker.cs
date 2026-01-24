@@ -36,7 +36,7 @@ public static class StateTracker
 
     public static UnityEvent<IntroStates> OnIntroStateChanged = new UnityEvent<IntroStates>();
 
-    private static IntroStates _introState = IntroStates.LarryDinnerCompleted;
+    private static IntroStates _introState = IntroStates.IntroCompleted;
 
     public static IntroStates IntroState
     {
@@ -75,26 +75,61 @@ public static class StateTracker
     #endregion
 
     #region CoffeeMachineQuest
-
-    
-    public enum EvelynQuestStates
+    public struct EvelynState
     {
-        Init,
-        IntroCutsceneWatched,
-        TalkedTo,
-        CoffeeGiven
+        public enum QuestStates
+        {
+            Init,
+            IntroCutsceneWatched,
+            TalkedTo
+        }
+        
+        /// <summary>
+        /// Var used in dialogue with Evelyn. Value determines her answers in regular dialogue.
+        /// </summary>
+        public bool coffeeGiven //coffee given is a separate var to allow further quest expanding and puzzles 
+        {
+            get => (bool)DialogueManager.Instance.variableObserver.GetVariable("evelynCoffeeGot");
+            set => DialogueManager.Instance.variableObserver.SetVariable("evelynCoffeeGot", value);
+        }
+        
+        /// <summary>
+        /// The player has asked Evelyn for a ride, and she agreed to it. She will be waiting outside.
+        /// </summary>
+        public bool readyForRide
+        {
+            set => DialogueManager.Instance.variableObserver.SetVariable("evelynReadyForRide", value);
+            get => (bool)DialogueManager.Instance.variableObserver.GetVariable("evelynReadyForRide");
+        }
+
+        /// <summary>
+        /// The player confirms his decision to ride with Evelyn, when she is waiting outside<b/>
+        /// Used to trigger ride cutscene.
+        /// </summary>
+        public bool rideConfirmation
+        {
+            set => DialogueManager.Instance.variableObserver.SetVariable("evelynRideConfirmation", value);
+            get => (bool)DialogueManager.Instance.variableObserver.GetVariable("evelynRideConfirmation");
+        }
+        
+        /// <summary>
+        /// The player already tried leaving town via Evelyn.
+        /// </summary>
+        public bool triedLeaving;
+        
+        private QuestStates _questState;
+
+        public QuestStates QuestState
+        {
+            get => _questState;
+            set => _questState = value;
+        }
+        
     }
 
-    public static bool triedLeaving;
-
-    private static EvelynQuestStates _evelynQuestState;
-    public static EvelynQuestStates EvelynQuestState
-    {
-        get => _evelynQuestState;
-        set => _evelynQuestState = value;
-    }
+    public static EvelynState Evelyn = new EvelynState();
 
     #endregion
 
-    
+
 }

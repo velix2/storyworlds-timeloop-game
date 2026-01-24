@@ -256,10 +256,9 @@ namespace TimeManagement
         private void ResetQuestProgression()
         {
             //Evelyn Coffee Quest
-            if (StateTracker.EvelynQuestState == StateTracker.EvelynQuestStates.CoffeeGiven)
-            {
-                StateTracker.EvelynQuestState = StateTracker.EvelynQuestStates.TalkedTo;
-            }
+            StateTracker.Evelyn.coffeeGiven = false;
+            StateTracker.Evelyn.readyForRide = false;
+            StateTracker.Evelyn.rideConfirmation = false;
         }
 
         #endregion

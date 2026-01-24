@@ -72,7 +72,7 @@ public class LeaveTownScript : MonoBehaviour
             yield return null;
         }
 
-        StateTracker.triedLeaving = true;
+        StateTracker.Evelyn.triedLeaving = true;
         
         TimeHandler.ResetDay();
     }
