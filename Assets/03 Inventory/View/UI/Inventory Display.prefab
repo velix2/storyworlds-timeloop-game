@@ -631,6 +631,8 @@ GameObject:
   - component: {fileID: 7137503786363041485}
   - component: {fileID: 6887922798106641801}
   - component: {fileID: 6558961927969326828}
+  - component: {fileID: 2388627917247745122}
+  - component: {fileID: 5296888886085387108}
   m_Layer: 5
   m_Name: TimeSkipperContainer
   m_TagString: Untagged
@@ -694,6 +696,31 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &2388627917247745122
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510800673146160596}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &5296888886085387108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510800673146160596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df459d0de9d932546b6406f0342f9e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeSkipDisplay
+  canvasGroup: {fileID: 2388627917247745122}
 --- !u!1 &4339416806245292628
 GameObject:
   m_ObjectHideFlags: 0
