@@ -29,7 +29,7 @@ Könntest du ja auch mal probieren![nl]Einfach mal ins kalte Wasser springen und
 Du hast leicht reden, ohne Frau und Kinder. #speaker:marcus #emotion:NORMAL
 Uff...[nl]Da hab ich jetzt gar nicht dran gedacht.#speaker:larry #emotion:NERVOUS
 Wie viele Kinder hast du denn, Marcus? #speaker:larry #emotion:NORMAL
-Einen 6 Jahre alten Sohn, er heißt Leon. #speaker:marcus #emotion:NORMAL
+Einen 8 Jahre alten Sohn, er heißt Leon. #speaker:marcus #emotion:NORMAL
 Kein Bock mehr Dialog zu schreiben, ich geh jetzt schlafen #speaker:larry #emotion:ANGRY
 
 Du kannst dich auf die Couch legen. #speaker:larry #emotion:NORMAL
