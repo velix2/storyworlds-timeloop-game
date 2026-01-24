@@ -19,7 +19,7 @@ public class CouchInteractable : InteractableThreeDimensional
     [Space]
     [SerializeField] private string goToSleepText = "Gute Nacht...";
 
-    private static bool newDayBegins = false;
+    public static bool newDayBegins = false;
     
     public override interactionType Primary
     {
