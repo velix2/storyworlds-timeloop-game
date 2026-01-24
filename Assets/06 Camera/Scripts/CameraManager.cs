@@ -40,7 +40,14 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
+        Invoke(nameof(GetMainCamera), 1.0f);
+    }
+    
+    private void GetMainCamera()
+    {
         mainVirtual = brain.ActiveVirtualCamera as CinemachineCamera;
+        print("Brain: " + brain.ActiveVirtualCamera);
+        print("MainCam: " +mainVirtual);
     }
 
     public static void FocusCam(CinemachineCamera cam, BlendType blend = BlendType.DEFAULT)
