@@ -3409,6 +3409,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 236466477594105958, guid: 96d2dab7cb7d5fa008aa5672beb80d54, type: 3}
   m_PrefabInstance: {fileID: 7409560499457915455}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1851085696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1851085698}
+  - component: {fileID: 1851085697}
+  m_Layer: 0
+  m_Name: EvelynnQuest After Leave Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1851085697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851085696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507f848bfcf8b99a4ba716448180466a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  dialogueJson: {fileID: 4900000, guid: 23c97d1d5c9420b88a5090715e87e8bf, type: 3}
+--- !u!4 &1851085698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851085696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.77015, y: 0.79312, z: 2.98169}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1877580668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,3 +4161,4 @@ SceneRoots:
   - {fileID: 342595921}
   - {fileID: 1589087074}
   - {fileID: 1393176550}
+  - {fileID: 1851085698}

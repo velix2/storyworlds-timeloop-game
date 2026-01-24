@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 756920aefe7afcb4eb50dea8d3b12d8a, type: 3}
-  m_Name: Evelynn
+  m_Name: Evelyn
   m_EditorClassIdentifier: Assembly-CSharp::SpeakerData
-  speakerId: evelynn
-  speakerName: Evelynn
+  speakerId: evelyn
+  speakerName: Evelyn
   portraits: []

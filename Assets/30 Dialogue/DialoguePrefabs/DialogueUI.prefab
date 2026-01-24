@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 7763705419080928794}
   - component: {fileID: 1091810327127541253}
   - component: {fileID: 3200240286237993692}
+  - component: {fileID: 8274491651608569537}
   m_Layer: 5
   m_Name: DialogueUI
   m_TagString: Untagged
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -242,6 +243,18 @@ MonoBehaviour:
   playerPanel: {fileID: 536598812235148563}
   playerText: {fileID: 7825080493321936643}
   playerTransform: {fileID: 0}
+--- !u!225 &8274491651608569537
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680451418968921015}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &693356436650039641
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1346,6 +1359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3045202825704139371}
   - component: {fileID: 1731235910146558387}
+  - component: {fileID: 8658254104915625053}
   m_Layer: 5
   m_Name: DialogueChoices
   m_TagString: Untagged
@@ -1401,6 +1415,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &8658254104915625053
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295441803248097489}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 1
 --- !u!1 &8091516681052508492
 GameObject:
   m_ObjectHideFlags: 0

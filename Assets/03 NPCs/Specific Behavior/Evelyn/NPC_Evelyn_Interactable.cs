@@ -8,6 +8,7 @@ using UnityEngine.Timeline;
 
 public class NPC_Evelyn_Interactable : InteractableTwoDimensional
 {
+    [Header("References")]
     [SerializeField] private Animator animator;
     [SerializeField] private TruckInteractable truck;
     private int animatorSitting = Animator.StringToHash("sitting");
@@ -15,17 +16,19 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
     [Header("Dialogue")] 
     [SerializeField] private ItemData coffeeReference;
     [SerializeField] private string observationText;
-    [SerializeField] private TextAsset noCoffeeDialogue;
     [SerializeField] private TextAsset regularDialogue;
-    [SerializeField] private TextAsset readyForRideDialogue;
     [SerializeField] private TextAsset itemReject;
     [SerializeField] private TextAsset coffeeGet;
     [Header("Cutscenes")] 
     [SerializeField] private TimelineAsset driveAwayCutscene;
     [SerializeField] private TimelineAsset outOfCoffeeCutscene;
-    
 
-    private bool outside;
+
+    private bool outside
+    {
+        get => (bool)DialogueManager.Instance.variableObserver.GetVariable("evelynOutside");
+        set => DialogueManager.Instance.variableObserver.SetVariable("evelynOutside", value);
+    }
     
     public override interactionType Primary => interactionType.SPEAK;
     public override interactionType Secondary => interactionType.LOOK;
@@ -33,29 +36,26 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
     public override bool SecondaryNeedsInRange => false;
     public override void PrimaryInteraction()
     {
-        StartCoroutine(TalkSequence());
+        StartCoroutine(TalkSequence(regularDialogue));
     }
 
-    private IEnumerator TalkSequence()
+    private IEnumerator TalkSequence(TextAsset dialogue)
     {
+        PlayerController.movementBlocked = true;
         animator.SetBool(animatorTalkedTo, true);
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
-        DialogueManager.Instance.EnterDialogueMode(GetCurrentDialogue());
+        if (!outside)yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length + 0.5f);
+        DialogueManager.Instance.EnterDialogueMode(dialogue);
         yield return new WaitWhile(() => DialogueManager.Instance.DialogueIsPlaying);
+        
+        if (StateTracker.Evelyn.rideConfirmation)
+        {
+            CutsceneManager.Instance.PlayCutscene(driveAwayCutscene);
+        } 
+        
         animator.SetBool(animatorTalkedTo, false);
+        PlayerController.movementBlocked = false;
     }
     
-    private TextAsset GetCurrentDialogue()
-    {
-        switch (StateTracker.EvelynQuestState)
-        {
-            case StateTracker.EvelynQuestStates.CoffeeGiven:
-                return outside ? readyForRideDialogue : regularDialogue;
-            default:
-                return noCoffeeDialogue;
-        }
-    }
-
     public override void SecondaryInteraction()
     {
         DialogueManager.Instance.EnterDialogueModeSimple(observationText);
@@ -65,13 +65,13 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
     {
         if (otherItem == coffeeReference)
         {
-            DialogueManager.Instance.EnterDialogueMode(coffeeGet);
-            StateTracker.EvelynQuestState = StateTracker.EvelynQuestStates.CoffeeGiven;
+            StartCoroutine(TalkSequence(coffeeGet));
+            StateTracker.Evelyn.coffeeGiven = true;
             return true;
         }
         else
         {
-            DialogueManager.Instance.EnterDialogueMode(itemReject);
+            StartCoroutine(TalkSequence(itemReject));
             return false;
         }
     }
@@ -81,37 +81,35 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
     {
         if (StateTracker.IntroState >= StateTracker.IntroStates.SonCallCompleted) //story progression
         {
-            if (TimeHandler.Instance.CurrentTime > 60 * 22)     //drives off
-            {
-                gameObject.SetActive(false);
-                return;
-            }
-
+            if (TimeHandler.Instance.CurrentTime > 60 * 22) goto not_here;    //drives off
+            
             switch (SceneManager.GetActiveScene().name)
             {
                 case "Outdoor":
+                    if (TimeHandler.Instance.CurrentTime <= 60 * 20) goto not_here;
                     outside = true;
                     animator.SetBool(animatorSitting, false);
                     break;
                 case "Diner":
+                    if (TimeHandler.Instance.CurrentTime > 60 * 20) goto not_here;
                     animator.SetBool(animatorSitting, true);
-                    if (!StateTracker.IsInIntro && StateTracker.EvelynQuestState == StateTracker.EvelynQuestStates.Init)
+                    if (!StateTracker.IsInIntro && StateTracker.Evelyn.QuestState == StateTracker.EvelynState.QuestStates.Init)
                     {
                         CutsceneManager.Instance.PlayCutscene(outOfCoffeeCutscene);
-                        StateTracker.EvelynQuestState = StateTracker.EvelynQuestStates.IntroCutsceneWatched;
+                        StateTracker.Evelyn.QuestState = StateTracker.EvelynState.QuestStates.IntroCutsceneWatched;
                     }
-                    
+
+                    outside = false;
                     break;
                 default:
                     Debug.LogError("Behaviour is undefined in this scene!");
                     return;
             }
-            
+
+            return;
         }
-        else
-        {
-            gameObject.SetActive(false);  
-        }
+        not_here:
+            gameObject.SetActive(false); 
         
     }
 }
