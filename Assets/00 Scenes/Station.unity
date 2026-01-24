@@ -2311,8 +2311,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: de880530a061f394eb93e06d3b073ab1, type: 2}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: AmountInMinutes
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: stateToBePlayed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: SkipTimeAfterCutscene
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

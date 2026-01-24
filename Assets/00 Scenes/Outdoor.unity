@@ -4819,8 +4819,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0354723356f12704395c56b970f6ecbe, type: 2}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: AmountInMinutes
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: stateToBePlayed
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: SkipTimeAfterCutscene
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -63898,8 +63906,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ba5d2079a5509624d8ea23ddd72aa07d, type: 2}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: AmountInMinutes
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: stateToBePlayed
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
+      propertyPath: SkipTimeAfterCutscene
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

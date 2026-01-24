@@ -1,3 +1,4 @@
+using TimeManagement;
 using UnityEngine;
 using UnityEngine.Timeline;
 
@@ -57,5 +58,6 @@ public class MotelDoorInteractable : InteractableThreeDimensional
     private void OnCutsceneEnd()
     {
         StateTracker.IntroState++;
+        TimeHandler.PassTime(30);
     }
 }

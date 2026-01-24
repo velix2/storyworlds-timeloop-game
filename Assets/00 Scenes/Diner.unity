@@ -8365,8 +8365,8 @@ MonoBehaviour:
   SceneToBeSwitchedTo: 
   GetItemAfterCutscene: 0
   items: []
-  SkipTimeAfterCutscene: 0
-  AmountInMinutes: 0
+  SkipTimeAfterCutscene: 1
+  AmountInMinutes: 150
 --- !u!4 &854467276
 Transform:
   m_ObjectHideFlags: 0
@@ -8546,8 +8546,8 @@ MonoBehaviour:
   SceneToBeSwitchedTo: Outdoor
   GetItemAfterCutscene: 0
   items: []
-  SkipTimeAfterCutscene: 0
-  AmountInMinutes: 0
+  SkipTimeAfterCutscene: 1
+  AmountInMinutes: 30
 --- !u!1001 &870700916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11671,7 +11671,7 @@ MonoBehaviour:
   GetItemAfterCutscene: 0
   items: []
   SkipTimeAfterCutscene: 1
-  AmountInMinutes: 45
+  AmountInMinutes: 120
 --- !u!4 &1636897986
 Transform:
   m_ObjectHideFlags: 0
