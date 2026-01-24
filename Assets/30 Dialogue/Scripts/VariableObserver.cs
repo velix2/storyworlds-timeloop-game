@@ -1,6 +1,7 @@
 using Ink.Runtime;
 using System.Collections.Generic;
 using UnityEngine;
+using static Ink.Runtime.Story;
 
 /// <summary>
 /// This class manages the global variables used in the ink stories
@@ -108,5 +109,43 @@ public class VariableObserver
         Debug.Log(variableName + " - " + value);
     }
 
+    /// <summary>
+    /// Get value according to variableName
+    /// </summary>
+    /// <param name="variableName"></param>
+    /// <returns></returns>
+    public object GetVariable(string variableName) 
+    {
+        variables.TryGetValue(variableName, out Ink.Runtime.Object variable);
+        if (variable == null)
+        {
+            Debug.LogError("Variable with name " + variableName + " could not be found!");
+            return null;
+        }
 
+        switch (variable)
+        {
+            case Ink.Runtime.IntValue intValue:
+                return intValue.value;
+
+            case Ink.Runtime.FloatValue floatValue:
+                return floatValue.value;
+
+            case Ink.Runtime.StringValue stringValue:
+                return stringValue.value;
+
+            case Ink.Runtime.BoolValue boolValue:
+                return boolValue.value;
+
+            case Ink.Runtime.ListValue listValue:
+                return listValue.value; // InkList
+
+            default:
+                Debug.LogError(
+                    $"Variable '{variableName}' has unsupported type {variable.GetType()}"
+                );
+                return null;
+        }
+
+    }
 }
