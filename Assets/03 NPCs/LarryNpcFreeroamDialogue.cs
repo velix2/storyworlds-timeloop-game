@@ -4,7 +4,6 @@ using NPCs.NpcCharacter;
 using TimeManagement;
 using UnityEngine;
 
-[RequireComponent(typeof(NpcCharacter))]
 public class LarryNpcFreeroamDialogue : InteractableTwoDimensional
 {
     [System.Serializable]
@@ -14,10 +13,10 @@ public class LarryNpcFreeroamDialogue : InteractableTwoDimensional
         public TextAsset dialogueJson;
     }
 
+    [SerializeField] private NpcCharacter npcCharacter;
+    
     [SerializeField] private List<TimePhaseToDialogueMapping> _timePhaseToDialogueMappings = new();
 
-
-    private NpcCharacter _npcCharacter;
 
     [SerializeField]
     private string lookDialogue = "Larry, mein Gastgeber. Schusseliger Kerl, aber immerhin sehr hilfsbereit.";
@@ -45,7 +44,7 @@ public class LarryNpcFreeroamDialogue : InteractableTwoDimensional
         DialogueManager.Instance.EnterDialogueModeSimple(lookDialogue);
     }
 
-    private bool CanBeSpokenTo => _npcCharacter.CanBeSpokenTo &&
+    private bool CanBeSpokenTo => npcCharacter.CanBeSpokenTo &&
                                   _timePhaseToDialogueMappings.Any(mapping =>
                                       mapping.timePhase.IsBetween(TimeHandler.Instance.CurrentTime));
 }
