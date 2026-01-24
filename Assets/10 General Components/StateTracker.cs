@@ -27,7 +27,6 @@ public static class StateTracker
         SonCallRepeatCompleted,
         NoTrainRuns2Completed,
         DinerWithRadioRepeatCompleted,
-        EverythingRepeatsCompleted,
 
         IntroCompleted,
     }
