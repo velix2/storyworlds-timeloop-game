@@ -7,10 +7,11 @@ public class GlowSpawner : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning("Found more than one Cutscene Manager in the scene!");
+            Debug.LogWarning("Found more than one GlowSpawner in the scene!");
             Destroy(gameObject);
             return;
         }
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
