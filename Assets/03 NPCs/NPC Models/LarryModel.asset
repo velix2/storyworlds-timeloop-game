@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30067231a1fc44329e42f4e7e043617b, type: 3}
   m_Name: LarryModel
   m_EditorClassIdentifier: Assembly-CSharp::NPCs.NpcData.NpcModel
-  prefab: {fileID: 7720330513778223133, guid: 9963537546b965f829823f175c206451, type: 3}
+  prefab: {fileID: 342871459149920722, guid: 08412dcedab85a1529f958245da94c31, type: 3}
   characterName: Larry
   walkAnimator: {fileID: 22100000, guid: 3f177be559e2a0340ab343b62f47618a, type: 2}
   defaultRoutine: {fileID: 11400000, guid: 97c601b431eb03cfcb55b24f3eaf6f43, type: 2}

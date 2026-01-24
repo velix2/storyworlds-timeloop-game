@@ -1,4 +1,5 @@
 using System;
+using NPCs.NpcCharacter.NpcCharacterState;
 using NPCs.NpcData;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,8 +17,10 @@ namespace NPCs.NpcCharacter
          /// </summary>
         public NpcModel Model { get; set; }
 
+        public bool CanBeSpokenTo => _state is NpcCharacterStateIdle;
+
         /// <summary>
-        /// The current <see cref="NpcCharacterState.NpcCharacterState"/> of the Npc
+        /// The current <see cref="NpcCharacterState"/> of the Npc
         /// </summary>
         private NpcCharacterState.NpcCharacterState _state;
         
@@ -74,7 +77,7 @@ namespace NPCs.NpcCharacter
         }
 
         /// <summary>
-        /// Updates the NPC's state and invokes <see cref="NpcCharacterState.NpcCharacterState.OnStateBecameActive"/> on the new state.
+        /// Updates the NPC's state and invokes <see cref="NpcCharacterState.OnStateBecameActive"/> on the new state.
         /// </summary>
         /// <param name="newState">The state to be applied</param>
         public void UpdateState(NpcCharacterState.NpcCharacterState newState)
