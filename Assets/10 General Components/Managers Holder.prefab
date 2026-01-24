@@ -551,7 +551,7 @@ MonoBehaviour:
           m_MethodName: EnterDialogueMode
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 4900000, guid: 50dc93fc2da7d36419b8a9484164285f, type: 3}
+            m_ObjectArgument: {fileID: 4900000, guid: be3fa45eb11678d46a527560a28b8069, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -565,7 +565,7 @@ MonoBehaviour:
           m_MethodName: EnterDialogueMode
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 4900000, guid: 4a2b5069563e17247921c90e8b68caba, type: 3}
+            m_ObjectArgument: {fileID: 4900000, guid: 9214529e9d907a143acbecd4ca24ec9f, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -579,7 +579,7 @@ MonoBehaviour:
           m_MethodName: EnterDialogueMode
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 4900000, guid: f23beba50f23a1545ba2a6b9836b5275, type: 3}
+            m_ObjectArgument: {fileID: 4900000, guid: aa1d1d6d939463e4490b48daf63473ff, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0

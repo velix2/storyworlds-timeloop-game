@@ -23,7 +23,7 @@ Wie heißt du eigentlich? #speaker:larry #emotion:NORMAL
 Marcus. Und Sie? #speaker:marcus #emotion:NORMAL
 Ich bin der Laurence, aber du kannst Larry zu mir sagen!#speaker:larry #emotion:HAPPY
 Freut mich. #speaker:marcus #emotion:NORMAL
-Und sietzen brauchen wir uns doch auch nicht, oder? Zumindestens bin ich nicht der Mensch für sowas. #speaker:marcus #emotion:NORMAL
+Und sietzen brauchen wir uns doch auch nicht, oder? Zumindestens bin ich nicht der Mensch für sowas. #speaker:larry #emotion:NORMAL
 Ich schätze, dass das in Ordnung ist. #speaker:marcus #emotion:NORMAL
 
 -> END
