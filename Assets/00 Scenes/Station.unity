@@ -3153,7 +3153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1228095295}
   - component: {fileID: 1228095296}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3169,7 +3169,7 @@ Transform:
   m_GameObject: {fileID: 1228095294}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.98, y: -1.76885, z: 4.04}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4459,7 +4459,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1517250776}
   - component: {fileID: 1517250777}
-  m_Layer: 0
+  - component: {fileID: 1517250779}
+  - component: {fileID: 1517250778}
+  m_Layer: 6
   m_Name: NPC_Mary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4475,7 +4477,7 @@ Transform:
   m_GameObject: {fileID: 1517250775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.98, y: -1.76885, z: 4.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4504,6 +4506,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1517250778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517250775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8858deac6af8831a35d43bfdb9f0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  inRange: 0
+  spriteRenderer: {fileID: 1228095296}
+  timeAvailable:
+    startTime: 0
+    endTime: 0
+  defaultDialogueHello: Willkommen im Bahnhof von Echo's Lake!
+  dialogueNoTrain2: {fileID: 4900000, guid: 6b15b93621df3c61ea34a3b5ed6ac35e, type: 3}
+  defaultDialogueNoTrain: "Es tut mir Leid, es fahren leider gerade keine Z\xFCge."
+--- !u!65 &1517250779
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517250775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.818295, z: 0.82743454}
+  m_Center: {x: 0, y: 0.97066236, z: 0.08628273}
 --- !u!1 &1536922442
 GameObject:
   m_ObjectHideFlags: 0

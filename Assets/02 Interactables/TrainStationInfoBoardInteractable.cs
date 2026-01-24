@@ -26,9 +26,6 @@ public class TrainStationInfoBoardInteractable : InteractableThreeDimensional
                 DialogueManager.Instance.EnterDialogueModeSimple(afterNoTrainRuns2Dialogue);
                 break;
         }
-
-        // increment to the next intro state
-        if (StateTracker.IntroState is StateTracker.IntroStates.SonCallRepeatCompleted) StateTracker.IntroState = StateTracker.IntroStates.NoTrainRuns2Completed;
     }
 
     public override void SecondaryInteraction()
