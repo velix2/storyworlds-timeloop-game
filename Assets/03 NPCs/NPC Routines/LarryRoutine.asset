@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCs.NpcData.NpcRoutine.DayRoutine
   routineElements:
   - daytime: 8:00
-    targetScene: {fileID: 11400000, guid: ed1bfd58c264e0f0dbb69bd74ce58955, type: 2}
-    targetPositionInTargetScene: {x: 1, y: 1, z: -2}
-    teleportToLocation: 1
-  - daytime: 9:00
     targetScene: {fileID: 11400000, guid: b16aeb82d4f45e1a193ae79d37dda2a9, type: 2}
     targetPositionInTargetScene: {x: -7.82, y: 0, z: 5.777}
-    teleportToLocation: 0
+    teleportToLocation: 1
   - daytime: 15:00
     targetScene: {fileID: 11400000, guid: 0b4547b5cd1a693ea9ba2214b4b7f7eb, type: 2}
-    targetPositionInTargetScene: {x: 543.36, y: 6, z: 438.53}
+    targetPositionInTargetScene: {x: 556.06, y: 5, z: 407.98}
     teleportToLocation: 0
-  - daytime: 17:00
+  - daytime: 15:45
+    targetScene: {fileID: 11400000, guid: bbed61067a33b09298f7f04bd1d81bca, type: 2}
+    targetPositionInTargetScene: {x: -1.12, y: 0, z: 1.59}
+    teleportToLocation: 0
+  - daytime: 18:00
     targetScene: {fileID: 11400000, guid: ed1bfd58c264e0f0dbb69bd74ce58955, type: 2}
     targetPositionInTargetScene: {x: 0.813, y: 1, z: -1.098}
     teleportToLocation: 0
