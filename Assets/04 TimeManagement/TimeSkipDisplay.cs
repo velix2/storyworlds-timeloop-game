@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class TimeSkipDisplay : MonoBehaviour
 {
-    [SerializeField] private CanvasGroup canvasGroup;
 
     private void Start()
     {
@@ -18,9 +17,9 @@ public class TimeSkipDisplay : MonoBehaviour
 
     private void SetDisplayVisibility(bool value)
     {
-        
-        canvasGroup.alpha = value? 1 : 0;
-        canvasGroup.blocksRaycasts = value;
-        canvasGroup.interactable = value;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(value);
+        }
     }
 }
