@@ -82,10 +82,12 @@ public static class StateTracker
         Init,
         IntroCutsceneWatched,
         TalkedTo,
-        CoffeeGiven
+        CoffeeGiven,
+        TriedLeavingTown,
+        QuestCompleted
     }
 
-    public static bool triedLeaving;
+    public static bool triedLeaving => _evelynQuestState >= EvelynQuestStates.TriedLeavingTown;
 
     private static EvelynQuestStates _evelynQuestState;
     public static EvelynQuestStates EvelynQuestState
