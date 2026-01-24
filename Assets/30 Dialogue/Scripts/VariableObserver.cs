@@ -1,6 +1,6 @@
+using Ink.Runtime;
 using System.Collections.Generic;
 using UnityEngine;
-using Ink.Runtime;
 
 /// <summary>
 /// This class manages the global variables used in the ink stories
@@ -16,8 +16,6 @@ public class VariableObserver
     public VariableObserver(TextAsset loadGlobalsJSON)
     {
         globalVariablesStory = new Story(loadGlobalsJSON.text);
-        
-        // TODO: Load saved data 
 
         // initialize the dictionary
         variables = new Dictionary<string, Ink.Runtime.Object>();
@@ -39,17 +37,6 @@ public class VariableObserver
         story.variablesState.variableChangedEvent -= VariableChanged;
     }
 
-    public void SaveVariables()
-    {
-        if (globalVariablesStory != null)
-        {
-            // Load the current state of all variables to the globals story
-            VariablesToStory(globalVariablesStory);
-
-            // TODO: Store values
-        }
-    }
-
     private void VariableChanged(string name, Ink.Runtime.Object value)
     {
         Debug.Log("Variable Changed: " + name + " - " + value);
@@ -60,12 +47,66 @@ public class VariableObserver
         }
     }
 
-    private void VariablesToStory(Story story)
+    public void VariablesToStory(Story story)
     {
         foreach (KeyValuePair<string, Ink.Runtime.Object> variable in variables)
         {
             story.variablesState.SetGlobal(variable.Key, variable.Value);
         }
     }
+
+    /// <summary>
+    /// Function to set a variable in globals.ink
+    /// </summary>
+    /// <param name="variableName">name of the variable</param>
+    /// <param name="value"></param>
+    public void SetVariable(string variableName, object value)
+    {
+        Ink.Runtime.Object inkValue;
+
+        switch (value)
+        {
+            case int i:
+                inkValue = new Ink.Runtime.IntValue(i);
+                globalVariablesStory.variablesState[variableName] = i;
+                break;
+
+            case float f:
+                inkValue = new Ink.Runtime.FloatValue(f);
+                globalVariablesStory.variablesState[variableName] = f;
+                break;
+
+            case bool b:
+                inkValue = new Ink.Runtime.BoolValue(b);
+                globalVariablesStory.variablesState[variableName] = b;
+                break;
+
+            case string s:
+                inkValue = new Ink.Runtime.StringValue(s);
+                globalVariablesStory.variablesState[variableName] = s;
+                break;
+
+            case Ink.Runtime.InkList l:
+                inkValue = new Ink.Runtime.ListValue(l);
+                globalVariablesStory.variablesState[variableName] = l;
+                break;
+
+            default:
+                Debug.LogError($"Unsupported value type: {value?.GetType()}");
+                return;
+        }
+
+        if (variables.ContainsKey(variableName))
+        {
+            variables[variableName] = inkValue;
+        }
+        else
+        {
+            variables.Add(variableName, inkValue);
+        }
+
+        Debug.Log(variableName + " - " + value);
+    }
+
 
 }

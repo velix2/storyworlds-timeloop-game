@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour
     private string currentLine = "";
     private Coroutine typingCoroutine;
 
-    private VariableObserver variableObserver;                  // Allows access to ink global variables
+    public VariableObserver variableObserver;                  // Allows access to ink global variables
 
     private bool DialoguePaused = false;
 
