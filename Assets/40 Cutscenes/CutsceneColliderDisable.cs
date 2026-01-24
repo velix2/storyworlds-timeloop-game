@@ -5,7 +5,7 @@ public class CutsceneColliderDisable : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private Collider[] colliders;
-    private void Start()
+    private void Awake()
     {
         colliders = GetComponentsInChildren<Collider>(true);
     }
