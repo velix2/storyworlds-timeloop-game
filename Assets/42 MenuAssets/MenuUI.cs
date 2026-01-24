@@ -26,6 +26,7 @@ public class MenuUI : MonoBehaviour
 
     public void StartGame()
     {
+        StateTracker.IntroState = StateTracker.IntroStates.Init;
         SceneManager.LoadScene("Outdoor");
     }
 

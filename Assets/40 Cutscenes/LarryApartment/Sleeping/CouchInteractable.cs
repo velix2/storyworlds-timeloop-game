@@ -25,7 +25,8 @@ public class CouchInteractable : InteractableThreeDimensional
     {
         get
         {
-            if (!StateTracker.IsInIntro || StateTracker.IntroState == StateTracker.IntroStates.LarryDinnerCompleted)
+            if (!StateTracker.IsInIntro || StateTracker.IntroState == StateTracker.IntroStates.LarryDinnerCompleted || 
+                StateTracker.IntroState == StateTracker.IntroStates.DinerWithRadioCompleted)
             {
                 return interactionType.GRAB;
             }
@@ -39,7 +40,8 @@ public class CouchInteractable : InteractableThreeDimensional
     
     public override void PrimaryInteraction()
     {
-        if (!StateTracker.IsInIntro || (int)StateTracker.IntroState == (int)StateTracker.IntroStates.LarryDinnerCompleted)
+        if (!StateTracker.IsInIntro || (int)StateTracker.IntroState == (int)StateTracker.IntroStates.LarryDinnerCompleted 
+            || StateTracker.IntroState == StateTracker.IntroStates.DinerWithRadioCompleted)
         {
             StartCoroutine(SleepSequence());
             CursorManager.ResetCursor();
