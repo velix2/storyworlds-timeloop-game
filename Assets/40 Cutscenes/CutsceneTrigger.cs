@@ -25,6 +25,8 @@ public class CutsceneTrigger : MonoBehaviour
     [SerializeField] private bool SkipTimeAfterCutscene = false;
     [SerializeField] private int AmountInMinutes = 0;
 
+    [Header("Callback Next Day")]
+    [SerializeField] private bool SkipDayAfterCutscene = false;
     private void Start()
     {
         cutsceneManager = CutsceneManager.Instance;
@@ -111,6 +113,11 @@ public class CutsceneTrigger : MonoBehaviour
         if(SwitchSceneAfterCutscene)
         {
             SwitchScene(SceneToBeSwitchedTo);
+        }
+        if(SkipDayAfterCutscene)
+        {
+            CouchInteractable.newDayBegins = true;
+            TimeHandler.ResetDay();
         }
         
     }
