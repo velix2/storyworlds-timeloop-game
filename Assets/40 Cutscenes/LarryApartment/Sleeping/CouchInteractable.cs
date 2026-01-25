@@ -7,7 +7,10 @@ using UnityEngine.Timeline;
 
 public class CouchInteractable : InteractableThreeDimensional
 {
-    [Header("Cutscene")] [SerializeField] private TimelineAsset sleepCutscene;
+    [Header("Cutscene")] 
+    [SerializeField] private TimelineAsset sleepCutscene;
+    [SerializeField] private TimelineAsset sleepCutsceneWithGlow;
+
     [SerializeField] private AudioClip telephoneRing;
     [SerializeField] private List<TextAsset> sonCalls = new List<TextAsset>();
 
@@ -53,7 +56,15 @@ public class CouchInteractable : InteractableThreeDimensional
         newDayBegins = true;
         DialogueManager.Instance.EnterDialogueModeSimple(goToSleepText);
         yield return new WaitWhile(() => DialogueManager.Instance.SimpleDialogueIsPlaying);
-        CutsceneManager.Instance.PlayCutscene(sleepCutscene, OnCutsceneEnd);
+        if(StateTracker.IntroState == StateTracker.IntroStates.DinerWithRadioCompleted)
+        {
+            CutsceneManager.Instance.PlayCutscene(sleepCutsceneWithGlow, OnCutsceneEnd);
+        }
+        else
+        {
+            CutsceneManager.Instance.PlayCutscene(sleepCutscene, OnCutsceneEnd);
+        }
+        
     }
     
     private void OnCutsceneEnd()
