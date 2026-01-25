@@ -82,7 +82,7 @@ Der Zug fällt aufgrund des Schneesturms aus.[nl]Kann ich stattdessen bei dir mi
 }
     === GoWith_C ===
     Ach du Armer.[nl]Natürlich kannst du bei mir mitfahren!#speaker:evelyn
-    Ich fahr ungefähr ab 20:00 Uhr los.#speaker:evelyn
+    Ich fahr ungefähr ab 17:00 Uhr los.#speaker:evelyn
     
     ~ evelynReadyForRide = true
      -> Topics
@@ -119,8 +119,8 @@ Reine Intuition.#speaker:marcus #emotion:NORMAL
     
     === LetsGo_NO ===
     Lass mich erst mein' Kaffee austrinken. #speaker:evelyn
-    Um ungefähr 20:00 Uhr werd ich mich dann nach draußen begeben.[nl]Kannst ja bestimmt warten.#speaker:evelyn
-    Klar.#speaker:marcu #emotion:NORMAL
+    Um ungefähr 17:00 Uhr werd ich mich dann nach draußen begeben.[nl]Kannst ja bestimmt warten.#speaker:evelyn
+    Klar.#speaker:marcus #emotion:NORMAL
     -> Topics
  
 === Bye ===
