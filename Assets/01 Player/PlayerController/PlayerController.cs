@@ -1,3 +1,4 @@
+using _10_General_Components;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController)), RequireComponent(typeof(InteractionChecker))]
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
         
         InputManager.PlayerControls.Standard.InventoryOpen.performed += _ => OnInventoryOpenInput();
         InputManager.PlayerControls.Standard.InventoryClose.performed += _ => OnInventoryCloseInput();
+        
+        InputManager.PlayerControls.Standard.Hint.performed += _ => OnHintInput();
 
         InputManager.PlayerControls.Standard.HighlightAllInteractables.started += _ => OnHighlightAllInput(true);
         InputManager.PlayerControls.Standard.HighlightAllInteractables.canceled += _ => OnHighlightAllInput(false);
@@ -160,6 +163,13 @@ public class PlayerController : MonoBehaviour
         {
             interactionChecker.UnhighlightAll();
         }
+    }
+    
+    private void OnHintInput()
+    {
+        if (movementBlocked) return;
+
+        HintManager.SayHint();
     }
 
     #region AnimationRelated

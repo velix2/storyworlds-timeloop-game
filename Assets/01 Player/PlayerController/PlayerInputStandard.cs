@@ -154,6 +154,15 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hint"",
+                    ""type"": ""Button"",
+                    ""id"": ""a118e62b-2ba2-447b-a011-ee510f970e2f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -277,6 +286,17 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58f78ee8-65b7-48ea-9f0c-8575a34c7238"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -320,6 +340,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         m_Standard_InventoryClose = m_Standard.FindAction("InventoryClose", throwIfNotFound: true);
         m_Standard_HighlightAllInteractables = m_Standard.FindAction("HighlightAllInteractables", throwIfNotFound: true);
         m_Standard_Sprint = m_Standard.FindAction("Sprint", throwIfNotFound: true);
+        m_Standard_Hint = m_Standard.FindAction("Hint", throwIfNotFound: true);
         // MousePosition
         m_MousePosition = asset.FindActionMap("MousePosition", throwIfNotFound: true);
         m_MousePosition_MousePosition = m_MousePosition.FindAction("MousePosition", throwIfNotFound: true);
@@ -411,6 +432,7 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_InventoryClose;
     private readonly InputAction m_Standard_HighlightAllInteractables;
     private readonly InputAction m_Standard_Sprint;
+    private readonly InputAction m_Standard_Hint;
     /// <summary>
     /// Provides access to input actions defined in input action map "Standard".
     /// </summary>
@@ -450,6 +472,10 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Standard/Sprint".
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_Standard_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "Standard/Hint".
+        /// </summary>
+        public InputAction @Hint => m_Wrapper.m_Standard_Hint;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -497,6 +523,9 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @Hint.started += instance.OnHint;
+            @Hint.performed += instance.OnHint;
+            @Hint.canceled += instance.OnHint;
         }
 
         /// <summary>
@@ -529,6 +558,9 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @Hint.started -= instance.OnHint;
+            @Hint.performed -= instance.OnHint;
+            @Hint.canceled -= instance.OnHint;
         }
 
         /// <summary>
@@ -714,6 +746,13 @@ public partial class @PlayerInputStandard: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Hint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHint(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "MousePosition" which allows adding and removing callbacks.
