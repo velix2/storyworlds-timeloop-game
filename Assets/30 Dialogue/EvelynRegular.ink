@@ -5,7 +5,7 @@ INCLUDE globals.ink
         -> Available
     - else:
         Wat guckste so? Ich hab schlechte Laune.#speaker:evelyn
-        Ach, nirgendwo.#speaker:marcus #emotion:NERVOUS
+        Ach, nix. #speaker:marcus #emotion:NERVOUS
         -> END
 }
         

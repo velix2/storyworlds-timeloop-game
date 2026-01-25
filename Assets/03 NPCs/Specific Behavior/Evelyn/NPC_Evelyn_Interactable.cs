@@ -22,6 +22,8 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
     //[SerializeField] private TimelineAsset driveAwayCutscene;
     [SerializeField] private TimelineAsset outOfCoffeeCutscene;
 
+    private Vector3 _originalPos;
+
 
     private bool outside
     {
@@ -37,6 +39,7 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
     {
         StartCoroutine(TalkSequence(regularDialogue));
     }
+    
 
     private IEnumerator TalkSequence(TextAsset dialogue)
     {
@@ -76,22 +79,29 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
         }
     }
 
-
     private void Start()
+    {
+        _originalPos = transform.position;
+        Spawn();
+    }
+
+    private void Spawn()
     {
         if (StateTracker.IntroState >= StateTracker.IntroStates.SonCallCompleted) //story progression
         {
-            if (TimeHandler.Instance.CurrentTime > 60 * 22) goto not_here;    //drives off
+            if (TimeHandler.Instance.CurrentTime > 60 * 20) goto not_here;    //drives off
             
             switch (SceneManager.GetActiveScene().name)
             {
                 case "Outdoor":
-                    if (TimeHandler.Instance.CurrentTime <= 60 * 20) goto not_here;
+                    if (TimeHandler.Instance.CurrentTime < 60 * 17) goto not_here;
+                    transform.position = _originalPos;
                     outside = true;
                     animator.SetBool(animatorSitting, false);
                     break;
                 case "Diner":
-                    if (TimeHandler.Instance.CurrentTime > 60 * 20) goto not_here;
+                    if (TimeHandler.Instance.CurrentTime > 60 * 17) goto not_here;
+                    transform.position = _originalPos;
                     animator.SetBool(animatorSitting, true);
                     if (!StateTracker.IsInIntro && StateTracker.Evelyn.QuestState == StateTracker.EvelynState.QuestStates.Init)
                     {
@@ -109,7 +119,23 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
             return;
         }
         not_here:
-            gameObject.SetActive(false); 
-        
+        print("evelyn not here");
+        transform.position = new Vector3(5000, 5000, 5000);
+
+    }
+
+    private void OnEnable()
+    {
+        TimeHandler.Instance.onTimePassed.AddListener(OnTimePassed);
+    }
+    
+    private void OnDisable()
+    {
+        TimeHandler.Instance.onTimePassed.RemoveListener(OnTimePassed);
+    }
+
+    private void OnTimePassed(TimePassedEventPayload _)
+    {
+        Spawn();
     }
 }
