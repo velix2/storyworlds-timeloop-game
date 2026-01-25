@@ -1,4 +1,4 @@
-VAR state0 = 0
+VAR introCompleted = false
 
 VAR larryHomeStayDecline = true
 

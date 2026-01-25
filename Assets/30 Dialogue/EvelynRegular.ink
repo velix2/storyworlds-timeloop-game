@@ -1,5 +1,15 @@
 INCLUDE globals.ink
 
+{introCompleted:
+    - true:
+        -> Available
+    - else:
+        Wat guckste so? Ich hab schlechte Laune.#speaker:evelyn
+        Ach, nirgendwo.#speaker:marcus #emotion:NERVOUS
+        -> END
+}
+        
+=== Available ===
 {evelynCoffeeGot:
     - true:
         Oh hallo. Brauchst du was von mir?#speaker:evelyn

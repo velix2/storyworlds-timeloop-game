@@ -44,6 +44,7 @@ public static class StateTracker
         {
             _introState = value;
             OnIntroStateChanged.Invoke(_introState);
+            if (_introState == IntroStates.IntroCompleted) DialogueManager.Instance.variableObserver.SetVariable("introCompleted", true);
         }
     }
     
