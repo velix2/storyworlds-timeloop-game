@@ -16810,7 +16810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
-  enableTimeMinutes: 960
+  enableTimeMinutes: 900
   disableTimeMinutes: 1320
   glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
   materialNameToReplace: Window
@@ -18860,7 +18860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
-  enableTimeMinutes: 960
+  enableTimeMinutes: 900
   disableTimeMinutes: 1320
   glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
   materialNameToReplace: Window
@@ -45501,7 +45501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e9ea7ced6a4637899faa6478422302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World_Building.ReactiveEnvironment.GlowingWindow
-  enableTimeMinutes: 960
+  enableTimeMinutes: 900
   disableTimeMinutes: 1320
   glowMaterial: {fileID: 2100000, guid: b90486a11145f9a3aa03c7c609bec9f2, type: 2}
   materialNameToReplace: Window
