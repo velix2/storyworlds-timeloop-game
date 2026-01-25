@@ -50,30 +50,6 @@ public class CutsceneTrigger : MonoBehaviour
         }
     }
 
-    /*
-    /// <summary>
-    /// Switch back to follow camera
-    /// </summary>
-    private void SwitchBackToMainCamera()
-    {
-
-        CameraTransitionZone cameraTransitionZone = FindAnyObjectByType<CameraTransitionZone>();
-
-        CinemachineCamera mainCam;
-        if (cameraTransitionZone != null)
-        {
-            mainCam = cameraTransitionZone.GetMainCamera();
-        }
-        else
-        {
-            Debug.LogError("No Camera Transition Zone to switch back to main camera");
-            return;
-        }
-
-        CameraManager.FocusCam(mainCam);
-    }
-    */
-
     /// <summary>
     /// Switch the scene after cutscene
     /// </summary>
