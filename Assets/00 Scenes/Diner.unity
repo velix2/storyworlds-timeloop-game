@@ -2194,7 +2194,7 @@ MonoBehaviour:
   dialogueGetCoffeeWhileBroken: "In dem Zustand wird h\xF6chstens Asche rauskommen."
   dialogueGetCoffeeAlready: Einer reicht.
   smokeParticles: {fileID: 438543650}
-  coffeeDischarge: {fileID: 0}
+  coffeeDischarge: {fileID: 8300000, guid: 673374fc0c1e3af46a77457800b664af, type: 3}
   repairToolsItemData: {fileID: 11400000, guid: 2cad524725f6d5c4db7c017dff3c65df, type: 2}
   freezeArtifact: {fileID: 11400000, guid: e6df8ed047d815e4fb3abb3d8bb964e4, type: 2}
   coffee: {fileID: 11400000, guid: 85cd12150519cca498135cf33ddc415b, type: 2}
