@@ -35,7 +35,7 @@ public static class StateTracker
 
     public static UnityEvent<IntroStates> OnIntroStateChanged = new UnityEvent<IntroStates>();
 
-    private static IntroStates _introState = IntroStates.DinerWithRadioRepeatCompleted;
+    private static IntroStates _introState = IntroStates.DinerWithRadioCompleted;
 
     public static IntroStates IntroState
     {
