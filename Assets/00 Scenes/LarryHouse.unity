@@ -1645,6 +1645,150 @@ PrefabInstance:
       addedObject: {fileID: 321936192}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11e6d4ca3cd83b60a88e4ef0826ede2d, type: 3}
+--- !u!1001 &445129025
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.663
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.103
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.94338703
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.000000035611873
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.331694
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000012521102
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -38.743
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      propertyPath: m_Name
+      value: toolbox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 445129029}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 445129028}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 445129027}
+  m_SourcePrefab: {fileID: 100100000, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+--- !u!1 &445129026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c86b515b0e07eed569ea9c3fbd65669f, type: 3}
+  m_PrefabInstance: {fileID: 445129025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &445129027
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445129026}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.525, y: 0.81709015, z: 0.33937502}
+  m_Center: {x: 0.0062499936, y: 0.31706008, z: 0.016914058}
+--- !u!114 &445129028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445129026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03542581ae7d3a1c9aa0af2a83b6708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolboxInteractable
+  inRange: 0
+  mode: 0
+  lookDialogue: Ein Werkzeugkasten... Spannend, er wirkt eigentlich motorisch eher
+    unbegabt.
+  toolTakenDialogueJson: {fileID: 4900000, guid: f53533502b77e3065841bb4dbebd1736, type: 3}
+  toolItemData: {fileID: 11400000, guid: 2cad524725f6d5c4db7c017dff3c65df, type: 2}
+--- !u!114 &445129029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445129026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!114 &474870533 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9069332698137693636, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
@@ -5181,3 +5325,4 @@ SceneRoots:
   - {fileID: 1589087074}
   - {fileID: 1393176550}
   - {fileID: 1851085698}
+  - {fileID: 445129025}
