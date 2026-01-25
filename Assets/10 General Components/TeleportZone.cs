@@ -16,6 +16,7 @@ public class TeleportZone : MonoBehaviour
     public Side A;
     public Side B;
     public GameObject player;
+    [SerializeField] private ParticleSystem snowParticles;
 
     private void Awake()
     {
@@ -46,6 +47,9 @@ public class TeleportZone : MonoBehaviour
         player.SetActive(false);
         player.transform.position = newPos;
         player.SetActive(true);
+        snowParticles?.Simulate(2f,false,true,false);    
+        snowParticles?.Play();
+        
 
         CameraManager.mainVirtual.OnTargetObjectWarped(player.transform, newPos - oldPos);
 
