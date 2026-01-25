@@ -45,7 +45,8 @@ public class CameraManager : MonoBehaviour
     
     private void GetMainCamera()
     {
-        mainVirtual = brain.ActiveVirtualCamera as CinemachineCamera;
+        //mainVirtual = brain.ActiveVirtualCamera as CinemachineCamera;
+        mainVirtual = GameObject.FindWithTag("DefaultVirtualCam").GetComponent<CinemachineCamera>();
         print("Brain: " + brain.ActiveVirtualCamera);
         print("MainCam: " +mainVirtual);
     }
