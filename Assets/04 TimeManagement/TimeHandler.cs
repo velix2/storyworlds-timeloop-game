@@ -241,14 +241,10 @@ namespace TimeManagement
         /// </summary>
         private void ResetForNextCycle()
         {
-            // Inform Scene Management to load starting scene
-            SceneManager.LoadScene(GameData.StartingSceneName);
-            
             // Reset time to day start
             CurrentTime = dayStartTimeInMinutes;
             
-            // Send a Pass Time signal with 0 mins just for proper set up of all events etc.
-            PassTime(0);
+            SceneSwitcher.Instance.GoToScene(GameData.StartingSceneName);
 
             ResetQuestProgression();
         }

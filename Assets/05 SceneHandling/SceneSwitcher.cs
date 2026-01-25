@@ -106,13 +106,16 @@ public class SceneSwitcher : MonoBehaviour
                 // Find player in scene
                 Debug.Log(SceneManager.GetActiveScene().name);
                 var playerController = FindAnyObjectByType<PlayerController>();
-                var characterController = playerController.GetComponent<CharacterController>();
-                var playerTransform = playerController.transform;
+                if (playerController)
+                {
+                    var characterController = playerController.GetComponent<CharacterController>();
+                    var playerTransform = playerController.transform;
 
-                // Teleport (with CC disable to fix position caching issues)
-                characterController.enabled = false;
-                playerTransform.position = playerPos;
-                characterController.enabled = true;
+                    // Teleport (with CC disable to fix position caching issues)
+                    characterController.enabled = false;
+                    playerTransform.position = playerPos;
+                    characterController.enabled = true;
+                }
             }
         }
 
