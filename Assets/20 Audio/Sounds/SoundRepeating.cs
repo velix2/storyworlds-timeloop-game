@@ -11,6 +11,10 @@ public class SoundRepeating : ScriptableObject
     private AudioClip[] audioPool; // a copy of possible Audios, where the audio clips are actually pulled from
     private AudioClip lastClip; // needed for check so that no clip is played twice in a row
 
+    private void Awake()
+    {
+        OnValidate();
+    }
 
     private void OnValidate()
     {
