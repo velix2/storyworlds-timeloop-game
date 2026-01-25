@@ -20,7 +20,7 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
         set
         {
             _repairState = value;
-            smokeParticles.SetActive(_repairState == CoffeeMachineRepairState.Broken && !StateTracker.IsInIntro); // Update smoke particles
+            smokeParticles.SetActive(_repairState == CoffeeMachineRepairState.Broken); // Update smoke particles
         }
     }
 
@@ -102,6 +102,12 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
         if (thisFreezable.CheckForStoredState(out var stateIndex))
         {
             RepairState = (CoffeeMachineRepairState)stateIndex;
+        }
+        else
+        {
+            RepairState = StateTracker.IntroState >= StateTracker.IntroStates.SonCallCompleted
+                ? CoffeeMachineRepairState.Broken
+                : CoffeeMachineRepairState.Repaired;
         }
     }
 
