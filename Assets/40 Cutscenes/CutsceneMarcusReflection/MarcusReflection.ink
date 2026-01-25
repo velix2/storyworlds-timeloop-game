@@ -39,6 +39,6 @@ Für diese These werde ich meinen Titel als Professor verlieren, aber angenommen
 Und dieses Amulett ist wirklich 'magisch'. Vielleicht benötige ich die andere Hälfte, um diese Zeitschleife aufzulösen... #speaker:marcus
 ...
 Der Dieb... Entweder ich finde ihn oder ich finde einen anderen Weg hier raus. #speaker:marcus
-(Heute war ein langer Tag. Ich sollte eine Nacht darüber schlafen und sehe dann, wie es morgen aussieht...) #speaker:marcus
+(Das muss ich alles erst mal verarbeiten. Ich sollte eine Nacht darüber schlafen und sehe dann, wie es "morgen" aussieht...) #speaker:marcus
 
 -> END
