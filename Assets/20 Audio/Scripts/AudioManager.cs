@@ -49,6 +49,7 @@ public class AudioManager : MonoBehaviour
     {
         currentDefaultMusic = audio;
         if (playingDefaultMusic) BlendMusic(currentDefaultMusic);
+        
     }
 
     public static void ChangeMusic(AudioClip audio)
@@ -76,9 +77,10 @@ public class AudioManager : MonoBehaviour
         alternatingMusicSource = !alternatingMusicSource;
     }
 
-    private static readonly float fadeDuration = 5.0f;
+    private static readonly float fadeDuration = 3.0f;
     private static IEnumerator FadeIn(AudioSource source)
     {
+        
         source.Play();
         for (float i = 0.0f; i < fadeDuration; i += Time.deltaTime)
         {
@@ -92,6 +94,7 @@ public class AudioManager : MonoBehaviour
 
     private static IEnumerator FadeOut(AudioSource source)
     {
+        
         for (float i = 0.0f; i < fadeDuration; i += Time.deltaTime)
         {
             source.volume = Mathf.Lerp(1.0f, 0.0f, i / fadeDuration);

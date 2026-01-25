@@ -35,9 +35,13 @@ public class ItemData : ScriptableObject
     {
         return itemName;
     }
-
     public override bool Equals(object other)
     {
         return other is ItemData && itemName.Equals(((ItemData)other).itemName);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

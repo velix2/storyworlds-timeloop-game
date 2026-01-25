@@ -1,5 +1,15 @@
 INCLUDE globals.ink
 
+{introCompleted:
+    - true:
+        -> Available
+    - else:
+        Wat guckste so? Ich hab schlechte Laune.#speaker:evelyn
+        Ach, nirgendwo.#speaker:marcus #emotion:NERVOUS
+        -> END
+}
+        
+=== Available ===
 {evelynCoffeeGot:
     - true:
         Oh hallo. Brauchst du was von mir?#speaker:evelyn
@@ -88,6 +98,8 @@ Der Zug fällt aufgrund des Schneesturms aus.[nl]Kann ich stattdessen bei dir mi
 Du scheinst mir wirklich an deinem Kaffee zu hängen.#speaker:marcus #emotion:NORMAL
 Ach, wat lässt dich das denken?#speaker:evelyn
 Reine Intuition.#speaker:marcus #emotion:NORMAL
+(Wenn ich ihr eine Kaffee besorge, ist sie bestimmt besser gelaunt.) #speaker:marcus #emotion:NORMAL
+~ evelynTalkedAboutCoffee = true
 -> Topics
 
 
