@@ -22,17 +22,17 @@ INCLUDE globals.ink
 
 
 === Topics ===
-+ {not evelynTruckYours}Gehört der Truck draußen dir?#speaker:marcus #emotion:NORMAL
++ {not evelynTruckYours}Gehört der Truck draußen Ihnen?#speaker:marcus #emotion:NORMAL
     -> TruckYours
-+ {evelynTruckYours}Wo fährst du hin?#speaker:marcus #emotion:NORMAL
++ {evelynTruckYours}Wo fahren Sie hin?#speaker:marcus #emotion:NORMAL
     -> WhereYaGoing
 + {evelynWhereYaGoing}[Hundefutter aus Alaska?]
     -> DogFood
 + {not evelynCoffeeGot} [Kaffee?]
     -> Coffee
-+ {evelynTruckYours and not evelynReadyForRide}[Kann ich bei dir mitfahren?]
++ {evelynTruckYours and not evelynReadyForRide}[Kann ich mitfahren?]
     -> GoWith
-+ {evelynReadyForRide} Lass uns losfahren.#speaker:marcus #emotion:NORMAL
++ {evelynReadyForRide} Lassen Sie uns losfahren. #speaker:marcus #emotion:NORMAL
     -> LetsGo
 + [Tschau.]
     -> Bye
@@ -54,7 +54,7 @@ Ja, das ist meiner. Gibt's ein Problem? #speaker:evelyn
 
     === WhereYaGoing_C ===
     Ich muss nach Los Angeles, um eine Lieferung Hundefutter liefern.#speaker:evelyn
-    (Das bietet sich ja gut an. Da liegt [MY_HOME_TOWN] direkt auf dem Weg.)#speaker:marcus #emotion:NORMAL
+    (Das bietet sich ja gut an. Da liegt Bakersfield - Meine Heimat - direkt auf dem Weg.)#speaker:marcus #emotion:NORMAL
     Kann ich sonst noch was für dich tun?#speaker:evelyn
     ~ evelynWhereYaGoing = true
      -> Topics
@@ -68,13 +68,13 @@ Ja, das ist meiner. Gibt's ein Problem? #speaker:evelyn
 
  
 === DogFood ===
-Du fährst also extra von Alaska nach L.A. für Hundefutter?#speaker:marcus #emotion:NORMAL
+Sie fahren also extra von Alaska nach L.A. für Hundefutter?#speaker:marcus #emotion:NORMAL
 Ach, du weißt doch. Nur das beste für die Lieblinge der Stars.#speaker:evelyn
     -> Topics
  
  
 === GoWith ===
-Der Zug fällt aufgrund des Schneesturms aus.[nl]Kann ich stattdessen bei dir mitfahren?#speaker:marcus #emotion:NORMAL
+Der Zug fällt aufgrund des Schneesturms aus.[nl]Kann ich stattdessen bei Ihnen mitfahren?#speaker:marcus #emotion:NORMAL
 {evelynCoffeeGot:
     - true:
         -> GoWith_C
@@ -96,10 +96,11 @@ Der Zug fällt aufgrund des Schneesturms aus.[nl]Kann ich stattdessen bei dir mi
  
  
 === Coffee ===
-Du scheinst mir wirklich an deinem Kaffee zu hängen.#speaker:marcus #emotion:NORMAL
+Sie scheinen mir wirklich an Ihrem Kaffee zu hängen.#speaker:marcus #emotion:NORMAL
 Ach, wat lässt dich das denken?#speaker:evelyn
 Reine Intuition.#speaker:marcus #emotion:NORMAL
 (Wenn ich ihr eine Kaffee besorge, ist sie bestimmt besser gelaunt.) #speaker:marcus #emotion:NORMAL
+(Ich muss irgendwie diese Kaffeemaschine reparieren.) #speaker:marcus #emotion:NORMAL
 ~ evelynTalkedAboutCoffee = true
 -> Topics
 
@@ -114,7 +115,7 @@ Reine Intuition.#speaker:marcus #emotion:NORMAL
 
     === LetsGo_O ===
     Von mir aus kanns losgehen.#speaker:marcus #emotion:NORMAL
-    Dann steig ma ein. Wir fahren los.#speaker:evelyn
+    Dann steig ma' ein. Wir fahren los.#speaker:evelyn
     ~ evelynRideConfirmation = true
     ->END
     

@@ -4849,8 +4849,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375f2e7f82bf6118d8bdc1803613a11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  elementMorning: 800
-  elementAfternoon: 1300
-  elementEvening: 2000
-  elementNight: 3200
+  elementMorning: 600
+  elementAfternoon: 800
+  elementEvening: 1200
+  elementNight: 1500
   invocationDelaySeconds: 0
