@@ -244,7 +244,7 @@ namespace TimeManagement
             // Reset time to day start
             CurrentTime = dayStartTimeInMinutes;
             
-            SceneSwitcher.Instance.GoToScene(GameData.StartingSceneName);
+            SceneSwitcher.Instance.GoToScene(GameData.StartingSceneName, false);
 
             ResetQuestProgression();
         }
