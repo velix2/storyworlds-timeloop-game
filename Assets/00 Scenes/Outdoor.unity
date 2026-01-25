@@ -16912,6 +16912,7 @@ MonoBehaviour:
     teleportPosition: {fileID: 1259383311}
     reporter: {fileID: 505887355}
   player: {fileID: 850192849}
+  snowParticles: {fileID: 0}
 --- !u!4 &486334439
 Transform:
   m_ObjectHideFlags: 0
@@ -75124,6 +75125,34 @@ PrefabInstance:
     - target: {fileID: 795598570192745157, guid: 823a1f3552c9a19d99ae8330ad96d284, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816358536500933572, guid: 823a1f3552c9a19d99ae8330ad96d284, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 820
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866288837592454387, guid: 823a1f3552c9a19d99ae8330ad96d284, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 820
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935954414368959350, guid: 823a1f3552c9a19d99ae8330ad96d284, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 820
+      objectReference: {fileID: 0}
+    - target: {fileID: 6768560501480290624, guid: 823a1f3552c9a19d99ae8330ad96d284, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 820
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965276986939123463, guid: 823a1f3552c9a19d99ae8330ad96d284, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 820
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857347430510990154, guid: 823a1f3552c9a19d99ae8330ad96d284, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 820
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188607366905656134, guid: 823a1f3552c9a19d99ae8330ad96d284, type: 3}
+      propertyPath: enableTimeMinutes
+      value: 820
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

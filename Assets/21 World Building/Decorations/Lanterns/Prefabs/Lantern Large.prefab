@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b404e5d1c72fdd4a4b7c282defd0969f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enableTimeMinutes: 1020
+  enableTimeMinutes: 930
   disableTimeMinutes: 540
   glowMaterial: {fileID: 2100000, guid: a83279197c7e61130a743874f0dec676, type: 2}
   materialNameToReplace: Light
