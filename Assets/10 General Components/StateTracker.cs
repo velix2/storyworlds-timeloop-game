@@ -35,7 +35,7 @@ public static class StateTracker
 
     public static UnityEvent<IntroStates> OnIntroStateChanged = new UnityEvent<IntroStates>();
 
-    private static IntroStates _introState = IntroStates.LarryWaitingCompleted;
+    private static IntroStates _introState = IntroStates.IntroCompleted;
 
     public static IntroStates IntroState
     {

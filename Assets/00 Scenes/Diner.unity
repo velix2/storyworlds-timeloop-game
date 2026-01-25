@@ -1793,6 +1793,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6773137956223843690, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8915823811605975058, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_Name
       value: Managers Holder
@@ -10842,6 +10846,8 @@ GameObject:
   - component: {fileID: 1422304104}
   - component: {fileID: 1422304105}
   - component: {fileID: 1422304106}
+  - component: {fileID: 1422304108}
+  - component: {fileID: 1422304107}
   m_Layer: 0
   m_Name: NPC_Emmy
   m_TagString: Untagged
@@ -10858,7 +10864,7 @@ Transform:
   m_GameObject: {fileID: 1422304103}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.38, y: -1.757, z: 11.3}
+  m_LocalPosition: {x: 0.44, y: -1.757, z: 11.3}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10899,6 +10905,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ae4fca2b87ad14d97688c912d37a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FootstepSounds
+--- !u!65 &1422304107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422304103}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.20575082, y: 0.45496577, z: 1.1147227}
+  m_Center: {x: 0.017185986, y: 0.2725172, z: -0.057361364}
+--- !u!114 &1422304108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422304103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cf4b89ecdc35c4aabce79d9f4b490e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueWithNPCInteractable
+  inRange: 0
+  spriteRenderer: {fileID: 1040599994}
+  inkJson: {fileID: 4900000, guid: 98cac6d8e6c2a077c835dee78bdc8f59, type: 3}
+  dialogueText: Die Kellnerin wirkt sehr freundlich...
 --- !u!65 &1424013302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13970,6 +14013,10 @@ PrefabInstance:
     - target: {fileID: 3315914964578633226, guid: f029717a06297af4a84d2febddf677f3, type: 3}
       propertyPath: m_Name
       value: NPC_Evelyn
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315914964578633226, guid: f029717a06297af4a84d2febddf677f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5796217565880015705, guid: f029717a06297af4a84d2febddf677f3, type: 3}
       propertyPath: m_LocalPosition.x
