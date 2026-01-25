@@ -34,7 +34,7 @@ Deshalb ist auch Ihre Ware in diesem Zustand, mein Herr.[nl]Ich verfluche diesen
 Die andere Hälfte ist also "verschwunden"?#speaker:marcus #emotion:NORMAL
 Ja, so könnte man es sagen.#speaker:oswald #emotion:NERVOUS
 \*Seufz\*.[nl]Dann nehm ich halt nur die Hälfte... #speaker:marcus #emotion:NORMAL
-Das freut mich sehr. Das macht dann 1500 Dollar! #speaker:oswald #emotion:HAPPY
+Das freut mich sehr. Das macht dann 3000 Dollar! #speaker:oswald #emotion:HAPPY
 ... #speaker:marcus #emotion:ANGRY
 3-300! Ich meinte natürlich 150 Dollar. Das war nur ein Scherz! Nur ein kleiner Insider zwischen Sammlern! #speaker:oswald #emotion:NERVOUS
 
