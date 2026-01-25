@@ -349,6 +349,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b4547b5cd1a693ea9ba2214b4b7f7eb, type: 2}
   - {fileID: 11400000, guid: c2f6c1c6bf8330e3ab9de593588385ee, type: 2}
   - {fileID: 11400000, guid: 15191b6ce465948b3b45b3a225f873e9, type: 2}
+  - {fileID: 11400000, guid: b231f5c37bde162f4a5bdab0a71a6454, type: 2}
   SceneSwitched:
     m_PersistentCalls:
       m_Calls: []

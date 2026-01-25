@@ -10,7 +10,6 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
 {
     [Header("References")]
     [SerializeField] private Animator animator;
-    [SerializeField] private TruckInteractable truck;
     private int animatorSitting = Animator.StringToHash("sitting");
     private int animatorTalkedTo = Animator.StringToHash("talkedTo");
     [Header("Dialogue")] 
@@ -20,7 +19,7 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
     [SerializeField] private TextAsset itemReject;
     [SerializeField] private TextAsset coffeeGet;
     [Header("Cutscenes")] 
-    [SerializeField] private TimelineAsset driveAwayCutscene;
+    //[SerializeField] private TimelineAsset driveAwayCutscene;
     [SerializeField] private TimelineAsset outOfCoffeeCutscene;
 
 
@@ -49,7 +48,8 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
         
         if (StateTracker.Evelyn.rideConfirmation)
         {
-            CutsceneManager.Instance.PlayCutscene(driveAwayCutscene);
+            //CutsceneManager.Instance.PlayCutscene(driveAwayCutscene);
+            SceneSwitcher.Instance.GoToScene("LeaveTown");
         } 
         
         animator.SetBool(animatorTalkedTo, false);
