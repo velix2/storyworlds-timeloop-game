@@ -52,7 +52,7 @@ public class NPC_Evelyn_Interactable : InteractableTwoDimensional
         if (StateTracker.Evelyn.rideConfirmation)
         {
             //CutsceneManager.Instance.PlayCutscene(driveAwayCutscene);
-            SceneSwitcher.Instance.GoToScene("LeaveTown");
+            SceneSwitcher.Instance.GoToScene("LeaveTown", false);
         } 
         
         animator.SetBool(animatorTalkedTo, false);

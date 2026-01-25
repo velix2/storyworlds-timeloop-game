@@ -57,12 +57,12 @@ public class SceneSwitcher : MonoBehaviour
         _isSceneLoaded = true;
     }
 
-    public void GoToScene(string sceneName)
+    public void GoToScene(string sceneName, bool movePlayer = true)
     {
-        StartCoroutine(GoToSceneCoroutine(sceneName));
+        StartCoroutine(GoToSceneCoroutine(sceneName, movePlayer));
     }
 
-    private IEnumerator GoToSceneCoroutine(string sceneName)
+    private IEnumerator GoToSceneCoroutine(string sceneName, bool movePlayer)
     {
         var currentSceneMetaData = _currentSceneMetaData;
         var targetSceneMetaData = sceneMetaDatas.Find(data => data.RepresentedSceneName == sceneName);
@@ -88,7 +88,12 @@ public class SceneSwitcher : MonoBehaviour
         SceneSwitched.Invoke();
         
         // Bring Player to correct location if we have the required meta data
-        if (!targetSceneMetaData)
+        if (!movePlayer)
+        {
+            Debug.Log("Player will not be teleported.");
+        }
+        
+        else if (!targetSceneMetaData)
         {
             Debug.LogWarning($"Target Scene {sceneName} not in SceneSwitcher Database. Player will not be teleported.");
         }
