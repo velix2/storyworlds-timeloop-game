@@ -43,4 +43,4 @@ Langsam wird's wirklich schwer zu sehen. Aber immerhin sind wir fast im nächste
 Entschuldige bitte, aber ich muss mich einmal doch kurz konzentrieren. Nicht, dass wir nach am Baum kleben! #speaker: evelyn
 Kein Problem. Ich werde Sie nicht stören. #speaker: marcus #emotion: NERVOUS
 
--> DONE
+-> END

@@ -147,6 +147,17 @@ public partial class @DialogueControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""b8807c03-14b3-4ff8-9124-ae55a3a0dcb2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ContinueDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7cc332b7-97d6-4c5d-a791-bef9a6b2a40c"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
@@ -171,6 +182,17 @@ public partial class @DialogueControls: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""8cb8ab4e-e5e9-4cd9-b37d-dfea460d8f33"",
                     ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ContinueDialogueSimple"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3db12b6-d054-4714-b1af-48844aa59bfc"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
