@@ -320,7 +320,7 @@ public class InteractionChecker : MonoBehaviour
         mousePosition.z = 1;
         
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        Physics.Raycast(ray, out var hit, Mathf.Infinity, layerMask);
+        Physics.Raycast(ray, out var hit, 30, layerMask);
         
         Interactable interactable = hit.collider?.gameObject.GetComponent<Interactable>();
         if (interactable && interactable.enabled) return interactable;

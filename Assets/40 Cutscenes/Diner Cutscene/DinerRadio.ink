@@ -9,7 +9,7 @@ Marcus schaut in die Speisekarte. #speaker:narrator
 
 Was darf ich Ihnen dieses Mal bringen? #speaker:emmy #emotion:HAPPY
 Einen Kaffee und einen American Diner Omelette, bitte. #speaker:marcus #emotion:NORMAL
-Unsere Kaffeemaschine ist kaputt gegangen und der Mechaniker kommt erst morgen. #speaker:emmy #emotion:SAD
+Entschuldigen Sie, aber unsere Kaffeemaschine ist derzeit außer Betrieb.[nl]Der Mechaniker kommt erst morgen. #speaker:emmy #emotion:SAD
 Deswegen können wir heute leider keinen Kaffee servieren. #speaker:emmy #emotion:SAD
 Verstehe. Dann einen Tee, bitte. #speaker:marcus #emotion:NORMAL
 Kommt sofort. #speaker:emmy #emotion:HAPPY

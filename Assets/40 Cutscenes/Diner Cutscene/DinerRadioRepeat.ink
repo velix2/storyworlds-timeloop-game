@@ -9,10 +9,10 @@ Marcus schaut in die Speisekarte. #speaker:narrator
 
 Was darf ich Ihnen dieses Mal bringen? #speaker:emmy #emotion:HAPPY
 Einen Kaffee. #speaker:marcus #emotion:NORMAL
-Unsere Kaffeemaschine ist kaputt gegangen und der Mechaniker kommt erst morgen. #speaker:emmy #emotion:SAD
+Entschuldigen Sie, aber unsere Kaffeemaschine ist derzeit außer Betrieb.[nl]Der Mechaniker kommt erst morgen. #speaker:emmy #emotion:SAD
 Deswegen können wir heute leider keinen Kaffee servieren. #speaker:emmy #emotion:SAD
 Was? Sollte die Kaffeemaschine bis heute nicht repariert sein? #speaker:marcus #emotion:NORMAL
-Leider nicht. Wir haben heute Morgen herausgefunden, dass die Kaffeemaschine defekt ist und konnten erst neulich eine Reparatur beauftragen. #speaker:emmy #emotion:SAD
+Leider nicht. Wir haben heute Morgen herausgefunden, dass die Kaffeemaschine defekt ist. #speaker:emmy #emotion:SAD
 ... #speaker:marcus #emotion:NORMAL
 Dann einen Orangensaft, bitte. #speaker:marcus #emotion:NORMAL
 Ein Orangensaft kommt sofort. #speaker:emmy #emotion:HAPPY
@@ -29,7 +29,7 @@ Aber keine Sorge, Echo's Lake Radio weiß wie es euch den Tag schöner machen ka
 ... #pause: Larry kommt in die Szene
 
 Marcus! Ich dachte, du würdest gehen, aber dass du mich jetzt schon vermisst, hätte ich nicht gedacht! #speaker:larry #emotion:HAPPY
-Irgendwie hab ich das Gefühl der Tag wiederholt sich... #speaker:marcus #emotion:NERVOUS
+Seltsam. Irgendwie hab ich das Gefühl der Tag wiederholt sich... #speaker:marcus #emotion:NERVOUS
 Hm? Warum das denn? Oder ist das Leben auf dem Land für dich als Stadtmenschen so eintönig? #speaker:larry #emotion:HAPPY
 Ich hab das Gefühl, du hast mich gestern genauso begrüßt wie heute. #speaker:marcus #emotion:NORMAL
 Gestern? Gestern haben wir uns doch gerade erst kennengelernt, du Dummerchen! #speaker:larry #emotion:HAPPY

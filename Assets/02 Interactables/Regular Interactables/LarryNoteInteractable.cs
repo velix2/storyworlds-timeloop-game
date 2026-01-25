@@ -8,8 +8,7 @@ public class LarryNoteInteractable : InteractableThreeDimensional
     {
         get
         {
-            if (StateTracker.IntroState >= StateTracker.IntroStates.SonCallCompleted
-                || StateTracker.IntroState < StateTracker.IntroStates.SonCallRepeatCompleted)
+            if (StateTracker.IntroState >= StateTracker.IntroStates.SonCallRepeatCompleted)
                 return "Der Zettel liegt ja immer noch da.";
             return "Larry hat mir eine Notiz hinterlassen.";
         }

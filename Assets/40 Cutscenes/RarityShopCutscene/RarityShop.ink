@@ -25,7 +25,7 @@ Falls Sie wollen, gebe ich Ihnen noch als Bonus dieses andere Schmuckstück kost
 ... #speaker:marcus #emotion:ANGRY
 Ich verstehe schon. #speaker:oswald #emotion:NERVOUS
 Wissen Sie, die Sache ist die...[nl]Ich, alter Mann, wachte an einem friedlichen Freitagmorgen auf... #speaker:oswald #emotion:NERVOUS
-Es war Freitag der Dreizehnte.[nlDamit hatte das Schicksal also bereits bestimmt, dass ich vom Pech verfolgt werden würde- #speaker:oswald #emotion:NERVOUS
+Es war Freitag der Dreizehnte.[nl]Damit hatte das Schicksal also bereits bestimmt, dass ich vom Pech verfolgt werden würde- #speaker:oswald #emotion:NERVOUS
 Es ist ihnen runtergefallen? #speaker:marcus #emotion:ANGRY
 D-Das stimmt so nicht! Es wurde mir gestohlen! Ja genau! Ich hatte sogar den Dieb auf frischer Tat ertappt! #speaker:oswald #emotion:NERVOUS
 ... Jedoch konnte ich ihn nur teilweise aufhalten.[nl]Er ist mir mit der anderen Hälfte davon gerannt.#speaker:oswald #emotion:NERVOUS
