@@ -8493,7 +8493,7 @@ MonoBehaviour:
   GetItemAfterCutscene: 0
   items: []
   SkipTimeAfterCutscene: 1
-  AmountInMinutes: 150
+  AmountInMinutes: 160
   SkipDayAfterCutscene: 0
 --- !u!4 &854467276
 Transform:
