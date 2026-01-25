@@ -10,7 +10,7 @@ public class CoffeeMachineInteractable : InteractableThreeDimensional, IFreezabl
         Repaired
     }
 
-    private bool IsQuestAvailable => !StateTracker.IsInIntro && StateTracker.Evelyn.QuestState >= StateTracker.EvelynState.QuestStates.TalkedTo;
+    private bool IsQuestAvailable => !StateTracker.IsInIntro && StateTracker.Evelyn.talkedAboutCoffee;
 
     private CoffeeMachineRepairState _repairState = CoffeeMachineRepairState.Broken;
     

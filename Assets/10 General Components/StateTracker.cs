@@ -35,7 +35,7 @@ public static class StateTracker
 
     public static UnityEvent<IntroStates> OnIntroStateChanged = new UnityEvent<IntroStates>();
 
-    private static IntroStates _introState = IntroStates.DinerWithRadioCompleted;
+    private static IntroStates _introState = IntroStates.IntroCompleted;
 
     public static IntroStates IntroState
     {
@@ -84,6 +84,19 @@ public static class StateTracker
             TalkedTo,
             TriedLeavingTown,
             Completed
+        }
+
+        /// <summary>
+        /// Has the player talked about her coffee problem?
+        /// </summary>
+        public bool talkedAboutCoffee
+        {
+            get => (bool)DialogueManager.Instance.variableObserver.GetVariable("evelynTalkedAboutCoffee");
+            set
+            {
+                DialogueManager.Instance.variableObserver.SetVariable("evelynTalkedAboutCoffee", value);
+                if (value && QuestState < QuestStates.TalkedTo) QuestState = QuestStates.TalkedTo;
+            }
         }
         
         /// <summary>

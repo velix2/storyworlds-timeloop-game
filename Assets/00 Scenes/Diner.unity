@@ -1752,7 +1752,7 @@ PrefabInstance:
     - target: {fileID: 5621467584877609980, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: 'items.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 85cd12150519cca498135cf33ddc415b, type: 2}
+      objectReference: {fileID: 11400000, guid: 2cad524725f6d5c4db7c017dff3c65df, type: 2}
     - target: {fileID: 6020865913977276666, guid: 1059bddc7eb1608e5ac8367b434e9cc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 438.6297
@@ -2072,9 +2072,9 @@ MonoBehaviour:
   dialogueGetCoffeeAlready: Einer reicht.
   smokeParticles: {fileID: 438543650}
   coffeeDischarge: {fileID: 0}
-  repairToolsItemData: {fileID: 0}
-  freezeArtifact: {fileID: 0}
-  coffee: {fileID: 0}
+  repairToolsItemData: {fileID: 11400000, guid: 2cad524725f6d5c4db7c017dff3c65df, type: 2}
+  freezeArtifact: {fileID: 11400000, guid: e6df8ed047d815e4fb3abb3d8bb964e4, type: 2}
+  coffee: {fileID: 11400000, guid: 2cad524725f6d5c4db7c017dff3c65df, type: 2}
 --- !u!114 &282325682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8371,6 +8371,7 @@ MonoBehaviour:
   items: []
   SkipTimeAfterCutscene: 1
   AmountInMinutes: 150
+  SkipDayAfterCutscene: 0
 --- !u!4 &854467276
 Transform:
   m_ObjectHideFlags: 0
@@ -8552,6 +8553,7 @@ MonoBehaviour:
   items: []
   SkipTimeAfterCutscene: 1
   AmountInMinutes: 30
+  SkipDayAfterCutscene: 0
 --- !u!1001 &870700916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11719,6 +11721,7 @@ MonoBehaviour:
   items: []
   SkipTimeAfterCutscene: 1
   AmountInMinutes: 120
+  SkipDayAfterCutscene: 0
 --- !u!4 &1636897986
 Transform:
   m_ObjectHideFlags: 0
@@ -14020,7 +14023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315914964578633226, guid: f029717a06297af4a84d2febddf677f3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5796217565880015705, guid: f029717a06297af4a84d2febddf677f3, type: 3}
       propertyPath: m_LocalPosition.x
