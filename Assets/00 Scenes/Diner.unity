@@ -2205,7 +2205,7 @@ MonoBehaviour:
   coffeeDischarge: {fileID: 0}
   repairToolsItemData: {fileID: 11400000, guid: 2cad524725f6d5c4db7c017dff3c65df, type: 2}
   freezeArtifact: {fileID: 11400000, guid: e6df8ed047d815e4fb3abb3d8bb964e4, type: 2}
-  coffee: {fileID: 11400000, guid: 2cad524725f6d5c4db7c017dff3c65df, type: 2}
+  coffee: {fileID: 11400000, guid: 85cd12150519cca498135cf33ddc415b, type: 2}
 --- !u!114 &282325682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9374,7 +9374,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a65b7d6a5925ec14eb65c99ed1414a98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9565,7 +9565,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a65b7d6a5925ec14eb65c99ed1414a98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

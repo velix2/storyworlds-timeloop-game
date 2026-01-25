@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a65b7d6a5925ec14eb65c99ed1414a98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,13 +142,11 @@ MonoBehaviour:
   inRange: 0
   spriteRenderer: {fileID: 7462114492522570125}
   animator: {fileID: 3132406641193993346}
-  truck: {fileID: 0}
   coffeeReference: {fileID: 11400000, guid: 85cd12150519cca498135cf33ddc415b, type: 2}
   observationText: Sie sieht tough aus.
   regularDialogue: {fileID: 4900000, guid: e2451e0bbf3e1fa44b235f0c1442c443, type: 3}
   itemReject: {fileID: 4900000, guid: 011b8ef07302db3458b493448def5e5a, type: 3}
   coffeeGet: {fileID: 4900000, guid: 12df2fa93e247804e9637450d40824ad, type: 3}
-  driveAwayCutscene: {fileID: 0}
   outOfCoffeeCutscene: {fileID: 11400000, guid: d5083f648f654dc4da0801970128dfd7, type: 2}
 --- !u!65 &2691887241020892239
 BoxCollider:
