@@ -148,8 +148,12 @@ public class AudioManager : MonoBehaviour
     {
         availableSFX.Remove(source);
         if (source.clip != null) yield return new WaitForSeconds(source.clip.length);
-        availableSFX.Add(source);
-        source.transform.parent = null;
+        if (availableSFX != null)
+        {
+            availableSFX.Add(source);
+            source.transform.parent = null;
+        }
+        
     }
     #endregion
 
