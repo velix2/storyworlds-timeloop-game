@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public static bool movementBlocked;
     private bool inventoryOpen;
+    private bool controlsOpen;
     
 
     private Collider[] colliders;
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour
         
         InputManager.PlayerControls.Standard.InventoryOpen.performed += _ => OnInventoryOpenInput();
         InputManager.PlayerControls.Standard.InventoryClose.performed += _ => OnInventoryCloseInput();
+        
+        InputManager.PlayerControls.Standard.Controls.performed += _ => OnControlsInput();
         
         InputManager.PlayerControls.Standard.Hint.performed += _ => OnHintInput();
 
@@ -149,6 +152,33 @@ public class PlayerController : MonoBehaviour
         movementBlocked = false;
         interactionChecker.SetToPhysicsMode();
         inventoryManager.Close();
+    }
+
+    private void OnControlsInput()
+    {
+        if (controlsOpen) OnControlsCloseInput();
+        else OnControlsOpenInput();
+    }
+    
+    private void OnControlsOpenInput()
+    {
+        if (controlsOpen || inventoryOpen) return;
+        if (DialogueManager.Instance.DialogueIsPlaying) return;
+        controlsOpen = true;
+        FreezeAnimation();
+        movementBlocked = true;
+        interactionChecker.SetToDisabledMode();
+        GameObject.FindWithTag("ControlsPanel").transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    private void OnControlsCloseInput()
+    {
+        if (!controlsOpen) return;
+        controlsOpen = false;
+        UnfreezeAnimation();
+        movementBlocked = false;
+        interactionChecker.SetToPhysicsMode();
+        GameObject.FindWithTag("ControlsPanel").transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private void OnHighlightAllInput(bool pressed)

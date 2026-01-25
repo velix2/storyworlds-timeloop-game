@@ -40,6 +40,7 @@ INCLUDE globals.ink
     
     
 === TruckYours ===
+Ja, das ist meiner. Gibt's ein Problem? #speaker:evelyn
  ~ evelynTruckYours = 1
  -> Topics
  
@@ -112,7 +113,7 @@ Reine Intuition.#speaker:marcus #emotion:NORMAL
 }
 
     === LetsGo_O ===
-    Von mir aus kanns losgehen.#speaker:marcus #emototion:NORMAL
+    Von mir aus kanns losgehen.#speaker:marcus #emotion:NORMAL
     Dann steig ma ein. Wir fahren los.#speaker:evelyn
     ~ evelynRideConfirmation = true
     ->END
