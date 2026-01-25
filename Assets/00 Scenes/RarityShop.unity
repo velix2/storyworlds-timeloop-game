@@ -5416,7 +5416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: items.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6234428425452813799, guid: 293a2162238f9bb48acf2261134cb8a5, type: 3}
       propertyPath: SceneToBeSwitchedTo
