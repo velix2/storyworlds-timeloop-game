@@ -1,4 +1,5 @@
 using System;
+using NPCs;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -60,6 +61,9 @@ public class CutsceneManager : MonoBehaviour
 
         // Freeze player
         CutsceneStarted?.Invoke();
+        
+        // Tell NPC Handler to hide NPCs
+        NpcHandler.Instance?.HideNPCs();
 
         // Prepare timeline
         director.playableAsset = cutscene;
@@ -231,6 +235,9 @@ public class CutsceneManager : MonoBehaviour
         
         // Unfreeze player
         CutsceneEnded?.Invoke();
+        
+        // Tell NPC Handler to unhide NPCs
+        NpcHandler.Instance?.UnhideNPCs();
 
         // Perform additional callback methods
         onFinishedCallback?.Invoke();

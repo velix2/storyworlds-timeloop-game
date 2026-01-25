@@ -66,7 +66,7 @@ namespace NPCs
         {
             // Do nothing while in intro
             if (StateTracker.IsInIntro) return;
-            
+
             if (payload.DayHasEnded)
             {
                 _npcViewsInCurrentScene.Clear();
@@ -88,13 +88,13 @@ namespace NPCs
                 .Where(character => !newNpcModelsInCurrentScene.Contains(character.Model)).ToList();
 
             bool runFadeToBlack = false;
-            
+
             // Update their state to leaving
             foreach (var leavingNpcView in npcViewsToLeave)
             {
                 var previousRoutineElement = leavingNpcView.Model.CurrentRoutine.GetPreviousRoutineElement(daytime);
                 var currentRoutineElement = leavingNpcView.Model.CurrentRoutine.GetCurrentRoutineElement(daytime);
-                
+
                 if (currentRoutineElement.TeleportToLocation)
                 {
                     // If should teleport, remove after a short while (for blackscreen to fade)
@@ -106,7 +106,7 @@ namespace NPCs
                 {
                     var currentScene = previousRoutineElement.TargetScene;
                     var targetScene = currentRoutineElement.TargetScene;
-                    
+
                     // Else animate exit
                     leavingNpcView.UpdateState(new NpcCharacterStateLeavingScene(currentScene, targetScene));
                 }
@@ -114,7 +114,7 @@ namespace NPCs
                 // Remove from view
                 _npcViewsInCurrentScene.Remove(leavingNpcView);
             }
-            
+
             // Cue a fade to black
             if (runFadeToBlack) FadeToBlackPanel.Instance.FadeToBlack();
 
@@ -141,10 +141,10 @@ namespace NPCs
                 if (previousScene is not null && !currentRoutineElement.TeleportToLocation)
                 {
                     // Walk there if there was a previous event, and the NPC should not teleport
-                    
+
                     // Disable the agent first so that we can properly set up
                     npcCharacterComponent.Agent.enabled = false;
-                    
+
                     npcCharacterComponent.UpdateState(
                         new NpcCharacterStateEnteringScene(previousScene, currentScene, targetLocation));
                 }
@@ -153,36 +153,36 @@ namespace NPCs
                     npcCharacterComponent.UpdateState(
                         new NpcCharacterStateIdle());
                     npcCharacterComponent.transform.position = targetLocation;
-                    
+
                     // Request fade to black
                     runFadeToBlack = true;
                 }
-                
+
 
                 _npcViewsInCurrentScene.Add(npcCharacterComponent);
             }
-            
+
             if (runFadeToBlack) FadeToBlackPanel.Instance.FadeToBlack();
         }
 
         private void InitNPCs(Scene currentScene)
         {
             var daytime = TimeHandler.Instance.CurrentTime;
-        
+
             // Query all Npc Models that should be in the currently active scene according to their itinerary
             var npcModelsToSpawn = npcsToManage.Where(model =>
                 model.CurrentRoutine.GetCurrentRoutineElement(daytime).TargetScene.RepresentedSceneName ==
                 currentScene.name).ToList();
-        
+
             // Spawn these models and append them to views list
             foreach (var npcModel in npcModelsToSpawn)
             {
                 var targetLocation = npcModel.CurrentRoutine.GetCurrentRoutineElement(daytime)
                     .TargetPositionInTargetScene;
-        
+
                 var npcCharacterComponent = Instantiate(npcModel.Prefab).GetComponent<NpcCharacter.NpcCharacter>();
                 npcCharacterComponent.Model = npcModel;
-        
+
                 npcCharacterComponent.UpdateState(new NpcCharacterStateIdle());
                 npcCharacterComponent.transform.position = targetLocation;
                 _npcViewsInCurrentScene.Add(npcCharacterComponent);
@@ -196,11 +196,27 @@ namespace NPCs
 
             // Clear views list so we start fresh
             _npcViewsInCurrentScene.Clear();
-            
+
             // Do nothing while in intro
             if (StateTracker.IsInIntro) return;
 
             InitNPCs(loadedScene);
+        }
+
+        public void HideNPCs()
+        {
+            foreach (var character in _npcViewsInCurrentScene)
+            {
+                character.gameObject.SetActive(false);
+            }
+        }
+
+        public void UnhideNPCs()
+        {
+            foreach (var character in _npcViewsInCurrentScene)
+            {
+                character.gameObject.SetActive(true);
+            }
         }
     }
 }
