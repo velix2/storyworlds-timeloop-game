@@ -16912,7 +16912,7 @@ MonoBehaviour:
     teleportPosition: {fileID: 1259383311}
     reporter: {fileID: 505887355}
   player: {fileID: 850192849}
-  snowParticles: {fileID: 0}
+  snowParticles: {fileID: 2133984908}
 --- !u!4 &486334439
 Transform:
   m_ObjectHideFlags: 0
@@ -73927,6 +73927,11 @@ Transform:
 --- !u!4 &2133984905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3952941903355537630, guid: dfaacb7009552637fb8d8f21e5ea7634, type: 3}
+  m_PrefabInstance: {fileID: 951249941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2133984908 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2035520247998413774, guid: dfaacb7009552637fb8d8f21e5ea7634, type: 3}
   m_PrefabInstance: {fileID: 951249941}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2134911198 stripped
