@@ -99,7 +99,7 @@ Der Zug fällt aufgrund des Schneesturms aus.[nl]Kann ich stattdessen bei Ihnen 
 Sie scheinen mir wirklich an Ihrem Kaffee zu hängen.#speaker:marcus #emotion:NORMAL
 Ach, wat lässt dich das denken?#speaker:evelyn
 Reine Intuition.#speaker:marcus #emotion:NORMAL
-(Wenn ich ihr eine Kaffee besorge, ist sie bestimmt besser gelaunt.) #speaker:marcus #emotion:NORMAL
+(Wenn ich ihr einen Kaffee besorge, ist sie bestimmt besser gelaunt.) #speaker:marcus #emotion:NORMAL
 (Ich muss irgendwie diese Kaffeemaschine reparieren.) #speaker:marcus #emotion:NORMAL
 ~ evelynTalkedAboutCoffee = true
 -> Topics

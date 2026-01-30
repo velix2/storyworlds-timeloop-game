@@ -11,3 +11,4 @@ INCLUDE globals.ink
 (Es schlug doch noch nicht mal Mitternacht...) #speaker: marcus #emotion: NERVOUS
 (Werde ich hier nie wegkommen?) #speaker: marcus #emotion: SAD
 (Ist Evelyn wieder im Diner? Vielleicht weiß sie etwas...) #speaker: marcus #emotion: NORMAL
+Das ist das Ende der Demo! Vielen Dank fürs Spielen :)

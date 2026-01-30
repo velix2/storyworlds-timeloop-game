@@ -13,7 +13,7 @@ Obwohl unsere R180 Lokomotive normalerweise gut mit den Höhenunterschieden zure
 ...und rutscht bei solchem Wetter schnell den Berg wieder runter. Das können wir unseren Fahrgästen nicht zumuten. #speaker:mary
 Ah... Verstehe nun dann- #speaker:marcus #emotion:NERVOUS
 Für solche Fälle haben wir normalerweise unsere zuverlässige A500Neo - wir nennen sie Emma - aber die ist leider in Reparatur- #speaker:mary
-Sparen Sie mir Ihr sinnloses Geschwafel. Auf Wiedersehen. #speaker:marcus #emotion:ANGRY
+Auf Wiedersehen. #speaker:marcus #emotion:ANGRY
 
 ... #pause: Marcus bereitet sich darauf vor zu gehen
 
