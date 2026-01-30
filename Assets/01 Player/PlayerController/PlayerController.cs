@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour
         if (DialogueManager.Instance.DialogueIsPlaying) return;
         inventoryOpen = true;
         FreezeAnimation();
+        OnControlsCloseInput();
         movementBlocked = true;
         interactionChecker.SetToUIMode();
         inventoryManager.Open();
@@ -162,7 +163,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnControlsOpenInput()
     {
-        if (controlsOpen || inventoryOpen) return;
+        if (controlsOpen || inventoryOpen || movementBlocked) return;
         if (DialogueManager.Instance.DialogueIsPlaying) return;
         controlsOpen = true;
         FreezeAnimation();
